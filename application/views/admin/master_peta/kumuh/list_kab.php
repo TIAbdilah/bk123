@@ -21,11 +21,7 @@ endif;
                             <tr>
                                 <th>No</th>
                                 <th>Kode Daerah</th>
-                                <th>Nama Kab / Kota</th>
-                                <th>Luas Kumuh</th>
-                                <th>Jumlah Kaw. Kumuh</th>
-                                <th>Jumlah KK</th>
-                                <th>Jumlah RTLH</th>
+                                <th>Nama Kabupaten</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -38,10 +34,6 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_daerah ?></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
                                     <td class="dt-body-center">
                                         <a title="List Kecamatan" 
                                            href="<?php echo site_url('master_peta/daerah/index/' . $data->kode_daerah) ?>" 

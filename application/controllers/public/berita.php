@@ -38,9 +38,9 @@ class Berita extends CI_Controller {
         $config['total_rows'] = $this->berita_model->select_all()->num_rows();
         $this->pagination->initialize($config);
         $data['page_link'] = $this->pagination->create_links();
-        print_r($data['page_link']);        
+//        print_r($data['page_link']);        
         $data['page'] = 'public/berita_agenda/berita/list';
-//        $this->load->view('public/index', $data);
+        $this->load->view('public/index', $data);
     }
 
     public function view($id) {
