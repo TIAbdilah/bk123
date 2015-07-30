@@ -23,7 +23,7 @@ class Home extends MY_Controller {
     public function index() {
         $data['title_page'] = 'INDEX';
         $data['list_data'] = NULL;
-        $data['page_content'] = '';
+        $data['page_content'] = 'admin/master/home/list_1';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }

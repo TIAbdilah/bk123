@@ -10,7 +10,7 @@
                         Direktorat Pengembangan Permukiman<br>
                         <a href="#">Site Map</a> |
                         <a href="#">Contact Us</i></a> |
-                        <a href="#">Login</a> |
+                        <a href="<?php echo site_url('login') ?>">Login</a> |
                         <a href="#">Visitors :</a>
                     </p>
                 </address>

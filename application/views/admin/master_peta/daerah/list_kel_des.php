@@ -1,5 +1,5 @@
 
-<?php $this->load->view('admin/master_peta/daerah/breadcrumbs')           ?>
+<?php $this->load->view('admin/master_peta/daerah/breadcrumbs')?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');

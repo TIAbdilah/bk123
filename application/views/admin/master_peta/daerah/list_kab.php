@@ -38,10 +38,10 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_daerah ?></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td><?php echo $data->jml_luas_kumuh ?></td>
+                                    <td><?php echo $data->jml_kaw_kumuh ?></td>
+                                    <td><?php echo $data->jml_kk ?></td>
+                                    <td><?php echo $data->jml_rtlh ?></td>
                                     <td class="dt-body-center">
                                         <a title="List Kecamatan" 
                                            href="<?php echo site_url('master_peta/daerah/index/' . $data->kode_daerah) ?>" 

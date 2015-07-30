@@ -17,7 +17,7 @@ endif;
         <?php
         foreach ($list_data_modul as $data_modul) {
             ?>
-            <div class="col-lg-3">
+            <div class="col-lg-4">
                 <div class="panel-body">
                     <ul class="unstyled"><strong><?php echo $data_modul->nama_modul ?></strong>
                         <?php
@@ -25,11 +25,11 @@ endif;
                             if ($data_modul->id_modul == $data->id_modul) {
                                 ?>
                                 <li>
-                                    <?php echo $data->kode_right . ' - ' . $data->nama_right ?>
                                     <span class="pull-right">
                                         <a href="<?php echo site_url('utilitas/right/edit/' . $data->id_right) ?>"><i class="icon-pencil"></i></a>&nbsp;
                                         <a href="<?php echo site_url('utilitas/right/delete/' . $data->id_right) ?>"><i class="icon-remove"></i></a>
                                     </span>
+                                    <?php echo $data->kode_right . ' - ' . $data->nama_right ?>                                    
                                 </li>
                                 <?php
                             }

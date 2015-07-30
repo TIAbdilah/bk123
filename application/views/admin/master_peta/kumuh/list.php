@@ -1,5 +1,5 @@
 
-<?php $this->load->view('admin/master_peta/kumuh/breadcrumbs')           ?>
+<?php $this->load->view('admin/master_peta/kumuh/breadcrumbs') ?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
@@ -10,11 +10,13 @@ endif;
         <section class="panel">
             <header class="panel-heading">
                 <?php echo $title_page ?>
-                <span class="pull-right">
-                    <a href="<?php echo site_url('master_peta/kumuh/add') ?>">
-                        <?php echo $text['txt']->button['add_data'] ?>
-                    </a>
-                </span>
+                <?php if ($text['rg']['M02a']) { ?>
+                    <span class="pull-right">
+                        <a href="<?php echo site_url('master_peta/kumuh/add') ?>">
+                            <?php echo $text['txt']->button['add_data'] ?>
+                        </a>
+                    </span>
+                <?php } ?>
             </header>
             <div class="panel-body">
                 <div class="adv-table">
@@ -24,6 +26,7 @@ endif;
                                 <th>No</th>
                                 <th>Kode Daerah</th>
                                 <th>Nama Kawasan</th>
+                                <th>Status</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -36,17 +39,29 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_kawasan ?></td>
+                                    <td>
+                                        Status
+                                    </td>
                                     <td class="dt-body-center">
                                         <a title="List Kabupaten" 
                                            href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 
                                            class="btn btn-xs btn-success">
-                                            <i class="icon-file"></i> 
+                                               <?php echo $text['txt']->button['view_data'] ?>
                                         </a>
-                                        <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
-                                           href="<?php echo site_url('master_peta/kumuh/edit/' . $data->kode_daerah) ?>" 
-                                           class="btn btn-xs btn-warning">
-                                               <?php echo $text['txt']->button['edit_data'] ?>
-                                        </a>
+                                        <?php if ($text['rg']['M02c']) { ?>
+                                            <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
+                                               href="<?php echo site_url('master_peta/kumuh/edit/' . $data->id_kaw_kumuh) ?>" 
+                                               class="btn btn-xs btn-warning">
+                                                   <?php echo $text['txt']->button['edit_data'] ?>
+                                            </a>
+                                        <?php } ?>
+                                        <?php if ($text['rg']['M02d']) { ?>
+                                            <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
+                                               href="<?php echo site_url('master_peta/kumuh/delete/' . $data->id_kaw_kumuh) ?>" 
+                                               class="btn btn-xs btn-danger">
+                                                <?php echo $text['txt']->button['delete_data'] ?>
+                                            </a>
+                                        <?php } ?>
                                     </td>
                                 </tr>
                                 <?php

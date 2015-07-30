@@ -38,6 +38,12 @@ class MY_Controller extends CI_Controller {
         //model master peta
         $this->load->model('master_peta/daerah_model');        
         $this->load->model('master_peta/kumuh_model'); 
+        $this->load->model('master_peta/kumuh_detail_model'); 
+        $this->load->model('master_peta/view_propinsi_model'); 
+        $this->load->model('master_peta/view_kabupaten_model'); 
+        $this->load->model('master_peta/view_kecamatan_model'); 
+        $this->load->model('master_peta/view_kelurahan_model'); 
+        $this->load->model('master_peta/view_desa_model'); 
         //model transaksi
         //model report
         //model utilitas
