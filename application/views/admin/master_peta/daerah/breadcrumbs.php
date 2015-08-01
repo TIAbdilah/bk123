@@ -6,23 +6,26 @@
             <li><a href="<?php echo site_url('master_peta/daerah') ?>">Daerah</a></li>
             <li class="active">
                 <?php
+                $active_page = "";
                 if ($title_page != null) {
-                    echo $title_page.' ( ';
+                    $active_page .= $title_page;
                 }
                 if (!empty($data_propinsi)) {
-                    echo '<a href="' . site_url('master_peta/daerah/index/' . $data_propinsi->kode_daerah) . '">' . $data_propinsi->nm_daerah . '</a>';
+                    $active_page .= ' | <a href="' . site_url('master_peta/daerah/index/' . $data_propinsi->kode_daerah) . '">' . $data_propinsi->nm_daerah . '</a>';
                 }
                 if (!empty($data_kabupaten)) {
-                    echo ' :: <a href="' . site_url('master_peta/daerah/index/' . $data_kabupaten->kode_daerah) . '">' . $data_kabupaten->nm_daerah . '</a>';
+                    $active_page .= ' :: <a href="' . site_url('master_peta/daerah/index/' . $data_kabupaten->kode_daerah) . '">' . $data_kabupaten->nm_daerah . '</a>';
                 }
                 if (!empty($data_kecamatan)) {
-                    echo ' :: <a href="' . site_url('master_peta/daerah/index/' . $data_kecamatan->kode_daerah) . '">' . $data_kecamatan->nm_daerah . '</a>';
+                    $active_page .= ' :: <a href="' . site_url('master_peta/daerah/index/' . $data_kecamatan->kode_daerah) . '">' . $data_kecamatan->nm_daerah . '</a>';
                 }
                 if (!empty($data)) {
-                    echo ' :: ' . $data->nm_daerah . '</a>';
+                    $active_page .= ' :: ' . $data->nm_daerah;
                 }
+                
+                echo $active_page;
                 ?>
-                )
+                
             </li>
 
         </ul>

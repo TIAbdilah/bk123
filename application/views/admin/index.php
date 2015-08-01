@@ -123,36 +123,7 @@
             });
 
         </script>
-        
-        <script type="text/javascript">
-            $(document).ready(function() {
-                $('.form-horizontal select[name="inpTingkat"]').change(function() {
-                    $('.form-horizontal select[name="inpTingkat"] option:selected').each(function() {
-                        if ($(this).val() == "propinsi") {
-                            $(".bx").hide();
-                            $(".prm_1").show();
-                        }
-                        if ($(this).val() == "kabupaten / kota") {
-                            $(".bx").hide();
-                            $(".prm_2").show();
-                        }
-                        if ($(this).val() == "kecamatan") {
-                            $(".bx").hide();
-                            $(".prm_3").show();
-                        }
-                        if ($(this).val() == "kelurahan") {
-                            $(".bx").hide();
-                            $(".prm_4").show();
-                        }
-                        if ($(this).val() == "desa") {
-                            $(".bx").hide();
-                            $(".prm_5").show();
-                        }
-                    });
-                }).change();
-            });
-        </script>
-
+                
         <script type="text/javascript">
             /* Formating function for row details */
             function fnFormatDetails(oTable, nTr)

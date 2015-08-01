@@ -33,18 +33,18 @@ class Berita extends CI_Controller {
         $config = array();
         $config['base_url'] = base_url().'public/berita/index';
         $config['per_page'] = $limit;
-        $config['uri_segment'] = 3;
+        $config['uri_segment'] = 4;
         $config['num_links'] = 5;
         $config['total_rows'] = $this->berita_model->select_all()->num_rows();
         $this->pagination->initialize($config);
         $data['page_link'] = $this->pagination->create_links();
-//        print_r($data['page_link']);        
         $data['page'] = 'public/berita_agenda/berita/list';
         $this->load->view('public/index', $data);
     }
 
     public function view($id) {
         $data['title_page'] = 'View Berita';
+        $data['data'] = $this->berita_model->select_by_field(array('id_berita' => $id))->row();
         $data['page'] = 'public/berita_agenda/berita/view';
         $this->load->view('public/index', $data);
     }

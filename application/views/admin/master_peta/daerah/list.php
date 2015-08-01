@@ -1,5 +1,5 @@
 
-<?php $this->load->view('admin/master_peta/daerah/breadcrumbs')           ?>
+<?php $this->load->view('admin/master_peta/daerah/breadcrumbs') ?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
@@ -21,7 +21,19 @@ endif;
                             <tr>
                                 <th>No</th>
                                 <th>Kode Daerah</th>
-                                <th>Nama Propinsi</th>
+                                <?php if ($kategori == 'propinsi') { ?>                                    
+                                    <th>Nama Propinsi</th>
+                                <?php } else if ($kategori == 'kabupaten / kota') { ?>
+                                    <th>Nama Kab / Kota</th>
+                                    <th>Luas Kumuh</th>
+                                    <th>Jumlah Kaw. Kumuh</th>
+                                    <th>Jumlah KK</th>
+                                    <th>Jumlah RTLH</th>
+                                <?php } else if ($kategori == 'kecamatan') { ?>
+                                    <th>Nama Kecamatan</th>
+                                <?php } else { ?>                                    
+                                    <th>Nama Kelurahan / Desa</th>
+                                <?php } ?>
                                 <th></th>
                             </tr>
                         </thead>
@@ -34,17 +46,31 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_daerah ?></td>
+                                    <?php if ($kategori == 'kabupaten / kota') { ?>
+                                        <td><?php echo $data->jml_luas_kumuh ?></td>
+                                        <td><?php echo $data->jml_kaw_kumuh ?></td>
+                                        <td><?php echo $data->jml_kk ?></td>
+                                        <td><?php echo $data->jml_rtlh ?></td>                                    
+                                    <?php } ?>
                                     <td class="dt-body-center">
-                                        <a title="List Kabupaten" 
-                                           href="<?php echo site_url('master_peta/daerah/index/' . $data->kode_daerah) ?>" 
-                                           class="btn btn-xs btn-success">
-                                            <i class="icon-list-ul"></i> 
-                                        </a>
+                                        <?php if ($kategori != 'kelurahan / desa') { ?>
+                                            <a title="List Kabupaten" 
+                                               href="<?php echo site_url('master_peta/daerah/index/' . $data->kode_daerah) ?>" 
+                                               class="btn btn-xs btn-success">
+                                                <i class="icon-list-ul"></i> 
+                                            </a>                                 
+                                        <?php } ?>
                                         <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
                                            href="<?php echo site_url('master_peta/daerah/edit/' . $data->kode_daerah) ?>" 
                                            class="btn btn-xs btn-warning">
                                                <?php echo $text['txt']->button['edit_data'] ?>
                                         </a>
+                                        <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
+                                           onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->nm_daerah)) ?>')) {
+                                                           window.location = '<?php echo site_url('master_peta/daerah/delete/' . $data->kode_daerah) ?>';
+                                                       }" class="btn btn-xs btn-danger">
+                                            <?php echo $text['txt']->button['delete_data'] ?>
+                                        </a> 
                                     </td>
                                 </tr>
                                 <?php

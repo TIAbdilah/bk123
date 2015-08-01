@@ -25,36 +25,40 @@ class Daerah extends MY_Controller {
         $data['title_page'] = 'List Data Daerah';
 
         switch (strlen($kode_daerah)) {
-            //kelurahan / desa
             case 8 :
+                //kelurahan / desa
                 $data['data_kecamatan'] = $this->daerah_model->select_by_field(array('kode_daerah' => $kode_daerah))->row();
                 $data['title_page_1'] .= ' ( Kecamatan ' . $data['data_kecamatan']->nm_daerah . ' )';
                 $data['data_kabupaten'] = $this->daerah_model->select_by_field(array('kode_daerah' => substr($kode_daerah, 0, 5)))->row();
                 $data['data_propinsi'] = $this->daerah_model->select_by_field(array('kode_daerah' => substr($kode_daerah, 0, 2)))->row();
                 $data['list_data'] = $this->daerah_model->select_by_field(array('left(kode_daerah,8)' => $kode_daerah, 'length(kode_daerah)' => 13))->result();
-                $data['page_content'] = 'admin/master_peta/daerah/list_kel_des';
+                $data['kategori'] = "kelurahan / desa";
+//                $data['page_content'] = 'admin/master_peta/daerah/list_kel_des';
                 break;
-            //kecamatan
             case 5 :
+                //kecamatan
                 $data['data_kabupaten'] = $this->daerah_model->select_by_field(array('kode_daerah' => $kode_daerah))->row();
                 $data['title_page_1'] .= ' ( Kabupaten ' . $data['data_kabupaten']->nm_daerah . ' )';
                 $data['data_propinsi'] = $this->daerah_model->select_by_field(array('kode_daerah' => substr($kode_daerah, 0, 2)))->row();
                 $data['list_data'] = $this->daerah_model->select_by_field(array('left(kode_daerah,5)' => $kode_daerah, 'kategori' => 'kecamatan'))->result();
-                $data['page_content'] = 'admin/master_peta/daerah/list_kec';
+                $data['kategori'] = "kecamatan";
+//                $data['page_content'] = 'admin/master_peta/daerah/list_kec';
                 break;
-            //kabupaten
             case 2 :
+                //kabupaten
                 $data['data_propinsi'] = $this->daerah_model->select_by_field(array('kode_daerah' => $kode_daerah))->row();
                 $data['title_page_1'] .= ' ( Propinsi ' . $data['data_propinsi']->nm_daerah . ' )';
-//                $data['list_data'] = $this->daerah_model->select_by_field(array('left(kode_daerah,2)' => $kode_daerah, 'kategori' => 'kabupaten / kota'))->result();
+                //$data['list_data'] = $this->daerah_model->select_by_field(array('left(kode_daerah,2)' => $kode_daerah, 'kategori' => 'kabupaten / kota'))->result();
                 $data['list_data'] = $this->view_kabupaten_model->select_by_field(array('left(kode_daerah,2)' => $kode_daerah))->result();
-                $data['page_content'] = 'admin/master_peta/daerah/list_kab';
+                $data['kategori'] = "kabupaten / kota";
+//                $data['page_content'] = 'admin/master_peta/daerah/list_kab';
                 break;
-            default :
+            default :                
                 $data['list_data'] = $this->daerah_model->select_by_field(array('kategori' => 'propinsi'))->result();
-                $data['page_content'] = 'admin/master_peta/daerah/list';
+                $data['kategori'] = "propinsi";
                 break;
         }
+        $data['page_content'] = 'admin/master_peta/daerah/list';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }
@@ -83,7 +87,8 @@ class Daerah extends MY_Controller {
 
     public function edit($id = null) {
         $data['title_page'] = 'EDIT';
-        $data['data'] = $this->daerah_model->select_by_field(array('id_daerah' => $id))->row();
+        $data['SIList_tingkat_daerah'] = $this->listcode_model->select_by_field(array('list_name' => 'tingkat_daerah'))->result();
+        $data['data'] = $this->daerah_model->select_by_field(array('kode_daerah' => $id))->row();
         $data['page_content'] = 'admin/master_peta/daerah/edit';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -116,7 +121,7 @@ class Daerah extends MY_Controller {
             default:
                 break;
         }
-        
+
 
         //process
         if ($action == 'add') {
@@ -125,8 +130,10 @@ class Daerah extends MY_Controller {
             $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'add-success'));
         } elseif ($action == 'edit') {
             // edit    
-            $data['update_dt'] = date('Y-m-d');
-            $this->daerah_model->edit($data, array('id_content' => $id));
+//            $data['update_dt'] = date('Y-m-d');
+            $data['kode_daerah'] = $this->input->post('inpKodeDaerah');
+            $data['nm_daerah'] = $this->input->post('inpNamaDaerah');
+            $this->daerah_model->edit($data, array('id_daerah' => $id));
             $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
         }
 

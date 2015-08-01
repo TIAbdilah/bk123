@@ -43,20 +43,35 @@ endif;
                                         <?php
                                         if ($data->active == 0) {
                                             ?>
-                                            <a title="active" href="<?php echo site_url('utilitas/user/aktivasi_user/active/' . $data->id_user) ?>" class="btn btn-mini btn-info"><i class="icon-key"></i></a>
+                                            <a title="active" 
+                                               href="<?php echo site_url('utilitas/user/aktivasi_user/active/' . $data->id_user) ?>" 
+                                               class="btn btn-xs btn-info">
+                                                <i class="icon-key"></i></a>
                                             <?php
                                         } else {
                                             ?>
-                                            <a title="deactive" href="<?php echo site_url('utilitas/user/aktivasi_user/deactive/' . $data->id_user) ?>" class="btn btn-mini btn-inverse"><i class="icon-lock"></i></a>
+                                            <a title="deactive" 
+                                               href="<?php echo site_url('utilitas/user/aktivasi_user/deactive/' . $data->id_user) ?>" 
+                                               class="btn btn-xs btn-info">
+                                                <i class="icon-lock"></i></a>
                                             <?php
                                         }
                                         ?>
-                                        <a title="<?php echo $text['txt']->button_title['view_data'] ?>" href="<?php echo site_url('utilitas/user/view/' . $data->id_user) ?>" class="btn btn-mini btn-success"><?php echo $text['txt']->button['view_data'] ?></a>
-                                        <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" href="<?php echo site_url('utilitas/user/edit/' . $data->id_user) ?>" class="btn btn-mini btn-warning"><?php echo $text['txt']->button['edit_data'] ?></a>
+                                        <a title="<?php echo $text['txt']->button_title['view_data'] ?>" 
+                                           href="<?php echo site_url('utilitas/user/view/' . $data->id_user) ?>" 
+                                           class="btn btn-xs btn-success">
+                                               <?php echo $text['txt']->button['view_data'] ?>
+                                        </a>
+                                        <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
+                                           href="<?php echo site_url('utilitas/user/edit/' . $data->id_user) ?>" 
+                                           class="btn btn-xs btn-warning">
+                                               <?php echo $text['txt']->button['edit_data'] ?>
+                                        </a>
                                         <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
                                            onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->username)) ?>')) {
                                                        window.location = '<?php echo site_url('utilitas/user/delete/' . $data->id_user) ?>';
-                                                   }" class="btn btn-mini btn-danger">
+                                                   }" 
+                                           class="btn btn-xs btn-danger">
                                             <?php echo $text['txt']->button['delete_data'] ?>
                                         </a>                      
                                     </td>
