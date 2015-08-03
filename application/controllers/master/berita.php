@@ -73,8 +73,7 @@ class Berita extends MY_Controller {
             $dok = $this->upload->data();
             $data['foto'] = $dok['file_name'];
         }else{
-            $data['error'] = array('error' => $this->upload->display_errors());
-            
+            $data['error'] = array('error' => $this->upload->display_errors());            
         }
 
         //process

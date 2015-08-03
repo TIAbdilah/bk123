@@ -40,7 +40,23 @@ endif;
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_kawasan ?></td>
                                     <td>
-                                        Status
+                                        <?php
+                                        if ($data->eks == 0) {
+                                            echo "<label class=\"label label-danger\">EKS</label>&nbsp;";
+                                        } else {
+                                            echo "<label class=\"label label-success\">EKS</label>&nbsp;";
+                                        }
+                                        if ($data->per == 0) {
+                                            echo "<label class=\"label label-danger\">PER</label>&nbsp;";
+                                        } else {
+                                            echo "<label class=\"label label-success\">PER</label>&nbsp;";
+                                        }
+                                        if ($data->pen == 0) {
+                                            echo "<label class=\"label label-danger\">PEN</label>&nbsp;";
+                                        } else {
+                                            echo "<label class=\"label label-success\">PEN</label>&nbsp;";
+                                        }
+                                        ?>
                                     </td>
                                     <td class="dt-body-center">
                                         <a title="List Kabupaten" 

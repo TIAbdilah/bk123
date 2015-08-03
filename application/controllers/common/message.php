@@ -20,7 +20,8 @@ class Message extends CI_Controller {
         'add-success' => "Data berhasil di input",
         'edit-success' => "Data berhasil di ubah",
         'delete-success' => "Data berhasil di hapus",
-        'delete-confirm' => "Apakah anda yakin akan menghapus data {0} ?"
+        'delete-confirm' => "Apakah anda yakin akan menghapus data {0} ?",
+        'error-upload-image' => "File gambar tidak sesuai"
     );
 
     public function index() {

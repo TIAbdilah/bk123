@@ -55,6 +55,7 @@ class MY_Controller extends CI_Controller {
 
         //library        
         $this->load->library('upload');
+        $this->load->library('image_lib');
 
         $this->get_instance_var();
         $this->is_logged_in();
@@ -106,5 +107,5 @@ class MY_Controller extends CI_Controller {
         }
         return $chbx;
     }
-
+    
 }

@@ -1,17 +1,20 @@
 
-<?php $this->load->view('admin/master/home/breadcrumbs') ?>
+<?php $this->load->view('admin/master/berita/breadcrumbs') ?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
 endif;
 ?>
-
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <strong><?php echo $title_page ?></strong>
-    </div>
-    <div class="panel-body">
-        <h2>Welcome, <?php echo $this->session->userdata('username')?></h2>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <?php echo $title_page ?>
+            </header>
+            <div class="panel-body">
+                
+            </div>
+        </section>
     </div>
 </div>
 

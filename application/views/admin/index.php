@@ -70,7 +70,6 @@
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.nicescroll.js" type="text/javascript"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.sparkline.js" type="text/javascript"></script>
 
-        <script src="<?php echo base_url() . 'assets/admin/' ?>assets/jquery-easy-pie-chart/jquery.easy-pie-chart.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/js/jquery.dataTables.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>assets/nestable/jquery.nestable.js"></script>
         <script type="text/javascript" src="<?php echo base_url() . 'assets/admin/' ?>assets/ckeditor/ckeditor.js"></script>
@@ -86,7 +85,6 @@
 
         <!--script for this page-->
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/sparkline-chart.js"></script>
-        <script src="<?php echo base_url() . 'assets/admin/' ?>js/easy-pie-chart.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/count.js"></script>
 
         <script type="text/javascript" language="javascript" class="init">

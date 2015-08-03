@@ -7,9 +7,9 @@
             </div>
             <div class="col-lg-8 col-sm-8">
                 <ol class="breadcrumb pull-right">
-                    <li><a href="<?php base_url()?>">Home</a></li>
-                    <li><a href="#">Pengaturan</a></li>
-                    <li class="active"><?php echo $title_page?></li>
+                    <li><a href="<?php echo base_url()?>">Home</a></li>
+                    <li><a href="#"><?php //echo $data->head?></a></li>
+                    <li class="active"><?php //echo $data->deskripsi?></li>
                 </ol>
             </div>
         </div>

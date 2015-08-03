@@ -1,5 +1,8 @@
 <?php $this->load->view('admin/master_peta/kumuh/breadcrumbs') ?>
-
+<?php
+if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
+endif;
+?>
 <div class="panel panel-default">
     <div class="panel-heading"><?php echo $title_page ?></div>
     <div class="panel-body">
@@ -27,7 +30,7 @@
             <div class="form-group">
                 <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama Kecamatan</label>
                 <div class="col-lg-4">
-                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan ?></p>
+                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan  ?></p>
                 </div>
             </div>
         </form>
@@ -36,580 +39,913 @@
 <div class="panel panel-default">
     <div class="panel-heading">Detail Kawasan</div>
     <div class="panel-body">
-        <table class="table table-striped table-bordered" style="width: 100%">
+        <table class="table table-striped table-bordered table-responsive" style="width: 100%">
             <tr>
                 <th width="5%">No.</th>
-                <th width="20%">KRITERIA dan Indikator</th>
-                <th width="25%">Eksiting</th>
-                <th width="25%">Perencanaan</th>
-                <th width="25%">Penanganan</th>
+                <th width="35%">KRITERIA dan Indikator</th>
+                <th width="20%">Eksiting</th>
+                <th width="20%">Perencanaan</th>
+                <th width="20%">Penanganan & Pengendalian</th>
             </tr>
             <tr>
                 <th>A</th>
                 <th colspan="4">FISIK</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Keteraturan Bangunan</td>
-                <td><?php
+                <td>1a</td>
+                <td>Ketidakteraturan Bangunan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->keteraturan_bangunan;
+                        echo $data_detail_eks->ketidakteraturan_bangunan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->ketidakteraturan_bangunan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->keteraturan_bangunan;
+                        echo $data_detail_per->ketidakteraturan_bangunan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->ketidakteraturan_bangunan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->keteraturan_bangunan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->ketidakteraturan_bangunan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->ketidakteraturan_bangunan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>                
+                    ?>
+                </td>                
             </tr>
             <tr>
-                <td>2</td>
-                <td>Kepadatan Bangunan</td>
-                <td><?php
+                <td>1b</td>
+                <td>Tingkat Kepadatan Bangunan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kepadatan_bangunan;
+                        echo $data_detail_eks->tingkat_kepadatan_bangunan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tingkat_kepadatan_bangunan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kepadatan_bangunan;
+                        echo $data_detail_per->tingkat_kepadatan_bangunan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tingkat_kepadatan_bangunan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->kepadatan_bangunan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tingkat_kepadatan_bangunan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tingkat_kepadatan_bangunan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td>      
             </tr>
             <tr>
-                <td>3</td>
-                <td>Kondisi Fisik Bangunan</td>
-                <td><?php
+                <td>1c</td>
+                <td>Ketidaksesuaian dengan Persyaratan Teknis Bangunan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kondisi_fisik_bangunan;
+                        echo $data_detail_eks->ketidaksesuaian_dg_persy_te_be_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->ketidaksesuaian_dg_persy_te_be_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kondisi_fisik_bangunan;
+                        echo $data_detail_per->ketidaksesuaian_dg_persy_te_be_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->ketidaksesuaian_dg_persy_te_be_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->kondisi_fisik_bangunan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->ketidaksesuaian_dg_persy_te_be_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->ketidaksesuaian_dg_persy_te_be_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td> 
             </tr>
             <tr>
-                <td>4</td>
-                <td>Jalan Lingkungan</td>
-                <td><?php
+                <td>2a</td>
+                <td>Cakupan Pelayanan Jalan Lingkungan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->jalan_lingkungan;
+                        echo $data_detail_eks->cakupan_pelayanan_jalan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->cakupan_pelayanan_jalan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->jalan_lingkungan;
+                        echo $data_detail_per->cakupan_pelayanan_jalan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->cakupan_pelayanan_jalan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->jalan_lingkungan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->cakupan_pelayanan_jalan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->cakupan_pelayanan_jalan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td> 
             </tr>
             <tr>
-                <td>5</td>
-                <td>Saluran Air Hujan (Drainase Lingkungan)</td>
-                <td><?php
+                <td>2b</td>
+                <td>Kualitas Permukaan Jalan Lingkungan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->drainase_lingkungan;
+                        echo $data_detail_eks->kualitas_permukaan_jalan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->kualitas_permukaan_jalan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->drainase_lingkungan;
+                        echo $data_detail_per->kualitas_permukaan_jalan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->kualitas_permukaan_jalan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->drainase_lingkungan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->kualitas_permukaan_jalan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->kualitas_permukaan_jalan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td>  
             </tr>
             <tr>
-                <td>6</td>
-                <td>Pembuangan Air Limbah</td>
-                <td><?php
+                <td>3a</td>
+                <td>Ketidaktersedian Akses Aman Air Minum</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->pembuangan_air_limbah;
+                        echo $data_detail_eks->akses_air_minum_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->akses_air_minum_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pembuangan_air_limbah;
+                        echo $data_detail_per->akses_air_minum_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->akses_air_minum_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->pembuangan_air_limbah;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->akses_air_minum_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->akses_air_minum_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td>  
             </tr>
             <tr>
-                <td>7</td>
-                <td>Penyediaan Air Bersih dan Air Minum</td>
-                <td><?php
+                <td>3b</td>
+                <td>Tidak Terpenuhinya Kebutuhan Air Minum</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->pab_pam;
+                        echo $data_detail_eks->tidak_terpenuhi_kebutuhan_air_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_terpenuhi_kebutuhan_air_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pab_pam;
+                        echo $data_detail_per->tidak_terpenuhi_kebutuhan_air_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_terpenuhi_kebutuhan_air_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->pab_pam;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_terpenuhi_kebutuhan_air_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_terpenuhi_kebutuhan_air_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td> 
             </tr>
             <tr>
-                <td>8</td>
-                <td>Pengelolaan Persampahan</td>
-                <td><?php
+                <td>4a</td>
+                <td>Ketidakmampuan Mengalirkan Limpasan Air</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->pengelolaan_sampah;
+                        echo $data_detail_eks->tidak_mampu_mengalirkan_air_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_mampu_mengalirkan_air_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pengelolaan_sampah;
+                        echo $data_detail_per->tidak_mampu_mengalirkan_air_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_mampu_mengalirkan_air_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->pengelolaan_sampah;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_mampu_mengalirkan_air_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_mampu_mengalirkan_air_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td>  
             </tr>
             <tr>
-                <td>9</td>
-                <td>Pengamanan Bahaya Kebakaran</td>
-                <td><?php
+                <td>4b</td>
+                <td>Ketidaktersediaan Drainase</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->pengamanan_kebakaran;
+                        echo $data_detail_eks->tidak_tersedia_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_tersedia_drainase_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pengamanan_kebakaran;
+                        echo $data_detail_per->tidak_tersedia_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_tersedia_drainase_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_tersedia_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_tersedia_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>4c</td>
+                <td>Ketidakterhubungan dengan Sistem Drainase Perkotaan</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->tidak_terhubung_sistem_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_terhubung_sistem_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pengamanan_kebakaran;
+                        echo $data_detail_per->tidak_terhubung_sistem_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_terhubung_sistem_drainase_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_terhubung_sistem_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_terhubung_sistem_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>4d</td>
+                <td>Tidak Terpeliharanya Drainase</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->tidak_terpelihara_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_terpelihara_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->tidak_terpelihara_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_terpelihara_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_terpelihara_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_terpelihara_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>4e</td>
+                <td>Kualitas Konstruksi Drainase</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->kualitas_konstruksi_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->kualitas_konstruksi_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->kualitas_konstruksi_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->kualitas_konstruksi_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->kualitas_konstruksi_drainase_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->kualitas_konstruksi_drainase_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>5a</td>
+                <td>Sistem Pengelolaan Air Limbah Tidak Sesuai Standar Teknis</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->sistem_pengelolaan_air_limbah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->sistem_pengelolaan_air_limbah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->sistem_pengelolaan_air_limbah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->sistem_pengelolaan_air_limbah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->sistem_pengelolaan_air_limbah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->sistem_pengelolaan_air_limbah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>5b</td>
+                <td>Prasarana dan Sarana Pengelolaan Air Limbah Tidak Sesuai Dengan Persyaratan Teknis</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->pras_pengelolaan_air_limbah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->pras_pengelolaan_air_limbah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->pras_pengelolaan_air_limbah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->pras_pengelolaan_air_limbah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->pras_pengelolaan_air_limbah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->pras_pengelolaan_air_limbah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>6a</td>
+                <td>Prasarana dan Sarana Persampahan Tidak Sesuai dengan Persyaratan Teknis</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->pras_sampah_tidak_sesuai_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->pras_sampah_tidak_sesuai_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->pras_sampah_tidak_sesuai_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->pras_sampah_tidak_sesuai_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->pras_sampah_tidak_sesuai_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->pras_sampah_tidak_sesuai_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>6b</td>
+                <td>Sistem Pengelolaan Persampahan yang Tidak Sesuai Standar Teknis</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->sis_pen_sampah_tidak_sesuai_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->sis_pen_sampah_tidak_sesuai_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->sis_pen_sampah_tidak_sesuai_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->sis_pen_sampah_tidak_sesuai_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->sis_pen_sampah_tidak_sesuai_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->sis_pen_sampah_tidak_sesuai_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>6c</td>
+                <td>Terpeliharanya Sarana dan Prasarana Pengelolaan Persampahan</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->terpelihara_pras_sampah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->terpelihara_pras_sampah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->terpelihara_pras_sampah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->terpelihara_pras_sampah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->terpelihara_pras_sampah_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->terpelihara_pras_sampah_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>7a</td>
+                <td>Ketidaktersediaan Prasarana Proteksi Kebakaran</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->tidak_tersedia_pras_prokeb_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_tersedia_pras_prokeb_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->tidak_tersedia_pras_prokeb_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_tersedia_pras_prokeb_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_tersedia_pras_prokeb_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_tersedia_pras_prokeb_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
+            </tr>
+            <tr>
+                <td>7b</td>
+                <td>Ketersediaan Sarana Proteksi Kebakaran</td>
+                <td>   
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo $data_detail_eks->tidak_tersedia_sar_prokeb_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->tidak_tersedia_sar_prokeb_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                   <?php
+                    if ($data_detail_per != null) {
+                        echo $data_detail_per->tidak_tersedia_sar_prokeb_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->tidak_tersedia_sar_prokeb_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->tidak_tersedia_sar_prokeb_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->tidak_tersedia_sar_prokeb_kt;
+                    } else {
+                        echo '-';
+                    }
+                    ?>
+                </td> 
             </tr>
             <tr>
                 <th>B</th>
-                <th colspan="4">Non FISIK</th>
+                <th colspan="4">Identifikasi Pertimbangan Lain</th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Legalitas Lahan</td>
-                <td><?php
+                <td>8a</td>
+                <td>Nilai Strategis Lokasi</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->legalitas_bangunan;
+                        echo $data_detail_eks->nilai_strategis_lokasi_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->nilai_strategis_lokasi_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->legalitas_bangunan;
+                        echo $data_detail_per->nilai_strategis_lokasi_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->nilai_strategis_lokasi_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->legalitas_bangunan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->nilai_strategis_lokasi_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->nilai_strategis_lokasi_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td> 
             </tr>
             <tr>
-                <td>2</td>
-                <td>Kepadatan Penduduk</td>
-                <td><?php
+                <td>8b</td>
+                <td>Kependudukan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kepadatan_penduduk;
+                        echo $data_detail_eks->kependudukan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->kependudukan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kepadatan_penduduk;
+                        echo $data_detail_per->kependudukan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->kependudukan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->kepadatan_penduduk;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->kependudukan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->kependudukan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td> 
             </tr>
             <tr>
-                <td>3</td>
-                <td>Mata Pencaharian Penduduk</td>
-                <td><?php
+                <td>8c</td>
+                <td>Kondisi Sosial, Ekonomi, dan Budaya</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->mata_pencaharian_penduduk;
+                        echo $data_detail_eks->sosial_budaya_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->sosial_budaya_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->mata_pencaharian_penduduk;
+                        echo $data_detail_per->sosial_budaya_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->sosial_budaya_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->mata_pencaharian_penduduk;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->sosial_budaya_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->sosial_budaya_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Penghasilan Rata-rata Keluaga</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->penghasilan_rata2;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->penghasilan_rata2;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->penghasilan_rata2;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <th colspan="2">Kategori Kumuh</th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>                
-                <th colspan="2">Permasalahan Utama Kawasan</th>
-                <td></td>
-                <td></td>
-                <td></td>
+                    ?>
+                </td> 
             </tr>
             <tr>
                 <th>C</th>
-                <th colspan="4">Lainya </th>
+                <th colspan="4">Identifikasi Legalitas Lahan </th>
             </tr>
             <tr>
-                <td>1</td>
-                <td>Kesesuaian dengan Rencanan Tata Ruang</td>
-                <td><?php
+                <td>9a</td>
+                <td>Kejelasan Status Penguasaan Lahan</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kesesuaian_rencana_tata_ruang;
+                        echo $data_detail_eks->kejelasan_status_lahan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->kejelasan_status_lahan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kesesuaian_rencana_tata_ruang;
+                        echo $data_detail_per->kejelasan_status_lahan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->kejelasan_status_lahan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->kesesuaian_rencana_tata_ruang;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->kejelasan_status_lahan_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->kejelasan_status_lahan_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
+                    ?>
+                </td> 
             </tr>
             <tr>
-                <td>2</td>
-                <td>Status Lahan</td>
-                <td><?php
+                <td>9b</td>
+                <td>Kesesuaian RTR</td>
+                <td>   
+                    <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->status_lahan;
+                        echo $data_detail_eks->ksesesuaian_rtr_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_eks->ksesesuaian_rtr_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
+                    ?>
+                </td>
+                <td>
+                   <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->status_lahan;
+                        echo $data_detail_per->ksesesuaian_rtr_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_per->ksesesuaian_rtr_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->status_lahan;
+                    ?>
+                </td>
+                <td>
+                    <?php
+                    if ($data_detail_pen != null) {
+                        echo $data_detail_pen->ksesesuaian_rtr_prsn.'<br>'
+                                . 'Keterangan<br>'
+                                . $data_detail_pen->ksesesuaian_rtr_kt;
                     } else {
                         echo '-';
                     }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Nilai Strategis Lokasi</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->nilai_strategis_lokasi;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->nilai_strategis_lokasi;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->nilai_strategis_lokasi;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>Kegiatan Ekonomi Dalam Lokasi</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kegiatan_ekonomi;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->kegiatan_ekonomi;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->kegiatan_ekonomi;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>Respon Masyarakat</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->respon_masyarakat;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->respon_masyarakat;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->respon_masyarakat;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Harapan Masyarakat</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->harapan_masyarakat;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->harapan_masyarakat;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->harapan_masyarakat;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Keberadaan dan Aktifitas Sistem / Kelompok Pengelola Lingkungan</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->keberadaan_aktifitas_dan_kelompok;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->keberadaan_aktifitas_dan_kelompok;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->keberadaan_aktifitas_dan_kelompok;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>Komitmen Pemerintah Kota Terhadap Penanganan Permukiman Kumuh`</td>
-                <td><?php
-                    if ($data_detail_eks != null) {
-                        echo $data_detail_eks->komitmen_pemerintah_kota;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->komitmen_pemerintah_kota;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td>
-                <td><?php
-                    if ($data_detail_per != null) {
-                        echo $data_detail_per->komitmen_pemerintah_kota;
-                    } else {
-                        echo '-';
-                    }
-                    ?></td> 
-            </tr>
-            <tr>
-                <th colspan="2">Rekomendasi Penanganan</th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <th colspan="2">Pola Ruang RT / RW</th>
-                <th></th>
-                <th></th>
-                <th></th>
-            </tr>
-            <tr>               
-                <th colspan="2">Rekomendasi Prioritas Penanganan</th>
-                <th></th>
-                <th></th>
-                <th></th>
+                    ?>
+                </td> 
             </tr>
             <tr>               
                 <th colspan="2"></th>
