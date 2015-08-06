@@ -30,7 +30,7 @@ endif;
             <div class="form-group">
                 <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama Kecamatan</label>
                 <div class="col-lg-4">
-                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan  ?></p>
+                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan   ?></p>
                 </div>
             </div>
         </form>
@@ -57,9 +57,8 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->ketidakteraturan_bangunan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->ketidakteraturan_bangunan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->ketidakteraturan_bangunan_prsn] . '<br>'
+                        . '<p class="help-block">' . $data_detail_eks->ketidakteraturan_bangunan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -68,9 +67,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->ketidakteraturan_bangunan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->ketidakteraturan_bangunan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->ketidakteraturan_bangunan_prsn] . '<br>'
+                        . '<p class="help-block">' . $data_detail_per->ketidakteraturan_bangunan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -79,9 +77,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->ketidakteraturan_bangunan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->ketidakteraturan_bangunan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->ketidakteraturan_bangunan_prsn] . '<br>'
+                        . '<p class="help-block">' . $data_detail_pen->ketidakteraturan_bangunan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -94,20 +91,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tingkat_kepadatan_bangunan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tingkat_kepadatan_bangunan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tingkat_kepadatan_bangunan_prsn] . '<br>'
+                        . '<p class="help-block">' . $data_detail_eks->tingkat_kepadatan_bangunan_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tingkat_kepadatan_bangunan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tingkat_kepadatan_bangunan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tingkat_kepadatan_bangunan_prsn] . '<br>'
+                        . '<p class="help-block">' . $data_detail_per->tingkat_kepadatan_bangunan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -116,9 +111,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tingkat_kepadatan_bangunan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tingkat_kepadatan_bangunan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tingkat_kepadatan_bangunan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->tingkat_kepadatan_bangunan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -131,20 +125,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->ketidaksesuaian_dg_persy_te_be_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->ketidaksesuaian_dg_persy_te_be_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->ketidaksesuaian_dg_persy_te_be_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->ketidaksesuaian_dg_persy_te_be_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->ketidaksesuaian_dg_persy_te_be_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->ketidaksesuaian_dg_persy_te_be_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->ketidaksesuaian_dg_persy_te_be_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->ketidaksesuaian_dg_persy_te_be_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -153,9 +145,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->ketidaksesuaian_dg_persy_te_be_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->ketidaksesuaian_dg_persy_te_be_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->ketidaksesuaian_dg_persy_te_be_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->ketidaksesuaian_dg_persy_te_be_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -168,20 +159,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->cakupan_pelayanan_jalan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->cakupan_pelayanan_jalan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->cakupan_pelayanan_jalan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->cakupan_pelayanan_jalan_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->cakupan_pelayanan_jalan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->cakupan_pelayanan_jalan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->cakupan_pelayanan_jalan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->cakupan_pelayanan_jalan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -190,9 +179,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->cakupan_pelayanan_jalan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->cakupan_pelayanan_jalan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->cakupan_pelayanan_jalan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->cakupan_pelayanan_jalan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -205,20 +193,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kualitas_permukaan_jalan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->kualitas_permukaan_jalan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->kualitas_permukaan_jalan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->kualitas_permukaan_jalan_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kualitas_permukaan_jalan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->kualitas_permukaan_jalan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->kualitas_permukaan_jalan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->kualitas_permukaan_jalan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -227,9 +213,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->kualitas_permukaan_jalan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->kualitas_permukaan_jalan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->kualitas_permukaan_jalan_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->kualitas_permukaan_jalan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -242,20 +227,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->akses_air_minum_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->akses_air_minum_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->akses_air_minum_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->akses_air_minum_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->akses_air_minum_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->akses_air_minum_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->akses_air_minum_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->akses_air_minum_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -264,9 +247,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->akses_air_minum_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->akses_air_minum_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->akses_air_minum_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->akses_air_minum_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -279,20 +261,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_terpenuhi_kebutuhan_air_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_terpenuhi_kebutuhan_air_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_terpenuhi_kebutuhan_air_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->tidak_terpenuhi_kebutuhan_air_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_terpenuhi_kebutuhan_air_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_terpenuhi_kebutuhan_air_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_terpenuhi_kebutuhan_air_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->tidak_terpenuhi_kebutuhan_air_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -301,9 +281,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_terpenuhi_kebutuhan_air_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_terpenuhi_kebutuhan_air_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_terpenuhi_kebutuhan_air_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->tidak_terpenuhi_kebutuhan_air_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -316,20 +295,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_mampu_mengalirkan_air_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_mampu_mengalirkan_air_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_mampu_mengalirkan_air_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->tidak_mampu_mengalirkan_air_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_mampu_mengalirkan_air_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_mampu_mengalirkan_air_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_mampu_mengalirkan_air_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->tidak_mampu_mengalirkan_air_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -338,9 +315,8 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_mampu_mengalirkan_air_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_mampu_mengalirkan_air_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_mampu_mengalirkan_air_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_pen->tidak_mampu_mengalirkan_air_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -353,20 +329,18 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_tersedia_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_tersedia_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_tersedia_drainase_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_eks->tidak_tersedia_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_tersedia_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_tersedia_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_tersedia_drainase_prsn] . '<br>'
+                        . '<p class="help-block"_>' . $data_detail_per->tidak_tersedia_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -375,9 +349,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_tersedia_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_tersedia_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_tersedia_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->tidak_tersedia_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -390,20 +364,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_terhubung_sistem_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_terhubung_sistem_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_terhubung_sistem_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->tidak_terhubung_sistem_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_terhubung_sistem_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_terhubung_sistem_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_terhubung_sistem_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->tidak_terhubung_sistem_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -412,9 +386,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_terhubung_sistem_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_terhubung_sistem_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_terhubung_sistem_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->tidak_terhubung_sistem_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -427,20 +401,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_terpelihara_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_terpelihara_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_terpelihara_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->tidak_terpelihara_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_terpelihara_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_terpelihara_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_terpelihara_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->tidak_terpelihara_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -449,9 +423,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_terpelihara_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_terpelihara_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_terpelihara_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->tidak_terpelihara_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -464,20 +438,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kualitas_konstruksi_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->kualitas_konstruksi_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->kualitas_konstruksi_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->kualitas_konstruksi_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kualitas_konstruksi_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->kualitas_konstruksi_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->kualitas_konstruksi_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->kualitas_konstruksi_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -486,9 +460,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->kualitas_konstruksi_drainase_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->kualitas_konstruksi_drainase_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->kualitas_konstruksi_drainase_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->kualitas_konstruksi_drainase_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -501,20 +475,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->sistem_pengelolaan_air_limbah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->sistem_pengelolaan_air_limbah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->sistem_pengelolaan_air_limbah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->sistem_pengelolaan_air_limbah_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->sistem_pengelolaan_air_limbah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->sistem_pengelolaan_air_limbah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->sistem_pengelolaan_air_limbah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->sistem_pengelolaan_air_limbah_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -523,9 +497,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->sistem_pengelolaan_air_limbah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->sistem_pengelolaan_air_limbah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->sistem_pengelolaan_air_limbah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->sistem_pengelolaan_air_limbah_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -538,20 +512,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->pras_pengelolaan_air_limbah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->pras_pengelolaan_air_limbah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->pras_pengelolaan_air_limbah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->pras_pengelolaan_air_limbah_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pras_pengelolaan_air_limbah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->pras_pengelolaan_air_limbah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->pras_pengelolaan_air_limbah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->pras_pengelolaan_air_limbah_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -560,9 +534,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->pras_pengelolaan_air_limbah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->pras_pengelolaan_air_limbah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->pras_pengelolaan_air_limbah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->pras_pengelolaan_air_limbah_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -575,20 +549,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->pras_sampah_tidak_sesuai_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->pras_sampah_tidak_sesuai_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->pras_sampah_tidak_sesuai_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->pras_sampah_tidak_sesuai_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->pras_sampah_tidak_sesuai_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->pras_sampah_tidak_sesuai_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->pras_sampah_tidak_sesuai_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->pras_sampah_tidak_sesuai_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -597,9 +571,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->pras_sampah_tidak_sesuai_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->pras_sampah_tidak_sesuai_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->pras_sampah_tidak_sesuai_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->pras_sampah_tidak_sesuai_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -612,20 +586,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->sis_pen_sampah_tidak_sesuai_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->sis_pen_sampah_tidak_sesuai_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->sis_pen_sampah_tidak_sesuai_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->sis_pen_sampah_tidak_sesuai_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->sis_pen_sampah_tidak_sesuai_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->sis_pen_sampah_tidak_sesuai_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->sis_pen_sampah_tidak_sesuai_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->sis_pen_sampah_tidak_sesuai_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -634,9 +608,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->sis_pen_sampah_tidak_sesuai_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->sis_pen_sampah_tidak_sesuai_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->sis_pen_sampah_tidak_sesuai_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->sis_pen_sampah_tidak_sesuai_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -649,20 +623,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->terpelihara_pras_sampah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->terpelihara_pras_sampah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->terpelihara_pras_sampah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->terpelihara_pras_sampah_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->terpelihara_pras_sampah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->terpelihara_pras_sampah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->terpelihara_pras_sampah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->terpelihara_pras_sampah_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -671,9 +645,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->terpelihara_pras_sampah_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->terpelihara_pras_sampah_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->terpelihara_pras_sampah_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->terpelihara_pras_sampah_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -686,20 +660,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_tersedia_pras_prokeb_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_tersedia_pras_prokeb_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_tersedia_pras_prokeb_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->tidak_tersedia_pras_prokeb_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_tersedia_pras_prokeb_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_tersedia_pras_prokeb_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_tersedia_pras_prokeb_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->tidak_tersedia_pras_prokeb_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -708,9 +682,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_tersedia_pras_prokeb_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_tersedia_pras_prokeb_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_tersedia_pras_prokeb_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->tidak_tersedia_pras_prokeb_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -723,20 +697,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->tidak_tersedia_sar_prokeb_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->tidak_tersedia_sar_prokeb_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_tersedia_sar_prokeb_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->tidak_tersedia_sar_prokeb_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->tidak_tersedia_sar_prokeb_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->tidak_tersedia_sar_prokeb_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_tersedia_sar_prokeb_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->tidak_tersedia_sar_prokeb_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -745,9 +719,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->tidak_tersedia_sar_prokeb_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->tidak_tersedia_sar_prokeb_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_tersedia_sar_prokeb_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->tidak_tersedia_sar_prokeb_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -764,20 +738,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->nilai_strategis_lokasi_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->nilai_strategis_lokasi_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->nilai_strategis_lokasi_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->nilai_strategis_lokasi_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->nilai_strategis_lokasi_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->nilai_strategis_lokasi_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->nilai_strategis_lokasi_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->nilai_strategis_lokasi_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -786,9 +760,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->nilai_strategis_lokasi_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->nilai_strategis_lokasi_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->nilai_strategis_lokasi_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->nilai_strategis_lokasi_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -801,20 +775,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kependudukan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->kependudukan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->kependudukan_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->kependudukan_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kependudukan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->kependudukan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->kependudukan_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->kependudukan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -823,9 +797,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->kependudukan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->kependudukan_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->kependudukan_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->kependudukan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -838,20 +812,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->sosial_budaya_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->sosial_budaya_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_eks->sosial_budaya_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->sosial_budaya_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->sosial_budaya_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->sosial_budaya_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_per->sosial_budaya_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->sosial_budaya_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -860,9 +834,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->sosial_budaya_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->sosial_budaya_kt;
+                        echo $text['arc']->tingkat_persen[$data_detail_pen->sosial_budaya_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->sosial_budaya_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -879,20 +853,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->kejelasan_status_lahan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->kejelasan_status_lahan_kt;
+                        echo $text['arc']->tingkat_pn[$data_detail_eks->kejelasan_status_lahan_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->kejelasan_status_lahan_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->kejelasan_status_lahan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->kejelasan_status_lahan_kt;
+                        echo $text['arc']->tingkat_pn[$data_detail_per->kejelasan_status_lahan_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->kejelasan_status_lahan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -901,9 +875,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->kejelasan_status_lahan_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->kejelasan_status_lahan_kt;
+                        echo $text['arc']->tingkat_pn[$data_detail_pen->kejelasan_status_lahan_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->kejelasan_status_lahan_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -916,20 +890,20 @@ endif;
                 <td>   
                     <?php
                     if ($data_detail_eks != null) {
-                        echo $data_detail_eks->ksesesuaian_rtr_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_eks->ksesesuaian_rtr_kt;
+                        echo $text['arc']->tingkat_pn[$data_detail_eks->kesesuaian_rtr_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_eks->kesesuaian_rtr_kt . '</p>';
                     } else {
                         echo '-';
                     }
                     ?>
                 </td>
                 <td>
-                   <?php
+                    <?php
                     if ($data_detail_per != null) {
-                        echo $data_detail_per->ksesesuaian_rtr_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_per->ksesesuaian_rtr_kt;
+                        echo $text['arc']->tingkat_pn[$data_detail_per->kesesuaian_rtr_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_per->kesesuaian_rtr_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -938,9 +912,9 @@ endif;
                 <td>
                     <?php
                     if ($data_detail_pen != null) {
-                        echo $data_detail_pen->ksesesuaian_rtr_prsn.'<br>'
-                                . 'Keterangan<br>'
-                                . $data_detail_pen->ksesesuaian_rtr_kt;
+                        echo $text['arc']->tingkat_pn[$data_detail_pen->kesesuaian_rtr_prsn] . '<br>'
+                        . '<p class="help-block">'
+                        . $data_detail_pen->kesesuaian_rtr_kt . '</p>';
                     } else {
                         echo '-';
                     }
@@ -991,7 +965,6 @@ endif;
                         <?php } ?>
                     <?php } ?>
                 </td>
-                </td>
                 <td align="center">
                     <?php
                     if ($data_detail_pen != null) {
@@ -1012,7 +985,6 @@ endif;
                             </a>
                         <?php } ?>
                     <?php } ?>
-                </td>
                 </td>
             </tr>
         </table>

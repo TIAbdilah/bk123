@@ -20,14 +20,24 @@ endif;
             </header>
             <div class="panel-body">
                 <div class="adv-table">
-                    <table  class="display table table-striped" id="example">
+                    <table  class="display table table-striped" id="example1">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Kode Daerah</th>
-                                <th>Nama Kawasan</th>
-                                <th>Status</th>
-                                <th></th>
+                                <th rowspan="2">No</th>
+                                <th rowspan="2">Kode Daerah</th>
+                                <th rowspan="2">Nama Kawasan</th>
+                                <th colspan="4">Bobot Kekumuhan</th>
+                                <th colspan="3">Satus Data</th>
+                                <th rowspan="2"></th>
+                            </tr>
+                            <tr>
+                                <th><a href="#" title="Tingkat Kekumuhan">TK</a></th>
+                                <th><a href="#" title="Pertimbangan Lain">PL</a></th>
+                                <th><a href="#" title="Kejelasan Status Lahan">KSL</a></th>
+                                <th><a href="#" title="Kesesuaian dg RTR">KdRTR</a></th>
+                                <th><a href="#" title="Eksisting">EKS</a></th>
+                                <th><a href="#" title="Perencanaan">PER</a></th>
+                                <th><a href="#" title="Penanganan">PEN</a></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,24 +49,30 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_kawasan ?></td>
+                                    <td><?php echo $text['arc']->tingkat_kumuh($data->tk) ?></td>
+                                    <td><?php echo $text['arc']->tingkat_per_lain($data->pl) ?></td>
+                                    <td><?php echo $text['arc']->tingkat_lainya($data->ksl) ?></td>
+                                    <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr) ?></td>
                                     <td>
                                         <?php
-                                        if ($data->eks == 0) {
-                                            echo "<label class=\"label label-danger\">EKS</label>&nbsp;";
-                                        } else {
-                                            echo "<label class=\"label label-success\">EKS</label>&nbsp;";
-                                        }
-                                        if ($data->per == 0) {
-                                            echo "<label class=\"label label-danger\">PER</label>&nbsp;";
-                                        } else {
-                                            echo "<label class=\"label label-success\">PER</label>&nbsp;";
-                                        }
-                                        if ($data->pen == 0) {
-                                            echo "<label class=\"label label-danger\">PEN</label>&nbsp;";
-                                        } else {
-                                            echo "<label class=\"label label-success\">PEN</label>&nbsp;";
+                                        if ($data->eks == 1) {
+                                            echo "<i class=\"icon-ok\"></i>";
                                         }
                                         ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($data->per == 1) {
+                                            echo "<i class=\"icon-ok\"></i>";
+                                        }
+                                        ?>
+                                    </td>
+                                    <td>
+                                        <?php
+                                        if ($data->pen == 1) {
+                                            echo "<i class=\"icon-ok\"></i>";
+                                        }
+                                        ?>                                        
                                     </td>
                                     <td class="dt-body-center">
                                         <a title="List Kabupaten" 

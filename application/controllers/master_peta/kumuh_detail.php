@@ -134,32 +134,32 @@ class Kumuh_detail extends MY_Controller {
         $data['kejelasan_status_lahan_prsn'] = $this->input->post('inpKejStaLah_prsn');
         $data['kejelasan_status_lahan_kt'] = $this->input->post('inpKejStaLah_kt');
 
-        $data['ksesesuaian_rtr_prsn'] = $this->input->post('inpKesRtr_prsn');
-        $data['ksesesuaian_rtr_kt'] = $this->input->post('inpKesRtr_kt');
+        $data['kesesuaian_rtr_prsn'] = $this->input->post('inpKesRtr_prsn');
+        $data['kesesuaian_rtr_kt'] = $this->input->post('inpKesRtr_kt');
 
         //foto
-        $data['ketidakteraturan_bangunan_foto'] = $this->upload_image(array('indikator_name' => 'ket_bang_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetBang_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tingkat_kepadatan_bangunan_foto'] = $this->upload_image(array('indikator_name' => 'kep_bang_' . substr($data['kategori'], 0, 4), 'input' => 'inpKepBang_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['ketidaksesuaian_dg_persy_te_be_foto'] = $this->upload_image(array('indikator_name' => 'ket_pete_bang_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetPeTeBang_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['cakupan_pelayanan_jalan_foto'] = $this->upload_image(array('indikator_name' => 'cak_pel_jal_' . substr($data['kategori'], 0, 4), 'input' => 'inpCakPelJal_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['kualitas_permukaan_jalan_foto'] = $this->upload_image(array('indikator_name' => 'kua_per_jal' . substr($data['kategori'], 0, 4), 'input' => 'inpinpKuaPerJal_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['akses_air_minum_foto'] = $this->upload_image(array('indikator_name' => 'ket_aks_air_min_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetAksAirMin_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tidak_terpenuhi_kebutuhan_air_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_keb_air_' . substr($data['kategori'], 0, 4), 'input' => 'inpTidTerKebAir_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tidak_mampu_mengalirkan_air_foto'] = $this->upload_image(array('indikator_name' => 'ket_men_lim_air_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetMenLimAir_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tidak_tersedia_drainase_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tidak_terhubung_sistem_drainase_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_sis_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetSisDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tidak_terpelihara_drainase_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetPelDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['kualitas_konstruksi_drainase_foto'] = $this->upload_image(array('indikator_name' => 'kua_kon_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKuaKonDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['sistem_pengelolaan_air_limbah_foto'] = $this->upload_image(array('indikator_name' => 'sis_pen_air_lim_' . substr($data['kategori'], 0, 4), 'input' => 'inpSisPenAirLim_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['pras_pengelolaan_air_limbah_foto'] = $this->upload_image(array('indikator_name' => 'pra_pen_air_lim_' . substr($data['kategori'], 0, 4), 'input' => 'inpPraPenAirLim_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['pras_sampah_tidak_sesuai_foto'] = $this->upload_image(array('indikator_name' => 'pra_per_sam_tid_' . substr($data['kategori'], 0, 4), 'input' => 'inpPraPerSamTid_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['sis_pen_sampah_tidak_sesuai_foto'] = $this->upload_image(array('indikator_name' => 'sis_pen_sam_tid_' . substr($data['kategori'], 0, 4), 'input' => 'inpSisPenSamTid_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['terpelihara_pras_sampah_foto'] = $this->upload_image(array('indikator_name' => 'ter_pra_sam_' . substr($data['kategori'], 0, 4), 'input' => 'inpPraPenPer_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh']));
-        $data['tidak_tersedia_pras_prokeb_foto'] = $this->upload_image(array('indikator_name' => 'tid_pra_pro_keb_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetPraProKeb_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
-        $data['tidak_tersedia_sar_prokeb_foto'] = $this->upload_image(array('indikator_name' => 'tid_sar_pro_keb_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetSarProKeb_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
+        $data['ketidakteraturan_bangunan_foto'] = $this->upload_image(array('indikator_name' => 'ket_bang_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetBang_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tingkat_kepadatan_bangunan_foto'] = $this->upload_image(array('indikator_name' => 'kep_bang_' . substr($data['kategori'], 0, 4), 'input' => 'inpKepBang_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['ketidaksesuaian_dg_persy_te_be_foto'] = $this->upload_image(array('indikator_name' => 'ket_pete_bang_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetPeTeBang_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['cakupan_pelayanan_jalan_foto'] = $this->upload_image(array('indikator_name' => 'cak_pel_jal_' . substr($data['kategori'], 0, 4), 'input' => 'inpCakPelJal_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['kualitas_permukaan_jalan_foto'] = $this->upload_image(array('indikator_name' => 'kua_per_jal' . substr($data['kategori'], 0, 4), 'input' => 'inpinpKuaPerJal_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['akses_air_minum_foto'] = $this->upload_image(array('indikator_name' => 'ket_aks_air_min_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetAksAirMin_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_terpenuhi_kebutuhan_air_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_keb_air_' . substr($data['kategori'], 0, 4), 'input' => 'inpTidTerKebAir_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_mampu_mengalirkan_air_foto'] = $this->upload_image(array('indikator_name' => 'ket_men_lim_air_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetMenLimAir_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_tersedia_drainase_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_terhubung_sistem_drainase_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_sis_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetSisDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_terpelihara_drainase_foto'] = $this->upload_image(array('indikator_name' => 'tid_ter_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetPelDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['kualitas_konstruksi_drainase_foto'] = $this->upload_image(array('indikator_name' => 'kua_kon_dra_' . substr($data['kategori'], 0, 4), 'input' => 'inpKuaKonDra_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['sistem_pengelolaan_air_limbah_foto'] = $this->upload_image(array('indikator_name' => 'sis_pen_air_lim_' . substr($data['kategori'], 0, 4), 'input' => 'inpSisPenAirLim_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['pras_pengelolaan_air_limbah_foto'] = $this->upload_image(array('indikator_name' => 'pra_pen_air_lim_' . substr($data['kategori'], 0, 4), 'input' => 'inpPraPenAirLim_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['pras_sampah_tidak_sesuai_foto'] = $this->upload_image(array('indikator_name' => 'pra_per_sam_tid_' . substr($data['kategori'], 0, 4), 'input' => 'inpPraPerSamTid_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['sis_pen_sampah_tidak_sesuai_foto'] = $this->upload_image(array('indikator_name' => 'sis_pen_sam_tid_' . substr($data['kategori'], 0, 4), 'input' => 'inpSisPenSamTid_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['terpelihara_pras_sampah_foto'] = $this->upload_image(array('indikator_name' => 'ter_pra_sam_' . substr($data['kategori'], 0, 4), 'input' => 'inpPraPenPer_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_tersedia_pras_prokeb_foto'] = $this->upload_image(array('indikator_name' => 'tid_pra_pro_keb_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetPraProKeb_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['tidak_tersedia_sar_prokeb_foto'] = $this->upload_image(array('indikator_name' => 'tid_sar_pro_keb_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetSarProKeb_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
 
-        $data['kmz_file'] = $this->upload_image(array('indikator_name' => 'kmz_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmz_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'kmz'));
-        $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'type_file' => 'image'));
+        $data['kmz_file'] = $this->upload_image(array('indikator_name' => 'kmz_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmz_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
 
 //        process
         if ($action == 'add') {
@@ -188,13 +188,12 @@ class Kumuh_detail extends MY_Controller {
     }
 
     public function upload_image($param) {
-//echo $param['type_file'];
         $config = array(
             'overwrite' => TRUE,
             'file_name' => $param['indikator_name'] . '_' . $param['id_kaw_kumuh'],
             'max_size' => '2048'
         );
-        if ($param['type_file'] != 'kmz') {
+        if ($param['tipe_file'] != 'kmz') {
             $config['allowed_types'] = "jpg|jpeg";
             $config['upload_path'] = "./assets/admin/img/foto_kawasan/";
         } else {
@@ -206,7 +205,7 @@ class Kumuh_detail extends MY_Controller {
             if ($this->upload->do_upload($param['input'])) {
 
                 $dok = $this->upload->data();
-                if ($param['type_file'] == 'image') {
+                if ($param['tipe_file'] == 'image') {
                     $config['image_library'] = 'gd2';
                     $config['source_image'] = $dok['full_path'];
                     $config['create_thumb'] = TRUE;

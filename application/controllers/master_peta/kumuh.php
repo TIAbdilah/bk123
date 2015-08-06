@@ -50,7 +50,7 @@ class Kumuh extends MY_Controller {
 
     public function edit($id = null) {
         $data['title_page'] = 'EDIT';        
-        $data['SIList_kelurahan'] = $this->view_kelurahan_model->select_all()->result();
+        $data['SIList_kelurahan'] = $this->view_kabupaten_model->select_all()->result();
         $data['data'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $id))->row();        
         $data['page_content'] = 'admin/master_peta/kumuh/edit';
         $data['text'] = $this->text;

@@ -26,6 +26,26 @@ class Kumuh_model extends CI_Model {
         $this->db->select('*');
         
         $sub = $this->subquery->start_subquery('select');
+        $sub->select('ind_kumuh')->from('view_bobot_kumuh vb');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $this->subquery->end_subquery('tk');
+        
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('ind_pertimbangan_lain')->from('view_bobot_kumuh vb');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $this->subquery->end_subquery('pl');
+        
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('kejelasan_status_lahan_prsn')->from('view_bobot_kumuh vb');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $this->subquery->end_subquery('ksl');
+        
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('kesesuaian_rtr_prsn')->from('view_bobot_kumuh vb');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $this->subquery->end_subquery('kdrtr');
+        
+        $sub = $this->subquery->start_subquery('select');
         $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail_copy mp');
         $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'eksisting\'');
         $this->subquery->end_subquery('eks');

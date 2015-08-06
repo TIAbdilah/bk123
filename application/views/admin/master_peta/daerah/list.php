@@ -25,10 +25,6 @@ endif;
                                     <th>Nama Propinsi</th>
                                 <?php } else if ($kategori == 'kabupaten / kota') { ?>
                                     <th>Nama Kab / Kota</th>
-                                    <th>Luas Kumuh</th>
-                                    <th>Jumlah Kaw. Kumuh</th>
-                                    <th>Jumlah KK</th>
-                                    <th>Jumlah RTLH</th>
                                 <?php } else if ($kategori == 'kecamatan') { ?>
                                     <th>Nama Kecamatan</th>
                                 <?php } else { ?>                                    
@@ -46,12 +42,6 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_daerah ?></td>
-                                    <?php if ($kategori == 'kabupaten / kota') { ?>
-                                        <td><?php echo $data->jml_luas_kumuh ?></td>
-                                        <td><?php echo $data->jml_kaw_kumuh ?></td>
-                                        <td><?php echo $data->jml_kk ?></td>
-                                        <td><?php echo $data->jml_rtlh ?></td>                                    
-                                    <?php } ?>
                                     <td class="dt-body-center">
                                         <?php if ($kategori != 'kelurahan / desa') { ?>
                                             <a title="List Kabupaten" 

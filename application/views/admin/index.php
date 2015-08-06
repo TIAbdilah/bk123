@@ -16,8 +16,10 @@
         <!--external css-->
         <link href="<?php echo base_url() . 'assets/admin/' ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="<?php echo base_url() . 'assets/admin/' ?>assets/nestable/jquery.nestable.css" />
+        <!--<link href="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/css/jquery.dataTables.css" rel="stylesheet" />-->
         <link href="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/css/demo_page.css" rel="stylesheet" />
         <link href="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/css/demo_table.css" rel="stylesheet" />
+        
         <link rel="stylesheet" href="<?php echo base_url() . 'assets/admin/' ?>css/owl.carousel.css" type="text/css">
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() . 'assets/admin/' ?>css/style.css" rel="stylesheet">
@@ -63,7 +65,7 @@
 
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.js"></script>
-        <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery-1.8.3.min.js"></script>
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery-1.11.1.min.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/bootstrap.min.js"></script>
 
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.scrollTo.min.js"></script>
@@ -101,6 +103,12 @@
 
                 $('#example').dataTable({
                 });
+                $('#example1').dataTable({
+                    "columnDefs": [{
+                            "visible": false,
+                            "targets": -1
+                        }]
+                });
 
                 $('#select-all').click(function(event) {
                     $(':checkbox').each(function() {
@@ -121,7 +129,7 @@
             });
 
         </script>
-                
+
         <script type="text/javascript">
             /* Formating function for row details */
             function fnFormatDetails(oTable, nTr)

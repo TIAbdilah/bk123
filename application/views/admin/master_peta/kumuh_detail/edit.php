@@ -1395,8 +1395,8 @@
                                 9b. Kesesuaian RTR
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKesRtr_prsn" value="0" <?php echo set_radio('inpKesRtr_prsn', $data['ksesesuaian_rtr_prsn'], $data['ksesesuaian_rtr_prsn']==1)?>/> - 
-                                <input type="radio" name="inpKesRtr_prsn" value="1" <?php echo set_radio('inpKesRtr_prsn', $data['ksesesuaian_rtr_prsn'], $data['ksesesuaian_rtr_prsn']==1)?>/> +
+                                <input type="radio" name="inpKesRtr_prsn" value="0" <?php echo set_radio('inpKesRtr_prsn', $data['kesesuaian_rtr_prsn'], $data['kesesuaian_rtr_prsn']==1)?>/> - 
+                                <input type="radio" name="inpKesRtr_prsn" value="1" <?php echo set_radio('inpKesRtr_prsn', $data['kesesuaian_rtr_prsn'], $data['kesesuaian_rtr_prsn']==1)?>/> +
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
@@ -1441,7 +1441,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <textarea class="form-control" name="inpKesRtr_kt" placeholder="Keterangan Tambahan"><?php echo $data['ksesesuaian_rtr_kt']?></textarea>
+                                <textarea class="form-control" name="inpKesRtr_kt" placeholder="Keterangan Tambahan"><?php echo $data['kesesuaian_rtr_kt']?></textarea>
                             </div>                      
                         </div>
 

@@ -1341,7 +1341,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <textarea class="form-control" name="inpSosBud_ft" placeholder="Keterangan Tambahan"></textarea>
+                                <textarea class="form-control" name="inpSosBud_kt" placeholder="Keterangan Tambahan"></textarea>
                             </div>                      
                         </div>
                     </fieldset>

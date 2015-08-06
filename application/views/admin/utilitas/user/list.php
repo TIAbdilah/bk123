@@ -25,6 +25,7 @@ endif;
                                 <th>Email</th>
                                 <th>Status</th>
                                 <th>Role</th>
+                                <th><a href="#" title="Wilayah Kerja">WK</a></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -39,6 +40,7 @@ endif;
                                     <td><?php echo $data->email ?></td>
                                     <td><?php echo $text['arc']->active[$data->active] ?></td>
                                     <td><?php echo $data->nama_role ?></td>
+                                    <td><?php echo $data->kode_daerah ?></td>
                                     <td class="dt-body-center">
                                         <?php
                                         if ($data->active == 0) {

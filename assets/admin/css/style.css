@@ -4174,7 +4174,7 @@ td.details table tr td, .dataTable tr:last-child {
 .adv-table .dataTables_filter label input {
     float: right;
     margin-left: 10px;
-    width: 78%;
+    width: 48%;
 }
 
 .adv-table .dataTables_filter label {

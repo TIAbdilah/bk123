@@ -32,21 +32,21 @@
         <div class="container">
 
             <form class="form-signin" action="<?php echo site_url('login/process_login') ?>" method="POST">
-                <h2 class="form-signin-heading">sign in now</h2>
+                <h2 class="form-signin-heading">Masuk</h2>
                 <div class="login-wrap">
-                    <input type="text" class="form-control" name="inpUsername" placeholder="User ID" required autofocus>
+                    <input type="text" class="form-control" name="inpUsername" placeholder="Nama akun" required autofocus>
                     <input type="password" class="form-control" name="inpPassword" placeholder="Password" required>
-                    <label class="checkbox">
+<!--                    <label class="checkbox">
                         <span class="pull-right">
                             <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
 
                         </span>
-                    </label>
-                    <button class="btn btn-lg btn-login btn-block" type="submit">Sign in</button>            
+                    </label>-->
+                    <button class="btn btn-lg btn-login btn-block" type="submit">Masuk</button>            
                     <div class="registration">
-                        Don't have an account yet?
+                        Belum memiliki akun ?
                         <a class="" href="registration.html">
-                            Create an account
+                            Buat Akun
                         </a>
                     </div>
 
@@ -58,10 +58,10 @@
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title">Forgot Password ?</h4>
+                                <h4 class="modal-title">Lupa password ?</h4>
                             </div>
                             <div class="modal-body">
-                                <p>Enter your e-mail address below to reset your password.</p>
+                                <p>Masukan email Anda untuk mereset password.</p>
                                 <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
 
                             </div>

@@ -23,6 +23,19 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label" for="inpWilayahKerja">Wilayah Kerja</label>
+                        <div class="col-lg-4">
+                            <select name="inpWilayahKerja" class="form-control">                                                
+                                <option value="">-Pilih Kabupaten/Kota-</option>
+                                <?php
+                                foreach ($SIList_kabupaten as $row) {
+                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah .' ( '.$row->kode_daerah.' )'. "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-lg-2 col-sm-2 control-label" for="inpUsername">Username</label>
                         <div class="col-lg-4">
                             <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Email">
