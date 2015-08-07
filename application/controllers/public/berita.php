@@ -9,7 +9,8 @@ class Berita extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
-        $this->load->model('master/berita_model');
+        $this->load->model('master/berita_model');        
+        $this->load->library('my_pagination');
     }
 
     public function index2() {
@@ -36,8 +37,8 @@ class Berita extends CI_Controller {
         $config['uri_segment'] = 4;
         $config['num_links'] = 5;
         $config['total_rows'] = $this->berita_model->select_all()->num_rows();
-        $this->pagination->initialize($config);
-        $data['page_link'] = $this->pagination->create_links();
+        $this->my_pagination->initialize($config);
+        $data['page_link'] = $this->my_pagination->create_links();
         $data['page'] = 'public/berita_agenda/berita/list';
         $this->load->view('public/index', $data);
     }

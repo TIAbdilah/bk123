@@ -30,7 +30,7 @@ endif;
             <div class="form-group">
                 <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama Kecamatan</label>
                 <div class="col-lg-4">
-                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan   ?></p>
+                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan       ?></p>
                 </div>
             </div>
         </form>
@@ -41,18 +41,18 @@ endif;
     <div class="panel-body">
         <table class="table table-striped table-bordered table-responsive" style="width: 100%">
             <tr>
-                <th width="5%">No.</th>
-                <th width="35%">KRITERIA dan Indikator</th>
-                <th width="20%">Eksiting</th>
-                <th width="20%">Perencanaan</th>
-                <th width="20%">Penanganan & Pengendalian</th>
+                <th align="center" colspan="6">A. FISIK</th>
             </tr>
             <tr>
-                <th>A</th>
-                <th colspan="4">FISIK</th>
+                <th align="center" colspan="2" width="10%">No.</th>
+                <th align="center" width="30%">KRITERIA dan Indikator</th>
+                <th align="center" width="20%">Eksiting</th>
+                <th align="center" width="20%">Perencanaan</th>
+                <th align="center" width="20%">Penanganan & Pengendalian</th>
             </tr>
             <tr>
-                <td>1a</td>
+                <td rowspan="3">1</td>
+                <td>a</td>
                 <td>Ketidakteraturan Bangunan</td>
                 <td>   
                     <?php
@@ -86,7 +86,7 @@ endif;
                 </td>                
             </tr>
             <tr>
-                <td>1b</td>
+                <td>b</td>
                 <td>Tingkat Kepadatan Bangunan</td>
                 <td>   
                     <?php
@@ -120,7 +120,7 @@ endif;
                 </td>      
             </tr>
             <tr>
-                <td>1c</td>
+                <td>c</td>
                 <td>Ketidaksesuaian dengan Persyaratan Teknis Bangunan</td>
                 <td>   
                     <?php
@@ -154,7 +154,8 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>2a</td>
+                <td rowspan="2">2</td>
+                <td>a</td>
                 <td>Cakupan Pelayanan Jalan Lingkungan</td>
                 <td>   
                     <?php
@@ -188,7 +189,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>2b</td>
+                <td>b</td>
                 <td>Kualitas Permukaan Jalan Lingkungan</td>
                 <td>   
                     <?php
@@ -222,7 +223,8 @@ endif;
                 </td>  
             </tr>
             <tr>
-                <td>3a</td>
+                <td rowspan="2">3</td>
+                <td>a</td>
                 <td>Ketidaktersedian Akses Aman Air Minum</td>
                 <td>   
                     <?php
@@ -256,7 +258,7 @@ endif;
                 </td>  
             </tr>
             <tr>
-                <td>3b</td>
+                <td>b</td>
                 <td>Tidak Terpenuhinya Kebutuhan Air Minum</td>
                 <td>   
                     <?php
@@ -290,7 +292,8 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>4a</td>
+                <td rowspan="5">4</td>
+                <td>a</td>
                 <td>Ketidakmampuan Mengalirkan Limpasan Air</td>
                 <td>   
                     <?php
@@ -324,7 +327,7 @@ endif;
                 </td>  
             </tr>
             <tr>
-                <td>4b</td>
+                <td>b</td>
                 <td>Ketidaktersediaan Drainase</td>
                 <td>   
                     <?php
@@ -359,7 +362,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>4c</td>
+                <td>c</td>
                 <td>Ketidakterhubungan dengan Sistem Drainase Perkotaan</td>
                 <td>   
                     <?php
@@ -396,7 +399,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>4d</td>
+                <td>d</td>
                 <td>Tidak Terpeliharanya Drainase</td>
                 <td>   
                     <?php
@@ -433,7 +436,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>4e</td>
+                <td>e</td>
                 <td>Kualitas Konstruksi Drainase</td>
                 <td>   
                     <?php
@@ -470,7 +473,8 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>5a</td>
+                <td rowspan="2">5</td>
+                <td>a</td>
                 <td>Sistem Pengelolaan Air Limbah Tidak Sesuai Standar Teknis</td>
                 <td>   
                     <?php
@@ -507,7 +511,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>5b</td>
+                <td>b</td>
                 <td>Prasarana dan Sarana Pengelolaan Air Limbah Tidak Sesuai Dengan Persyaratan Teknis</td>
                 <td>   
                     <?php
@@ -544,7 +548,8 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>6a</td>
+                <td rowspan="3">6</td>
+                <td>a</td>
                 <td>Prasarana dan Sarana Persampahan Tidak Sesuai dengan Persyaratan Teknis</td>
                 <td>   
                     <?php
@@ -581,7 +586,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>6b</td>
+                <td>b</td>
                 <td>Sistem Pengelolaan Persampahan yang Tidak Sesuai Standar Teknis</td>
                 <td>   
                     <?php
@@ -618,7 +623,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>6c</td>
+                <td>c</td>
                 <td>Terpeliharanya Sarana dan Prasarana Pengelolaan Persampahan</td>
                 <td>   
                     <?php
@@ -655,7 +660,8 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>7a</td>
+                <td rowspan="2">7</td>
+                <td>a</td>
                 <td>Ketidaktersediaan Prasarana Proteksi Kebakaran</td>
                 <td>   
                     <?php
@@ -692,7 +698,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>7b</td>
+                <td>b</td>
                 <td>Ketersediaan Sarana Proteksi Kebakaran</td>
                 <td>   
                     <?php
@@ -729,11 +735,18 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <th>B</th>
-                <th colspan="4">Identifikasi Pertimbangan Lain</th>
+                <th align="center" colspan="5">B. Identifikasi Pertimbangan Lain</th>
             </tr>
             <tr>
-                <td>8a</td>
+                <th align="center" colspan="2" width="10%">No.</th>
+                <th align="center" width="30%">KRITERIA dan Indikator</th>
+                <th align="center" width="20%">Eksiting</th>
+                <th align="center" width="20%">Perencanaan</th>
+                <th align="center" width="20%">Penanganan & Pengendalian</th>
+            </tr>
+            <tr>
+                <td rowspan="3">8</td>
+                <td>a</td>
                 <td>Nilai Strategis Lokasi</td>
                 <td>   
                     <?php
@@ -770,7 +783,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>8b</td>
+                <td>b</td>
                 <td>Kependudukan</td>
                 <td>   
                     <?php
@@ -807,7 +820,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>8c</td>
+                <td>c</td>
                 <td>Kondisi Sosial, Ekonomi, dan Budaya</td>
                 <td>   
                     <?php
@@ -844,11 +857,18 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <th>C</th>
-                <th colspan="4">Identifikasi Legalitas Lahan </th>
+                <th align="center" colspan="6">C. Identifikasi Legalitas Lahan </th>
+            </tr>            
+            <tr>
+                <th align="center" colspan="2" width="10%">No.</th>
+                <th align="center" width="30%">KRITERIA dan Indikator</th>
+                <th align="center" width="20%">Eksiting</th>
+                <th align="center" width="20%">Perencanaan</th>
+                <th align="center" width="20%">Penanganan & Pengendalian</th>
             </tr>
             <tr>
-                <td>9a</td>
+                <td rowspan="2">9</td>
+                <td>a</td>
                 <td>Kejelasan Status Penguasaan Lahan</td>
                 <td>   
                     <?php
@@ -885,7 +905,7 @@ endif;
                 </td> 
             </tr>
             <tr>
-                <td>9b</td>
+                <td>b</td>
                 <td>Kesesuaian RTR</td>
                 <td>   
                     <?php
@@ -922,16 +942,21 @@ endif;
                 </td> 
             </tr>
             <tr>               
-                <th colspan="2"></th>
-                <td align="center">
+                <th align="center" colspan="3"></th>
+                <td align="center" >
                     <?php
                     if ($data_detail_eks != null) {
                         ?>
                         <?php if ($text['rg']['M02h']) { ?>
                             <a title="Edit Data Eksisting" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/edit/eksisting/' . $data_detail_eks->id_kumuh_detail) ?>" 
+                               href="<?php echo site_url('master_peta/kumuh_detail/edit/eksisting/' . $data->id_kaw_kumuh . '/' . $data_detail_eks->id_kumuh_detail) ?>" 
                                class="btn btn-large btn-warning">
-                                <i class="icon-pencil"></i> Edit Data Eksisting
+                                <i class="icon-pencil"></i> Edit
+                            </a>
+                            <a title="Cetak Data Penanganan" 
+                               href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_eks->id_kumuh_detail) ?>" 
+                               class="btn btn-large btn-primary">
+                                <i class="icon-print"></i> Cetak
                             </a>
                         <?php } ?>
                     <?php } else { ?>
@@ -939,20 +964,25 @@ endif;
                             <a title="Add Data Eksisting" 
                                href="<?php echo site_url('master_peta/kumuh_detail/add/eksisting/' . $data->id_kaw_kumuh) ?>" 
                                class="btn btn-large btn-success">
-                                <i class="icon-plus"></i> Add Data Eksisting
+                                <i class="icon-plus"></i> Add 
                             </a>
                         <?php } ?>
                     <?php } ?>
                 </td>
-                <td align="center">
+                <td align="center" >
                     <?php
                     if ($data_detail_per != null) {
                         ?>
                         <?php if ($text['rg']['M02i']) { ?>
                             <a title="Edit Data Perencanaan" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/edit/perencanaan/' . $data_detail_per->id_kumuh_detail) ?>" 
+                               href="<?php echo site_url('master_peta/kumuh_detail/edit/perencanaan/' . $data->id_kaw_kumuh . '/' . $data_detail_per->id_kumuh_detail) ?>" 
                                class="btn btn-large btn-warning">
-                                <i class="icon-pencil"></i> Edit Data Perencanaan
+                                <i class="icon-pencil"></i> Edit 
+                            </a>
+                            <a title="Cetak Data Penanganan" 
+                               href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_per->id_kumuh_detail) ?>" 
+                               class="btn btn-large btn-primary">
+                                <i class="icon-print"></i> Cetak
                             </a>
                         <?php } ?>
                     <?php } else { ?>
@@ -960,20 +990,25 @@ endif;
                             <a title="Add Data Perencanaan" 
                                href="<?php echo site_url('master_peta/kumuh_detail/add/perencanaan/' . $data->id_kaw_kumuh) ?>" 
                                class="btn btn-large btn-success">
-                                <i class="icon-plus"></i> Add Data Perencanaan
+                                <i class="icon-plus"></i> Add 
                             </a>
                         <?php } ?>
                     <?php } ?>
                 </td>
-                <td align="center">
+                <td align="center" >
                     <?php
                     if ($data_detail_pen != null) {
                         ?>
                         <?php if ($text['rg']['M02j']) { ?>
                             <a title="Edit Data Penanganan" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/edit/penanganan/' . $data_detail_pen->id_kumuh_detail) ?>" 
+                               href="<?php echo site_url('master_peta/kumuh_detail/edit/penanganan/' . $data->id_kaw_kumuh . '/' . $data_detail_pen->id_kumuh_detail) ?>" 
                                class="btn btn-large btn-warning">
-                                <i class="icon-pencil"></i> Edit Data Penanganan
+                                <i class="icon-pencil"></i> Edit
+                            </a>
+                            <a title="Cetak Data Penanganan" 
+                               href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_pen->id_kumuh_detail) ?>" 
+                               class="btn btn-large btn-primary">
+                                <i class="icon-print"></i> Cetak
                             </a>
                         <?php } ?>
                     <?php } else { ?>
@@ -981,7 +1016,7 @@ endif;
                             <a title="Add Data Penanganan" 
                                href="<?php echo site_url('master_peta/kumuh_detail/add/penanganan/' . $data->id_kaw_kumuh) ?>" 
                                class="btn btn-large btn-success">
-                                <i class="icon-plus"></i> Add Data Penanganan
+                                <i class="icon-plus"></i> Add
                             </a>
                         <?php } ?>
                     <?php } ?>

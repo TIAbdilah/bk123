@@ -31,7 +31,6 @@ class Kumuh extends MY_Controller {
     public function view($id = null) {
         $data['title_page'] = 'VIEW';
         $data['data'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $id))->row();
-        $data['data_kelurahan'] = $this->view_kelurahan_model->select_by_field(array('kode_daerah' => $data['data']->kode_daerah))->row();
         $data['data_detail_eks'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'eksisting'))->row();
         $data['data_detail_per'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'perencanaan'))->row();
         $data['data_detail_pen'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'penanganan'))->row();

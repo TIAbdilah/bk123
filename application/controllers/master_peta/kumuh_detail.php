@@ -48,9 +48,10 @@ class Kumuh_detail extends MY_Controller {
         $this->load->view('admin/index', $data);
     }
 
-    public function edit($kategori, $id = null) {
+    public function edit($kategori, $id_kaw_kumuh = null, $id = null) {
         $data['title_page'] = 'EDIT';
         $data['kategori'] = $kategori;
+        $data['id_kaw_kumuh'] = $id_kaw_kumuh;
         $data['data'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row_array();
         $data['page_content'] = 'admin/master_peta/kumuh_detail/edit';
         $data['text'] = $this->text;
