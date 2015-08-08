@@ -33,19 +33,39 @@
 
             <form class="form-signin" action="<?php echo site_url('login/process_login') ?>" method="POST">
                 <h2 class="form-signin-heading">Masuk</h2>
-                <div class="login-wrap">
+                <div class="login-wrap">                    
+                    <?php
+                    if ($this->session->flashdata('message') != ''):echo '<div class="alert alert-block alert-danger fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        '.$this->session->flashdata('message').
+                    '</div>';
+                    endif;
+                    ?>
+                    <?php
+                    if ($this->session->flashdata('message2') != ''):echo '<div class="alert alert-block alert-success fade in">
+                        <button data-dismiss="alert" class="close close-sm" type="button">
+                            <i class="icon-remove"></i>
+                        </button>
+                        '.$this->session->flashdata('message2').
+                    '</div>';
+                    endif;
+                    ?>
+                    Username
                     <input type="text" class="form-control" name="inpUsername" placeholder="Nama akun" required autofocus>
+                    Password
                     <input type="password" class="form-control" name="inpPassword" placeholder="Password" required>
-<!--                    <label class="checkbox">
-                        <span class="pull-right">
-                            <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
-
-                        </span>
-                    </label>-->
+                    <!--                    <label class="checkbox">
+                                            <span class="pull-right">
+                                                <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
+                    
+                                            </span>
+                                        </label>-->
                     <button class="btn btn-lg btn-login btn-block" type="submit">Masuk</button>            
                     <div class="registration">
                         Belum memiliki akun ?
-                        <a class="" href="registration.html">
+                        <a class="" href="<?php echo site_url('login/sign_up') ?>">
                             Buat Akun
                         </a>
                     </div>

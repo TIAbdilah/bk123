@@ -13,6 +13,10 @@ and open the template in the editor.
                 font-size: 80%;
                 border-collapse: collapse;
             }
+            img.peta{
+                padding: 0;
+                margin: 0 -100px 0 -100px;
+            }
         </style>
     </head>
     <body style="width: 100%">
@@ -28,20 +32,20 @@ and open the template in the editor.
             )</strong>  
         <table style="width: 100%">
             <tr>
-                <td width="50%" style="text-align: center;vertical-align: middle">
+                <td width="40%" style="vertical-align: top;padding: 0px;margin: 0px;">
                     <?php
                     $foto = "";
                     if ($data_detail_eks != null) {
-                        if ($data_detail_eks->ketidakteraturan_bangunan_foto != null) {
-                            $foto .= $data_detail_eks->ketidakteraturan_bangunan_foto;
+                        if ($data_detail_eks->peta_file != null) {
+                            $foto .= $data_detail_eks->peta_file;
                         } else {
                             $foto .= "no_img.png";
                         }
                     }
                     ?>
-                    <img width="700pt" src="<?php echo $_SERVER['DOCUMENT_ROOT'] . '/mybangkim/assets/admin/img/foto_kawasan/' . $foto ?>" />
+                    <img class="peta" width="800px" height="600px" src="<?php echo $_SERVER['DOCUMENT_ROOT'] . '/mybangkim/assets/admin/img/foto_kawasan/' . $foto ?>" />
                 </td>
-                <td width="50%" style="vertical-align: top">                   
+                <td width="60%" style="vertical-align: top">                   
                     <strong>A. IDENTIFIKASI KONDISI KEKUMUHAN</strong>
                     <table class="data" style="width: 100%" border="1">
                         <tr>

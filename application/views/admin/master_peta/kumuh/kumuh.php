@@ -23,12 +23,7 @@ class Kumuh extends MY_Controller {
     public function index($kode_daerah = null) {
         $data['title_page'] = 'LIST';
         $data['list_data'] = $this->kumuh_model->select_all()->result();
-        if($this->session->userdata('id_role') != 1 && $this->session->userdata('id_role')!=3){
-            $data['page_content'] = 'admin/master_peta/kumuh/list_filter';
-        }else{
-            $data['page_content'] = 'admin/master_peta/kumuh/list';
-        }
-        
+        $data['page_content'] = 'admin/master_peta/kumuh/list';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }

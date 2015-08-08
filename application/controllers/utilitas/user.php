@@ -23,7 +23,12 @@ class User extends MY_Controller {
     public function index() {
         $data['title_page'] = 'INDEX';
         $data['list_data'] = $this->user_model->select_all()->result();
-        $data['page_content'] = 'admin/utilitas/user/list';
+        
+        if($this->session->userdata('id_role') != 1 && $this->session->userdata('id_role')!=3){
+        $data['page_content'] = 'admin/utilitas/user/list_filter';
+        } else {
+        $data['page_content'] = 'admin/utilitas/user/list';    
+        }
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }
@@ -63,7 +68,7 @@ class User extends MY_Controller {
         $data['id_role'] = $this->input->post('inpIdRole');
         $data['kode_daerah'] = $this->input->post('inpWilayahKerja');
 
-        //process
+//        process
         if ($action == 'add') {
             // add    
             $this->user_model->add($data);

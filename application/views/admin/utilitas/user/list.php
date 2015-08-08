@@ -71,8 +71,9 @@ endif;
                                         </a>
                                         <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
                                            onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->username)) ?>')) {
-                                                       window.location = '<?php echo site_url('utilitas/user/delete/' . $data->id_user) ?>';
-                                                   }" 
+                                                               window.locatio
+                                                               n = '<?php echo site_url('utilitas/user/delete/' . $data->id_user) ?>';
+                                                           }" 
                                            class="btn btn-xs btn-danger">
                                             <?php echo $text['txt']->button['delete_data'] ?>
                                         </a>                      

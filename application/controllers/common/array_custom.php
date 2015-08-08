@@ -32,8 +32,8 @@ class Array_custom extends CI_Controller {
     );
     
     var $tingkat_pn = array(
-        '0' => '<i class="icon-minus"></i>',
-        '1' => '<i class="icon-plus"></i>'
+        '0' => '<strong>-</strong>',
+        '1' => '<strong>+</strong>'
     );
 
     public function tingkat_kumuh($bobot) {
