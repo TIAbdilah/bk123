@@ -19,10 +19,10 @@
                             Profil <b class=" icon-angle-down"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo site_url('public/profil/about')?>">Tentang Kami</a></li>
-                            <li><a href="<?php echo site_url('public/profil/tupoksi')?>">Tugas Pokok & Fungsi</a></li>
-                            <li><a href="<?php echo site_url('public/profil/struktur_org')?>">Struktur Organisasi</a></li>
-                            <li><a href="<?php echo site_url('public/profil/contact')?>">Hubungi Kami</a></li>
+                            <li><a href="<?php echo site_url('publik/profil/about')?>">Tentang Kami</a></li>
+                            <li><a href="<?php echo site_url('publik/profil/tupoksi')?>">Tugas Pokok & Fungsi</a></li>
+                            <li><a href="<?php echo site_url('publik/profil/struktur_org')?>">Struktur Organisasi</a></li>
+                            <li><a href="<?php echo site_url('publik/profil/contact')?>">Hubungi Kami</a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">
@@ -30,8 +30,8 @@
                             Pengaturan <b class=" icon-angle-down"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo site_url('public/pengaturan/peraturan')?>">Peraturan</a></li>
-                            <li><a href="<?php echo site_url('public/pengaturan/pedoman')?>">Pedoman</a></li>
+                            <li><a href="<?php echo site_url('publik/pengaturan/peraturan')?>">Peraturan</a></li>
+                            <li><a href="<?php echo site_url('publik/pengaturan/pedoman')?>">Pedoman</a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">
@@ -39,18 +39,18 @@
                             Output Kegiatan <b class=" icon-angle-down"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo site_url('public/output_keg/sppip_rpkpp')?>">SPPIP & RKPPP</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/sppip_rpkpp')?>">SPPIP & RKPPP</a></li>
                             <li class="divider"></li>
-                            <li><a href="<?php echo site_url('public/output_keg/perkotaan')?>">Perkotaan (Kumuh)</a></li>
-                            <li><a href="<?php echo site_url('public/output_keg/perkotaan')?>">Perkotaan (RSH)</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/perkotaan')?>">Perkotaan (Kumuh)</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/perkotaan')?>">Perkotaan (RSH)</a></li>
                             <li class="divider"></li>
-                            <li><a href="<?php echo site_url('public/output_keg/pedesaan')?>">Pedesaan (Data Potensial)</a></li>
-                            <li><a href="<?php echo site_url('public/output_keg/pedesaan')?>">Pedesaan (Pulau Kecil & Perbatasan)</a></li>
-                            <li><a href="<?php echo site_url('public/output_keg/pedesaan')?>">Pedesaan (Rawan Bencana)</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/pedesaan')?>">Pedesaan (Data Potensial)</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/pedesaan')?>">Pedesaan (Pulau Kecil & Perbatasan)</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/pedesaan')?>">Pedesaan (Rawan Bencana)</a></li>
                             <li class="divider"></li>
-                            <li><a href="<?php echo site_url('public/output_keg/rusunawa')?>">RUSUNAWA</a></li>
-                            <li><a href="<?php echo site_url('public/output_keg/pedoman')?>">PISEW</a></li>
-                            <li><a href="<?php echo site_url('public/output_keg/ppip_ris_pnpm')?>">RPIP/RIS PNPM</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/rusunawa')?>">RUSUNAWA</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/pedesaam#PISEW')?>">PISEW</a></li>
+                            <li><a href="<?php echo site_url('publik/output_kegiatan/rpip_ris_pnpm')?>">RPIP/RIS PNPM</a></li>
                         </ul>
                     </li>
                     <li class="dropdown ">
@@ -58,8 +58,8 @@
                             Berita & Agenda <b class=" icon-angle-down"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo site_url('public/berita')?>">Berita</a></li>
-                            <li><a href="<?php echo site_url('public/agenda')?>">Agenda Kegiatan</a></li>
+                            <li><a href="<?php echo site_url('berita')?>">Berita</a></li>
+                            <li><a href="<?php echo site_url('publik/agenda')?>">Agenda Kegiatan</a></li>
                         </ul>
                     </li>
                     <li>
@@ -67,10 +67,10 @@
                             Gallery <b class=" icon-angle-down"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo site_url('public/gallery/download')?>">Download</a></li>
-                            <li><a href="<?php echo site_url('public/gallery/ebook')?>">Ebook</a></li>
-                            <li><a href="<?php echo site_url('public/gallery/foto_kegiatan')?>">Foto Kegiatan</a></li>
-                            <li><a href="<?php echo site_url('public/gallery/film_dokumenter')?>">Film Dokumenter</a></li>
+                            <li><a href="<?php echo site_url('publik/gallery/download')?>">Download</a></li>
+                            <li><a href="<?php echo site_url('publik/gallery/ebook')?>">Ebook</a></li>
+                            <li><a href="<?php echo site_url('publik/gallery/foto_kegiatan')?>">Foto Kegiatan</a></li>
+                            <li><a href="<?php echo site_url('publik/gallery/film_dokumenter')?>">Film Dokumenter</a></li>
                         </ul>
                     </li>                    
                     <li><a href="portfolio.html">Peta</a></li>

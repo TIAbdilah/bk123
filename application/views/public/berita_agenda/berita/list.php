@@ -26,6 +26,6 @@
                 <?php echo $page_link ?>
             </div>
         </div>
-        <?php $this->load->view('public/profil/sidebar_1') ?>
+        <?php $this->load->view('public/content/sidebar') ?>
     </div>
 </div>

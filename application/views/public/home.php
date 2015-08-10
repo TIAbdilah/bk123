@@ -6,9 +6,9 @@
         <meta name="description" content="">
         <meta name="author" content="Mosaddek">
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-        <link rel="shortcut icon" href="img/favicon.png">
+        <link rel="shortcut icon" href="<?php echo base_url() . 'assets/admin/' ?>img/favicon.ico">
 
-        <title>FlatLab Frontend | Home</title>
+        <title>Direktorat Pengembangan Permukiman</title>
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url() . 'assets/public/' ?>css/bootstrap.min.css" rel="stylesheet">
@@ -40,10 +40,10 @@
         <!--header end-->
 
         <!-- revolution slider start -->
-        <div class="fullwidthbanner-container main-slider">
+<!--        <div class="fullwidthbanner-container main-slider">
             <div class="fullwidthabnner">
                 <ul id="revolutionul" style="display:none;">
-                    <!-- 1st slide -->
+                     1st slide 
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
                         <div class="caption lfl slide_item_left"
                              data-x="10"
@@ -91,9 +91,9 @@
 
                     </li>
 
-                    <!-- 2nd slide  -->
+                     2nd slide  
                     <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
-                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
+                         THE MAIN IMAGE IN THE FIRST SLIDE 
                         <img src="img/banner/banner_bg.jpg" alt="">
                         <div class="caption lft slide_title"
                              data-x="10"
@@ -148,7 +148,7 @@
 
                     </li>
 
-                    <!-- 3rd slide  -->
+                     3rd slide  
                     <li data-transition="fade" data-slotamount="7" data-masterspeed="300" data-delay="9400" data-thumb="">
                         <img src="img/banner/red-bg.jpg" alt="">
                         <div class="caption lfl slide_item_right"
@@ -225,7 +225,7 @@
                 </ul>
                 <div class="tp-bannertimer tp-top"></div>
             </div>
-        </div>
+        </div>-->
         <!-- revolution slider end -->
 
         <!--container start-->
