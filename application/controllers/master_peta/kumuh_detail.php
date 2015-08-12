@@ -160,6 +160,7 @@ class Kumuh_detail extends MY_Controller {
         $data['tidak_tersedia_sar_prokeb_foto'] = $this->upload_image(array('indikator_name' => 'tid_sar_pro_keb_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetSarProKeb_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
 
         $data['kmz_file'] = $this->upload_image(array('indikator_name' => 'kmz_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmz_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_file'] = $this->upload_image(array('indikator_name' => 'point_line_' . substr($data['kategori'], 0, 4), 'input' => 'inpPointLine_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
         $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
 
 //        process

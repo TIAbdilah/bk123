@@ -38,6 +38,45 @@ class My_calendar extends CI_Calendar {
 
         return $this->CI->lang->line($month);
     }
+    
+    // --------------------------------------------------------------------
+
+	/**
+	 * Get Day Names
+	 *
+	 * Returns an array of day names (Sunday, Monday, etc.) based
+	 * on the type.  Options: long, short, abrev
+	 *
+	 * @access	public
+	 * @param	string
+	 * @return	array
+	 */
+	function get_day_names($day_type = '')
+	{
+		if ($day_type != '')
+			$this->day_type = $day_type;
+
+		if ($this->day_type == 'long')
+		{
+			$day_names = array('minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu');
+		}
+		elseif ($this->day_type == 'short')
+		{
+			$day_names = array('min','sen', 'sel', 'rab', 'kam', 'jum', 'sab');
+		}
+		else
+		{
+			$day_names = array('mg', 'sn', 'sl', 'rb', 'km', 'jm', 'sa');
+		}
+
+		$days = array();
+		foreach ($day_names as $val)
+		{
+			$days[] = ($this->CI->lang->line('cal_'.$val) === FALSE) ? ucfirst($val) : $this->CI->lang->line('cal_'.$val);
+		}
+
+		return $days;
+	}
 
 // --------------------------------------------------------------------
 
@@ -61,8 +100,8 @@ class My_calendar extends CI_Calendar {
             'week_day_cell' => '<th>{week_day}</th>',
             'week_row_end' => '</tr></thead><tbody>',
             'cal_row_start' => '<tr>',
-            'cal_cell_start' => '<td>',
-            'cal_cell_start_today' => '<td>',
+            'cal_cell_start' => '<td align="center">',
+            'cal_cell_start_today' => '<td style="text-align: center; background: #d0cdcd; color: white">',
             'cal_cell_content' => '<a href="{content}">{day}</a>',
             'cal_cell_content_today' => '<a href="{content}"><strong>{day}</strong></a>',
             'cal_cell_no_content' => '{day}',

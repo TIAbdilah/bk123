@@ -14,7 +14,7 @@
                     <fieldset>
                         <legend>Data Pendukung</legend>
                         <div class="form-group">
-                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                            <label for="inpKmz_file" class="col-lg-3 col-sm-3 control-label">
                                 <strong>KMZ File</strong>
                             </label>
                             <div class="form-group">
@@ -24,6 +24,23 @@
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        if ($kategori != 'eksisting') {
+                            ?>
+                            <div class="form-group">
+                                <label for="inpPointLine" class="col-lg-3 col-sm-3 control-label">
+                                    <strong>Point / Line File</strong>
+                                </label>
+                                <div class="form-group">
+                                    <div class="col-lg-3">                                
+                                        <input type="file" class="form-control fileinput-button" name="inpPointLine" placeholder="foto2"/>
+                                        <p class="help-block">Filetype (kmz/kml) Maxsize (2 MB)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <?php
+                        }
+                        ?>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 <strong>Peta File</strong>
@@ -503,25 +520,13 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
-                                                    <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ol>
-                                                    </p>
+                                                    <p>Tidak tersedianya saluran drainase lingkungan pada perumahan atau permukiman, yaitu saluran tersier dan/atau saluran lokal.</p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area tidak tersedia drainase ligkungan</li>
+                                                        <li>51% - 75% area tidak tersedia drainase ligkungan</li>
+                                                        <li>20% - 50% area tidak tersedia drainase ligkungan</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -564,27 +569,15 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
-                                                    <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ol>
-                                                    </p>
+                                                    <p>Saluran drainase lingkungan tidak terhubung dengan saluran pada hirarki di atasnya sehingga menyebabkan air tidak dapat mengalir dan menimbulkan genangan.</p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% drainase lingkungan tidak terhubung dengan hirarki di atasnya</li>
+                                                        <li>51% - 75% drainase lingkungan tidak terhubung dengan hirarki di atasnya</li>
+                                                        <li>20% - 50% drainase lingkungan tidak terhubung dengan hirarki di atasnya</li>
                                                     </ol>
-                                                    </p>                                                    
+                                                    </p>                                                 
                                                 </div>
                                             </div>
                                         </div>
@@ -625,25 +618,18 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>Tidak dilaksanakannya pemeliharaan saluran drainase lingkungan pada lokasi perumahan atau permukiman, baik
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>Pemeliharaan rutin; dan/atau</li>
+                                                        <li>Pemeliharaan berkala</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki drainase lingkungan yang kotor dan berbau</li>
+                                                        <li>51% - 75% area memiliki drainase lingkungan yang kotor dan berbau</li>
+                                                        <li>20% - 50% area memiliki drainase lingkungan yang kotor dan berbau</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -673,11 +659,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_11">                                 
+                                        <a data-toggle="modal" href="#myModal_12">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_11" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -686,27 +672,15 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
-                                                    <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ol>
-                                                    </p>
+                                                    <p>Kualitas konstruksi drainase buruk, karena berupa galian tanah tanpa material pelapis atau penutup maupun karena telah terjadi kerusakan</p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki kualitas konstruksi drainase lingkunagn buruk</li>
+                                                        <li>51% - 75% area memiliki kualitas konstruksi drainase lingkunagn buruk</li>
+                                                        <li>20% - 50% area memiliki kualitas konstruksi drainase lingkunagn buruk</li>
                                                     </ol>
-                                                    </p>                                                    
+                                                    </p>                                              
                                                 </div>
                                             </div>
                                         </div>
@@ -740,11 +714,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_12">                                 
+                                        <a data-toggle="modal" href="#myModal_13">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_12" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_13" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -753,27 +727,15 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
-                                                    <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ol>
-                                                    </p>
+                                                    <p>Pengelolaan air limbah pada lokasi perumahan atau permukiman tidak memiliki sistem yang memadai, yaitu kakus/kloset yang tidak terhubung dengan tangki septik baik secara individual/domestik, komunal maupun terpusat.</p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki sistem air limbah yang tidak sesuai standar teknis</li>
+                                                        <li>51% - 75% area memiliki sistem air limbah yang tidak sesuai standar teknis</li>
+                                                        <li>20% - 50% area memiliki sistem air limbah yang tidak sesuai standar teknis</li>
                                                     </ol>
-                                                    </p>                                                    
+                                                    </p>                                              
                                                 </div>
                                             </div>
                                         </div>
@@ -801,11 +763,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_13">                                 
+                                        <a data-toggle="modal" href="#myModal_14">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_13" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_14" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -814,25 +776,18 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>Kondisi prasarana dan sarana pengelolaan air limbah pada lokasi perumahan atau permukiman dimana :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>Kloset leher angsa tidak terhubung dengan tangki septik</li>
+                                                        <li>tidak tersedianya sistem pengolahan limbah setempat atau terpusat</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki sarpras air limbah tidak sesuai persyaratan teknis</li>
+                                                        <li>51% - 75% area memiliki sarpras air limbah tidak sesuai persyaratan teknis</li>
+                                                        <li>20% - 50% area memiliki sarpras air limbah tidak sesuai persyaratan teknis</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -868,11 +823,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_kepbang">                                 
+                                        <a data-toggle="modal" href="#myModal_15">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_kepbang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_15" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -881,25 +836,20 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>Prasana dan sarana persampahan pada lokasi perumahan atau permukiman tidak sesuai dengan persyaratan teknis, yaitu :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>tempat sampah dengan pemilahan sampah pada skala domestik atau rumah tangga</li>
+                                                        <li>tempat pengumpulan sampah (TPS) atau TPS 3R (Reduce, reuse,recycle) pada skala lingkungan;</li>
+                                                        <li>gerobak sampah dan/atau truk sampah pada skala lingkungan; dan</li>
+                                                        <li>tempat pengolahan sampah terpadu (TPST) pada skala lingkungan.</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki sarpras pengelolaan persampahan yang tidak memenuhi persyaratan teknis</li>
+                                                        <li>51% - 75% area memiliki sarpras pengelolaan persampahan yang tidak memenuhi persyaratan teknis</li>
+                                                        <li>20% - 50% area memiliki sarpras pengelolaan persampahan yang tidak memenuhi persyaratan teknis</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -929,11 +879,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_14">                                 
+                                        <a data-toggle="modal" href="#myModal_16">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_14" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_16" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -941,28 +891,23 @@
                                                     <h4 class="modal-title">Informasi</h4>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <strong>Indikator</strong>
-                                                    <p>
+                                                   <strong>Indikator</strong>
+                                                    <p>Pengelolaan persampahan pada lingkungan perumahan atau permukiman tidak memenuhi persyaratan sebagai berikut :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>pewadahan dan pemeliharaan domestik;</li>
+                                                        <li>pengumpulan lingkungan;</li>
+                                                        <li>pengangkutan lingkungan;</li>
+                                                        <li>pengolahan lingkungan;</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki sistem persampahan yang tidak sesuai standar</li>
+                                                        <li>51% - 75% area memiliki sistem persampahan yang tidak sesuai standar</li>
+                                                        <li>20% - 50% area memiliki sistem persampahan yang tidak sesuai standar</li>
                                                     </ol>
-                                                    </p>                                                    
+                                                    </p>                                               
                                                 </div>
                                             </div>
                                         </div>
@@ -990,11 +935,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_kepbang">                                 
+                                        <a data-toggle="modal" href="#myModal_17">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_kepbang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_17" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -1057,11 +1002,11 @@
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
-                                        <a data-toggle="modal" href="#myModal_kepbang">                                 
+                                        <a data-toggle="modal" href="#myModal_18">                                 
                                             <i class="icon-info-sign"> Info</i>     
                                         </a>  
                                     </p>
-                                    <div class="modal fade" id="myModal_kepbang" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal fade" id="myModal_18" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
                                                 <div class="modal-header">

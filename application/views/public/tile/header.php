@@ -67,10 +67,10 @@
                             Gallery <b class=" icon-angle-down"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo site_url('publik/gallery/download')?>">Download</a></li>
-                            <li><a href="<?php echo site_url('publik/gallery/ebook')?>">Ebook</a></li>
-                            <li><a href="<?php echo site_url('publik/gallery/foto_kegiatan')?>">Foto Kegiatan</a></li>
-                            <li><a href="<?php echo site_url('publik/gallery/film_dokumenter')?>">Film Dokumenter</a></li>
+                            <li><a href="<?php echo site_url('gallery/download')?>">Download</a></li>
+                            <li><a href="<?php echo site_url('gallery/ebook')?>">Ebook</a></li>
+                            <li><a href="<?php echo site_url('gallery/foto_kegiatan')?>">Foto Kegiatan</a></li>
+                            <li><a href="<?php echo site_url('gallery/film_dokumenter')?>">Film Dokumenter</a></li>
                         </ul>
                     </li>                    
                     <li><a href="portfolio.html">Peta</a></li>

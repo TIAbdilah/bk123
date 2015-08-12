@@ -23,6 +23,9 @@
         <link rel="stylesheet" href="<?php echo base_url() . 'assets/public/' ?>assets/revolution_slider/css/rs-style.css" media="screen">
         <link rel="stylesheet" href="<?php echo base_url() . 'assets/public/' ?>assets/revolution_slider/rs-plugin/css/settings.css" media="screen">
 
+        <link href="<?php echo base_url() . 'assets/public/' ?>css/superfish.css" rel="stylesheet">
+        <link href="<?php echo base_url() . 'assets/public/' ?>css/superfish-vertical.css" rel="stylesheet">
+
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() . 'assets/public/' ?>css/style.css" rel="stylesheet">
         <link href="<?php echo base_url() . 'assets/public/' ?>css/style-responsive.css" rel="stylesheet" />
@@ -55,11 +58,13 @@
         <script src="<?php echo base_url() . 'assets/public/' ?>js/jquery-1.8.3.min.js"></script>
         <script src="<?php echo base_url() . 'assets/public/' ?>js/bootstrap.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url() . 'assets/public/' ?>js/hover-dropdown.js"></script>
+
         <script defer src="<?php echo base_url() . 'assets/public/' ?>js/jquery.flexslider.js"></script>
         <script type="text/javascript" src="<?php echo base_url() . 'assets/public/' ?>assets/bxslider/jquery.bxslider.js"></script>
 
-        <script type="text/javascript" src="<?php echo base_url() . 'assets/public/' ?>js/jquery.parallax-1.1.3.js"></script>
-
+        <script src="<?php echo base_url() . 'assets/public/' ?>js/superfish.js"></script>
+        <script src="<?php echo base_url() . 'assets/public/' ?>js/jquery.isotope.js"></script>
+        
         <script src="<?php echo base_url() . 'assets/public/' ?>js/jquery.easing.min.js"></script>
         <script src="<?php echo base_url() . 'assets/public/' ?>js/link-hover.js"></script>
 
@@ -70,7 +75,6 @@
 
         <!--common script for all pages-->
         <script src="<?php echo base_url() . 'assets/public/' ?>js/common-scripts.js"></script>
-
         <script src="<?php echo base_url() . 'assets/public/' ?>js/revulation-slide.js"></script>
 
         <script>
@@ -100,7 +104,7 @@
 
             //    fancybox
             jQuery(".fancybox").fancybox();
-                    
+
             $(function() {
                 var $container = $('#gallery');
                 $container.isotope({
@@ -114,9 +118,10 @@
 
                 // filter items when filter link is clicked
                 $('#filters a').click(function() {
-                    var selector = $(this).attr('data-filter');
-                    $container.isotope({filter: selector});
-                    return false;
+                    alert("aaaaa");
+//                    var selector = $(this).attr('data-filter');
+//                    $container.isotope({filter: selector});
+//                    return false;
                 });
             });
         </script>

@@ -75,5 +75,17 @@ class Format_date extends CI_Controller {
         $date_time = strtotime($string);
         return date('Y-m-d', $date_time);
     }
+    
+    public function get_month($string) {
+        $date_time = strtotime($string);
+        return $this->indonesian_date($date_time, 'F');
+    }
+    
+    public function get_date($string) {
+        $date_time = strtotime($string);
+        return $this->indonesian_date($date_time, 'j');
+    }
+    
+    
 
 }

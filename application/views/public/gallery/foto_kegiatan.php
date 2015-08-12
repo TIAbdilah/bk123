@@ -143,7 +143,7 @@
              </div>
         </div>
         <div class="col-lg-3">
-            <?php $this->load->view('public/profil/sidebar') ?>
+            <?php //$this->load->view('public/profil/sidebar') ?>
         </div>
     </div>
 </div>

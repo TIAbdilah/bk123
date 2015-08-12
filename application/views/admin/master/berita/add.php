@@ -8,7 +8,7 @@
                 <?php echo $title_page ?>
             </header>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" action="<?php echo site_url('master/berita/process/add/') ?>" enctype="multipart/form-data" method="POST">
+                <form class="form-horizontal" role="form" action="<?php echo site_url('master/berita/process/add/') ?>" method="POST">
                     <div class="form-group">
                         <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Kategori</label>
                         <div class="col-lg-4">
@@ -39,11 +39,11 @@
                         <div class="col-lg-10">
                             <textarea class="form-control ckeditor" name="inpIsi" rows="6"></textarea>
                         </div>
-                    </div>
+                    </div>              
                     <div class="form-group">
-                        <label for="inpGbr" class="col-lg-2 col-sm-2 control-label">Foto</label>
+                        <label for="inpGbr" class="col-lg-2 col-sm-2 control-label">URL Foto</label>
                         <div class="col-lg-4">
-                            <input type="file" class="form-control fileinput-button" name="inpGbr" />
+                            <input type="text" class="form-control" id="inpGbr" name="inpGbr" value="<?php echo $data->foto?>">
                         </div>
                     </div>
                     <div class="form-group">

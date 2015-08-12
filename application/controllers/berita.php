@@ -22,11 +22,8 @@ class Berita extends CI_Controller {
     function initialize_1() {
 
         // calendar sidebar
-//        $config = array(
-//            'show_next_prev' => TRUE
-//        );
-//        $this->calendar->initialize($config);
         $this->text['cal'] = $this->calendar->generate();
+        $this->text['frmt_date'] = new Format_date();
 
         //news
         $param_news = array(

@@ -46,7 +46,7 @@ class Berita extends MY_Controller {
 
     public function edit($id = null) {
         $data['title_page'] = 'EDIT';
-        $data['SIList_tipeModul'] = $this->listcode_model->select_by_field(array('list_name' => 'tipe_modul'))->result();
+        $data['SIList_kategori'] = $this->kategori_berita_model->select_all()->result();
         $data['data'] = $this->berita_model->select_by_field(array('id_berita' => $id))->row();
         $data['page_content'] = 'admin/master/berita/edit';
         $data['text'] = $this->text;
@@ -59,22 +59,22 @@ class Berita extends MY_Controller {
         $data['judul'] = $this->input->post('inpJudul');
         $data['headline'] = $this->input->post('inpHeadline');
         $data['isi'] = $this->input->post('inpIsi');     
-//        $data['foto'] = $this->input->post('inpGbr');    
+        $data['foto'] = $this->input->post('inpGbr');    
         
-        //upload gambar
-        $config = array(
-            'upload_path' => "./assets/admin/img/news/",
-            'allowed_types' => "gif|jpg|png|jpeg|pdf",
-            'overwrite' => TRUE,
-            'remove_space' => TRUE
-        );
-        $this->upload->initialize($config);
-        if ($this->upload->do_upload('inpGbr')) {
-            $dok = $this->upload->data();
-            $data['foto'] = $dok['file_name'];
-        }else{
-            $data['error'] = array('error' => $this->upload->display_errors());            
-        }
+//        //upload gambar
+//        $config = array(
+//            'upload_path' => "./assets/admin/img/news/",
+//            'allowed_types' => "gif|jpg|png|jpeg|pdf",
+//            'overwrite' => TRUE,
+//            'remove_space' => TRUE
+//        );
+//        $this->upload->initialize($config);
+//        if ($this->upload->do_upload('inpGbr')) {
+//            $dok = $this->upload->data();
+//            $data['foto'] = $dok['file_name'];
+//        }else{
+//            $data['error'] = array('error' => $this->upload->display_errors());            
+//        }
 
         //process
         if ($action == 'add') {

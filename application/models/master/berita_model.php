@@ -39,7 +39,16 @@ class Berita_model extends CI_Model {
     }
 
     public function select_by_field($param = array()) {
-        return $this->db->get_where($this->table_name, $param);
+        $this->db->select('*');
+
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('nm_kategori')->from('m_kategori_berita k');
+        $sub->where('k.id_kategori = m_berita.id_kategori');
+        $this->subquery->end_subquery('nama_kategori');
+
+        $this->db->from($this->table_name);
+        $this->db->where($param);
+        return $this->db->get();
     }
 
     public function add($data) {
