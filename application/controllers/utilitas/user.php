@@ -44,6 +44,7 @@ class User extends MY_Controller {
     public function add() {
         $data['title_page'] = 'ADD';
         $data['SIList_role'] = $this->role_model->select_all()->result();
+        $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $data['page_content'] = 'admin/utilitas/user/add';
         $data['text'] = $this->text;
@@ -53,6 +54,7 @@ class User extends MY_Controller {
     public function edit($id = null) {
         $data['title_page'] = 'EDIT';        
         $data['SIList_role'] = $this->role_model->select_all()->result();
+        $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $data['data'] = $this->user_model->select_by_field(array('id_user' => $id))->row();
         $data['page_content'] = 'admin/utilitas/user/edit';

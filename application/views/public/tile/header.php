@@ -73,7 +73,7 @@
                             <li><a href="<?php echo site_url('gallery/film_dokumenter')?>">Film Dokumenter</a></li>
                         </ul>
                     </li>                    
-                    <li><a href="portfolio.html">Peta</a></li>
+                    <li><a href="<?php echo base_url().'maps'?>">Peta</a></li>
                 </ul>
             </div>
         </div>

@@ -19,7 +19,7 @@ endif;
 $count_empty = 0;
 $count_check = 0;
 foreach ($data_kumuh as $data) {
-    if (substr($data->kode_daerah,0,2) == substr($this->session->userdata('role_daerah'), 0, 2)) {
+    if (substr($data->kode_daerah,0,2) == substr($this->session->userdata('role_propinsi'), 0, 2)) {
         if(strpos($this->session->userdata('username'),'eksisting')!==FALSE){
             if($data->eks == 1){
                 $count_check += 1;

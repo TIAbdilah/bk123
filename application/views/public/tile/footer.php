@@ -8,10 +8,10 @@
                         <img src="<?php echo base_url() . 'assets/public/img/' ?>footer.en.png" /><br>
                         Copyright © 2015-2016<br>
                         Direktorat Pengembangan Permukiman<br>
-                        <a href="#">Site Map</a> |
-                        <a href="#">Contact Us</i></a> |
-                        <a href="<?php echo site_url('login') ?>">Login</a> |
-                        <a href="#">Visitors :</a>
+                        <a href="#">Site Map</a>&nbsp;
+                        |&nbsp;<a href="#">Contact Us</i></a>&nbsp;
+                        |&nbsp;<a href="<?php echo site_url('login') ?>">Login</a>&nbsp;
+                        <!--|&nbsp;<a href="#">Visitors :</a>-->
                     </p>
                 </address>
             </div>

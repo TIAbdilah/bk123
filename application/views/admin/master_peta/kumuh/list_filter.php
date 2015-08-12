@@ -44,16 +44,29 @@ endif;
                             <?php
                             $no = 1;
                             foreach ($list_data as $data) {
-                                if (substr($data->kode_daerah,0,2) == substr($this->session->userdata('role_daerah'), 0, 2)) {
+                                if (substr($data->kode_daerah, 0, 2) == substr($this->session->userdata('role_propinsi'), 0, 2)) {
                                     ?>
                                     <tr>
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $data->kode_daerah ?></td>
                                         <td><?php echo $data->nm_kawasan ?></td>
-                                        <td><?php echo $text['arc']->tingkat_kumuh($data->tk) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_per_lain($data->pl) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_lainya($data->ksl) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr) ?></td>
+                                        <?php
+                                        if ($data->pen == 0) {
+                                            ?>
+                                            <td><?php echo $text['arc']->tingkat_kumuh($data->tk_e) ?></td>
+                                            <td><?php echo $text['arc']->tingkat_per_lain($data->pl_e) ?></td>
+                                            <td><?php echo $text['arc']->tingkat_lainya($data->ksl_e) ?></td>
+                                            <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr_e) ?></td>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <td><?php echo $text['arc']->tingkat_kumuh($data->tk_p) ?></td>
+                                            <td><?php echo $text['arc']->tingkat_per_lain($data->pl_p) ?></td>
+                                            <td><?php echo $text['arc']->tingkat_lainya($data->ksl_p) ?></td>
+                                            <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr_p) ?></td>
+                                            <?php
+                                        }
+                                        ?>
                                         <td>
                                             <?php
                                             if ($data->eks == 1) {

@@ -24,23 +24,6 @@
                                 </div>
                             </div>
                         </div>
-                        <?php
-                        if ($kategori != 'eksisting') {
-                            ?>
-                            <div class="form-group">
-                                <label for="inpPointLine" class="col-lg-3 col-sm-3 control-label">
-                                    <strong>Point / Line File</strong>
-                                </label>
-                                <div class="form-group">
-                                    <div class="col-lg-3">                                
-                                        <input type="file" class="form-control fileinput-button" name="inpPointLine" placeholder="foto2"/>
-                                        <p class="help-block">Filetype (kmz/kml) Maxsize (2 MB)</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <?php
-                        }
-                        ?>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 <strong>Peta File</strong>
@@ -61,14 +44,23 @@
                                 <strong>1.Kondisi Bangunan Gedung</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_1" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidakteraturan bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 1a. Ketidakteraturan Bangunan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetBang_prsn" value="1" <?php echo set_radio('inpKetBang_prsn', $data['ketidakteraturan_bangunan_prsn'], $data['ketidakteraturan_bangunan_prsn'] == 1) ?> /> 25-50% 
+                                <input type="radio" name="inpKetBang_prsn" value="0" <?php echo set_radio('inpKetBang_prsn', $data['ketidakteraturan_bangunan_prsn'], $data['ketidakteraturan_bangunan_prsn'] == 0) ?> /> 0-25% 
+                                <input type="radio" name="inpKetBang_prsn" value="1" <?php echo set_radio('inpKetBang_prsn', $data['ketidakteraturan_bangunan_prsn'], $data['ketidakteraturan_bangunan_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetBang_prsn" value="3" <?php echo set_radio('inpKetBang_prsn', $data['ketidakteraturan_bangunan_prsn'], $data['ketidakteraturan_bangunan_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetBang_prsn" value="5" <?php echo set_radio('inpKetBang_prsn', $data['ketidakteraturan_bangunan_prsn'], $data['ketidakteraturan_bangunan_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -122,7 +114,8 @@
                                 1b. Tingkat Kepadatan Bangunan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKepBang_prsn" value="1" <?php echo set_radio('inpKepBang_prsn', $data['tingkat_kepadatan_bangunan_prsn'], $data['tingkat_kepadatan_bangunan_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKepBang_prsn" value="0" <?php echo set_radio('inpKepBang_prsn', $data['tingkat_kepadatan_bangunan_prsn'], $data['tingkat_kepadatan_bangunan_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKepBang_prsn" value="1" <?php echo set_radio('inpKepBang_prsn', $data['tingkat_kepadatan_bangunan_prsn'], $data['tingkat_kepadatan_bangunan_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKepBang_prsn" value="3" <?php echo set_radio('inpKepBang_prsn', $data['tingkat_kepadatan_bangunan_prsn'], $data['tingkat_kepadatan_bangunan_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKepBang_prsn" value="5" <?php echo set_radio('inpKepBang_prsn', $data['tingkat_kepadatan_bangunan_prsn'], $data['tingkat_kepadatan_bangunan_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -183,7 +176,8 @@
                                 1c. Ketidaksesuaian dengan Persyaratan Teknis Bangunan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetPeTeBang_prsn" value="1" <?php echo set_radio('inpKetPeTeBang_prsn', $data['ketidaksesuaian_dg_persy_te_be_prsn'], $data['ketidaksesuaian_dg_persy_te_be_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetPeTeBang_prsn" value="0" <?php echo set_radio('inpKetPeTeBang_prsn', $data['ketidaksesuaian_dg_persy_te_be_prsn'], $data['ketidaksesuaian_dg_persy_te_be_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetPeTeBang_prsn" value="1" <?php echo set_radio('inpKetPeTeBang_prsn', $data['ketidaksesuaian_dg_persy_te_be_prsn'], $data['ketidaksesuaian_dg_persy_te_be_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetPeTeBang_prsn" value="3" <?php echo set_radio('inpKetPeTeBang_prsn', $data['ketidaksesuaian_dg_persy_te_be_prsn'], $data['ketidaksesuaian_dg_persy_te_be_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetPeTeBang_prsn" value="5" <?php echo set_radio('inpKetPeTeBang_prsn', $data['ketidaksesuaian_dg_persy_te_be_prsn'], $data['ketidaksesuaian_dg_persy_te_be_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -242,14 +236,23 @@
                                 <strong>2.Kondisi Jalan Lingkungan</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_2" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidak sesuaian dengan persyaratan teknis bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 2a. Cakupan Pelayanan Jalan Lingkungan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpCakPelJal_prsn" value="1" <?php echo set_radio('inpCakPelJal_prsn', $data['cakupan_pelayanan_jalan_prsn'], $data['cakupan_pelayanan_jalan_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpCakPelJal_prsn" value="0" <?php echo set_radio('inpCakPelJal_prsn', $data['cakupan_pelayanan_jalan_prsn'], $data['cakupan_pelayanan_jalan_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpCakPelJal_prsn" value="1" <?php echo set_radio('inpCakPelJal_prsn', $data['cakupan_pelayanan_jalan_prsn'], $data['cakupan_pelayanan_jalan_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpCakPelJal_prsn" value="3" <?php echo set_radio('inpCakPelJal_prsn', $data['cakupan_pelayanan_jalan_prsn'], $data['cakupan_pelayanan_jalan_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpCakPelJal_prsn" value="5" <?php echo set_radio('inpCakPelJal_prsn', $data['cakupan_pelayanan_jalan_prsn'], $data['cakupan_pelayanan_jalan_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -298,7 +301,8 @@
                                 2b. Kualitas Permukaan Jalan Lingkungan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKuaPerJal_prsn" value="1" <?php echo set_radio('inpKuaPerJal_prsn', $data['kualitas_permukaan_jalan_prsn'], $data['kualitas_permukaan_jalan_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKuaPerJal_prsn" value="0" <?php echo set_radio('inpKuaPerJal_prsn', $data['kualitas_permukaan_jalan_prsn'], $data['kualitas_permukaan_jalan_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKuaPerJal_prsn" value="1" <?php echo set_radio('inpKuaPerJal_prsn', $data['kualitas_permukaan_jalan_prsn'], $data['kualitas_permukaan_jalan_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKuaPerJal_prsn" value="3" <?php echo set_radio('inpKuaPerJal_prsn', $data['kualitas_permukaan_jalan_prsn'], $data['kualitas_permukaan_jalan_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKuaPerJal_prsn" value="5" <?php echo set_radio('inpKuaPerJal_prsn', $data['kualitas_permukaan_jalan_prsn'], $data['kualitas_permukaan_jalan_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -346,14 +350,23 @@
                                 <strong>3.Kondisi Penyedia Air Minum</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_3" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidak sesuaian dengan persyaratan teknis bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 3a. Ketidaktersedian Akses Aman Air Minum
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetAksAirMin_prsn" value="1" <?php echo set_radio('inpKetAksAirMin_prsn', $data['akses_air_minum_prsn'], $data['akses_air_minum_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetAksAirMin_prsn" value="0" <?php echo set_radio('inpKetAksAirMin_prsn', $data['akses_air_minum_prsn'], $data['akses_air_minum_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetAksAirMin_prsn" value="1" <?php echo set_radio('inpKetAksAirMin_prsn', $data['akses_air_minum_prsn'], $data['akses_air_minum_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetAksAirMin_prsn" value="3" <?php echo set_radio('inpKetAksAirMin_prsn', $data['akses_air_minum_prsn'], $data['akses_air_minum_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetAksAirMin_prsn" value="5" <?php echo set_radio('inpKetAksAirMin_prsn', $data['akses_air_minum_prsn'], $data['akses_air_minum_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -402,7 +415,8 @@
                                 3b. Tidak Terpenuhinya Kebutuhan Air Minum
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpTidTerKebAir_prsn" value="1" <?php echo set_radio('inpTidTerKebAir_prsn', $data['tidak_terpenuhi_kebutuhan_air_prsn'], $data['tidak_terpenuhi_kebutuhan_air_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpTidTerKebAir_prsn" value="0" <?php echo set_radio('inpTidTerKebAir_prsn', $data['tidak_terpenuhi_kebutuhan_air_prsn'], $data['tidak_terpenuhi_kebutuhan_air_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpTidTerKebAir_prsn" value="1" <?php echo set_radio('inpTidTerKebAir_prsn', $data['tidak_terpenuhi_kebutuhan_air_prsn'], $data['tidak_terpenuhi_kebutuhan_air_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpTidTerKebAir_prsn" value="3" <?php echo set_radio('inpTidTerKebAir_prsn', $data['tidak_terpenuhi_kebutuhan_air_prsn'], $data['tidak_terpenuhi_kebutuhan_air_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpTidTerKebAir_prsn" value="5" <?php echo set_radio('inpTidTerKebAir_prsn', $data['tidak_terpenuhi_kebutuhan_air_prsn'], $data['tidak_terpenuhi_kebutuhan_air_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -450,14 +464,23 @@
                                 <strong>4.Kondisi Drainase Lingkungan</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_4" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidak sesuaian dengan persyaratan teknis bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 4a. Ketidakmampuan Mengalirkan Limpasan Air
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetMenLimAir_prsn" value="1" <?php echo set_radio('inpKetMenLimAir_prsn', $data['tidak_mampu_mengalirkan_air_prsn'], $data['tidak_mampu_mengalirkan_air_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetMenLimAir_prsn" value="0" <?php echo set_radio('inpKetMenLimAir_prsn', $data['tidak_mampu_mengalirkan_air_prsn'], $data['tidak_mampu_mengalirkan_air_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetMenLimAir_prsn" value="1" <?php echo set_radio('inpKetMenLimAir_prsn', $data['tidak_mampu_mengalirkan_air_prsn'], $data['tidak_mampu_mengalirkan_air_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetMenLimAir_prsn" value="3" <?php echo set_radio('inpKetMenLimAir_prsn', $data['tidak_mampu_mengalirkan_air_prsn'], $data['tidak_mampu_mengalirkan_air_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetMenLimAir_prsn" value="5" <?php echo set_radio('inpKetMenLimAir_prsn', $data['tidak_mampu_mengalirkan_air_prsn'], $data['tidak_mampu_mengalirkan_air_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -506,7 +529,8 @@
                                 4b. Ketidaktersediaan Drainase 
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetDra_prsn" value="1" <?php echo set_radio('inpKetDra_prsn', $data['tidak_tersedia_drainase_prsn'], $data['tidak_tersedia_drainase_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetDra_prsn" value="0" <?php echo set_radio('inpKetDra_prsn', $data['tidak_tersedia_drainase_prsn'], $data['tidak_tersedia_drainase_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetDra_prsn" value="1" <?php echo set_radio('inpKetDra_prsn', $data['tidak_tersedia_drainase_prsn'], $data['tidak_tersedia_drainase_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetDra_prsn" value="3" <?php echo set_radio('inpKetDra_prsn', $data['tidak_tersedia_drainase_prsn'], $data['tidak_tersedia_drainase_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetDra_prsn" value="5" <?php echo set_radio('inpKetDra_prsn', $data['tidak_tersedia_drainase_prsn'], $data['tidak_tersedia_drainase_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -555,7 +579,8 @@
                                 4c. Ketidakterhubungan dengan Sistem Drainase Perkotaan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetSisDra_prsn" value="1" <?php echo set_radio('inpKetSisDra_prsn', $data['tidak_terhubung_sistem_drainase_prsn'], $data['tidak_terhubung_sistem_drainase_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetSisDra_prsn" value="0" <?php echo set_radio('inpKetSisDra_prsn', $data['tidak_terhubung_sistem_drainase_prsn'], $data['tidak_terhubung_sistem_drainase_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetSisDra_prsn" value="1" <?php echo set_radio('inpKetSisDra_prsn', $data['tidak_terhubung_sistem_drainase_prsn'], $data['tidak_terhubung_sistem_drainase_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetSisDra_prsn" value="3" <?php echo set_radio('inpKetSisDra_prsn', $data['tidak_terhubung_sistem_drainase_prsn'], $data['tidak_terhubung_sistem_drainase_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetSisDra_prsn" value="5" <?php echo set_radio('inpKetSisDra_prsn', $data['tidak_terhubung_sistem_drainase_prsn'], $data['tidak_terhubung_sistem_drainase_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -604,7 +629,8 @@
                                 4d. Tidak Terpeliharanya Drainase
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetPelDra_prsn" value="1" <?php echo set_radio('inpKetPelDra_prsn', $data['tidak_terpelihara_drainase_prsn'], $data['tidak_terpelihara_drainase_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetPelDra_prsn" value="0" <?php echo set_radio('inpKetPelDra_prsn', $data['tidak_terpelihara_drainase_prsn'], $data['tidak_terpelihara_drainase_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetPelDra_prsn" value="1" <?php echo set_radio('inpKetPelDra_prsn', $data['tidak_terpelihara_drainase_prsn'], $data['tidak_terpelihara_drainase_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetPelDra_prsn" value="3" <?php echo set_radio('inpKetPelDra_prsn', $data['tidak_terpelihara_drainase_prsn'], $data['tidak_terpelihara_drainase_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetPelDra_prsn" value="5" <?php echo set_radio('inpKetPelDra_prsn', $data['tidak_terpelihara_drainase_prsn'], $data['tidak_terpelihara_drainase_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -658,7 +684,8 @@
                                 4e. Kualitas Konstruksi Drainase
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKuaKonDra_prsn" value="1" <?php echo set_radio('inpKuaKonDra_prsn', $data['kualitas_konstruksi_drainase_prsn'], $data['kualitas_konstruksi_drainase_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKuaKonDra_prsn" value="0" <?php echo set_radio('inpKuaKonDra_prsn', $data['kualitas_konstruksi_drainase_prsn'], $data['kualitas_konstruksi_drainase_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKuaKonDra_prsn" value="1" <?php echo set_radio('inpKuaKonDra_prsn', $data['kualitas_konstruksi_drainase_prsn'], $data['kualitas_konstruksi_drainase_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKuaKonDra_prsn" value="3" <?php echo set_radio('inpKuaKonDra_prsn', $data['kualitas_konstruksi_drainase_prsn'], $data['kualitas_konstruksi_drainase_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKuaKonDra_prsn" value="5" <?php echo set_radio('inpKuaKonDra_prsn', $data['kualitas_konstruksi_drainase_prsn'], $data['kualitas_konstruksi_drainase_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -706,14 +733,23 @@
                                 <strong>5.Kondisi Pengelolaan Air Limbah</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_5" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidak sesuaian dengan persyaratan teknis bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 5a. Sistem Pengelolaan Air Limbah Tidak Sesuai Standar Teknis
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpSisPenAirLim_prsn" value="1" <?php echo set_radio('inpSisPenAirLim_prsn', $data['sistem_pengelolaan_air_limbah_prsn'], $data['sistem_pengelolaan_air_limbah_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpSisPenAirLim_prsn" value="0" <?php echo set_radio('inpSisPenAirLim_prsn', $data['sistem_pengelolaan_air_limbah_prsn'], $data['sistem_pengelolaan_air_limbah_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpSisPenAirLim_prsn" value="1" <?php echo set_radio('inpSisPenAirLim_prsn', $data['sistem_pengelolaan_air_limbah_prsn'], $data['sistem_pengelolaan_air_limbah_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpSisPenAirLim_prsn" value="3" <?php echo set_radio('inpSisPenAirLim_prsn', $data['sistem_pengelolaan_air_limbah_prsn'], $data['sistem_pengelolaan_air_limbah_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpSisPenAirLim_prsn" value="5" <?php echo set_radio('inpSisPenAirLim_prsn', $data['sistem_pengelolaan_air_limbah_prsn'], $data['sistem_pengelolaan_air_limbah_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -762,7 +798,8 @@
                                 5b. Prasarana dan Sarana Pengelolaan Air Limbah Tidak Sesuai Dengan Persyaratan Teknis
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpPraPenAirLim_prsn" value="1" <?php echo set_radio('inpPraPenAirLim_prsn', $data['pras_pengelolaan_air_limbah_prsn'], $data['pras_pengelolaan_air_limbah_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpPraPenAirLim_prsn" value="0" <?php echo set_radio('inpPraPenAirLim_prsn', $data['pras_pengelolaan_air_limbah_prsn'], $data['pras_pengelolaan_air_limbah_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpPraPenAirLim_prsn" value="1" <?php echo set_radio('inpPraPenAirLim_prsn', $data['pras_pengelolaan_air_limbah_prsn'], $data['pras_pengelolaan_air_limbah_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpPraPenAirLim_prsn" value="3" <?php echo set_radio('inpPraPenAirLim_prsn', $data['pras_pengelolaan_air_limbah_prsn'], $data['pras_pengelolaan_air_limbah_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpPraPenAirLim_prsn" value="5" <?php echo set_radio('inpPraPenAirLim_prsn', $data['pras_pengelolaan_air_limbah_prsn'], $data['pras_pengelolaan_air_limbah_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -815,14 +852,23 @@
                                 <strong>6.Kondisi Pengelolaan Sampah</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_6" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidak sesuaian dengan persyaratan teknis bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 6a. Prasarana dan Sarana Persampahan Tidak Sesuai dengan Persyaratan Teknis
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpPraPerSamTid_prsn" value="1" <?php echo set_radio('inpPraPerSamTid_prsn', $data['pras_sampah_tidak_sesuai_prsn'], $data['pras_sampah_tidak_sesuai_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpPraPerSamTid_prsn" value="0" <?php echo set_radio('inpPraPerSamTid_prsn', $data['pras_sampah_tidak_sesuai_prsn'], $data['pras_sampah_tidak_sesuai_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpPraPerSamTid_prsn" value="1" <?php echo set_radio('inpPraPerSamTid_prsn', $data['pras_sampah_tidak_sesuai_prsn'], $data['pras_sampah_tidak_sesuai_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpPraPerSamTid_prsn" value="3" <?php echo set_radio('inpPraPerSamTid_prsn', $data['pras_sampah_tidak_sesuai_prsn'], $data['pras_sampah_tidak_sesuai_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpPraPerSamTid_prsn" value="5" <?php echo set_radio('inpPraPerSamTid_prsn', $data['pras_sampah_tidak_sesuai_prsn'], $data['pras_sampah_tidak_sesuai_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -878,7 +924,8 @@
                                 6b. Sistem Pengelolaan Persampahan yang Tidak Sesuai Standar Teknis
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpSisPenSamTid_prsn" value="1" <?php echo set_radio('inpSisPenSamTid_prsn', $data['sis_pen_sampah_tidak_sesuai_prsn'], $data['sis_pen_sampah_tidak_sesuai_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpSisPenSamTid_prsn" value="0" <?php echo set_radio('inpSisPenSamTid_prsn', $data['sis_pen_sampah_tidak_sesuai_prsn'], $data['sis_pen_sampah_tidak_sesuai_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpSisPenSamTid_prsn" value="1" <?php echo set_radio('inpSisPenSamTid_prsn', $data['sis_pen_sampah_tidak_sesuai_prsn'], $data['sis_pen_sampah_tidak_sesuai_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpSisPenSamTid_prsn" value="3" <?php echo set_radio('inpSisPenSamTid_prsn', $data['sis_pen_sampah_tidak_sesuai_prsn'], $data['sis_pen_sampah_tidak_sesuai_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpSisPenSamTid_prsn" value="5" <?php echo set_radio('inpSisPenSamTid_prsn', $data['sis_pen_sampah_tidak_sesuai_prsn'], $data['sis_pen_sampah_tidak_sesuai_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -934,7 +981,8 @@
                                 6c. Terpeliharanya Sarana dan Prasarana Pengelolaan Persampahan
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpPraPenPer_prsn" value="1" <?php echo set_radio('inpPraPenPer_prsn', $data['terpelihara_pras_sampah_prsn'], $data['terpelihara_pras_sampah_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpPraPenPer_prsn" value="0" <?php echo set_radio('inpPraPenPer_prsn', $data['terpelihara_pras_sampah_prsn'], $data['terpelihara_pras_sampah_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpPraPenPer_prsn" value="1" <?php echo set_radio('inpPraPenPer_prsn', $data['terpelihara_pras_sampah_prsn'], $data['terpelihara_pras_sampah_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpPraPenPer_prsn" value="3" <?php echo set_radio('inpPraPenPer_prsn', $data['terpelihara_pras_sampah_prsn'], $data['terpelihara_pras_sampah_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpPraPenPer_prsn" value="5" <?php echo set_radio('inpPraPenPer_prsn', $data['terpelihara_pras_sampah_prsn'], $data['terpelihara_pras_sampah_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -994,14 +1042,23 @@
                                 <strong>7.Kondisi Proteksi Kebakaran</strong>
                             </label>
                         </div>
-
+                        <div class="form-group">
+                            <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
+                                Point / Line file
+                            </label>
+                            <div class="col-lg-4">                                
+                                <input type="file" class="form-control fileinput-button" name="inpPL_7" placeholder="foto2"/>
+                                <p class="help-block">Filetype (kml/kmz) Maxsize (2 MB)</p>
+                            </div>
+                        </div>
                         <!--ketidak sesuaian dengan persyaratan teknis bangunan-->
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
                                 7a. Ketidaktersediaan Prasarana Proteksi Kebakaran
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetPraProKeb_prsn" value="1" <?php echo set_radio('inpKetPraProKeb_prsn', $data['tidak_tersedia_pras_prokeb_prsn'], $data['tidak_tersedia_pras_prokeb_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetPraProKeb_prsn" value="0" <?php echo set_radio('inpKetPraProKeb_prsn', $data['tidak_tersedia_pras_prokeb_prsn'], $data['tidak_tersedia_pras_prokeb_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetPraProKeb_prsn" value="1" <?php echo set_radio('inpKetPraProKeb_prsn', $data['tidak_tersedia_pras_prokeb_prsn'], $data['tidak_tersedia_pras_prokeb_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetPraProKeb_prsn" value="3" <?php echo set_radio('inpKetPraProKeb_prsn', $data['tidak_tersedia_pras_prokeb_prsn'], $data['tidak_tersedia_pras_prokeb_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetPraProKeb_prsn" value="5" <?php echo set_radio('inpKetPraProKeb_prsn', $data['tidak_tersedia_pras_prokeb_prsn'], $data['tidak_tersedia_pras_prokeb_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -1062,7 +1119,8 @@
                                 7b. Ketersediaan Sarana Proteksi Kebakaran
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKetSarProKeb_prsn" value="1" <?php echo set_radio('inpKetSarProKeb_prsn', $data['tidak_tersedia_sar_prokeb_prsn'], $data['tidak_tersedia_sar_prokeb_prsn'] == 1) ?>/> 25-50% 
+                                <input type="radio" name="inpKetSarProKeb_prsn" value="0" <?php echo set_radio('inpKetSarProKeb_prsn', $data['tidak_tersedia_sar_prokeb_prsn'], $data['tidak_tersedia_sar_prokeb_prsn'] == 0) ?>/> 0-25% 
+                                <input type="radio" name="inpKetSarProKeb_prsn" value="1" <?php echo set_radio('inpKetSarProKeb_prsn', $data['tidak_tersedia_sar_prokeb_prsn'], $data['tidak_tersedia_sar_prokeb_prsn'] == 1) ?> /> 26-50%<br>  
                                 <input type="radio" name="inpKetSarProKeb_prsn" value="3" <?php echo set_radio('inpKetSarProKeb_prsn', $data['tidak_tersedia_sar_prokeb_prsn'], $data['tidak_tersedia_sar_prokeb_prsn'] == 3) ?>/> 51-75%
                                 <input type="radio" name="inpKetSarProKeb_prsn" value="5" <?php echo set_radio('inpKetSarProKeb_prsn', $data['tidak_tersedia_sar_prokeb_prsn'], $data['tidak_tersedia_sar_prokeb_prsn'] == 5) ?>/> 76-100%
                                 <br>
@@ -1133,7 +1191,7 @@
                             </label>
                             <div class="col-lg-3">
                                 <input type="radio" name="inpNilStrLok_prsn" value="5" <?php echo set_radio('inpNilStrLok_prsn', $data['nilai_strategis_lokasi_prsn'], $data['nilai_strategis_lokasi_prsn'] == 5) ?>/> Ada
-                                <input type="radio" name="inpNilStrLok_prsn" value="1" <?php echo set_radio('inpNilStrLok_prsn', $data['nilai_strategis_lokasi_prsn'], $data['nilai_strategis_lokasi_prsn'] == 1) ?>/> Tidak
+                                <input type="radio" name="inpNilStrLok_prsn" value="0" <?php echo set_radio('inpNilStrLok_prsn', $data['nilai_strategis_lokasi_prsn'], $data['nilai_strategis_lokasi_prsn'] == 0) ?>/> Tidak
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
@@ -1246,7 +1304,7 @@
                             </label>
                             <div class="col-lg-3">
                                 <input type="radio" name="inpSosBud_prsn" value="5" <?php echo set_radio('inpSosBud_prsn', $data['sosial_budaya_prsn'], $data['sosial_budaya_prsn'] == 5) ?>/> Ya
-                                <input type="radio" name="inpSosBud_prsn" value="1" <?php echo set_radio('inpSosBud_prsn', $data['sosial_budaya_prsn'], $data['sosial_budaya_prsn'] == 1) ?>/> Tidak
+                                <input type="radio" name="inpSosBud_prsn" value="0" <?php echo set_radio('inpSosBud_prsn', $data['sosial_budaya_prsn'], $data['sosial_budaya_prsn'] == 0) ?>/> Tidak
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
@@ -1311,7 +1369,7 @@
                             </label>
                             <div class="col-lg-3">
                                 <input type="radio" name="inpKejStaLah_prsn" value="0" <?php echo set_radio('inpKejStaLah_prsn', $data['kejelasan_status_lahan_prsn'], $data['kejelasan_status_lahan_prsn'] == 0) ?>/> - 
-                                <input type="radio" name="inpKejStaLah_prsn" value="1" <?php echo set_radio('inpKejStaLah_prsn', $data['kejelasan_status_lahan_prsn'], $data['kejelasan_status_lahan_prsn'] == 1) ?>/> +
+                                <input type="radio" name="inpKejStaLah_prsn" value="0" <?php echo set_radio('inpKejStaLah_prsn', $data['kejelasan_status_lahan_prsn'], $data['kejelasan_status_lahan_prsn'] == 0) ?>/> +
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">
@@ -1366,8 +1424,8 @@
                                 9b. Kesesuaian RTR
                             </label>
                             <div class="col-lg-3">
-                                <input type="radio" name="inpKesRtr_prsn" value="0" <?php echo set_radio('inpKesRtr_prsn', $data['kesesuaian_rtr_prsn'], $data['kesesuaian_rtr_prsn'] == 1) ?>/> - 
-                                <input type="radio" name="inpKesRtr_prsn" value="1" <?php echo set_radio('inpKesRtr_prsn', $data['kesesuaian_rtr_prsn'], $data['kesesuaian_rtr_prsn'] == 1) ?>/> +
+                                <input type="radio" name="inpKesRtr_prsn" value="0" <?php echo set_radio('inpKesRtr_prsn', $data['kesesuaian_rtr_prsn'], $data['kesesuaian_rtr_prsn'] == 0) ?>/> - 
+                                <input type="radio" name="inpKesRtr_prsn" value="0" <?php echo set_radio('inpKesRtr_prsn', $data['kesesuaian_rtr_prsn'], $data['kesesuaian_rtr_prsn'] == 0) ?>/> +
                                 <br>
                                 <div style="margin-top: 10px">
                                     <p class="help-block">

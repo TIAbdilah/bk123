@@ -26,7 +26,8 @@ class Array_custom extends CI_Controller {
     }
 
     var $tingkat_persen = array(
-        '1' => '25% - 50%',
+        '0' => '0% - 25%',
+        '1' => '26% - 50%',
         '3' => '51% - 75%',
         '5' => '76% - 100%'
     );

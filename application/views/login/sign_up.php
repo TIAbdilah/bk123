@@ -43,14 +43,30 @@
                         }
                         ?>
                     </select>
-                    Wilayah Kerja
-                    <select name="inpWilayahKerja" class="form-control">                                                
+                    Wilayah Kerja (Propinsi)
+                    <select name="inpWilayahKerjaP" class="form-control">                                                
+                        <option value="">-Pilih Propinsi-</option>
+                        <?php
+                        foreach ($SIList_propinsi as $row) {
+                            echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
+                        }
+                        ?>
+                    </select>
+                    Wilayah Kerja (Kab/Kota)
+                    <select name="inpWilayahKerjaK" class="form-control">                                                
                         <option value="">-Pilih Kabupaten / Kota-</option>
                         <?php
                         foreach ($SIList_kabupaten as $row) {
                             echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
                         }
                         ?>
+                    </select>
+                    Pengisi Data
+                    <select name="inpBagian" class="form-control">                                                
+                        <option value="">-Pilih Pengisi Data-</option>
+                        <option value="1">Data Eksisting</option>
+                        <option value="2">Data Perencanaan</option>
+                        <option value="3">Data Penanganan dan Pengendalian</option>
                     </select>
                     Username
                     <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Username">

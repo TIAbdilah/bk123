@@ -25,7 +25,9 @@ endif;
                                 <th>Email</th>
                                 <th>Status</th>
                                 <th>Role</th>
-                                <th><a href="#" title="Wilayah Kerja">WK</a></th>
+                                <th><a href="#" title="Wilayah Kerja (Propinsi)">WK.P</a></th>
+                                <th><a href="#" title="Wilayah Kerja (Kab/Kota)">WK.K</a></th>
+                                <th>Bagian</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -33,15 +35,18 @@ endif;
                             <?php
                             $no = 1;
                             foreach ($list_data as $data) {
-                                if (substr($data->kode_daerah, 0, 2) == substr($this->session->userdata('role_daerah'), 0, 2)) {
+                                if (substr($data->propinsi, 0, 2) == substr($this->session->userdata('role_propinsi'), 0, 2) 
+                                        && $data->bagian == $this->session->userdata('bagian')) {
                                     ?>
                                     <tr>
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $data->username ?></td>
                                         <td><?php echo $data->email ?></td>
                                         <td><?php echo $text['arc']->active[$data->active] ?></td>
-                                        <td><?php echo $data->nama_role ?></td>
-                                        <td><?php echo $data->kode_daerah ?></td>
+                                        <td><?php echo $data->nama_role ?></td>                                        
+                                        <td><?php echo $data->propinsi ?></td>
+                                        <td><?php echo $data->kab_kota ?></td>
+                                        <td><?php echo $data->bagian ?></td>
                                         <td class="dt-body-center">
                                             <?php
                                             if ($data->active == 0) {
@@ -72,8 +77,8 @@ endif;
                                             </a>
                                             <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
                                                onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->username)) ?>')) {
-                                                               window.location = '<?php echo site_url('utilitas/user/delete/' . $data->id_user) ?>';
-                                                           }" 
+                                                                   window.location = '<?php echo site_url('utilitas/user/delete/' . $data->id_user) ?>';
+                                                               }" 
                                                class="btn btn-xs btn-danger">
                                                 <?php echo $text['txt']->button['delete_data'] ?>
                                             </a>                      

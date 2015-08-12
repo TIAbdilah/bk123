@@ -20,6 +20,7 @@ class Login extends CI_Controller {
         parent::__construct();
         $this->load->model('utilitas/user_model');
         $this->load->model('utilitas/role_model');
+        $this->load->model('master_peta/view_propinsi_model');
         $this->load->model('master_peta/view_kabupaten_model');
     }
 
@@ -31,7 +32,8 @@ class Login extends CI_Controller {
     public function sign_up() {
         $data['title_page'] = 'INDEX';
         $data['SIList_role'] = $this->role_model->select_all()->result();
-        $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();        
+        $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();        
+        $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $this->load->view('login/sign_up', $data);
     }
 
@@ -60,7 +62,9 @@ class Login extends CI_Controller {
                     $sessionData['username'] = $data_user->username;
                     $sessionData['role'] = $data_user->nama_role;
                     $sessionData['id_role'] = $data_user->id_role;
-                    $sessionData['role_daerah'] = $data_user->kode_daerah;
+                    $sessionData['role_propinsi'] = $data_user->propinsi;
+                    $sessionData['role_kab_kota'] = $data_user->kab_kota;
+                    $sessionData['bagian'] = $data_user->bagian;
                     $sessionData['is_login'] = TRUE;
 
                     $this->session->set_userdata($sessionData);

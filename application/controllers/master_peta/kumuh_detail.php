@@ -160,8 +160,15 @@ class Kumuh_detail extends MY_Controller {
         $data['tidak_tersedia_sar_prokeb_foto'] = $this->upload_image(array('indikator_name' => 'tid_sar_pro_keb_' . substr($data['kategori'], 0, 4), 'input' => 'inpKetSarProKeb_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
 
         $data['kmz_file'] = $this->upload_image(array('indikator_name' => 'kmz_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmz_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
-        $data['point_line_file'] = $this->upload_image(array('indikator_name' => 'point_line_' . substr($data['kategori'], 0, 4), 'input' => 'inpPointLine_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
         $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta_file', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+
+        $data['point_line_1'] = $this->upload_image(array('indikator_name' => 'point_line_1_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_1', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_2'] = $this->upload_image(array('indikator_name' => 'point_line_2_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_2', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_3'] = $this->upload_image(array('indikator_name' => 'point_line_3_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_3', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_4'] = $this->upload_image(array('indikator_name' => 'point_line_4_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_4', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_5'] = $this->upload_image(array('indikator_name' => 'point_line_5_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_5', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_6'] = $this->upload_image(array('indikator_name' => 'point_line_6_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_6', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['point_line_7'] = $this->upload_image(array('indikator_name' => 'point_line_7_' . substr($data['kategori'], 0, 4), 'input' => 'inpPL_7', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
 
 //        process
         if ($action == 'add') {
