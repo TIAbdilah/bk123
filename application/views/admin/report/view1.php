@@ -21,12 +21,10 @@ and open the template in the editor.
     </head>
     <body style="width: 100%">
         <h2>Profil Kawasan Permukiman Kumuh</h2>
-        <strong><?php echo $kota->nm_daerah ?> (
+        <strong><?php echo $propinsi->nm_daerah ?> (<?php echo $kawasan->nm_kawasan ?> -
             <?php
             if ($data_detail_eks != null) {
                 echo $data_detail_eks->kategori;
-            } else {
-                echo '-';
             }
             ?>
             )</strong>  

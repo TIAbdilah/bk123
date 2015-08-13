@@ -15,9 +15,12 @@ class Daerah_kumuh extends MY_Controller {
         parent::__construct();
     }
 
-    public function view() {
+    public function view($id) {
         $data = null;
-        $data['data_detail_eks'] = null;
+        $data['data_detail_eks'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row();
+        $data['kawasan'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $data['data_detail_eks']->id_kaw_kumuh))->row();
+        $data['kota'] = $this->view_kabupaten_model->select_by_field(array('kode_daerah' => $data['kawasan']->kode_daerah))->row();
+        $data['propinsi'] = $this->view_propinsi_model->select_by_field(array('kode_daerah' => substr($data['kawasan']->kode_daerah,0,2)))->row();
         $data['text'] = $this->text;
         $this->load->view('admin/report/view1', $data);
     }
@@ -26,8 +29,8 @@ class Daerah_kumuh extends MY_Controller {
         $this->load->helper('to_pdf');
         $data = null;
         $data['data_detail_eks'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row();
-        $kawasan = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $data['data_detail_eks']->id_kaw_kumuh))->row();
-        $data['kota'] = $this->view_kabupaten_model->select_by_field(array('kode_daerah' => $kawasan->kode_daerah))->row();
+        $data['kawasan'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $data['data_detail_eks']->id_kaw_kumuh))->row();
+        $data['kota'] = $this->view_kabupaten_model->select_by_field(array('kode_daerah' => $data['kawasan']->kode_daerah))->row();
         $data['text'] = $this->text;
         $html = $this->load->view('admin/report/view1', $data, TRUE);
         pdf_create($html, "landscape", "Profil Kawasan Kumuh ".date('mdy'), true,"a3");

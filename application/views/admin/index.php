@@ -120,6 +120,15 @@
                         this.checked = false;
                     });
                 });
+                
+//                $('#comboRole').change(function(){
+////                    super_admin
+//                    if($(this).val()=='1'){
+//                        $("#propinsi").hide();
+//                        $("#kabupaten").hide();
+//                        $("#bagian").hide();                        
+//                    } else if($(this).val()=)
+//                })
             });
 
             //custom select box
