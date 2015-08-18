@@ -64,11 +64,15 @@ class User extends MY_Controller {
 
     public function process($action, $id = null) {
         // var
+         $data['nama'] = $this->input->post('inpNama');
         $data['username'] = $this->input->post('inpUsername');
         $data['password'] = $this->input->post('inpPassword');
         $data['email'] = $this->input->post('inpEmail');
+        $data['no_telp'] = $this->input->post('inpNoTlp');
         $data['id_role'] = $this->input->post('inpIdRole');
-        $data['kode_daerah'] = $this->input->post('inpWilayahKerja');
+        $data['bagian'] = $this->input->post('inpBagian');
+        $data['propinsi'] = $this->input->post('inpWilayahKerjaP');
+        $data['kab_kota'] = $this->input->post('inpWilayahKerjaK');
 
 //        process
         if ($action == 'add') {

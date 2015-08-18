@@ -137,6 +137,47 @@
                 $('select.styled').customSelect();
             });
 
+var usr = "";
+            $('#inpWilayahKerjaK').hide();
+
+            $('#inpIdRole').change(function() {
+                var role = $(this).val();
+                if (role == '4') {
+                    $('#inpWilayahKerjaK').show();
+                } else if (role == '3') {
+                    $('#inpWilayahKerjaK').hide();
+                }
+                $('#inpUsername').val(usr + $('#inpIdRole option:selected').text());
+
+            });
+
+            $('#inpBagian').change(function() {
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val());
+            });
+
+            $('#inpWilayahKerjaP').change(function() {
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaP option:selected').val());
+            });
+
+            $('#inpWilayahKerjaK').change(function() {
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaK option:selected').val());
+            });
+
+//            $("#inpWilayahKerjaP").change(function() {
+//
+//                $.ajax({
+//                    url: "<?php echo base_url(); ?>master_peta/daerah/populateKabKota",
+//                    data: {kode_propinsi: $('#inpWilayahKerjaP').val()},
+//                    type: "POST",
+//                    dataType: "json",
+//                    success: function(data) {
+//                        $("#inpWilayahKerjaK").html(data[0]);
+//                    },
+//                    error: function(){
+//                        alert("lalalala");
+//                    }
+//                });
+//            });
         </script>
 
         <script type="text/javascript">

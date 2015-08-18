@@ -30,7 +30,7 @@ endif;
             <div class="form-group">
                 <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama Kecamatan</label>
                 <div class="col-lg-4">
-                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan       ?></p>
+                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan        ?></p>
                 </div>
             </div>
         </form>
@@ -944,81 +944,70 @@ endif;
             <tr>               
                 <th align="center" colspan="3"></th>
                 <td align="center" >
-                    <?php
-                    if ($data_detail_eks != null) {
+                    <?php if ($data_detail_eks != null && $this->session->userdata('bagian') == 'eksisting') { ?>
                         ?>
-                        <?php if ($text['rg']['M02h']) { ?>
-                            <a title="Edit Data Eksisting" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/edit/eksisting/' . $data->id_kaw_kumuh . '/' . $data_detail_eks->id_kumuh_detail) ?>" 
-                               class="btn btn-large btn-warning">
-                                <i class="icon-pencil"></i> Edit
-                            </a>
-                            <a title="Cetak Data Penanganan" 
-                               href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_eks->id_kumuh_detail) ?>" 
-                               class="btn btn-large btn-primary">
-                                <i class="icon-print"></i> Cetak
-                            </a>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <?php if ($text['rg']['M02e']) { ?>
-                            <a title="Add Data Eksisting" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/add/eksisting/' . $data->id_kaw_kumuh) ?>" 
-                               class="btn btn-large btn-success">
-                                <i class="icon-plus"></i> Add 
-                            </a>
-                        <?php } ?>
+                        <a title="Edit Data Eksisting" 
+                           href="<?php echo site_url('master_peta/kumuh_detail/edit/eksisting/' . $data->id_kaw_kumuh . '/' . $data_detail_eks->id_kumuh_detail) ?>" 
+                           class="btn btn-large btn-warning">
+                            <i class="icon-pencil"></i> Edit
+                        </a>
+                        <a title="Cetak Data Penanganan" 
+                           href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_eks->id_kumuh_detail) ?>" 
+                           class="btn btn-large btn-primary">
+                            <i class="icon-print"></i> Cetak
+                        </a>
+                    <?php } else if ($data_detail_eks != null && $this->session->userdata('bagian') == 'eksisting') { ?>
+                        <a title="Add Data Eksisting" 
+                           href="<?php echo site_url('master_peta/kumuh_detail/add/eksisting/' . $data->id_kaw_kumuh) ?>" 
+                           class="btn btn-large btn-success">
+                            <i class="icon-plus"></i> Add 
+                        </a>
                     <?php } ?>
                 </td>
                 <td align="center" >
                     <?php
-                    if ($data_detail_per != null) {
+                    if ($data_detail_per != null && $this->session->userdata('bagian') == 'perencanaan') {
                         ?>
-                        <?php if ($text['rg']['M02i']) { ?>
-                            <a title="Edit Data Perencanaan" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/edit/perencanaan/' . $data->id_kaw_kumuh . '/' . $data_detail_per->id_kumuh_detail) ?>" 
-                               class="btn btn-large btn-warning">
-                                <i class="icon-pencil"></i> Edit 
-                            </a>
-                            <a title="Cetak Data Penanganan" 
-                               href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_per->id_kumuh_detail) ?>" 
-                               class="btn btn-large btn-primary">
-                                <i class="icon-print"></i> Cetak
-                            </a>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <?php if ($text['rg']['M02f']) { ?>
-                            <a title="Add Data Perencanaan" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/add/perencanaan/' . $data->id_kaw_kumuh) ?>" 
-                               class="btn btn-large btn-success">
-                                <i class="icon-plus"></i> Add 
-                            </a>
-                        <?php } ?>
+                        <a title="Edit Data Perencanaan" 
+                           href="<?php echo site_url('master_peta/kumuh_detail/edit/perencanaan/' . $data->id_kaw_kumuh . '/' . $data_detail_per->id_kumuh_detail) ?>" 
+                           class="btn btn-large btn-warning">
+                            <i class="icon-pencil"></i> Edit 
+                        </a>
+                        <a title="Cetak Data Penanganan" 
+                           href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_per->id_kumuh_detail) ?>" 
+                           class="btn btn-large btn-primary">
+                            <i class="icon-print"></i> Cetak
+                        </a>
+                    <?php } else if ($data_detail_per != null && $this->session->userdata('bagian') == 'perencanaan') { ?>
+                        <a title="Add Data Perencanaan" 
+                           href="<?php echo site_url('master_peta/kumuh_detail/add/perencanaan/' . $data->id_kaw_kumuh) ?>" 
+                           class="btn btn-large btn-success">
+                            <i class="icon-plus"></i> Add 
+                        </a>
                     <?php } ?>
                 </td>
                 <td align="center" >
                     <?php
-                    if ($data_detail_pen != null) {
+                    if ($data_detail_pen != null && $this->session->userdata('bagian') == 'penanganan') {
                         ?>
-                        <?php if ($text['rg']['M02j']) { ?>
-                            <a title="Edit Data Penanganan" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/edit/penanganan/' . $data->id_kaw_kumuh . '/' . $data_detail_pen->id_kumuh_detail) ?>" 
-                               class="btn btn-large btn-warning">
-                                <i class="icon-pencil"></i> Edit
-                            </a>
-                            <a title="Cetak Data Penanganan" 
-                               href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_pen->id_kumuh_detail) ?>" 
-                               class="btn btn-large btn-primary">
-                                <i class="icon-print"></i> Cetak
-                            </a>
-                        <?php } ?>
-                    <?php } else { ?>
-                        <?php if ($text['rg']['M02g']) { ?>
-                            <a title="Add Data Penanganan" 
-                               href="<?php echo site_url('master_peta/kumuh_detail/add/penanganan/' . $data->id_kaw_kumuh) ?>" 
-                               class="btn btn-large btn-success">
-                                <i class="icon-plus"></i> Add
-                            </a>
-                        <?php } ?>
+                        <a title="Edit Data Penanganan" 
+                           href="<?php echo site_url('master_peta/kumuh_detail/edit/penanganan/' . $data->id_kaw_kumuh . '/' . $data_detail_pen->id_kumuh_detail) ?>" 
+                           class="btn btn-large btn-warning">
+                            <i class="icon-pencil"></i> Edit
+                        </a>
+                        <a title="Cetak Data Penanganan" 
+                           href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_pen->id_kumuh_detail) ?>" 
+                           class="btn btn-large btn-primary">
+                            <i class="icon-print"></i> Cetak
+                        </a>
+                        <?php
+                    } else if ($data_detail_pen == null && $this->session->userdata('bagian') == 'penanganan') {
+                        ?>
+                        <a title="Add Data Penanganan" 
+                           href="<?php echo site_url('master_peta/kumuh_detail/add/penanganan/' . $data->id_kaw_kumuh) ?>" 
+                           class="btn btn-large btn-success">
+                            <i class="icon-plus"></i> Add
+                        </a>
                     <?php } ?>
                 </td>
             </tr>

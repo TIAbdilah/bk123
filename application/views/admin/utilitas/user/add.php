@@ -12,24 +12,32 @@
                     <div class="form-group">
                         <label class="col-lg-3 col-sm-3 control-label" for="inpIdRole">Role</label>
                         <div class="col-lg-4">
-                            <select name="inpIdRole" class="form-control">                                                
-                                <option value="">-Pilih Role-</option>
-                                <?php
-                                foreach ($SIList_role as $row) {
-                                    echo "<option value=\"" . $row->id_role . "\">" . $row->nama_role . "</option>";
-                                }
-                                ?>
+                            <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
+                                <option value="">-Pilih Kategori Pengguna-</option>
+                                <option value="3">Admin</option>
+                                <option value="4">Operator</option>
+                            </select>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label" for="inpBagian">Pengisi Data</label>
+                        <div class="col-lg-4">
+                            <select id="inpBagian" name="inpBagian" class="form-control">                                                
+                                <option value="">-Pilih Penanggung Jawab Data-</option>
+                                <option value="eksisting">Data Eksisting</option>
+                                <option value="perencanaan">Data Perencanaan</option>
+                                <option value="penanganan">Data Penanganan dan Pengendalian</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 col-sm-3 control-label" for="inpWilayahKerjaP">Wilayah Kerja (Propinsi)</label>
                         <div class="col-lg-4">
-                            <select name="inpWilayahKerjaP" class="form-control">                                                
+                            <select id="inpWilayahKerjaP" name="inpWilayahKerjaP" class="form-control">                                                
                                 <option value="">-Pilih Propinsi-</option>
                                 <?php
                                 foreach ($SIList_propinsi as $row) {
-                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah .' ( '.$row->kode_daerah.' )'. "</option>";
+                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
                                 }
                                 ?>
                             </select>
@@ -38,31 +46,32 @@
                     <div class="form-group">
                         <label class="col-lg-3 col-sm-3 control-label" for="inpWilayahKerjaK">Wilayah Kerja (Kab / Kota)</label>
                         <div class="col-lg-4">
-                            <select name="inpWilayahKerjaK" class="form-control">                                                
-                                <option value="">-Pilih Kabupaten/Kota-</option>
+                            <select id="inpWilayahKerjaK" name="inpWilayahKerjaK" class="form-control">                                                
+                                <option value="">-Pilih Kabupaten / Kota-</option>
                                 <?php
                                 foreach ($SIList_kabupaten as $row) {
-                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah .' ( '.$row->kode_daerah.' )'. "</option>";
+                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
                                 }
                                 ?>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-lg-3 col-sm-3 control-label" for="inpBagian">Pengisi Data</label>
+                        <label class="col-lg-3 col-sm-3 control-label" for="inpNama">Nama</label>
                         <div class="col-lg-4">
-                            <select name="inpBagian" class="form-control">                                                
-                                <option value="">-Pilih Pengisi Data-</option>
-                                <option value="1">Data Eksisting</option>
-                                <option value="2">Data Perencanaan</option>
-                                <option value="3">Data Penanganan dan Pengendalian</option>
-                            </select>
+                            <input class="form-control" type="text" id="inpNama" name="inpNama" placeholder="Nama">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label" for="inpNoTlp">No Telp</label>
+                        <div class="col-lg-4">
+                            <input class="form-control" type="text" id="inpNoTlp" name="inpNoTlp" placeholder="No Tlp">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-lg-3 col-sm-3 control-label" for="inpUsername">Username</label>
                         <div class="col-lg-4">
-                            <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Email">
+                            <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Username" readonly>
                         </div>
                     </div>
                     <div class="form-group">

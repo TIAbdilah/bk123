@@ -28,17 +28,17 @@ class Login extends CI_Controller {
         $data['title_page'] = 'INDEX';
         $this->load->view('login/sign_in', $data);
     }
-    
+
     public function sign_up() {
         $data['title_page'] = 'INDEX';
         $data['SIList_role'] = $this->role_model->select_all()->result();
-        $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();        
+        $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $this->load->view('login/sign_up', $data);
     }
 
     public function process_login() {
-        
+
         $this->form_validation->set_rules('inpUsername', 'Username', 'trim|required');
         $this->form_validation->set_rules('inpPassword', 'Password', 'trim|required');
 
@@ -76,22 +76,38 @@ class Login extends CI_Controller {
             }
         }
     }
-    
+
     public function process($action, $id = null) {
         // var
+        $data['nama'] = $this->input->post('inpNama');
         $data['username'] = $this->input->post('inpUsername');
         $data['password'] = $this->input->post('inpPassword');
+        $konfirm_password = $this->input->post('inpKonfirmPassword');
         $data['email'] = $this->input->post('inpEmail');
+        $data['no_telp'] = $this->input->post('inpNoTlp');
         $data['id_role'] = $this->input->post('inpIdRole');
-        $data['kode_daerah'] = $this->input->post('inpWilayahKerja');
+        $data['bagian'] = $this->input->post('inpBagian');
+        $data['propinsi'] = $this->input->post('inpWilayahKerjaP');
+        $data['kab_kota'] = $this->input->post('inpWilayahKerjaK');
 
+//        print_r($data);
 //        process
-        if ($action == 'add') {
-            // add    
-            $this->user_model->add($data);
-            $this->session->set_flashdata('message2', 'Akun berhasil dibuat. Silahkan login kembali');
+        if ($data['password'] == $konfirm_password) {
+            if ($action == 'add') {
+                // add    
+                $this->user_model->add($data);
+                $this->session->set_flashdata('message2', 'Akun berhasil dibuat. Silahkan login kembali');
+            }
+        } else {
+            $this->session->set_flashdata('message', 'Password tidak sesuai');
         }
-        
+
+        //error msg from db
+        $error_msg = $this->db->_error_message();
+        if (!empty($error_msg)) {
+            $this->session->set_flashdata('message', $error_msg);
+        }
+
         redirect('login/');
     }
 

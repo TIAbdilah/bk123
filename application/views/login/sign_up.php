@@ -34,17 +34,18 @@
             <form class="form-signin" action="<?php echo site_url('login/process/add') ?>" method="POST">
                 <h2 class="form-signin-heading">Daftar Akun Baru</h2>
                 <div class="login-wrap">
-                    Role
-                    <select name="inpIdRole" class="form-control">                                                
-                        <option value="">-Pilih Role-</option>
-                        <?php
-                        foreach ($SIList_role as $row) {
-                            echo "<option value=\"" . $row->id_role . "\">" . $row->nama_role . "</option>";
-                        }
-                        ?>
+                    <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
+                        <option value="">-Pilih Kategori Pengguna-</option>
+                        <option value="3">Admin</option>
+                        <option value="4">Operator</option>
                     </select>
-                    Wilayah Kerja (Propinsi)
-                    <select name="inpWilayahKerjaP" class="form-control">                                                
+                    <select id="inpBagian" name="inpBagian" class="form-control">                                                
+                        <option value="">-Pilih Penanggung Jawab Data-</option>
+                        <option value="eksisting">Data Eksisting</option>
+                        <option value="perencanaan">Data Perencanaan</option>
+                        <option value="penanganan">Data Penanganan dan Pengendalian</option>
+                    </select>
+                    <select id="inpWilayahKerjaP" name="inpWilayahKerjaP" class="form-control">                                                
                         <option value="">-Pilih Propinsi-</option>
                         <?php
                         foreach ($SIList_propinsi as $row) {
@@ -52,28 +53,20 @@
                         }
                         ?>
                     </select>
-                    Wilayah Kerja (Kab/Kota)
-                    <select name="inpWilayahKerjaK" class="form-control">                                                
-                        <option value="">-Pilih Kabupaten / Kota-</option>
+                    <select id="inpWilayahKerjaK" name="inpWilayahKerjaK" class="form-control">                                                
+                       <option value="">-Pilih Kabupaten / Kota-</option>
                         <?php
                         foreach ($SIList_kabupaten as $row) {
                             echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
                         }
                         ?>
                     </select>
-                    Pengisi Data
-                    <select name="inpBagian" class="form-control">                                                
-                        <option value="">-Pilih Pengisi Data-</option>
-                        <option value="1">Data Eksisting</option>
-                        <option value="2">Data Perencanaan</option>
-                        <option value="3">Data Penanganan dan Pengendalian</option>
-                    </select>
-                    Username
-                    <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Username">
-                    Email
+                    <input class="form-control" type="text" id="inpNama" name="inpNama" placeholder="Nama">
+                    <input class="form-control" type="text" id="inpNoTlp" name="inpNoTlp" placeholder="No Tlp">
+                    <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Username" readonly>
                     <input class="form-control" type="text" id="inpEmail" name="inpEmail" placeholder="Email">
-                    Password
                     <input class="form-control" type="password" id="inpPassword" name="inpPassword" placeholder="Password">
+                    <input class="form-control" type="password" id="inpPassword" name="inpKonfirmPassword" placeholder="Konfirmasi Password">
                     <button class="btn btn-lg btn-login btn-block" type="submit">Daftar</button>  
                 </div>
             </form>
@@ -81,8 +74,54 @@
 
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.js"></script>
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery-1.8.3.min.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/bootstrap.min.js"></script>
 
+        <script type="text/javascript" language="javascript">
+            var usr = "";
+            $('#inpWilayahKerjaK').hide();
 
+            $('#inpIdRole').change(function() {
+                var role = $(this).val();
+                if (role == '4') {
+                    $('#inpWilayahKerjaK').show();
+                } else if (role == '3') {
+                    $('#inpWilayahKerjaK').hide();
+                }
+                $('#inpUsername').val(usr + $('#inpIdRole option:selected').text());
+
+            });
+
+            $('#inpBagian').change(function() {
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val());
+            });
+
+            $('#inpWilayahKerjaP').change(function() {
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaP option:selected').val());
+            });
+
+            $('#inpWilayahKerjaK').change(function() {
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaK option:selected').val());
+            });
+
+//            $("#inpWilayahKerjaP").change(function() {
+//
+//                $.ajax({
+//                    url: "<?php echo base_url(); ?>master_peta/daerah/populateKabKota",
+//                    data: {kode_propinsi: $('#inpWilayahKerjaP').val()},
+//                    type: "POST",
+//                    dataType: "json",
+//                    success: function(data) {
+//                        $("#inpWilayahKerjaK").html(data[0]);
+//                    },
+//                    error: function(){
+//                        alert("lalalala");
+//                    }
+//                });
+//            });
+
+
+
+        </script>
     </body>
 </html>

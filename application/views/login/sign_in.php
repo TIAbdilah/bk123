@@ -52,16 +52,8 @@
                     '</div>';
                     endif;
                     ?>
-                    Username
-                    <input type="text" class="form-control" name="inpUsername" placeholder="Nama akun" required autofocus>
-                    Password
+                    <input type="text" class="form-control" name="inpUsername" placeholder="Nama Akun" required autofocus>
                     <input type="password" class="form-control" name="inpPassword" placeholder="Password" required>
-                    <!--                    <label class="checkbox">
-                                            <span class="pull-right">
-                                                <a data-toggle="modal" href="#myModal"> Forgot Password?</a>
-                    
-                                            </span>
-                                        </label>-->
                     <button class="btn btn-lg btn-login btn-block" type="submit">Masuk</button>            
                     <div class="registration">
                         Belum memiliki akun ?

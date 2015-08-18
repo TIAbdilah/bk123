@@ -53,7 +53,7 @@ class Daerah extends MY_Controller {
                 $data['kategori'] = "kabupaten / kota";
 //                $data['page_content'] = 'admin/master_peta/daerah/list_kab';
                 break;
-            default :                
+            default :
                 $data['list_data'] = $this->daerah_model->select_by_field(array('kategori' => 'propinsi'))->result();
                 $data['kategori'] = "propinsi";
                 break;
@@ -150,6 +150,26 @@ class Daerah extends MY_Controller {
         $this->daerah_model->delete(array('id_modul' => $id));
         $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'delete-success'));
         redirect('master_peta/daerah');
+    }
+
+    public function populateKabKota() {
+        $propinsi = $this->input->post('kode_propinsi');
+        
+//        $propinsi = '18';
+        $kab_kota = $this->view_kabupaten_model->select_by_field(array('left(kode_daerah,2)' => $propinsi))->result();        
+        $output = null;
+        if ($kab_kota) {
+            $output = "<option>-Pilih Kabupaten Kota-</option>";
+            foreach ($kab_kota as $row) {
+                $output .= "<option value='" . $row->kode_daerah . "'>" . $row->nm_daerah . "</option>";
+            }
+            $arr[0] = $output;
+        } else {
+            $output .= "<option value=''>Propinsi Belum dipilih</option>";
+            $arr[0] = $output;
+        }
+        echo json_encode($arr);
+//        echo $output;
     }
 
 }
