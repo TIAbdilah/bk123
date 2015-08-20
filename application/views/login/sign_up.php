@@ -31,7 +31,7 @@
 
         <div class="container">
 
-            <form class="form-signin" action="<?php echo site_url('login/process/add') ?>" method="POST">
+            <form class="form-signin" action="<?php echo site_url('master_peta/daerah/populateKabkota') ?>" method="POST">
                 <h2 class="form-signin-heading">Daftar Akun Baru</h2>
                 <div class="login-wrap">
                     <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
@@ -45,7 +45,7 @@
                         <option value="perencanaan">Data Perencanaan</option>
                         <option value="penanganan">Data Penanganan dan Pengendalian</option>
                     </select>
-                    <select id="inpWilayahKerjaP" name="inpWilayahKerjaP" class="form-control">                                                
+                    <select id="inpWilayahKerjaP" name="kode_propinsi" class="form-control">                                                
                         <option value="">-Pilih Propinsi-</option>
                         <?php
                         foreach ($SIList_propinsi as $row) {
@@ -54,7 +54,7 @@
                         ?>
                     </select>
                     <select id="inpWilayahKerjaK" name="inpWilayahKerjaK" class="form-control">                                                
-                       <option value="">-Pilih Kabupaten / Kota-</option>
+                        <option value="">-Pilih Kabupaten / Kota-</option>
                         <?php
                         foreach ($SIList_kabupaten as $row) {
                             echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
@@ -78,50 +78,48 @@
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/bootstrap.min.js"></script>
 
         <script type="text/javascript" language="javascript">
-            var usr = "";
-            $('#inpWilayahKerjaK').hide();
+            $(document).ready(function() {
+                var usr = "";
+                $('#inpWilayahKerjaK').hide();
 
-            $('#inpIdRole').change(function() {
-                var role = $(this).val();
-                if (role == '4') {
-                    $('#inpWilayahKerjaK').show();
-                } else if (role == '3') {
-                    $('#inpWilayahKerjaK').hide();
-                }
-                $('#inpUsername').val(usr + $('#inpIdRole option:selected').text());
+                $('#inpIdRole').change(function() {
+                    var role = $(this).val();
+                    if (role == '4') {
+                        $('#inpWilayahKerjaK').show();
+                    } else if (role == '3') {
+                        $('#inpWilayahKerjaK').hide();
+                    }
+                    $('#inpUsername').val(usr + $('#inpIdRole option:selected').text());
 
+                });
+
+                $('#inpBagian').change(function() {
+                    $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val());
+                });
+
+                $('#inpWilayahKerjaP').change(function() {
+                    $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaP option:selected').val());
+                });
+
+                $('#inpWilayahKerjaK').change(function() {
+                    $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaK option:selected').val());
+                });
+
+                $("#inpWilayahKerjaP").change(function() {
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>login/populateKabKota",
+                        data: {kode_propinsi:$('#inpWilayahKerjaP option:selected').val()},
+                        type: "POST",
+                        dataType: "json",
+                        success: function(data) {
+                            $("#inpWilayahKerjaK").html(data[0]);
+                        },
+                        error: function(xhr,status,kesalahan) {
+                            alert(kesalahan);
+                        }
+                    });
+                });
             });
-
-            $('#inpBagian').change(function() {
-                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val());
-            });
-
-            $('#inpWilayahKerjaP').change(function() {
-                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaP option:selected').val());
-            });
-
-            $('#inpWilayahKerjaK').change(function() {
-                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaK option:selected').val());
-            });
-
-//            $("#inpWilayahKerjaP").change(function() {
-//
-//                $.ajax({
-//                    url: "<?php echo base_url(); ?>master_peta/daerah/populateKabKota",
-//                    data: {kode_propinsi: $('#inpWilayahKerjaP').val()},
-//                    type: "POST",
-//                    dataType: "json",
-//                    success: function(data) {
-//                        $("#inpWilayahKerjaK").html(data[0]);
-//                    },
-//                    error: function(){
-//                        alert("lalalala");
-//                    }
-//                });
-//            });
-
-
-
         </script>
     </body>
 </html>

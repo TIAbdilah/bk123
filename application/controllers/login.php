@@ -115,5 +115,25 @@ class Login extends CI_Controller {
         $this->session->sess_destroy();
         redirect('login');
     }
+    
+    public function populateKabKota() {
+        $propinsi = $this->input->post('kode_propinsi',TRUE);;
+//        $propinsi = 18;
+        $kab_kota = $this->view_kabupaten_model->select_by_field(array('left(kode_daerah,2)' => $propinsi))->result();        
+        $output = "";
+        if ($kab_kota) {
+            $output = '<option>-Pilih Kabupaten Kota-</option>';
+            foreach ($kab_kota as $row) {
+                $output .= '<option value="' . $row->kode_daerah . '">' . $row->nm_daerah . '</option>';
+            }
+             $arr[0] = $output;
+        } else {
+            $output .= '<option value="">Propinsi Belum dipilih</option>';
+             $arr[0] = $output;
+        }
+       
+        echo json_encode($arr);
+//        echo $output;
+    }
 
 }

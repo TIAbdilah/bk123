@@ -19,7 +19,7 @@
         <!--<link href="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/css/jquery.dataTables.css" rel="stylesheet" />-->
         <link href="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/css/demo_page.css" rel="stylesheet" />
         <link href="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/css/demo_table.css" rel="stylesheet" />
-        
+
         <link rel="stylesheet" href="<?php echo base_url() . 'assets/admin/' ?>css/owl.carousel.css" type="text/css">
         <!-- Custom styles for this template -->
         <link href="<?php echo base_url() . 'assets/admin/' ?>css/style.css" rel="stylesheet">
@@ -120,7 +120,7 @@
                         this.checked = false;
                     });
                 });
-                
+
 //                $('#comboRole').change(function(){
 ////                    super_admin
 //                    if($(this).val()=='1'){
@@ -137,7 +137,7 @@
                 $('select.styled').customSelect();
             });
 
-var usr = "";
+            var usr = "";
             $('#inpWilayahKerjaK').hide();
 
             $('#inpIdRole').change(function() {
@@ -163,21 +163,20 @@ var usr = "";
                 $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaK option:selected').val());
             });
 
-//            $("#inpWilayahKerjaP").change(function() {
-//
-//                $.ajax({
-//                    url: "<?php echo base_url(); ?>master_peta/daerah/populateKabKota",
-//                    data: {kode_propinsi: $('#inpWilayahKerjaP').val()},
-//                    type: "POST",
-//                    dataType: "json",
-//                    success: function(data) {
-//                        $("#inpWilayahKerjaK").html(data[0]);
-//                    },
-//                    error: function(){
-//                        alert("lalalala");
-//                    }
-//                });
-//            });
+            $("#inpWilayahKerjaP").change(function() {
+                $.ajax({
+                    url: "<?php echo base_url(); ?>login/populateKabKota",
+                    data: {kode_propinsi: $('#inpWilayahKerjaP option:selected').val()},
+                    type: "POST",
+                    dataType: "json",
+                    success: function(data) {
+                        $("#inpWilayahKerjaK").html(data[0]);
+                    },
+                    error: function(xhr, status, kesalahan) {
+                        alert(kesalahan);
+                    }
+                });
+            });
         </script>
 
         <script type="text/javascript">
