@@ -25,13 +25,17 @@ class Array_custom extends CI_Controller {
         echo $this->tingkat_kumuh(18);
     }
 
+    var $bagian = array(
+        '1' => 'Eksisting',
+        '2' => 'Perencanaan',
+        '3' => 'Penanganan dan Pengendalian'
+    );
     var $tingkat_persen = array(
         '0' => '0% - 25%',
         '1' => '26% - 50%',
         '3' => '51% - 75%',
         '5' => '76% - 100%'
     );
-    
     var $tingkat_pn = array(
         '0' => '<strong>-</strong>',
         '1' => '<strong>+</strong>'

@@ -22,7 +22,8 @@ endif;
                             <tr>
                                 <th width="5%">#</th>
                                 <th width="15%">Role Name</th>
-                                <th width="65%">Right</th>
+                                <th width="10%">Tingkat</th>
+                                <th width="55%">Right</th>
                                 <th width="20%"></th>
                             </tr>
                         </thead>
@@ -34,6 +35,7 @@ endif;
                                 <tr>
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->nama_role ?></td>
+                                    <td><?php echo $data->tingkat ?></td>
                                     <td style="word-wrap: break-word"><?php echo $data->right ?></td>
                                     <td class="dt-body-center">                            
                                         <a title="<?php echo $text['txt']->button_title['view_data'] ?>" 

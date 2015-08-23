@@ -26,7 +26,11 @@ class Login extends CI_Controller {
 
     public function index() {
         $data['title_page'] = 'INDEX';
-        $this->load->view('login/sign_in', $data);
+         if ($this->session->userdata('role') == '') {
+           $this->load->view('login/sign_in', $data);
+        } else{
+            redirect('master/home');
+        }        
     }
 
     public function sign_up() {
@@ -61,6 +65,7 @@ class Login extends CI_Controller {
                 } else {
                     $sessionData['username'] = $data_user->username;
                     $sessionData['role'] = $data_user->nama_role;
+                    $sessionData['tingkat_role'] = $data_user->tingkat;
                     $sessionData['id_role'] = $data_user->id_role;
                     $sessionData['role_propinsi'] = $data_user->propinsi;
                     $sessionData['role_kab_kota'] = $data_user->kab_kota;

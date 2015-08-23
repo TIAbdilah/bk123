@@ -24,11 +24,18 @@ class Role_model extends CI_Model {
     }
 
     public function select_all() {
-        return $this->db->get($this->table_name);
+        $this->db->select('*');
+        $this->db->from($this->table_name);
+        $this->db->order_by('tingkat');
+        return $this->db->get();
     }
 
     public function select_by_field($param = array()) {
-        return $this->db->get_where($this->table_name, $param);
+        $this->db->select('*');
+        $this->db->from($this->table_name);
+        $this->db->where($param);
+        $this->db->order_by('tingkat');        
+        return $this->db->get();        
     }
 
     public function add($data) {

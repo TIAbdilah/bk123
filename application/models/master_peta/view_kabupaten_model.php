@@ -22,7 +22,7 @@ class View_kabupaten_model extends CI_Model {
         parent::__construct();
     }
 
-    public function select_all($param = null) {   
+    public function select_all() {   
         $this->db->select('*');
         $this->db->from($this->table_name);
         return $this->db->get();

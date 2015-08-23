@@ -30,8 +30,14 @@ class User_model extends CI_Model {
         $sub->select('nama_role')->from('u_role r');
         $sub->where('r.id_role = u_user.id_role');
         $this->subquery->end_subquery('nama_role');
+        
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('tingkat')->from('u_role r');
+        $sub->where('r.id_role = u_user.id_role');
+        $this->subquery->end_subquery('tingkat');
         //
         $this->db->from($this->table_name);
+        $this->db->order_by('kab_kota,username');
 
         return $this->db->get();
     }
@@ -44,6 +50,11 @@ class User_model extends CI_Model {
         $sub->select('nama_role')->from('u_role r');
         $sub->where('r.id_role = u_user.id_role');
         $this->subquery->end_subquery('nama_role');
+        
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('tingkat')->from('u_role r');
+        $sub->where('r.id_role = u_user.id_role');
+        $this->subquery->end_subquery('tingkat');
         
         $this->db->from($this->table_name);
         $this->db->where($param);

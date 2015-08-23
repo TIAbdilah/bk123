@@ -16,14 +16,24 @@
                         </div>
                     </div>    
                     <div class="form-group">
-                        <label for="inpKodeDaerah" class="col-lg-2 col-sm-2 control-label">Kode Daerah</label>
+                        <label for="inpKodeDaerah" class="col-lg-2 col-sm-2 control-label">Kabupaten</label>
                         <div class="col-lg-4">                            
-                            <select name="inpKodeDaerah" class="form-control" >  
+                            <select id="inpKodeDaerah" name="inpKodeDaerah" class="form-control" >  
                                 <option>Pilih Kode Daerah</option>
                                 <?php
                                 $no = 1;
-                                foreach ($SIList_kelurahan as $row) {
-                                    echo "<option value=\"" . $row->kode_daerah . "\"" . set_select('inpKodeDaerah', $row->kode_daerah, $row->kode_daerah == $data->kode_daerah) . ">" . $row->kode_daerah.' - '.$row->nm_daerah . "</option>";
+                                foreach ($SIList_kabupaten as $row) {
+                                    if ($this->session->userdata('role') == 'admin') {
+                                        if (substr($row->kode_daerah, 0, 2) == $this->session->userdata('role_propinsi')) {
+                                            echo "<option value=\"" . $row->kode_daerah . "\"".set_select('inpKodeDaerah', $row->kode_daerah, $row->kode_daerah == $data->kode_daerah) . ">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
+                                        }
+                                    } else if ($this->session->userdata('role') == 'operator') {
+                                        if ($row->kode_daerah == $this->session->userdata('role_kab_kota')) {
+                                            echo "<option value=\"" . $row->kode_daerah . "\"".set_select('inpKodeDaerah', $row->kode_daerah, $row->kode_daerah == $data->kode_daerah) . ">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
+                                        }
+                                    } else {
+                                        echo "<option value=\"" . $row->kode_daerah . "\"".set_select('inpKodeDaerah', $row->kode_daerah, $row->kode_daerah == $data->kode_daerah) . ">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
+                                    }
                                     $no++;
                                 }
                                 ?>
@@ -31,26 +41,20 @@
                         </div>
                     </div>   
                     <div class="form-group">
-                        <label for="inpLuasKawasan" class="col-lg-2 col-sm-2 control-label">Luas Kawasan</label>
+                        <label for="inpKecamatan" class="col-lg-2 col-sm-2 control-label">Kecamatan</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" value="<?php echo $data->luas_kawasan?>">
+                            <div class="input-group m-bot15">                                
+                                <input type="text" class="form-control" id="inpKecamatan" name="inpKecamatan" value="<?php echo $data->kecamatan?>"> 
+                                <span class="input-group-addon"><a href="#" id="btnKec"><i class="icon-chevron-left"></i></a></span>
+                            </div>
                         </div>
-                    </div>   
-                    <div class="form-group">
-                        <label for="inpJmlKk" class="col-lg-2 col-sm-2 control-label">Jumlah KK</label>
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" id="inpJmlKk" name="inpJmlKk" value="<?php echo $data->jumlah_kk?>">
-                        </div>
-                    </div>  
-                    <div class="form-group">
-                        <label for="inpJmlRtlh" class="col-lg-2 col-sm-2 control-label">Jumlah RTLH</label>
-                        <div class="col-lg-4">
-                            <input type="text" class="form-control" id="inpJmlRtlh" name="inpJmlRtlh" value="<?php echo $data->jumlah_rtlh?>">
+                        <div class="col-lg-10 col-lg-offset-2" id="pilihan">
+
                         </div>
                     </div>  
                     <div class="form-group">
                         <div class="col-lg-offset-2 col-lg-10">
-                            <button type="submit" class="btn"><?php echo $text['txt']->button['save_edit'] ?></button>
+                            <button type="submit" class="btn"><?php echo $text['txt']->button['save_add'] ?></button>
                         </div>
                     </div>
                 </form>

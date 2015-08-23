@@ -46,7 +46,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                                KML file (Area)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_1" placeholder="foto2"/>
@@ -238,7 +238,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                                KML file (line)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_2" placeholder="foto2"/>
@@ -352,7 +352,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                                KML file (Point)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_3" placeholder="foto2"/>
@@ -466,7 +466,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                                KML file (Line)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_4" placeholder="foto2"/>
@@ -735,7 +735,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                                KML file (Point)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_5" placeholder="foto2"/>
@@ -854,7 +854,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                               KML file (Point)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_6" placeholder="foto2"/>
@@ -1044,7 +1044,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inpKeteraturanBangunan" class="col-lg-3 col-sm-3 control-label">
-                                Point / Line file
+                                KML file (Point)
                             </label>
                             <div class="col-lg-4">                                
                                 <input type="file" class="form-control fileinput-button" name="inpPL_7" placeholder="foto2"/>

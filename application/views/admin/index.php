@@ -80,6 +80,10 @@
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.customSelect.min.js" ></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/respond.min.js" ></script>
 
+        <script src="<?php echo base_url() . 'assets/admin/' ?>assets/chart-master/Chart.js"></script>
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/all-chartjs.js"></script>
+        <script src="js/all-chartjs.js"></script>
+
         <script class="include" type="text/javascript" src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.dcjqaccordion.2.7.js"></script>
 
         <!--common script for all pages-->
@@ -137,18 +141,30 @@
                 $('select.styled').customSelect();
             });
 
-            var usr = "";
             $('#inpWilayahKerjaK').hide();
 
             $('#inpIdRole').change(function() {
-                var role = $(this).val();
-                if (role == '4') {
+                var role = $('#inpIdRole option:selected').text();
+                if (role == 'operator') {
                     $('#inpWilayahKerjaK').show();
-                } else if (role == '3') {
+                } else if (role == 'admin') {
                     $('#inpWilayahKerjaK').hide();
                 }
-                $('#inpUsername').val(usr + $('#inpIdRole option:selected').text());
 
+                $.ajax({
+                    url: "<?php echo base_url(); ?>login/populateKabKota",
+                    data: {kode_propinsi: $('#inpWilayahKerjaP option:selected').val()},
+                    type: "POST",
+                    dataType: "json",
+                    success: function(data) {
+                        $("#inpWilayahKerjaK").html(data[0]);
+                    },
+                    error: function(xhr, status, kesalahan) {
+                        alert(kesalahan);
+                    }
+                });
+
+                $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaP option:selected').val());
             });
 
             $('#inpBagian').change(function() {
@@ -163,85 +179,34 @@
                 $('#inpUsername').val($('#inpIdRole option:selected').text() + '_' + $('#inpBagian option:selected').val() + '_' + $('#inpWilayahKerjaK option:selected').val());
             });
 
-            $("#inpWilayahKerjaP").change(function() {
+            $('#inpKodeDaerah').change(function() {
                 $.ajax({
-                    url: "<?php echo base_url(); ?>login/populateKabKota",
-                    data: {kode_propinsi: $('#inpWilayahKerjaP option:selected').val()},
+                    url: "<?php echo base_url(); ?>master_peta/daerah/populateKecamatan",
+                    data: {kode_kab: $('#inpKodeDaerah option:selected').val()},
                     type: "POST",
                     dataType: "json",
                     success: function(data) {
-                        $("#inpWilayahKerjaK").html(data[0]);
+                        $("#pilihan").html(data[0]);
                     },
                     error: function(xhr, status, kesalahan) {
                         alert(kesalahan);
                     }
                 });
             });
-        </script>
 
-        <script type="text/javascript">
-            /* Formating function for row details */
-            function fnFormatDetails(oTable, nTr)
-            {
-                var aData = oTable.fnGetData(nTr);
-                var sOut = '<table cellpadding="5" cellspacing="0" border="0" style="padding-left:50px;">';
-                sOut += '<tr><td>Rendering engine:</td><td>' + aData[1] + ' ' + aData[4] + '</td></tr>';
-                sOut += '<tr><td>Link to source:</td><td>Could provide a link here</td></tr>';
-                sOut += '<tr><td>Extra info:</td><td>And any further details here (images etc)</td></tr>';
-                sOut += '</table>';
-
-                return sOut;
-            }
-
-            $(document).ready(function() {
-                /*
-                 * Insert a 'details' column to the table
-                 */
-                var nCloneTh = document.createElement('th');
-                var nCloneTd = document.createElement('td');
-                nCloneTd.innerHTML = '<img src="<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/images/details_open.png">';
-                nCloneTd.className = "center";
-
-                $('#hidden-table-info thead tr').each(function() {
-                    this.insertBefore(nCloneTh, this.childNodes[0]);
+//            $('input[name="inpKec[]"]').click(function() {
+//                alert('Checkbox state (method 1) = '+$('input[name="inpKec[]"]:checked').val());
+//            });
+            $('#btnKec').click(function(){
+                var txtKec = [];
+                var $ck1 = $('input[name="inpKec[]"]:checked');
+                $.each($ck1,function(){
+                   txtKec.push($(this).val());
                 });
-
-                $('#hidden-table-info tbody tr').each(function() {
-                    this.insertBefore(nCloneTd.cloneNode(true), this.childNodes[0]);
-                });
-
-                /*
-                 * Initialse DataTables, with no sorting on the 'details' column
-                 */
-                var oTable = $('#hidden-table-info').dataTable({
-                    "aoColumnDefs": [
-                        {"bSortable": false, "aTargets": [0]}
-                    ],
-                    "aaSorting": [[1, 'asc']]
-                });
-
-                /* Add event listener for opening and closing details
-                 * Note that the indicator for showing which row is open is not controlled by DataTables,
-                 * rather it is done here
-                 */
-                $('#hidden-table-info tbody td img').live('click', function() {
-                    var nTr = $(this).parents('tr')[0];
-                    if (oTable.fnIsOpen(nTr))
-                    {
-                        /* This row is already open - close it */
-                        this.src = "<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/images/details_open.png";
-                        oTable.fnClose(nTr);
-                    }
-                    else
-                    {
-                        /* Open this row */
-                        this.src = "<?php echo base_url() . 'assets/admin/' ?>assets/advanced-datatable/images/details_close.png";
-                        oTable.fnOpen(nTr, fnFormatDetails(oTable, nTr), 'details');
-                    }
-                });
+//                alert('Checkbox state (method 1) = '+txtKec.join(","));
+                $('#inpKecamatan').val(txtKec.join(","));
             });
         </script>
-
     </body>
 
 </html>

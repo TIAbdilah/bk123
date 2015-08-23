@@ -11,7 +11,9 @@ endif;
             <header class="panel-heading">
                 <?php echo $title_page_1 ?>
                 <span class="pull-right">
-                    <a href="<?php echo site_url('master_peta/daerah/add') ?>"><?php echo $text['txt']->button['add_data'] ?></a>
+                    <?php if ($text['rg']['M01a']) { ?>
+                        <a href="<?php echo site_url('master_peta/daerah/add') ?>"><?php echo $text['txt']->button['add_data'] ?></a>
+                    <?php } ?>
                 </span>
             </header>
             <div class="panel-body">
@@ -41,26 +43,29 @@ endif;
                                 <tr>
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
-                                    <td><?php echo $data->nm_daerah ?></td>
+                                    <td>
+                                        <?php
+                                        if ($kategori != 'kelurahan / desa') {
+                                            echo '<a href="' . site_url('master_peta/daerah/index/' . $data->kode_daerah) . '">' . $data->nm_daerah . '</a>';
+                                        } else {
+                                            echo $data->nm_daerah;
+                                        }
+                                        ?>
+                                    </td>
                                     <td class="dt-body-center">
-                                        <?php if ($kategori != 'kelurahan / desa') { ?>
-                                            <a title="List Kabupaten" 
-                                               href="<?php echo site_url('master_peta/daerah/index/' . $data->kode_daerah) ?>" 
-                                               class="btn btn-xs btn-success">
-                                                <i class="icon-list-ul"></i> 
-                                            </a>                                 
+                                        <?php if ($text['rg']['M01c']) { ?>
+                                            <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
+                                               href="<?php echo site_url('master_peta/daerah/edit/' . $data->kode_daerah) ?>" 
+                                               class="btn btn-xs btn-warning"><?php echo $text['txt']->button['edit_data'] ?>
+                                            </a>
                                         <?php } ?>
-                                        <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
-                                           href="<?php echo site_url('master_peta/daerah/edit/' . $data->kode_daerah) ?>" 
-                                           class="btn btn-xs btn-warning">
-                                               <?php echo $text['txt']->button['edit_data'] ?>
-                                        </a>
-                                        <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
-                                           onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->nm_daerah)) ?>')) {
-                                                           window.location = '<?php echo site_url('master_peta/daerah/delete/' . $data->kode_daerah) ?>';
-                                                       }" class="btn btn-xs btn-danger">
-                                            <?php echo $text['txt']->button['delete_data'] ?>
-                                        </a> 
+                                        <?php if ($text['rg']['M01d']) { ?>
+                                            <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
+                                               onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->nm_daerah)) ?>')) {
+                                                                   window.location = '<?php echo site_url('master_peta/daerah/delete/' . $data->kode_daerah) ?>';
+                                                               }" class="btn btn-xs btn-danger"><?php echo $text['txt']->button['delete_data'] ?>
+                                            </a> 
+                                        <?php } ?>
                                     </td>
                                 </tr>
                                 <?php

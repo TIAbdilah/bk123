@@ -44,6 +44,7 @@ class MY_Controller extends CI_Controller {
         $this->load->model('master_peta/view_kecamatan_model'); 
         $this->load->model('master_peta/view_kelurahan_model'); 
         $this->load->model('master_peta/view_desa_model'); 
+        $this->load->model('master_peta/indikator_model'); 
         //model transaksi
         //model report
         //model utilitas

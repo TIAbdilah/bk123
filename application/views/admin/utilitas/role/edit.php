@@ -16,6 +16,19 @@
                         </div>
                     </div>
                     <div class="form-group">
+                        <label class="col-lg-2 col-sm-2 control-label" for="inpTingkat">Tingkat</label>
+                        <div class="col-lg-4">
+                            <select name="inpTingkat" class="form-control">
+                                <option value="">-Pilih Tingkat Role-</option>
+                                <?php
+                                for ($i = 1; $i < 6; $i++) {                 
+                                    echo '<option value="'.$i.'"'.  set_select('inpTingkat', $i, $i == $data->tingkat).'>'.$i.'</option>';                                   
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-lg-2 col-sm-2 control-label" for="inpRight">Right</label>
                         <div class="col-lg-10">
                             <?php

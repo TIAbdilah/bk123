@@ -64,6 +64,7 @@ class Role extends MY_Controller {
     public function process($action, $id = null) {
         // var
         $data['nama_role'] = $this->input->post('inpRoleName');
+        $data['tingkat'] = $this->input->post('inpTingkat');
         $arr_right = $this->input->post('inpRight');
         $data['right'] = $this->array_to_string($arr_right);
 

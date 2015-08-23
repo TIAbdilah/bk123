@@ -25,7 +25,8 @@ endif;
                             <tr>
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Kode Daerah</th>
-                                <th rowspan="2">Nama Kawasan</th>
+                                <th rowspan="2">Nama Kawasan</th>                                
+                                <th rowspan="2">SK</th>
                                 <th colspan="4">Bobot Kekumuhan</th>
                                 <th colspan="3">Satus Data</th>
                                 <th rowspan="2"></th>
@@ -43,13 +44,26 @@ endif;
                         <tbody>
                             <?php
                             $no = 1;
+                            $ft = '';
+                            if ($this->session->userdata('role') == 'admin') {
+                                $ft = $this->session->userdata('role_propinsi');
+                            } else {
+                                $ft = $this->session->userdata('role_kab_kota');
+                            }
+                            $ft1 = '';
                             foreach ($list_data as $data) {
-                                if (substr($data->kode_daerah, 0, 2) == substr($this->session->userdata('role_propinsi'), 0, 2)) {
+                                if ($this->session->userdata('role') == 'admin') {
+                                    $ft1 = substr($data->kode_daerah, 0, 2);
+                                } else {
+                                    $ft1 = $data->kode_daerah;
+                                }
+                                if ( $ft1 == $ft) {
                                     ?>
                                     <tr>
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $data->kode_daerah ?></td>
                                         <td><?php echo $data->nm_kawasan ?></td>
+                                        <td><?php echo "SK" ?></td>
                                         <?php
                                         if ($data->pen == 0) {
                                             ?>
@@ -67,54 +81,39 @@ endif;
                                             <?php
                                         }
                                         ?>
-                                        <td>
-                                            <?php
-                                            if ($data->eks == 1) {
-                                                echo "<i class=\"icon-ok\"></i>";
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ($data->per == 1) {
-                                                echo "<i class=\"icon-ok\"></i>";
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php
-                                            if ($data->pen == 1) {
-                                                echo "<i class=\"icon-ok\"></i>";
-                                            }
-                                            ?>                                        
-                                        </td>
+                                        <td><?php if ($data->eks == 1) {
+                                    echo "<i class=\"icon-ok\"></i>";
+                                } ?></td>
+                                        <td><?php if ($data->per == 1) {
+                                    echo "<i class=\"icon-ok\"></i>";
+                                } ?></td>
+                                        <td><?php if ($data->pen == 1) {
+                                    echo "<i class=\"icon-ok\"></i>";
+                                } ?></td>
                                         <td class="dt-body-center">
                                             <a title="List Kabupaten" 
                                                href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 
-                                               class="btn btn-xs btn-success">
-                                                   <?php echo $text['txt']->button['view_data'] ?>
+                                               class="btn btn-xs btn-success"><?php echo $text['txt']->button['view_data'] ?>
                                             </a>
                                             <?php if ($text['rg']['M02c']) { ?>
                                                 <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
                                                    href="<?php echo site_url('master_peta/kumuh/edit/' . $data->id_kaw_kumuh) ?>" 
-                                                   class="btn btn-xs btn-warning">
-                                                       <?php echo $text['txt']->button['edit_data'] ?>
+                                                   class="btn btn-xs btn-warning"><?php echo $text['txt']->button['edit_data'] ?>
                                                 </a>
                                             <?php } ?>
-                                            <?php if ($text['rg']['M02d']) { ?>
+        <?php if ($text['rg']['M02d']) { ?>
                                                 <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
                                                    href="<?php echo site_url('master_peta/kumuh/delete/' . $data->id_kaw_kumuh) ?>" 
-                                                   class="btn btn-xs btn-danger">
-                                                    <?php echo $text['txt']->button['delete_data'] ?>
+                                                   class="btn btn-xs btn-danger"><?php echo $text['txt']->button['delete_data'] ?>
                                                 </a>
-                                            <?php } ?>
+                                    <?php } ?>
                                         </td>
                                     </tr>
-                                    <?php
-                                    $no++;
-                                }
-                            }
-                            ?>                
+        <?php
+        $no++;
+    }
+}
+?>                
                         </tbody>
                     </table>
                 </div>

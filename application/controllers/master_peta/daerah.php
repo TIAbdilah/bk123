@@ -151,4 +151,31 @@ class Daerah extends MY_Controller {
         $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'delete-success'));
         redirect('master_peta/daerah');
     }
+
+    public function populateKecamatan() {
+        $kabupaten = $this->input->post('kode_kab', TRUE);
+//        $cek = 'Bakongan,Kluet Utara';
+        $kec = $this->view_kecamatan_model->select_by_field(array('left(kode_daerah,5)' => $kabupaten))->result();
+        $output = "";
+        if ($kec) {
+            foreach ($kec as $row) {
+//                if ($row->nm_daerah == $cek) {
+//                    $c = 'checked';
+//                } else {
+//                    $c = '';
+//                }
+                $output .= '<span class="form-control-static col-lg-3">'
+                        . '<input id="inpKec" name="inpKec[]" value="'.$row->nm_daerah.'" type="checkbox" > '
+                        . $row->nm_daerah
+                        . '</span>';
+            }
+            $arr[0] = $output;
+        } else {
+            $output .= 'Kabupaten belum dipilih';
+            $arr[0] = $output;
+        }
+
+        echo json_encode($arr);
+    }
+
 }

@@ -36,8 +36,13 @@
                 <div class="login-wrap">
                     <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
                         <option value="">-Pilih Kategori Pengguna-</option>
-                        <option value="3">Admin</option>
-                        <option value="4">Operator</option>
+                        <?php
+                        foreach ($SIList_role as $row) {
+                            if ($row->tingkat > 1) {
+                                echo "<option value=\"" . $row->id_role . "\">" . $row->nama_role . "</option>";
+                            }
+                        }
+                        ?>
                     </select>
                     <select id="inpBagian" name="inpBagian" class="form-control">                                                
                         <option value="">-Pilih Penanggung Jawab Data-</option>
@@ -83,10 +88,10 @@
                 $('#inpWilayahKerjaK').hide();
 
                 $('#inpIdRole').change(function() {
-                    var role = $(this).val();
-                    if (role == '4') {
+                    var role = $('#inpIdRole option:selected').text();
+                    if (role == 'operator') {
                         $('#inpWilayahKerjaK').show();
-                    } else if (role == '3') {
+                    } else if (role == 'admin') {
                         $('#inpWilayahKerjaK').hide();
                     }
                     $('#inpUsername').val(usr + $('#inpIdRole option:selected').text());
@@ -108,13 +113,13 @@
                 $("#inpWilayahKerjaP").change(function() {
                     $.ajax({
                         url: "<?php echo base_url(); ?>login/populateKabKota",
-                        data: {kode_propinsi:$('#inpWilayahKerjaP option:selected').val()},
+                        data: {kode_propinsi: $('#inpWilayahKerjaP option:selected').val()},
                         type: "POST",
                         dataType: "json",
                         success: function(data) {
                             $("#inpWilayahKerjaK").html(data[0]);
                         },
-                        error: function(xhr,status,kesalahan) {
+                        error: function(xhr, status, kesalahan) {
                             alert(kesalahan);
                         }
                     });

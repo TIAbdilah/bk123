@@ -35,7 +35,7 @@ endif;
                             <?php
                             $no = 1;
                             foreach ($list_data as $data) {
-                                if (substr($data->propinsi, 0, 2) == substr($this->session->userdata('role_propinsi'), 0, 2) 
+                                if ($data->propinsi == $this->session->userdata('role_propinsi') 
                                         && $data->bagian == $this->session->userdata('bagian')) {
                                     ?>
                                     <tr>

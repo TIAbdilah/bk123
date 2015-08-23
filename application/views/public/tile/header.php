@@ -74,6 +74,7 @@
                         </ul>
                     </li>                    
                     <li><a href="<?php echo base_url().'maps'?>">Peta</a></li>
+                    <li><a title="Login" href="<?php echo site_url('login')?>"><i class="icon-group"></i></a></li>
                 </ul>
             </div>
         </div>
