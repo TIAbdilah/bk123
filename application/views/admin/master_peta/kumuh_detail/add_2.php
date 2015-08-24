@@ -1001,25 +1001,18 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>Tidak dilakukannya pemeliharaan sarana dan prasarana pengelolaan persampahan pada lokasi perumahan atau permukiman
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>pemeliharaan rutin; dan/atau</li>
+                                                        <li>pemelihraan berkala</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% area memiliki sarpras persampahan yang tidak terpelihara</li>
+                                                        <li>51% - 75% area memiliki sarpras persampahan yang tidak terpelihara</li>
+                                                        <li>25% - 50% area memiliki sarpras persampahan yang tidak terpelihara</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -1077,25 +1070,21 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>tidak tersedianya sarana proteksi kebakaran pada lokasi, yaitu :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>pasokan air;</li>
+                                                        <li>jalan lingkungan;</li>
+                                                        <li>sarana komunikasi</li>
+                                                                <li>data sistem pprotekksi kebakaran lingkungan; dan</li>
+                                                                <li>bangunan pos kebakaran</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>76% - 100% tidak memiliki prasana proteksi kebakaran</li>
+                                                        <li>75% - 51% tidak memiliki prasana proteksi kebakaran</li>
+                                                        <li>25% - 50% tidak memiliki prasarana proteksi kebakaran</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -1208,25 +1197,17 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>Pertimbangan letak lokasi perumahan atau pemukiman pada :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>fungsi strategis kota/kabupaten</li>
+                                                        <li>bukan fungsi strategis kota/kabupaten</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>Lokasi tidak terletak pada fungsi strategis kabupaten/kota</li>
+                                                        <li>Lokasi tidak terletak pada fungsi strategis kabupaten/kota</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -1265,25 +1246,22 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
-                                                    <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                    <p>Pertimbangan kepadatan penduduk pada lokasi perumahan atau permukiman berupa :
+                                                    <ol>Untuk Metropolitan & kota besar
+                                                        <li>Kepadatan penduduk pada lokasi sebesar >400 Jiwa/ha</li>
+                                                    </ol>
+                                                    <ol>Untuk Kota sedang & Kota Kecil
+                                                        <li>Kepadatan penduduk pada lokasi sebesar >200 Jiwa/ha</li>
+                                                        <li>Kepadatan penduduk pada lokasi sebesar 151 - 200 Jiwa/ha</li>
+                                                        <li>Kepadatan penduduk pada lokasi sebesar <150 Jiwa/ha</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>rendah yaitu kepadatan penduduk di bawah 150 jiwa/ha</li>
+                                                        <li>sedang yaitu kepadatan penduduk antara 151 - 200 jiwa/ha</li>
+                                                        <li>tinggi yaitu kepadatan penduduk antara 201 - 400 jiwa/ha atau lebih</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -1321,25 +1299,18 @@
                                                 </div>
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
-                                                    <p>
+                                                    <p>Pertimbangan potensi yang dimiliki lokasi perumahan atau permukiman berupa :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>potensi sosial yaitu tingkat partisipasi masyarakat dalam mendukung pembangunan;</li>
+                                                        <li>potensi ekonomi yaitu adanya kegiatan ekonomi tertentu yang bersifat strategis bagi masyarakat setempat;</li>
+                                                        <li>potensi budaya yaitu adanya kegiatan atau warisan budaya tertentu yang dimiliki masyarakat setempat</li>
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>Lokasi memiliki potensi sosial, ekonomi, dan budaya untuk di kembangkan atau dipelihara</li>
+                                                        <li>Lokasi tidak memiliki potensi sosial, ekonomi dan budaya untuk dikembangkan atau dipelihara</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -1387,24 +1358,17 @@
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
                                                     <p>
+                                                        Kejelasan terhadap status penguasaan lahan berupa :
                                                     <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
+                                                        <li>kepemilikan sendiri, dengan bukti dokumen sertifikat hak atas tanah atau bentuk dokumen keterangan status tanah lainnya yang sah; atau</li>
+                                                        <li>kepemilikan pihak lain (termasuk milik adat/ulayat), dengan bukti izin pemanfaatan tanah dari pemegang hak atas tanah atau pemilik tanah dalam bentuk perjanjian tertulis antara pemegang hak atas tanah atau pemilik tanah dengan pemelihara</li>                                                        
                                                     </ol>
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>Keseluruhan lokasi memiliki kejelasan status penguasaan lahan, baik milik sendiri atau orang lain</li>
+                                                        <li>Sebagian atau keseluruhan lokasi tidak memiliki kejelasan status penguasaan laha, baik milik sendiri atau milik pihak lain</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>
@@ -1443,24 +1407,13 @@
                                                 <div class="modal-body">
                                                     <strong>Indikator</strong>
                                                     <p>
-                                                    <ol>
-                                                        <li>KDB melebihi ketentuan RDTR, dan/atau RTBL;</li>
-                                                        <li>KLB melebihi ketentuan dalam RDTR, dan/atau RTBL; dan/atau</li>
-                                                        <li>
-                                                            Kepadatan bangunan yang tinggi pada lokasi, yaitu :
-                                                            <ul>
-                                                                <li>untuk kota metropolitan dan kota besar = 250 unit/ha</li>
-                                                                <li>untuk kota sedang dan kota kecil = 200 unit/ha</li>
-                                                            </ul>
-                                                        </li>
-                                                    </ol>
+                                                        Kesesuaian terhadap peruntukan lahan dalam rencana tata ruang (RTR), dengan bukti Izin mendirikan bangunan atau surat keterangan rencana Kabupaten/Kota (SKRK).
                                                     </p>
                                                     <strong>Parameter</strong>
                                                     <p>
                                                     <ol>
-                                                        <li>76% - 100% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>51% - 75% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
-                                                        <li>20% - 50% bangunan memiliki kepadatan tidak sesuai ketentuan</li>
+                                                        <li>Keseluruhan lokasi berada pada zona peruntukan perumahan/permukiman sesuai RTR</li>
+                                                        <li>Sebagian atau keseluruhan lokasi berada bukan pada zona peruntukan perumahan/Permukiman sesuai KTR</li>
                                                     </ol>
                                                     </p>                                                    
                                                 </div>

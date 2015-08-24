@@ -42,8 +42,9 @@ class Kumuh_detail extends MY_Controller {
     public function add($kategori = null, $id_kaw_kumuh = null) {
         $data['title_page'] = 'ADD';
         $data['kategori'] = $kategori;
-        $data['id_kaw_kumuh'] = $id_kaw_kumuh;
-        $data['page_content'] = 'admin/master_peta/kumuh_detail/add_2';
+        $data['id_kaw_kumuh'] = $id_kaw_kumuh;        
+        $data['data_indikator'] = $this->indikator_model->select_all()->result();
+        $data['page_content'] = 'admin/master_peta/kumuh_detail/add_3';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }

@@ -16,11 +16,11 @@ endif;
 </div>
 <div class="row">
     <div class="col-lg-4">
-        <aside class="profile-nav alt green-border">
+        <aside class="profile-nav  alt green-border">
             <section class="panel">
-                <div class="user-heading alt green-bg">
+                <div class="user-heading round">
                     <a href="#">
-                        <img alt="" src="<?php echo base_url() . 'assets/public/img/' ?>profile-avatar.png">
+                        <img src="<?php echo base_url() . 'assets/public/img/' ?>profile-avatar.png">
                     </a>
                     <h1><?php echo $this->session->userdata('username') ?></h1>
                     <p><?php echo $this->session->userdata('role') . ' | ' . $this->session->userdata('bagian') ?></p>

@@ -36,9 +36,23 @@ class Array_custom extends CI_Controller {
         '3' => '51% - 75%',
         '5' => '76% - 100%'
     );
+    var $tingkat_persen_txt = array(
+        '0' => '-',
+        '1' => 'Rendah',
+        '3' => 'Sedang',
+        '5' => 'Tinggi'
+    );
     var $tingkat_pn = array(
         '0' => '<strong>-</strong>',
         '1' => '<strong>+</strong>'
+    );    
+    var $ada_tidak = array(
+        '1' => 'Tidak',
+        '5' => 'Ada'
+    );
+    var $ya_tidak = array(
+        '5' => 'Ya',
+        '1' => 'Tidak'
     );
 
     public function tingkat_kumuh($bobot) {

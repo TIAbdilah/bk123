@@ -37,49 +37,82 @@ function generate_td($prsn, $kt, $ft, $id_modal) {
     $txt_td.= '</td>';
     return $txt_td;
 }
+
+function generate_data_pendukung($bg, $dd, $head) {
+    $txt_dp = '';
+    $bagian = $bg;
+    $data_detail = $dd;
+    $data = $head;
+    if ($data_detail != null) {
+        $jkk = $data_detail['jumlah_kk'];
+        if ($jkk == '') {$jkk = '-';}
+        $lk = $data_detail['luas_kawasan'];
+        if ($lk == '') {$lk = '-';}
+        $jr = $data_detail['jumlah_rtlh'];
+        if ($jr == '') {$jr = '-';}
+        $id = $data_detail['id_kumuh_detail'];
+        $pl = $data_detail['peta_file'];
+        if ($pl != '') {
+            $plm = '<a data-toggle="modal" href="#modal_peta"><i class="icon-picture"></i> Peta</a>' . generate_modal('modal_peta', $pl);
+        } else {
+            $plm = '-';
+        }
+        $sk = $data_detail['sk_file'];
+        if ($sk != '') {
+            $skm = '<a data-toggle="modal" href="#modal_sk"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', $sk);
+        } else {
+            $skm = '-';
+        }
+    } else {
+        $jkk = '-';
+        $lk = '-';
+        $jr = '-';
+        $plm = '-';
+        $skm = '-';
+    }
+    $txt_dp .= '<section class="panel">
+                <div class="panel-heading">Data Pendukung (' . $bagian . ')</div>
+                <div class="panel-body">
+                    <table class="table12121" style="width:100%">
+                        <tr><td width="50%"><strong>Nama Kawasan</strong></td><td width="50%">' . $data->nm_kawasan . '</td></tr>                            
+                        <tr><td style="vertical-align:top;"><strong>Nama Kecamatan</strong></td><td>' . $data->kecamatan . '</td></tr>
+                        <tr><td><strong>Jumlah KK (jiwa)</strong></td><td>' . $jkk . '</td></tr>
+                        <tr><td><strong>Luas Kawasan (Ha)</strong></td><td>' . $lk . '</td></tr>
+                        <tr><td><strong>Jumlah RTLH (unit)</strong></td><td>' . $jr . '</td></tr>
+                        <tr><td><strong>Peta Legenda</strong></td><td>' . $plm . '</td></tr>
+                        <tr><td><strong>SK Kumuh</strong></td><td>' . $skm . '</td></tr>
+                    </table><br>';
+    if ($data_detail != null) {
+        $txt_dp .= '<div class="btn-group btn-group-justified">
+                    <a class="btn btn-info" href="' . site_url('master_peta/kumuh_detail/edit/' . strtolower($bagian) . '/' . $id) . '" title="Edit Data ' . $bagian . '">Edit</a>
+                    <a class="btn btn-danger" href="' . site_url('report/daerah_kumuh/print_report/' . $id) . '" title="Print Data ' . $bagian . '">Print</a>
+                </div>';
+    } else {
+        $txt_dp .= '<div class="btn-group btn-group-justified">
+                    <a class="btn btn-success" href="' . site_url('master_peta/kumuh_detail/add/' . strtolower($bagian) . '/' . $data->id_kaw_kumuh) . '" title="Add Data ' . $bagian . '">Add</a>
+                </div>';
+    }
+    $txt_dp .='</div>
+            </section>';
+    return $txt_dp;
+}
 ?>
 <div class="row">
     <div class="col-lg-4">
-        <section class="panel">
-            <div class="panel-heading">Grafik</div>
-            <div class="panel-body">
-                <canvas style="width: 400px; height: 200px;" id="radar" height="300" width="400"></canvas>
-            </div>
-        </section>
-    </div>  
+        <?php $this->load->view('admin/master_peta/kumuh/data_pendukung') ?>
+    </div>
     <div class="col-lg-8">
         <section class="panel">
             <div class="panel-heading">Peta</div>
-            <div class="panel-body">
-                <div style="height: 200px"></div>
+            <div class="panel-body text-center">
+                <img src="<?php echo base_url().'assets/public/'?>img/peta indonesia.png" width="80%"/>
             </div>
         </section>
-    </div>   
+    </div>  
 </div>
-<div class="row">      
-    <div class="col-lg-4">
-        <section class="panel">
-            <div class="panel-heading">Data Eksisting</div>
-            <div class="panel-body">
-                <table class="table">
-                    <tr><td><strong>Nama Kawasan</strong></td><td><?php echo $data->nm_kawasan ?></td></tr>
-                    <tr><td><strong>Jumlah KK</strong></td><td><?php echo $data->jumlah_kk ?> jiwa</td></tr>
-                    <tr><td><strong>Luas Kawasan</strong></td><td><?php echo $data->luas_kawasan ?> Ha</td></tr>
-                    <tr><td><strong>Jumlah RTLH</strong></td><td><?php echo $data->jumlah_rtlh ?> unit</td></tr>
-                    <tr><td><strong>Nama Kecamatan</strong></td><td><?php // echo $data_kelurahan->nm_kecamatan     ?></td></tr>
-                </table>             
-            </div>
-        </section>
-        <section class="panel text-center">
-            <!--            <div class="btn-group btn-group-justified">
-                            <a class="btn btn-success" href="#">Middle</a>
-                        </div>-->
-            <div class="btn-group btn-group-justified">
-                <a class="btn btn-info" href="#" title="Edit Data Eksisting">Edit</a>
-                <a class="btn btn-danger" href="#">Right</a>
-            </div>
-        </section>
-    </div>
+<div class="row">
+       
+    <?php $this->load->view('admin/master_peta/kumuh/grafik') ?>
 
     <div class="col-lg-8">
         <section class="panel">
@@ -92,7 +125,7 @@ function generate_td($prsn, $kt, $ft, $id_modal) {
                         <a data-toggle="tab" href="#a2">Perencanaan</a>
                     </li>
                     <li class="">
-                        <a data-toggle="tab" href="#a3">Penanganan dan Penegndalian</a>
+                        <a data-toggle="tab" href="#a3">Penanganan dan Pengendalian</a>
                     </li>           
                 </ul>
             </header>

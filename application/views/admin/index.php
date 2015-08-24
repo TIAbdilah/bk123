@@ -80,10 +80,6 @@
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.customSelect.min.js" ></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/respond.min.js" ></script>
 
-        <script src="<?php echo base_url() . 'assets/admin/' ?>assets/chart-master/Chart.js"></script>
-        <script src="<?php echo base_url() . 'assets/admin/' ?>js/all-chartjs.js"></script>
-        <script src="js/all-chartjs.js"></script>
-
         <script class="include" type="text/javascript" src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.dcjqaccordion.2.7.js"></script>
 
         <!--common script for all pages-->
@@ -92,6 +88,12 @@
         <!--script for this page-->
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/sparkline-chart.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/count.js"></script>
+
+
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/highchart/highcharts.js"></script>
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/highchart/highcharts-more.js"></script>
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/highchart/modules/data.js"></script>
+        <script src="<?php echo base_url() . 'assets/admin/' ?>js/highchart/modules/exporting.js"></script>
 
         <script type="text/javascript" language="javascript" class="init">
 
@@ -124,15 +126,6 @@
                         this.checked = false;
                     });
                 });
-
-//                $('#comboRole').change(function(){
-////                    super_admin
-//                    if($(this).val()=='1'){
-//                        $("#propinsi").hide();
-//                        $("#kabupaten").hide();
-//                        $("#bagian").hide();                        
-//                    } else if($(this).val()=)
-//                })
             });
 
             //custom select box
@@ -194,17 +187,45 @@
                 });
             });
 
-//            $('input[name="inpKec[]"]').click(function() {
-//                alert('Checkbox state (method 1) = '+$('input[name="inpKec[]"]:checked').val());
-//            });
-            $('#btnKec').click(function(){
+            $('#btnKec').click(function() {
                 var txtKec = [];
                 var $ck1 = $('input[name="inpKec[]"]:checked');
-                $.each($ck1,function(){
-                   txtKec.push($(this).val());
+                $.each($ck1, function() {
+                    txtKec.push($(this).val());
                 });
-//                alert('Checkbox state (method 1) = '+txtKec.join(","));
                 $('#inpKecamatan').val(txtKec.join(","));
+            });
+        </script>
+        <script type="text/javascript">
+            $(function() {
+                $('#container1').highcharts({
+                    data: {
+                        table: document.getElementById('datatable1')
+                    },
+                    chart: {
+                        polar: true,
+                        type: 'line'
+                    },
+                    title: {
+                        text: 'Tingkat Kekumuhan'
+                    },
+                    pane: {
+                        size: '80%'
+                    },
+                    xAxis: {
+                        tickmarkPlacement: 'on',
+                        lineWidth: 0
+                    },
+                    yAxis: {
+                        gridLineInterpolation: 'polygon',
+                        lineWidth: 0,
+                        min: 0
+                    },
+                    tooltip: {
+                        shared: true,
+                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+                    }
+                });
             });
         </script>
     </body>

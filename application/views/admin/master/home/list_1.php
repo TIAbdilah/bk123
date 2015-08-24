@@ -45,11 +45,11 @@ foreach ($data_kumuh as $data) {
 ?>
 <div class="row">
     <div class="col-lg-4">
-        <aside class="profile-nav alt green-border">
+        <aside class="profile-nav  alt green-border">
             <section class="panel">
-                <div class="user-heading alt green-bg">
+                <div class="user-heading round">
                     <a href="#">
-                        <img alt="" src="<?php echo base_url() . 'assets/public/img/' ?>profile-avatar.png">
+                        <img src="<?php echo base_url() . 'assets/public/img/' ?>profile-avatar.png">
                     </a>
                     <h1><?php echo $this->session->userdata('username') ?></h1>
                     <p><?php echo $this->session->userdata('role') . ' | ' . $this->session->userdata('bagian') ?></p>
@@ -67,7 +67,7 @@ foreach ($data_kumuh as $data) {
         <div class="row">
             <div class="col-lg-12">
                 <section class="panel">
-                    <div class="panel-heading">Data <?php echo $this->session->userdata('bagian')?></div>
+                    <div class="panel-heading">Data <?php echo $this->session->userdata('bagian') ?></div>
                 </section>
             </div>
             <div class=" state-overview col-lg-6">
