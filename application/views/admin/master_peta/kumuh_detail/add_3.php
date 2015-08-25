@@ -58,7 +58,7 @@ function generate_modal1($field, $foto) {
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <?php echo $title_page ?>
+                <?php echo $title_page.' Detil Dawasan Kumuh ('.$kaw_kumuh->nm_kawasan.' | '.ucwords($kategori).')'?>
             </header>
             <div class="panel-body">
                 <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/kumuh_detail/process1/add/') ?>" enctype="multipart/form-data" method="POST">

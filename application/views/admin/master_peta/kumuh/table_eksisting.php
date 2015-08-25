@@ -35,7 +35,7 @@
                                 , $data_detail_eks[$dt_ind->field_name . '_foto']
                                 , $dt_ind->id . '_eks');
                     } else {
-                        echo '<td>-</td><td>-</td>';
+                        echo '<td>-</td><td>-</td><td>-</td>';
                     }
                     ?>
                 </tr>
@@ -77,7 +77,7 @@
                                 , ''
                                 , $dt_ind->id . '_eks');
                     } else {
-                        echo '<td>-</td><td>-</td>';
+                        echo '<td>-</td><td>-</td><td>-</td>';
                     }
                     ?>
                 </tr>
@@ -112,7 +112,7 @@
                                 , ''
                                 , $dt_ind->id . '_eks');
                     } else {
-                        echo '<td>-</td><td>-</td>';
+                        echo '<td>-</td><td>-</td><td>-</td>';
                     }
                     ?>
                 </tr>

@@ -43,6 +43,7 @@ class Kumuh_detail extends MY_Controller {
         $data['title_page'] = 'ADD';
         $data['kategori'] = $kategori;
         $data['id_kaw_kumuh'] = $id_kaw_kumuh;
+        $data['kaw_kumuh'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh'=>$id_kaw_kumuh))->row();
         $data['data_indikator'] = $this->indikator_model->select_all()->result();
         $data['page_content'] = 'admin/master_peta/kumuh_detail/add_3';
         $data['text'] = $this->text;
@@ -55,6 +56,7 @@ class Kumuh_detail extends MY_Controller {
         $data['data_indikator'] = $this->indikator_model->select_all()->result();
         $data['data'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row_array();     
         $data['id_kaw_kumuh'] = $data['data']['id_kaw_kumuh'];
+        $data['kaw_kumuh'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh'=>$data['id_kaw_kumuh']))->row();
         $data['page_content'] = 'admin/master_peta/kumuh_detail/edit_1';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -219,19 +221,7 @@ class Kumuh_detail extends MY_Controller {
         for ($i = 1; $i < 8; $i++) {
             $data['point_line_' . $i] = $this->upload_image(array('indikator_name' => 'point_line_' . substr($data['kategori'], 0, 4) . '_' . $i, 'input' => 'inp_point_line_' . $i, 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
         }
-
-        //print
-//        foreach ($data_indikator as $dt_ind) {
-//            if (substr($dt_ind->id, 0, 1) < 8) {
-//                echo $data[$dt_ind->field_name . '_prsn'] . '  -  ' . $data[$dt_ind->field_name . '_kt'] . '  -  ' . $data[$dt_ind->field_name . '_foto'] . '</br>';
-//            } if (substr($dt_ind->id, 0, 1) >= 8) {
-//                echo $data[$dt_ind->field_name . '_prsn'] . '  -  ' . $data[$dt_ind->field_name . '_kt'] . '</br>';
-//            }
-//        }
-//
-//        for ($i = 1; $i < 9; $i++) {
-//            echo $data['point_line_' . $i] . '</br>';
-//        }
+        
         //        process
         if ($action == 'add') {
             // add    
