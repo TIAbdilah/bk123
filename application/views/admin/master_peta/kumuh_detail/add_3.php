@@ -131,6 +131,16 @@ function generate_modal1($field, $foto) {
                                                     <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
                                                 </td>
                                                 <td colspan="2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>#</td>
+                                                <td>Video</td>
+                                                <td>
+                                                    <input type="file" class="form-control" name="inpVideo_'.substr($dt_ind->id, 0, 1).'" placeholder="Video" />
+                                                    <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                                </td>                                                
+                                                <td colspan="2"></td>
                                             </tr>';
                                     } 
                                     ?>                                    
