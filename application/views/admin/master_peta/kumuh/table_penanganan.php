@@ -4,12 +4,13 @@
             <th align="center" colspan="2" width="10%">#</th>
             <th align="center" width="40%">KRITERIA dan Indikator</th>
             <th align="center" width="20%">%</th>
-            <th align="center" width="30%">Keterangan</th>
+            <th align="center" width="20%">Keterangan</th>
+            <th align="center" width="10%">Foto</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <th colspan="5">A. Identifikasi Kondisi Kekumuhan</th>
+            <th colspan="6">A. Identifikasi Kondisi Kekumuhan</th>
         </tr>
         <?php
         $id_ind = '';
@@ -44,7 +45,7 @@
         }
         ?>
         <tr>
-            <th colspan="5">B. Identifikasi Pertimbangan Lain</th>
+            <th colspan="6">B. Identifikasi Pertimbangan Lain</th>
         </tr>
         <?php
         $id_ind = '';
@@ -86,7 +87,7 @@
         }
         ?>
         <tr>
-            <th colspan="5">C. Identifikasi Legalitas Lahan</th>
+            <th colspan="6">C. Identifikasi Legalitas Lahan</th>
         </tr>
         <?php
         $id_ind = '';

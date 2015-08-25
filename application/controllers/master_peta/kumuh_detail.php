@@ -42,19 +42,20 @@ class Kumuh_detail extends MY_Controller {
     public function add($kategori = null, $id_kaw_kumuh = null) {
         $data['title_page'] = 'ADD';
         $data['kategori'] = $kategori;
-        $data['id_kaw_kumuh'] = $id_kaw_kumuh;        
+        $data['id_kaw_kumuh'] = $id_kaw_kumuh;
         $data['data_indikator'] = $this->indikator_model->select_all()->result();
         $data['page_content'] = 'admin/master_peta/kumuh_detail/add_3';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }
 
-    public function edit($kategori, $id_kaw_kumuh = null, $id = null) {
+    public function edit($kategori, $id = null) {
         $data['title_page'] = 'EDIT';
-        $data['kategori'] = $kategori;
-        $data['id_kaw_kumuh'] = $id_kaw_kumuh;
-        $data['data'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row_array();
-        $data['page_content'] = 'admin/master_peta/kumuh_detail/edit';
+        $data['kategori'] = $kategori;        
+        $data['data_indikator'] = $this->indikator_model->select_all()->result();
+        $data['data'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row_array();     
+        $data['id_kaw_kumuh'] = $data['data']['id_kaw_kumuh'];
+        $data['page_content'] = 'admin/master_peta/kumuh_detail/edit_1';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }
@@ -191,6 +192,66 @@ class Kumuh_detail extends MY_Controller {
         redirect('master_peta/kumuh/view/' . $data['id_kaw_kumuh']);
     }
 
+    public function process1($action, $id = null) {
+
+        $data['id_kaw_kumuh'] = $this->input->post('inpIdKawKumuh');
+        $data['kategori'] = $this->input->post('inpKategori');
+
+        $data['luas_kawasan'] = $this->input->post('inpLuasKawasan');
+        $data['jumlah_kk'] = $this->input->post('inpJmlKK');
+        $data['jumlah_rtlh'] = $this->input->post('inpJmlRTLH');
+        $data['kmz_file'] = $this->upload_image(array('indikator_name' => 'kml_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmlFile', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['sk_file'] = $this->upload_image(array('indikator_name' => 'sk_' . substr($data['kategori'], 0, 4), 'input' => 'inpSk', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+
+        $data_indikator = $this->indikator_model->select_all()->result();
+        foreach ($data_indikator as $dt_ind) {
+            if (substr($dt_ind->id, 0, 1) < 8) {
+                $data[$dt_ind->field_name . '_prsn'] = $this->input->post('inp_' . $dt_ind->field_name . '_prsn');
+                $data[$dt_ind->field_name . '_kt'] = $this->input->post('inp_' . $dt_ind->field_name . '_kt');
+                $data[$dt_ind->field_name . '_foto'] = $this->upload_image(array('indikator_name' => $dt_ind->field_name.'_' . substr($data['kategori'], 0, 4), 'input' => 'inp_' . $dt_ind->field_name . '_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+            } if (substr($dt_ind->id, 0, 1) >= 8) {
+                $data[$dt_ind->field_name . '_prsn'] = $this->input->post('inp_' . $dt_ind->field_name . '_prsn');
+                $data[$dt_ind->field_name . '_kt'] = $this->input->post('inp_' . $dt_ind->field_name . '_kt');
+            }
+        }
+
+        for ($i = 1; $i < 8; $i++) {
+            $data['point_line_' . $i] = $this->upload_image(array('indikator_name' => 'point_line_' . substr($data['kategori'], 0, 4) . '_' . $i, 'input' => 'inp_point_line_' . $i, 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
+        }
+
+        //print
+//        foreach ($data_indikator as $dt_ind) {
+//            if (substr($dt_ind->id, 0, 1) < 8) {
+//                echo $data[$dt_ind->field_name . '_prsn'] . '  -  ' . $data[$dt_ind->field_name . '_kt'] . '  -  ' . $data[$dt_ind->field_name . '_foto'] . '</br>';
+//            } if (substr($dt_ind->id, 0, 1) >= 8) {
+//                echo $data[$dt_ind->field_name . '_prsn'] . '  -  ' . $data[$dt_ind->field_name . '_kt'] . '</br>';
+//            }
+//        }
+//
+//        for ($i = 1; $i < 9; $i++) {
+//            echo $data['point_line_' . $i] . '</br>';
+//        }
+        //        process
+        if ($action == 'add') {
+            // add    
+            $this->kumuh_detail_model->add($data);
+            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'add-success'));
+        } elseif ($action == 'edit') {
+            // edit    
+            $this->kumuh_detail_model->edit($data, array('id_kumuh_detail' => $id));
+            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
+        }
+
+        //error msg from db
+        $error_msg = $this->db->_error_message();
+        if (!empty($error_msg)) {
+            $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', $error_msg, 'error_db'));
+        }
+
+        redirect('master_peta/kumuh/view/' . $data['id_kaw_kumuh']);
+    }
+
     public function delete($id = null) {
         $this->kumuh_detail_model->delete(array('id_modul' => $id));
         $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'delete-success'));
@@ -207,7 +268,7 @@ class Kumuh_detail extends MY_Controller {
             $config['allowed_types'] = "jpg|jpeg";
             $config['upload_path'] = "./assets/admin/img/foto_kawasan/";
         } else {
-            $config['allowed_types'] = "*";
+            $config['allowed_types'] = "kmz|kml";
             $config['upload_path'] = "./assets/admin/img/kmz/";
         }
         $this->upload->initialize($config);

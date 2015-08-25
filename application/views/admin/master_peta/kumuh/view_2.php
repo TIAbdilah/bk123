@@ -11,8 +11,8 @@ function generate_modal($id_modal, $foto) {
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Foto</h4>
                 </div>
-                <div class="modal-body">
-                    ' . $foto . '
+                <div class="modal-body text-center">
+                    <img src="'.base_url().'assets/admin/img/foto_kawasan/'. $foto .'" width="100%"/> 
                 </div>
             </div>
         </div>
@@ -24,17 +24,20 @@ function generate_td($prsn, $kt, $ft, $id_modal) {
     $txt_td .= '<td>' . $prsn . '</td>'
             . '<td>';
     if ($kt != null) {
-        $txt_td .= '<span class="help-block"> '
+        $txt_td .= '<span class="help-block">'
                 . '<a data-original-title="Keterangan Tambahan" data-content="' . $kt . '" data-placement="top" data-trigger="hover" class="popovers">'
                 . 'Keterangan tambahan'
-                . ' </a>';
-    }
-    if ($ft != null) {
-        $txt_td .= '| <a data-toggle="modal" href="#' . $id_modal . '">Foto</a>' .
-                generate_modal($id_modal, $ft)
+                . ' </a>'
                 . '</span>';
     }
-    $txt_td.= '</td>';
+    $txt_td .= '</td><td>';
+    if ($ft != null) {
+        $txt_td .= '<span class="help-block">'
+                . '<a data-toggle="modal" href="#' . $id_modal . '">Foto</a>' .
+                generate_modal($id_modal, $ft)
+                .'</span>';                
+    }
+    $txt_td.=  '</td>';
     return $txt_td;
 }
 

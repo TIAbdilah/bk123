@@ -61,7 +61,7 @@ function generate_modal1($field, $foto) {
                 <?php echo $title_page ?>
             </header>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/kumuh_detail/process1/add/') ?>" enctype="multipart/form-data" method="POST">
+                <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/kumuh_detail/process1/edit/' . $data['id_kumuh_detail']) ?>" enctype="multipart/form-data" method="POST">
                     <input type="hidden" name="inpKategori" value="<?php echo $kategori ?>" />
                     <input type="hidden" name="inpIdKawKumuh" value="<?php echo $id_kaw_kumuh ?>" />
                     <table class="table table-striped table-responsive" style="width: 100%">                        
@@ -72,19 +72,19 @@ function generate_modal1($field, $foto) {
                             <tr>
                                 <td colspan="2"></td>
                                 <td>Luas Kawasan</td>
-                                <td><input type="text" class="form-control" name="inpLuasKawasan" placeholder="Luas Kawasan" /></td>
+                                <td><input type="text" class="form-control" name="inpLuasKawasan" value="<?php echo $data['luas_kawasan']?>" /></td>
                                 <td colspan="2"></td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
                                 <td>Jumlah KK</td>
-                                <td><input type="text" class="form-control" name="inpJmlKK" placeholder="Jumlah KK" /></td>
+                                <td><input type="text" class="form-control" name="inpJmlKK" value="<?php echo $data['jumlah_kk']?>" /></td>
                                 <td colspan="2"></td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
                                 <td>Jumlah RTLH</td>
-                                <td><input type="text" class="form-control" name="inpJmlRTLH" placeholder="Jumlah RTLH" /></td>
+                                <td><input type="text" class="form-control" name="inpJmlRTLH" value="<?php echo $data['jumlah_rtlh']?>" /></td>
                                 <td colspan="2"></td>
                             </tr>
                             <tr>
@@ -103,7 +103,7 @@ function generate_modal1($field, $foto) {
                                     <input type="file" class="form-control" name="inpPeta" placeholder="Peta Legenda" />
                                     <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
                                 </td>
-                                <td colspan="2"><?php // echo generate_modal1('peta', '') ?></td>
+                                <td colspan="2"><?php echo generate_modal1('peta', $data['peta_file']) ?></td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
@@ -112,7 +112,7 @@ function generate_modal1($field, $foto) {
                                     <input type="file" class="form-control" name="inpSk" placeholder="SK Kumuh" />
                                     <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
                                 </td>
-                                <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
+                                <td colspan="2"><?php echo generate_modal1('sk', $data['sk_file']) ?></td>
                             </tr>
                             <tr>
                                 <th colspan="6">A. Identifikasi Kondisi Kekumuhan</th>
@@ -145,7 +145,7 @@ function generate_modal1($field, $foto) {
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"><?php echo $data[$dt_ind->field_name.'_kt']?></textarea>
                                         </td>
                                         <td width="25%">
                                             <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
@@ -182,7 +182,7 @@ function generate_modal1($field, $foto) {
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"><?php echo $data[$dt_ind->field_name.'_kt']?></textarea>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -216,7 +216,7 @@ function generate_modal1($field, $foto) {
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"><?php echo $data[$dt_ind->field_name.'_kt']?></textarea>
                                         </td>
                                         <td></td>
                                     </tr>
