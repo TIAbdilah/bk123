@@ -97,7 +97,7 @@
 
         <script type="text/javascript" language="javascript" class="init">
 
-            $(document).ready(function() {
+            $(window).load(function() {
                 $("#owl-demo").owlCarousel({
                     navigation: true,
                     slideSpeed: 300,
@@ -116,15 +116,32 @@
                         }]
                 });
 
-                $('#select-all').click(function(event) {
-                    $(':checkbox').each(function() {
-                        this.checked = true;
+
+                setInterval(function() {
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>utilitas/user/get_count_new_user",
+//                        data: {kode_kab: $('#inpKodeDaerah option:selected').val()},
+                        type: "POST",
+                        dataType: "json",
+                        success: function(data) {
+                            $("#intJml").text(data[0]);
+                        },
+                        error: function(xhr, status, kesalahan) {
+                            alert(kesalahan);
+                        }
                     });
+                }, 2000);
+            });
+
+            $('#select-all').click(function(event) {
+                $(':checkbox').each(function() {
+                    this.checked = true;
                 });
-                $('#unselect-all').click(function(event) {
-                    $(':checkbox').each(function() {
-                        this.checked = false;
-                    });
+            });
+            
+            $('#unselect-all').click(function(event) {
+                $(':checkbox').each(function() {
+                    this.checked = false;
                 });
             });
 

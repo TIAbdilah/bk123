@@ -27,7 +27,7 @@ endif;
                 </div>
 
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="javascript:;"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity">19</span></a></li>
+                    <li><a href="<?php echo site_url('utilitas/user')?>"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity" id="intJml">0</span></a></li>
                 </ul>
 
             </section>

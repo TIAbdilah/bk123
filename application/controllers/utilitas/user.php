@@ -188,4 +188,24 @@ class User extends MY_Controller {
 //        
     }
 
+    public function get_count_new_user() {
+//        $data = null;
+        if ($this->session->userdata('role') == 'super admin') {
+            $data_user = $this->user_model->select_by_field(array('active' => 0))->num_rows();
+        } else {
+            $param = array(
+                'active' => 0,
+                'bagian' => $this->session->userdata('bagian'),
+                'id_role' => 8,
+                'propinsi' => $this->session->userdata('role_propinsi'));
+            $data_user = $this->user_model->select_by_field($param)->num_rows();
+        }
+        if ($data_user > 0) {
+            $data[0] = $data_user;
+        } else {
+            $data[0] = 0;
+        }
+        echo json_encode($data);
+    }
+
 }

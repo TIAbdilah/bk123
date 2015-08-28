@@ -39,8 +39,8 @@
                         <button data-dismiss="alert" class="close close-sm" type="button">
                             <i class="icon-remove"></i>
                         </button>
-                        '.$this->session->flashdata('message').
-                    '</div>';
+                        ' . $this->session->flashdata('message') .
+                        '</div>';
                     endif;
                     ?>
                     <?php
@@ -48,8 +48,8 @@
                         <button data-dismiss="alert" class="close close-sm" type="button">
                             <i class="icon-remove"></i>
                         </button>
-                        '.$this->session->flashdata('message2').
-                    '</div>';
+                        ' . $this->session->flashdata('message2') .
+                        '</div>';
                     endif;
                     ?>
                     <input type="text" class="form-control" name="inpUsername" placeholder="Nama Akun" required autofocus>
@@ -95,7 +95,16 @@
         <!-- js placed at the end of the document so the pages load faster -->
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/jquery.js"></script>
         <script src="<?php echo base_url() . 'assets/admin/' ?>js/bootstrap.min.js"></script>
-
+        <script type="text/javascript">
+            $(window).load(function() {
+//                $.delay(1000, function() {
+//                    alert('test');
+//                });
+//                   setInterval(function(){
+//                       alert('test');
+//                   }, 2000);
+            });
+        </script>
 
     </body>
 </html>
