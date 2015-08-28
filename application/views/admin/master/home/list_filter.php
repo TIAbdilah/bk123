@@ -1,5 +1,5 @@
 
-<?php $this->load->view('admin/master/berita/breadcrumbs') ?>
+<?php $this->load->view('admin/master/home/breadcrumbs') ?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
@@ -56,7 +56,9 @@ foreach ($data_kumuh as $data) {
                 </div>
 
                 <ul class="nav nav-pills nav-stacked">
-                    <li><a href="javascript:;"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity">19</span></a></li>
+                    <li><a href="<?php echo site_url('utilitas/user/edit_user/'.$this->session->userdata('username'))?>"> <i class="icon-user"></i> Ubah Data Pengguna</a></li>
+                    <li><a href="<?php echo site_url('utilitas/user/edit_password/'.$this->session->userdata('username'))?>"><i class="icon-lock"></i> Ubah Password</a></li>
+                    <!--<li><a href="javascript:;"> <i class="icon-group"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity">19</span></a></li>-->
                 </ul>
 
             </section>

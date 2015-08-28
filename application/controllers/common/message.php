@@ -21,7 +21,8 @@ class Message extends CI_Controller {
         'edit-success' => "Data berhasil di ubah",
         'delete-success' => "Data berhasil di hapus",
         'delete-confirm' => "Apakah anda yakin akan menghapus data {0} ?",
-        'error-upload-image' => "File gambar tidak sesuai"
+        'error-upload-image' => "File gambar tidak sesuai",
+        'wrong-password' => 'Password Anda Salah'
     );
 
     public function index() {

@@ -14,8 +14,13 @@
                         <div class="col-lg-4">
                             <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
                                 <option value="">-Pilih Kategori Pengguna-</option>
-                                <option value="3" <?php echo set_select('inpIdRole', 3, 3 == $data->id_role)?>>Admin</option>
-                                <option value="4" <?php echo set_select('inpIdRole', 4, 4 == $data->id_role)?>>Operator</option>
+                                <?php
+                                foreach ($SIList_role as $row) {
+                                    if ($row->tingkat > $this->session->userdata('tingkat_role')) {
+                                        echo "<option value=\"" . $row->id_role . "\"".  set_select('inpIdRole', $row->id_role, $row->id_role == $data->id_role).">" . $row->nama_role . "</option>";
+                                    }
+                                }
+                                ?>
                             </select>
                         </div>
                     </div>                    

@@ -36,7 +36,8 @@ endif;
                             $no = 1;
                             foreach ($list_data as $data) {
                                 if ($data->propinsi == $this->session->userdata('role_propinsi') 
-                                        && $data->bagian == $this->session->userdata('bagian')) {
+                                        && $data->bagian == $this->session->userdata('bagian')
+                                        && $data->id_role != $this->session->userdata('id_role')) {
                                     ?>
                                     <tr>
                                         <td><?php echo $no ?></td>

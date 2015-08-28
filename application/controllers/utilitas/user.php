@@ -23,11 +23,11 @@ class User extends MY_Controller {
     public function index() {
         $data['title_page'] = 'INDEX';
         $data['list_data'] = $this->user_model->select_all()->result();
-        
-        if($this->session->userdata('id_role') != 1 && $this->session->userdata('id_role')!=3){
-        $data['page_content'] = 'admin/utilitas/user/list_filter';
+
+        if ($this->session->userdata('id_role') != 1 && $this->session->userdata('id_role') != 3) {
+            $data['page_content'] = 'admin/utilitas/user/list_filter';
         } else {
-        $data['page_content'] = 'admin/utilitas/user/list';    
+            $data['page_content'] = 'admin/utilitas/user/list';
         }
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -52,7 +52,7 @@ class User extends MY_Controller {
     }
 
     public function edit($id = null) {
-        $data['title_page'] = 'EDIT';        
+        $data['title_page'] = 'EDIT';
         $data['SIList_role'] = $this->role_model->select_all()->result();
         $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
@@ -64,7 +64,7 @@ class User extends MY_Controller {
 
     public function process($action, $id = null) {
         // var
-         $data['nama'] = $this->input->post('inpNama');
+        $data['nama'] = $this->input->post('inpNama');
         $data['username'] = $this->input->post('inpUsername');
         $data['password'] = $this->input->post('inpPassword');
         $data['email'] = $this->input->post('inpEmail');
@@ -84,7 +84,7 @@ class User extends MY_Controller {
             $this->user_model->edit($data, array('id_user' => $id));
             $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
         }
-        
+
         //error msg from db
         $error_msg = $this->db->_error_message();
         if (!empty($error_msg)) {
@@ -109,6 +109,83 @@ class User extends MY_Controller {
         $this->user_model->edit($data, array('id_user' => $id));
         $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
         redirect('utilitas/user');
+    }
+
+    // edit data from user
+    public function edit_user($id = null) {
+        $data['title_page'] = 'EDIT';
+        $data['data'] = $this->user_model->select_by_field(array('username' => $id))->row();
+        $data['page_content'] = 'admin/utilitas/user/edit_user';
+        $data['text'] = $this->text;
+        $this->load->view('admin/index', $data);
+    }
+
+    public function process_edit_user($id = null) {
+
+        //process
+        $data['nama'] = $this->input->post('inpNama');
+        $data['no_telp'] = $this->input->post('inpNoTlp');
+        $data['email'] = $this->input->post('inpEmail');
+        $this->user_model->edit($data, array('id_user' => $id));
+        $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
+
+        //error msg from db
+        $error_msg = $this->db->_error_message();
+        if (!empty($error_msg)) {
+            $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', $error_msg, 'error_db'));
+        }
+
+        redirect('master/home');
+    }
+
+    //edit password from user
+    public function edit_password($id = null) {
+        $data['title_page'] = 'EDIT';
+        $password1 = $this->input->post('inpPassword');
+
+        $data['data'] = $this->user_model->select_by_field(array('username' => $id))->row();
+        if ($password1 == null || $password1 == '') {
+            $data['page_content'] = 'admin/utilitas/user/edit_password_ver';
+        } else {
+//            echo $password1;
+            if ($password1 == $data['data']->password) {
+                $data['page_content'] = 'admin/utilitas/user/edit_password';
+            } else {
+                $data['page_content'] = 'admin/utilitas/user/edit_password_ver';
+                $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', 'wrong-password'));
+            }
+        }
+
+        $data['text'] = $this->text;
+        $this->load->view('admin/index', $data);
+    }
+
+    public function process_edit_password($id = null) {
+
+        //process
+        $password1 = $this->input->post('inpPassword');
+        $password2 = $this->input->post('inpConfirmPassword');
+
+        if ($password1 == $password2) {
+            $data['password'] = $password1;
+            $this->user_model->edit($data, array('username' => $id));
+            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'add-success'));
+
+            //error msg from db
+            $error_msg = $this->db->_error_message();
+            if (!empty($error_msg)) {
+                $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', $error_msg, 'error_db'));
+            }
+
+            redirect('master/home');
+        } else {
+            $data['title_page'] = 'EDIT';
+            $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', 'wrong-password'));
+            $data['page_content'] = 'admin/utilitas/user/edit_password';
+            $data['text'] = $this->text;
+            $this->load->view('admin/index', $data);
+        }
+//        
     }
 
 }

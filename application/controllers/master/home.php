@@ -23,10 +23,10 @@ class Home extends MY_Controller {
     public function index() {
         $data['title_page'] = 'INDEX';
         $data['data_kumuh'] = $this->kumuh_model->select_all()->result();
-        if ($this->session->userdata('id_role') != 1 && $this->session->userdata('id_role') != 3) {
-            $data['page_content'] = 'admin/master/home/list_1';
+        if ($this->session->userdata('role') != 'super admin') {
+            $data['page_content'] = 'admin/master/home/list_filter';
         } else {
-            $data['page_content'] = 'admin/master/home/list_1_1';
+            $data['page_content'] = 'admin/master/home/list';
         }
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);

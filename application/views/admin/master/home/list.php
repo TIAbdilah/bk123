@@ -1,60 +1,161 @@
 
-<?php $this->load->view('admin/master/berita/breadcrumbs') ?>
+<?php $this->load->view('admin/master/home/breadcrumbs') ?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
 endif;
 ?>
-
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <strong><?php echo $title_page ?></strong>
-        <span class="pull-right">
-            <a href="<?php echo site_url('master/berita/add') ?>"><?php echo $text['txt']->button['add_data'] ?></a>
-        </span>
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                Selamat Datang, <?php echo $this->session->userdata('username') ?>
+            </header>
+        </section>
     </div>
-    <div class="panel-body">
-        <table id="example" class="table table-striped" style="width: 100%">
-            <thead>
-                <tr>
-                    <th width="5%">No</th>
-                    <th width="40%">Judul</th>
-                    <th width="20%">Tanggal</th>
-                    <th width="10%">Pengirim</th>
-                    <th width="10%">Kategori</th>
-                    <th width="15%"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $no = 1;
-                foreach ($list_data as $data) {
-                    ?>
-                    <tr>
-                        <td><?php echo $no ?></td>
-                        <td><?php echo $data->judul ?></td>
-                        <td><?php echo $data->tanggal ?></td>
-                        <td><?php echo $data->pengirim ?></td>
-                        <td><?php echo $data->nama_kategori ?></td>
-                        <td class="dt-body-center">
-                            <a title="<?php echo $text['txt']->button_title['view_data'] ?>" href="<?php echo site_url('master/berita/view/' . $data->id_berita) ?>" class="btn btn-mini btn-success"><?php echo $text['txt']->button['view_data'] ?></a>
-                            <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" href="<?php echo site_url('master/berita/edit/' . $data->id_berita) ?>" class="btn btn-mini btn-warning"><?php echo $text['txt']->button['edit_data'] ?></a>
-                            <a title="<?php echo $text['txt']->button_title['delete_data'] ?>" href="#" 
-                               onclick="if (confirm('<?php echo $text['msg']->get_message_text('delete-confirm', array($data->judul)) ?>')) {
-                                           window.location = '<?php echo site_url('master/berita/delete/' . $data->id_berita) ?>';
-                                       }" class="btn btn-mini btn-danger">
-                                <?php echo $text['txt']->button['delete_data'] ?>
-                            </a>                      
-                        </td>
-                    </tr>
-                    <?php
-                    $no++;
-                }
-                ?>                
-            </tbody>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        <aside class="profile-nav  alt green-border">
+            <section class="panel">
+                <div class="user-heading round">
+                    <a href="#">
+                        <img src="<?php echo base_url() . 'assets/public/img/' ?>profile-avatar.png">
+                    </a>
+                    <h1><?php echo $this->session->userdata('username') ?></h1>
+                    <p><?php echo $this->session->userdata('role') . ' | ' . $this->session->userdata('bagian') ?></p>
+                </div>
 
-        </table>
+                <ul class="nav nav-pills nav-stacked">
+                    <li><a href="javascript:;"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity">19</span></a></li>
+                </ul>
+
+            </section>
+        </aside>
     </div>
+    <?php
+    $count_empty_eks = 0;
+    $count_empty_per = 0;
+    $count_empty_pen = 0;
+    $count_check_eks = 0;
+    $count_check_per = 0;
+    $count_check_pen = 0;
+    foreach ($data_kumuh as $data) {
+
+        if ($data->eks == 1) {
+            $count_check_eks += 1;
+        } else {
+            $count_empty_eks += 1;
+        }
+
+
+        if ($data->per == 1) {
+            $count_check_per += 1;
+        } else {
+            $count_empty_per += 1;
+        }
+
+        if ($data->pen == 1) {
+            $count_check_pen += 1;
+        } else {
+            $count_empty_pen += 1;
+        }
+    }
+    ?>
+    <div class="col-lg-8">
+        <!--// data eksisting-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <div class="panel-heading">Data Eksisting</div>
+                </section>
+            </div>
+            <div class="state-overview col-lg-6">
+                <section class="panel">
+                    <div class="symbol red">
+                        <i class="icon-check-empty"></i>
+                    </div>
+                    <div class="value">
+                        <h1><?php echo $count_empty_eks ?></h1>
+                        <p>Data Kawasan Belum Diisi</p>
+                    </div>
+                </section>
+            </div>
+            <div class="state-overview col-lg-6">
+                <section class="panel">
+                    <div class="symbol terques">
+                        <i class="icon-check"></i>
+                    </div>
+                    <div class="value">
+                        <h1><?php echo $count_check_eks ?></h1>
+                        <p>Data Kawasan Sudah Diisi</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <!--        // data perencanaan-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <div class="panel-heading">Data Perencanaan</div>
+                </section>
+            </div>
+            <div class="state-overview col-lg-6">
+                <section class="panel">
+                    <div class="symbol red">
+                        <i class="icon-check-empty"></i>
+                    </div>
+                    <div class="value">
+                        <h1><?php echo $count_empty_per ?></h1>
+                        <p>Data Kawasan Belum Diisi</p>
+                    </div>
+                </section>
+            </div>
+            <div class="state-overview col-lg-6">
+                <section class="panel">
+                    <div class="symbol terques">
+                        <i class="icon-check"></i>
+                    </div>
+                    <div class="value">
+                        <h1><?php echo $count_check_per ?></h1>
+                        <p>Data Kawasan Sudah Diisi</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!--// data penanganan-->
+        <div class="row">
+            <div class="col-lg-12">
+                <section class="panel">
+                    <div class="panel-heading">Data Penanganan dan Pengendalian</div>
+                </section>
+            </div>
+            <div class="state-overview col-lg-6">
+                <section class="panel">
+                    <div class="symbol red">
+                        <i class="icon-check-empty"></i>
+                    </div>
+                    <div class="value">
+                        <h1><?php echo $count_empty_pen ?></h1>
+                        <p>Data Kawasan Belum Diisi</p>
+                    </div>
+                </section>
+            </div>
+            <div class="state-overview col-lg-6">
+                <section class="panel">
+                    <div class="symbol terques">
+                        <i class="icon-check"></i>
+                    </div>
+                    <div class="value">
+                        <h1><?php echo $count_check_pen ?></h1>
+                        <p>Data Kawasan Sudah Diisi</p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 
