@@ -2,7 +2,7 @@
     <div class="col-lg-12">
         <!--breadcrumbs start -->
         <ul class="breadcrumb">
-            <li><a href="<?php echo site_url() ?>">Home</a></li>
+            <li><a href="<?php echo site_url('master/home')?>">Home</a></li>
             <?php if (($this->session->userdata('role') == 'super admin') || ($this->session->userdata('role') == 'admin')) { ?>
                 <li><a href="<?php echo site_url('utilitas/user') ?>">User</a></li>
             <?php } else { ?>
