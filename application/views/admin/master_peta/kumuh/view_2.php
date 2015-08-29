@@ -3,7 +3,7 @@
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
 endif;
 
-function generate_modal($id_modal, $foto) {
+function generate_modal($id_modal, $folder, $foto) {
     return '<div class="modal fade" id="' . $id_modal . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -12,7 +12,7 @@ function generate_modal($id_modal, $foto) {
                     <h4 class="modal-title">Foto</h4>
                 </div>
                 <div class="modal-body text-center">
-                    <img src="'.base_url().'assets/admin/img/foto_kawasan/'. $foto .'" width="100%"/> 
+                    <img src="'.base_url().'assets/admin/img/'.$folder.'/'. $foto .'" width="100%"/> 
                 </div>
             </div>
         </div>
@@ -34,7 +34,7 @@ function generate_td($prsn, $kt, $ft, $id_modal) {
     if ($ft != null) {
         $txt_td .= '<span class="help-block">'
                 . '<a data-toggle="modal" href="#' . $id_modal . '">Foto</a>' .
-                generate_modal($id_modal, $ft)
+                generate_modal($id_modal,'foto_kawasan', $ft)
                 .'</span>';                
     }
     $txt_td.=  '</td>';
@@ -56,13 +56,13 @@ function generate_data_pendukung($bg, $dd, $head) {
         $id = $data_detail['id_kumuh_detail'];
         $pl = $data_detail['peta_file'];
         if ($pl != '') {
-            $plm = '<a data-toggle="modal" href="#modal_peta"><i class="icon-picture"></i> Peta</a>' . generate_modal('modal_peta', $pl);
+            $plm = '<a data-toggle="modal" href="#modal_peta"><i class="icon-picture"></i> Peta</a>' . generate_modal('modal_peta','peta', $pl);
         } else {
             $plm = '-';
         }
         $sk = $data_detail['sk_file'];
         if ($sk != '') {
-            $skm = '<a data-toggle="modal" href="#modal_sk"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', $sk);
+            $skm = '<a data-toggle="modal" href="#modal_sk"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk','sk', $sk);
         } else {
             $skm = '-';
         }

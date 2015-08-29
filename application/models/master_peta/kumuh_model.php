@@ -83,6 +83,11 @@ class Kumuh_model extends CI_Model {
         $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'penanganan\'');
         $this->subquery->end_subquery('pen');
         
+        $sub = $this->subquery->start_subquery('select');
+        $sub->select('sk_file')->from('mp_kumuh_detail_copy mp');
+        $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'eksisting\'');
+        $this->subquery->end_subquery('sk');
+        
         $this->db->from($this->table_name);
         $this->db->order_by('kode_daerah, nm_kawasan');
         return $this->db->get();

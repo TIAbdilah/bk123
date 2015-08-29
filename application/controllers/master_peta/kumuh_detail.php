@@ -203,8 +203,8 @@ class Kumuh_detail extends MY_Controller {
         $data['jumlah_kk'] = $this->input->post('inpJmlKK');
         $data['jumlah_rtlh'] = $this->input->post('inpJmlRTLH');
         $data['kmz_file'] = $this->upload_image(array('indikator_name' => 'kml_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmlFile', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
-        $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
-        $data['sk_file'] = $this->upload_image(array('indikator_name' => 'sk_' . substr($data['kategori'], 0, 4), 'input' => 'inpSk', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
+        $data['peta_file'] = $this->upload_image(array('indikator_name' => 'peta_' . substr($data['kategori'], 0, 4), 'input' => 'inpPeta', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'peta'));
+        $data['sk_file'] = $this->upload_image(array('indikator_name' => 'sk_' . substr($data['kategori'], 0, 4), 'input' => 'inpSk', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'sk'));
 
         $data_indikator = $this->indikator_model->select_all()->result();
         foreach ($data_indikator as $dt_ind) {
@@ -254,11 +254,17 @@ class Kumuh_detail extends MY_Controller {
             'file_name' => $param['indikator_name'] . '_' . $param['id_kaw_kumuh'],
             'max_size' => '2048'
         );
-        if ($param['tipe_file'] != 'kmz') {
+        if ($param['tipe_file'] == 'image') {
             $config['allowed_types'] = "jpg|jpeg";
             $config['upload_path'] = "./assets/admin/img/foto_kawasan/";
-        } else {
-            $config['allowed_types'] = "kmz|kml";
+        }else if ($param['tipe_file'] == 'sk') {
+            $config['allowed_types'] = "jpg|jpeg";
+            $config['upload_path'] = "./assets/admin/img/sk/";
+        }else if ($param['tipe_file'] == 'peta') {
+            $config['allowed_types'] = "jpg|jpeg";
+            $config['upload_path'] = "./assets/admin/img/peta/";
+        } else if ($param['tipe_file'] == 'kmz'){
+            $config['allowed_types'] = "*";
             $config['upload_path'] = "./assets/admin/img/kmz/";
         }
         $this->upload->initialize($config);
