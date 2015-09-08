@@ -2,1015 +2,172 @@
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
 endif;
+
+function generate_modal($id_modal, $folder, $foto) {
+    return '<div class="modal fade" id="' . $id_modal . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Foto</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="' . base_url() . 'assets/admin/img/' . $folder . '/' . $foto . '" width="100%"/> 
+                </div>
+            </div>
+        </div>
+    </div>';
+}
+
+function generate_td($prsn, $kt, $ft, $id_modal) {
+    $txt_td = '';
+    $txt_td .= '<td>' . $prsn . '</td>'
+            . '<td>';
+    if ($kt != null) {
+        $txt_td .= '<span class="help-block">'
+                . '<a data-original-title="Keterangan Tambahan" data-content="' . $kt . '" data-placement="top" data-trigger="hover" class="popovers">'
+                . 'Keterangan tambahan'
+                . ' </a>'
+                . '</span>';
+    }
+    $txt_td .= '</td><td>';
+    if ($ft != null) {
+        $txt_td .= '<span class="help-block">'
+                . '<a data-toggle="modal" href="#' . $id_modal . '">Foto</a>' .
+                generate_modal($id_modal, 'foto_kawasan', $ft)
+                . '</span>';
+    }
+    $txt_td.= '</td>';
+    return $txt_td;
+}
+
+function generate_data_pendukung($bg, $dd, $head) {
+    $txt_dp = '';
+    $data_detail = $dd;
+    if ($dd != null) {
+        $jkk = $dd['jumlah_kk'];
+        if ($jkk == '') {
+            $jkk = '-';
+        }
+        $lk = $dd['luas_kawasan'];
+        if ($lk == '') {
+            $lk = '-';
+        }
+        $jr = $dd['jumlah_rtlh'];
+        if ($jr == '') {
+            $jr = '-';
+        }
+        $pl = $dd['peta_file'];
+        if ($pl != '') {
+            $plm = '<a data-toggle="modal" href="#modal_peta"><i class="icon-picture"></i> Peta</a>' . generate_modal('modal_peta', 'peta', $pl);
+        } else {
+            $plm = '-';
+        }
+        $sk = $dd['sk_file'];
+        if ($sk != '') {
+            $skm = '<a data-toggle="modal" href="#modal_sk"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', 'sk', $sk);
+        } else {
+            $skm = '-';
+        }
+    } else {
+        $jkk = '-';
+        $lk = '-';
+        $jr = '-';
+        $plm = '-';
+        $skm = '-';
+    }
+    $txt_dp .= '<section class="panel">
+                <div class="panel-heading">Data Pendukung (' . $bg . ')</div>
+                <div class="panel-body">
+                    <table class="table12121" style="width:100%">
+                        <tr><td width="50%"><strong>Nama Kawasan</strong></td><td width="50%">' . $head->nm_kawasan . '</td></tr>                            
+                        <tr><td style="vertical-align:top;"><strong>Nama Kecamatan</strong></td><td>' . $head->kecamatan . '</td></tr>
+                        <tr><td><strong>Jumlah KK (jiwa)</strong></td><td>' . $jkk . '</td></tr>
+                        <tr><td><strong>Luas Kawasan (Ha)</strong></td><td>' . $lk . '</td></tr>
+                        <tr><td><strong>Jumlah RTLH (unit)</strong></td><td>' . $jr . '</td></tr>
+                        <tr><td><strong>Peta Legenda</strong></td><td>' . $plm . '</td></tr>
+                        <tr><td><strong>SK Kumuh</strong></td><td>' . $skm . '</td></tr>';
+//    if ($dd != null) {
+//        $txt_dp .= '    <tr>'
+//                . '         <td><strong>Download</strong></td>'
+//                . '         <td>';
+//        if ($dd['sk_file'] != '') {
+//            $txt_dp .= 'ada';
+//        } else {
+//            $txt_dp .= 'tidak ada';
+//        }
+//        $txt_dp . '         </td>'
+//                . '     </tr>';
+//    } else {
+//        $txt_dp .= '    <tr><td><strong>Download</strong></td><td>-</td></tr>';
+//    }
+    $txt_dp .= '    </table><br>';
+    $txt_dp .= gen_button($dd, $bg, $head);
+    $txt_dp .='</div>
+            </section>';
+    return $txt_dp;
+}
+
+function gen_button($data_detail, $bg, $hd) {
+    if ($data_detail != null) {
+        return '<div class="btn-group btn-group-justified">
+                    <a class="btn btn-info" href="' . site_url('master_peta/kumuh_detail/edit/' . strtolower($bg) . '/' . $data_detail['id_kumuh_detail']) . '" title="Edit Data ' . $bg . '">Edit</a>
+                    <a class="btn btn-danger" href="' . site_url('report/daerah_kumuh/print_report/' . $data_detail['id_kumuh_detail']) . '" title="Print Data ' . $bg . '">Print</a>
+                </div>';
+    } else {
+        return '<div class="btn-group btn-group-justified">
+                    <a class="btn btn-success" href="' . site_url('master_peta/kumuh_detail/add/' . strtolower($bg) . '/' . $hd->id_kaw_kumuh) . '" title="Add Data ' . $bg . '">Add</a>
+                </div>';
+    }
+}
 ?>
-<div class="panel panel-default">
-    <div class="panel-heading"><?php echo $title_page ?></div>
-    <div class="panel-body">
-        <form class="form-horizontal" action="#" method="POST">
-            <div class="form-group">
-                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama Kawasan</label>
-                <div class="col-lg-4">
-                    <p class="form-control-static">: <?php echo $data->nm_kawasan ?></p>
-                </div>
-                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Jumlah KK</label>
-                <div class="col-lg-4">
-                    <p class="form-control-static">: <?php echo $data->jumlah_kk ?> jiwa</p>
+<div class="row">
+    <div class="col-lg-4">
+        <?php $this->load->view('admin/master_peta/kumuh/data_pendukung') ?>
+    </div>
+    <div class="col-lg-8">
+        <section class="panel">
+            <div class="panel-heading">Peta</div>
+            <div class="panel-body text-center">
+                <img src="<?php echo base_url() . 'assets/public/' ?>img/peta indonesia.png" width="80%"/>
+            </div>
+        </section>
+    </div>  
+</div>
+<div class="row">
+
+    <?php $this->load->view('admin/master_peta/kumuh/grafik') ?>
+
+    <div class="col-lg-8">
+        <section class="panel">
+            <header class="panel-heading tab-bg-dark-navy-blue">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a data-toggle="tab" href="#a1">Eksisting</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#a2">Perencanaan</a>
+                    </li>
+                    <li class="">
+                        <a data-toggle="tab" href="#a3">Penanganan dan Pengendalian</a>
+                    </li>           
+                </ul>
+            </header>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div id="a1" class="tab-pane active">
+                        <?php $this->load->view('admin/master_peta/kumuh/table_eksisting') ?>
+                    </div>
+                    <div id="a2" class="tab-pane">
+                        <?php $this->load->view('admin/master_peta/kumuh/table_perencanaan') ?>
+                    </div>
+                    <div id="a3" class="tab-pane">
+                        <?php $this->load->view('admin/master_peta/kumuh/table_penanganan') ?>
+                    </div>
                 </div>
             </div>
-            <div class="form-group">
-                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Luas Kawasan</label>
-                <div class="col-lg-4">
-                    <p class="form-control-static">: <?php echo $data->luas_kawasan ?> Ha</p>
-                </div>
-                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Jumlah RTLH</label>
-                <div class="col-lg-4">
-                    <p class="form-control-static">: <?php echo $data->jumlah_rtlh ?> unit</p>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputEmail1" class="col-lg-2 col-sm-2 control-label">Nama Kecamatan</label>
-                <div class="col-lg-4">
-                    <p class="form-control-static">: <?php // echo $data_kelurahan->nm_kecamatan        ?></p>
-                </div>
-            </div>
-        </form>
+        </section>
     </div>
 </div>
-<div class="panel panel-default">
-    <div class="panel-heading">Detail Kawasan</div>
-    <div class="panel-body">
-        <table class="table table-striped table-bordered table-responsive" style="width: 100%">
-            <tr>
-                <th align="center" colspan="6">A. FISIK</th>
-            </tr>
-            <tr>
-                <th align="center" colspan="2" width="10%">No.</th>
-                <th align="center" width="30%">KRITERIA dan Indikator</th>
-                <th align="center" width="20%">Eksiting</th>
-                <th align="center" width="20%">Perencanaan</th>
-                <th align="center" width="20%">Penanganan & Pengendalian</th>
-            </tr>
-            <tr>
-                <td rowspan="3">1</td>
-                <td>a</td>
-                <td>Ketidakteraturan Bangunan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->ketidakteraturan_bangunan_prsn] . '<br>'
-                        . '<p class="help-block">' . $data_detail_eks->ketidakteraturan_bangunan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->ketidakteraturan_bangunan_prsn] . '<br>'
-                        . '<p class="help-block">' . $data_detail_per->ketidakteraturan_bangunan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->ketidakteraturan_bangunan_prsn] . '<br>'
-                        . '<p class="help-block">' . $data_detail_pen->ketidakteraturan_bangunan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>                
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Tingkat Kepadatan Bangunan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tingkat_kepadatan_bangunan_prsn] . '<br>'
-                        . '<p class="help-block">' . $data_detail_eks->tingkat_kepadatan_bangunan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tingkat_kepadatan_bangunan_prsn] . '<br>'
-                        . '<p class="help-block">' . $data_detail_per->tingkat_kepadatan_bangunan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tingkat_kepadatan_bangunan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->tingkat_kepadatan_bangunan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>      
-            </tr>
-            <tr>
-                <td>c</td>
-                <td>Ketidaksesuaian dengan Persyaratan Teknis Bangunan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->ketidaksesuaian_dg_persy_te_be_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->ketidaksesuaian_dg_persy_te_be_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->ketidaksesuaian_dg_persy_te_be_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->ketidaksesuaian_dg_persy_te_be_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->ketidaksesuaian_dg_persy_te_be_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->ketidaksesuaian_dg_persy_te_be_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td rowspan="2">2</td>
-                <td>a</td>
-                <td>Cakupan Pelayanan Jalan Lingkungan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->cakupan_pelayanan_jalan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->cakupan_pelayanan_jalan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->cakupan_pelayanan_jalan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->cakupan_pelayanan_jalan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->cakupan_pelayanan_jalan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->cakupan_pelayanan_jalan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Kualitas Permukaan Jalan Lingkungan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->kualitas_permukaan_jalan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->kualitas_permukaan_jalan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->kualitas_permukaan_jalan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->kualitas_permukaan_jalan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->kualitas_permukaan_jalan_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->kualitas_permukaan_jalan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>  
-            </tr>
-            <tr>
-                <td rowspan="2">3</td>
-                <td>a</td>
-                <td>Ketidaktersedian Akses Aman Air Minum</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->akses_air_minum_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->akses_air_minum_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->akses_air_minum_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->akses_air_minum_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->akses_air_minum_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->akses_air_minum_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>  
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Tidak Terpenuhinya Kebutuhan Air Minum</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_terpenuhi_kebutuhan_air_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->tidak_terpenuhi_kebutuhan_air_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_terpenuhi_kebutuhan_air_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->tidak_terpenuhi_kebutuhan_air_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_terpenuhi_kebutuhan_air_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->tidak_terpenuhi_kebutuhan_air_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td rowspan="5">4</td>
-                <td>a</td>
-                <td>Ketidakmampuan Mengalirkan Limpasan Air</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_mampu_mengalirkan_air_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->tidak_mampu_mengalirkan_air_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_mampu_mengalirkan_air_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->tidak_mampu_mengalirkan_air_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_mampu_mengalirkan_air_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_pen->tidak_mampu_mengalirkan_air_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>  
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Ketidaktersediaan Drainase</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_tersedia_drainase_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_eks->tidak_tersedia_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_tersedia_drainase_prsn] . '<br>'
-                        . '<p class="help-block"_>' . $data_detail_per->tidak_tersedia_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_tersedia_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->tidak_tersedia_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>c</td>
-                <td>Ketidakterhubungan dengan Sistem Drainase Perkotaan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_terhubung_sistem_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->tidak_terhubung_sistem_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_terhubung_sistem_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->tidak_terhubung_sistem_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_terhubung_sistem_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->tidak_terhubung_sistem_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>d</td>
-                <td>Tidak Terpeliharanya Drainase</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_terpelihara_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->tidak_terpelihara_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_terpelihara_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->tidak_terpelihara_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_terpelihara_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->tidak_terpelihara_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>e</td>
-                <td>Kualitas Konstruksi Drainase</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->kualitas_konstruksi_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->kualitas_konstruksi_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->kualitas_konstruksi_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->kualitas_konstruksi_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->kualitas_konstruksi_drainase_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->kualitas_konstruksi_drainase_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td rowspan="2">5</td>
-                <td>a</td>
-                <td>Sistem Pengelolaan Air Limbah Tidak Sesuai Standar Teknis</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->sistem_pengelolaan_air_limbah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->sistem_pengelolaan_air_limbah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->sistem_pengelolaan_air_limbah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->sistem_pengelolaan_air_limbah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->sistem_pengelolaan_air_limbah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->sistem_pengelolaan_air_limbah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Prasarana dan Sarana Pengelolaan Air Limbah Tidak Sesuai Dengan Persyaratan Teknis</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->pras_pengelolaan_air_limbah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->pras_pengelolaan_air_limbah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->pras_pengelolaan_air_limbah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->pras_pengelolaan_air_limbah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->pras_pengelolaan_air_limbah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->pras_pengelolaan_air_limbah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td rowspan="3">6</td>
-                <td>a</td>
-                <td>Prasarana dan Sarana Persampahan Tidak Sesuai dengan Persyaratan Teknis</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->pras_sampah_tidak_sesuai_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->pras_sampah_tidak_sesuai_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->pras_sampah_tidak_sesuai_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->pras_sampah_tidak_sesuai_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->pras_sampah_tidak_sesuai_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->pras_sampah_tidak_sesuai_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Sistem Pengelolaan Persampahan yang Tidak Sesuai Standar Teknis</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->sis_pen_sampah_tidak_sesuai_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->sis_pen_sampah_tidak_sesuai_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->sis_pen_sampah_tidak_sesuai_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->sis_pen_sampah_tidak_sesuai_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->sis_pen_sampah_tidak_sesuai_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->sis_pen_sampah_tidak_sesuai_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>c</td>
-                <td>Terpeliharanya Sarana dan Prasarana Pengelolaan Persampahan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->terpelihara_pras_sampah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->terpelihara_pras_sampah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->terpelihara_pras_sampah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->terpelihara_pras_sampah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->terpelihara_pras_sampah_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->terpelihara_pras_sampah_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td rowspan="2">7</td>
-                <td>a</td>
-                <td>Ketidaktersediaan Prasarana Proteksi Kebakaran</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_tersedia_pras_prokeb_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->tidak_tersedia_pras_prokeb_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_tersedia_pras_prokeb_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->tidak_tersedia_pras_prokeb_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_tersedia_pras_prokeb_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->tidak_tersedia_pras_prokeb_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Ketersediaan Sarana Proteksi Kebakaran</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->tidak_tersedia_sar_prokeb_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->tidak_tersedia_sar_prokeb_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->tidak_tersedia_sar_prokeb_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->tidak_tersedia_sar_prokeb_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->tidak_tersedia_sar_prokeb_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->tidak_tersedia_sar_prokeb_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <th align="center" colspan="5">B. Identifikasi Pertimbangan Lain</th>
-            </tr>
-            <tr>
-                <th align="center" colspan="2" width="10%">No.</th>
-                <th align="center" width="30%">KRITERIA dan Indikator</th>
-                <th align="center" width="20%">Eksiting</th>
-                <th align="center" width="20%">Perencanaan</th>
-                <th align="center" width="20%">Penanganan & Pengendalian</th>
-            </tr>
-            <tr>
-                <td rowspan="3">8</td>
-                <td>a</td>
-                <td>Nilai Strategis Lokasi</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->nilai_strategis_lokasi_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->nilai_strategis_lokasi_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->nilai_strategis_lokasi_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->nilai_strategis_lokasi_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->nilai_strategis_lokasi_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->nilai_strategis_lokasi_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Kependudukan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->kependudukan_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->kependudukan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->kependudukan_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->kependudukan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->kependudukan_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->kependudukan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>c</td>
-                <td>Kondisi Sosial, Ekonomi, dan Budaya</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_eks->sosial_budaya_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->sosial_budaya_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_per->sosial_budaya_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->sosial_budaya_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_persen[$data_detail_pen->sosial_budaya_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->sosial_budaya_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <th align="center" colspan="6">C. Identifikasi Legalitas Lahan </th>
-            </tr>            
-            <tr>
-                <th align="center" colspan="2" width="10%">No.</th>
-                <th align="center" width="30%">KRITERIA dan Indikator</th>
-                <th align="center" width="20%">Eksiting</th>
-                <th align="center" width="20%">Perencanaan</th>
-                <th align="center" width="20%">Penanganan & Pengendalian</th>
-            </tr>
-            <tr>
-                <td rowspan="2">9</td>
-                <td>a</td>
-                <td>Kejelasan Status Penguasaan Lahan</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_pn[$data_detail_eks->kejelasan_status_lahan_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->kejelasan_status_lahan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_pn[$data_detail_per->kejelasan_status_lahan_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->kejelasan_status_lahan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_pn[$data_detail_pen->kejelasan_status_lahan_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->kejelasan_status_lahan_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>
-                <td>b</td>
-                <td>Kesesuaian RTR</td>
-                <td>   
-                    <?php
-                    if ($data_detail_eks != null) {
-                        echo $text['arc']->tingkat_pn[$data_detail_eks->kesesuaian_rtr_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_eks->kesesuaian_rtr_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_per != null) {
-                        echo $text['arc']->tingkat_pn[$data_detail_per->kesesuaian_rtr_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_per->kesesuaian_rtr_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td>
-                <td>
-                    <?php
-                    if ($data_detail_pen != null) {
-                        echo $text['arc']->tingkat_pn[$data_detail_pen->kesesuaian_rtr_prsn] . '<br>'
-                        . '<p class="help-block">'
-                        . $data_detail_pen->kesesuaian_rtr_kt . '</p>';
-                    } else {
-                        echo '-';
-                    }
-                    ?>
-                </td> 
-            </tr>
-            <tr>               
-                <th align="center" colspan="3"></th>
-                <td align="center" >
-                    <?php if ($data_detail_eks != null && $this->session->userdata('bagian') == 'eksisting') { ?>
-                        ?>
-                        <a title="Edit Data Eksisting" 
-                           href="<?php echo site_url('master_peta/kumuh_detail/edit/eksisting/' . $data->id_kaw_kumuh . '/' . $data_detail_eks->id_kumuh_detail) ?>" 
-                           class="btn btn-large btn-warning">
-                            <i class="icon-pencil"></i> Edit
-                        </a>
-                        <a title="Cetak Data Penanganan" 
-                           href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_eks->id_kumuh_detail) ?>" 
-                           class="btn btn-large btn-primary">
-                            <i class="icon-print"></i> Cetak
-                        </a>
-                    <?php } else if ($data_detail_eks != null && $this->session->userdata('bagian') == 'eksisting') { ?>
-                        <a title="Add Data Eksisting" 
-                           href="<?php echo site_url('master_peta/kumuh_detail/add/eksisting/' . $data->id_kaw_kumuh) ?>" 
-                           class="btn btn-large btn-success">
-                            <i class="icon-plus"></i> Add 
-                        </a>
-                    <?php } ?>
-                </td>
-                <td align="center" >
-                    <?php
-                    if ($data_detail_per != null && $this->session->userdata('bagian') == 'perencanaan') {
-                        ?>
-                        <a title="Edit Data Perencanaan" 
-                           href="<?php echo site_url('master_peta/kumuh_detail/edit/perencanaan/' . $data->id_kaw_kumuh . '/' . $data_detail_per->id_kumuh_detail) ?>" 
-                           class="btn btn-large btn-warning">
-                            <i class="icon-pencil"></i> Edit 
-                        </a>
-                        <a title="Cetak Data Penanganan" 
-                           href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_per->id_kumuh_detail) ?>" 
-                           class="btn btn-large btn-primary">
-                            <i class="icon-print"></i> Cetak
-                        </a>
-                    <?php } else if ($data_detail_per != null && $this->session->userdata('bagian') == 'perencanaan') { ?>
-                        <a title="Add Data Perencanaan" 
-                           href="<?php echo site_url('master_peta/kumuh_detail/add/perencanaan/' . $data->id_kaw_kumuh) ?>" 
-                           class="btn btn-large btn-success">
-                            <i class="icon-plus"></i> Add 
-                        </a>
-                    <?php } ?>
-                </td>
-                <td align="center" >
-                    <?php
-                    if ($data_detail_pen != null && $this->session->userdata('bagian') == 'penanganan') {
-                        ?>
-                        <a title="Edit Data Penanganan" 
-                           href="<?php echo site_url('master_peta/kumuh_detail/edit/penanganan/' . $data->id_kaw_kumuh . '/' . $data_detail_pen->id_kumuh_detail) ?>" 
-                           class="btn btn-large btn-warning">
-                            <i class="icon-pencil"></i> Edit
-                        </a>
-                        <a title="Cetak Data Penanganan" 
-                           href="<?php echo site_url('report/daerah_kumuh/print_report/' . $data_detail_pen->id_kumuh_detail) ?>" 
-                           class="btn btn-large btn-primary">
-                            <i class="icon-print"></i> Cetak
-                        </a>
-                        <?php
-                    } else if ($data_detail_pen == null && $this->session->userdata('bagian') == 'penanganan') {
-                        ?>
-                        <a title="Add Data Penanganan" 
-                           href="<?php echo site_url('master_peta/kumuh_detail/add/penanganan/' . $data->id_kaw_kumuh) ?>" 
-                           class="btn btn-large btn-success">
-                            <i class="icon-plus"></i> Add
-                        </a>
-                    <?php } ?>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div>
+
+

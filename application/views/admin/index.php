@@ -125,9 +125,6 @@
                         dataType: "json",
                         success: function(data) {
                             $("#intJml").text(data[0]);
-                        },
-                        error: function(xhr, status, kesalahan) {
-                            alert(kesalahan);
                         }
                     });
                 }, 2000);
@@ -168,9 +165,6 @@
                     dataType: "json",
                     success: function(data) {
                         $("#inpWilayahKerjaK").html(data[0]);
-                    },
-                    error: function(xhr, status, kesalahan) {
-                        alert(kesalahan);
                     }
                 });
 
@@ -197,9 +191,6 @@
                     dataType: "json",
                     success: function(data) {
                         $("#pilihan").html(data[0]);
-                    },
-                    error: function(xhr, status, kesalahan) {
-                        alert(kesalahan);
                     }
                 });
             });
@@ -217,7 +208,7 @@
             $(function() {
                 $('#container1').highcharts({
                     data: {
-                        table: document.getElementById('datatable1')
+                        table: document.getElementById('datagrafik')
                     },
                     chart: {
                         polar: true,
@@ -240,7 +231,7 @@
                     },
                     tooltip: {
                         shared: true,
-                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>${point.y:,.0f}</b><br/>'
+                        pointFormat: '<span style="color:{series.color}">{series.name}: <b>{point.y:,.2f}</b><br/>'
                     }
                 });
             });

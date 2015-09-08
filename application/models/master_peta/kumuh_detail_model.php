@@ -16,7 +16,7 @@ if (!defined('BASEPATH'))
 
 class Kumuh_detail_model extends CI_Model {
 
-    var $table_name = 'mp_kumuh_detail_copy';
+    var $table_name = 'mp_kumuh_detail';
 
     public function __construct() {
         parent::__construct();

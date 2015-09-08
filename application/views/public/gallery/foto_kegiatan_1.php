@@ -8,7 +8,7 @@
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <link rel="shortcut icon" href="img/favicon.png">
 
-        <title>FlatLab Frontend | Portfolio</title>
+        <title>Direktorat Pengembangan Permukiman</title>
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url() . 'assets/public/' ?>css/bootstrap.min.css" rel="stylesheet">
@@ -47,133 +47,34 @@
             <div class="gallery-container">
                 <ul id="filters" class="list-unstyled">
                     <li><a href="#" data-filter="*"> All</a></li>
-                    <li><a href="#" data-filter=".rusunawa">Rusunawa</a></li>
-                    <li><a href="#" data-filter=".pisew">PISEW</a></li>
-                    <li><a href="#" data-filter=".agropolitan">Agropolitan</a></li>
+                    <!--                    <li><a href="#" data-filter=".rusunawa">Rusunawa</a></li>
+                                        <li><a href="#" data-filter=".pisew">PISEW</a></li>
+                                        <li><a href="#" data-filter=".agropolitan">Agropolitan</a></li>-->
+                    <?php
+                    $tag = '';
+                    foreach ($data_foto as $foto) {
+                        if ($tag != $foto->kategori) {
+                            echo '<li><a href="#" data-filter=".' . $foto->kategori . '">' . $foto->kategori . '</a></li>';
+                        }
+                        $tag = $foto->kategori;
+                    }
+                    ?>
                 </ul>
                 <div id="gallery" class="col-4">
-                    <div class="element rusunawa item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_1.jpg"  alt="">
+                    <?php
+                    foreach ($data_foto as $foto) {
+                        $thumb = str_replace('.', '_thumb.', $foto->nm_foto);
+                        echo '<div class="element '.$foto->kategori.' item view view-tenth" data-zlname="reverse-effect">
+                        <img src="' . base_url() . 'assets/admin/img/foto_kegiatan/' . $thumb . '"  alt="">
                         <div class="mask">
                             <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[1]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_1.jpg">
+                            <a data-zl-popup="link2" class="fancybox" rel="group['.$foto->kategori.']" href="' . base_url() . 'assets/admin/img/foto_kegiatan/' . $foto->nm_foto . '">
                                 <i class="icon-search"></i>
                             </a>
                         </div>
-                    </div>
-
-                    <div class="element rusunawa item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_2.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[1]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_2.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element rusunawa item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_3.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[1]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_3.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element rusunawa item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_4.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[1]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/rusun_surakarta_2011_4.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!--<h3>PISEW</h3>-->                
-                    <div class="element pisew item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/pisew_sinjai1.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[2]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/pisew_sinjai1.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element pisew item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/pisew_sinjai2.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[2]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/pisew_sinjai2.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element pisew item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/pisew_sinjai3.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[2]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/pisew_sinjai3.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!--<h3>Agropolitan/Minapolitan</h3>-->             
-                    <div class="element agropolitan item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/agropolitan_payakumbuh1.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[3]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/agropolitan_payakumbuh1.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element agropolitan item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/agropolitan_payakumbuh2.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[3]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/agropolitan_payakumbuh2.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element agropolitan item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/minapolitan_jambi1.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[3]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/minapolitan_jambi1.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element agropolitan item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/minapolitan_jambi2.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[3]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/minapolitan_jambi2.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="element agropolitan item view view-tenth" data-zlname="reverse-effect">
-                        <img src="<?php echo base_url() . 'assets/public/img/' ?>gallery/minapolitan_jambi3.jpg"  alt="">
-                        <div class="mask">
-                            <h2></h2>
-                            <a data-zl-popup="link2" class="fancybox" rel="group[3]" href="<?php echo base_url() . 'assets/public/img/' ?>gallery/minapolitan_jambi3.jpg">
-                                <i class="icon-search"></i>
-                            </a>
-                        </div>
-                    </div>
-
+                    </div>';
+                    }
+                    ?>
                 </div>
             </div>
             <!--portfolio end-->
@@ -254,8 +155,6 @@
                     return false;
                 });
             });
-
-
 
         </script>
 

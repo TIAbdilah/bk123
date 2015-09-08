@@ -40,7 +40,7 @@ class Kumuh extends MY_Controller {
         $data['data_detail_eks'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'eksisting'))->row_array();
         $data['data_detail_per'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'perencanaan'))->row_array();
         $data['data_detail_pen'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'penanganan'))->row_array();
-        $data['page_content'] = 'admin/master_peta/kumuh/view_2';
+        $data['page_content'] = 'admin/master_peta/kumuh/view';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }

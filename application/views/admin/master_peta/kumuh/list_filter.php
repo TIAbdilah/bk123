@@ -34,8 +34,8 @@ endif;
                             <tr>
                                 <th><a href="#" title="Tingkat Kekumuhan">TK</a></th>
                                 <th><a href="#" title="Pertimbangan Lain">PL</a></th>
-                                <th><a href="#" title="Kejelasan Status Lahan">KSL</a></th>
-                                <th><a href="#" title="Kesesuaian dg RTR">KdRTR</a></th>
+                                <th><a href="#" title="Kejelasan Status Lahan">K1</a></th>
+                                <th><a href="#" title="Kesesuaian dg RTR">K2</a></th>
                                 <th><a href="#" title="Eksisting">EKS</a></th>
                                 <th><a href="#" title="Perencanaan">PER</a></th>
                                 <th><a href="#" title="Penanganan">PEN</a></th>
@@ -57,13 +57,20 @@ endif;
                                 } else {
                                     $ft1 = $data->kode_daerah;
                                 }
-                                if ( $ft1 == $ft) {
+                                if ($ft1 == $ft) {
                                     ?>
                                     <tr>
                                         <td><?php echo $no ?></td>
                                         <td><?php echo $data->kode_daerah ?></td>
                                         <td><?php echo $data->nm_kawasan ?></td>
-                                        <td><?php echo "SK" ?></td>
+                                        <td>
+                                            <?php
+                                            if ($data->sk != '') {
+                                                echo '<a data-toggle="modal" href="#modal_sk' . $data->id_kaw_kumuh . '"><i class="icon-file"></i></a>'
+                                                . generate_modal('modal_sk' . $data->id_kaw_kumuh, 'sk', $data->sk);
+                                            }
+                                            ?>
+                                        </td>
                                         <?php
                                         if ($data->pen == 0) {
                                             ?>
@@ -81,15 +88,21 @@ endif;
                                             <?php
                                         }
                                         ?>
-                                        <td><?php if ($data->eks == 1) {
-                                    echo "<i class=\"icon-ok\"></i>";
-                                } ?></td>
-                                        <td><?php if ($data->per == 1) {
-                                    echo "<i class=\"icon-ok\"></i>";
-                                } ?></td>
-                                        <td><?php if ($data->pen == 1) {
-                                    echo "<i class=\"icon-ok\"></i>";
-                                } ?></td>
+                                        <td><?php
+                                            if ($data->eks == 1) {
+                                                echo "<i class=\"icon-ok\"></i>";
+                                            }
+                                            ?></td>
+                                        <td><?php
+                                            if ($data->per == 1) {
+                                                echo "<i class=\"icon-ok\"></i>";
+                                            }
+                                            ?></td>
+                                        <td><?php
+                                    if ($data->pen == 1) {
+                                        echo "<i class=\"icon-ok\"></i>";
+                                    }
+                                    ?></td>
                                         <td class="dt-body-center">
                                             <a title="List Kabupaten" 
                                                href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 

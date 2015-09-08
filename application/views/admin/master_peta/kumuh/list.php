@@ -48,8 +48,8 @@ function generate_modal($id_modal, $folder, $foto) {
                             <tr>
                                 <th><a href="#" title="Tingkat Kekumuhan">TK</a></th>
                                 <th><a href="#" title="Pertimbangan Lain">PL</a></th>
-                                <th><a href="#" title="Kejelasan Status Lahan">KSL</a></th>
-                                <th><a href="#" title="Kesesuaian dg RTR">KdRTR</a></th>
+                                <th><a href="#" title="Kejelasan Status Lahan">K1</a></th>
+                                <th><a href="#" title="Kesesuaian dg RTR">K2</a></th>
                                 <th><a href="#" title="Eksisting">EKS</a></th>
                                 <th><a href="#" title="Perencanaan">PER</a></th>
                                 <th><a href="#" title="Penanganan">PEN</a></th>
