@@ -23,12 +23,25 @@
                                 ?>
                             </select>
                         </div>
-                    </div>                    
+                    </div>
+                    <div class="form-group">
+                        <label class="col-lg-3 col-sm-3 control-label" for="inpModul">Modul</label>
+                        <div class="col-lg-4">
+                            <select id="inpModul" name="inpModul" class="form-control">                                                
+                                <option value="">-Pilih Modul-</option>
+                                <?php
+                                foreach ($SIList_modul as $row) {
+                                    echo "<option value=\"" . $row->list_item . "\">" . $row->list_item . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <label class="col-lg-3 col-sm-3 control-label" for="inpBagian">Pengisi Data</label>
                         <div class="col-lg-4">
                             <?php
-                            if ($this->session->userdata('role') != 'super_admin') {
+                            if ($this->session->userdata('role') != 'super admin') {
                                 $ro = 'readonly';
                                 if ($this->session->userdata('bagian') == 'eksisting') {
                                     $eks = 'selected';
@@ -57,13 +70,13 @@
                     <div class="form-group">
                         <label class="col-lg-3 col-sm-3 control-label" for="inpWilayahKerjaP">Wilayah Kerja (Propinsi)</label>
                         <div class="col-lg-4">
-                            <select id="inpWilayahKerjaP" name="inpWilayahKerjaP" class="form-control" <?php echo $ro?>>   
+                            <select id="inpWilayahKerjaP" name="inpWilayahKerjaP" class="form-control" <?php echo $ro ?>>   
                                 <?php
                                 ?>
                                 <option value="">-Pilih Propinsi-</option>
                                 <?php
                                 foreach ($SIList_propinsi as $row) {
-                                    if ($this->session->userdata('role') != 'super_admin') {
+                                    if ($this->session->userdata('role') != 'super admin') {
                                         if ($row->kode_daerah == $this->session->userdata('role_propinsi')) {
                                             echo "<option value=\"" . $row->kode_daerah . "\" selected>" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
                                         }

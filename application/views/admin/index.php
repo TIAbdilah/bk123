@@ -8,7 +8,7 @@
         <meta name="keyword" content="FlatLab, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
         <link rel="shortcut icon" href="<?php echo base_url() . 'assets/admin/' ?>img/favicon.ico">
 
-        <title>Direktorat Pengembangan Permukiman</title>
+        <title>Direktorat Pengembangan Kawasan Permukiman</title>
 
         <!-- Bootstrap core CSS -->
         <link href="<?php echo base_url() . 'assets/admin/' ?>css/bootstrap.min.css" rel="stylesheet">

@@ -109,7 +109,7 @@ class Kumuh_detail extends MY_Controller {
                 $data['vid_kawasan_' . $i] = $vid;
             }
         }
-
+        
         //        process
         if ($action == 'add') {
             // add    
@@ -139,14 +139,25 @@ class Kumuh_detail extends MY_Controller {
     public function upload_image($param) {
         $config = array(
             'overwrite' => TRUE,
-            'file_name' => $param['indikator_name'] . '_' . $param['id_kaw_kumuh'],
-            'max_size' => '2048'
+            'file_name' => $param['indikator_name'] . '_' . $param['id_kaw_kumuh']
         );
+        //file size
+        if($param['tipe_file'] == 'image' 
+                || $param['tipe_file'] == 'peta'
+                || $param['tipe_file'] == 'kmz'){
+            $config['max_size'] = '2048';
+        } else if($param['tipe_file'] == 'video'){
+            $config['max_size'] = '15000';
+        } else if($param['tipe_file'] == 'sk'){
+            $config['max_size'] = '15000';
+        }
+            
+        //file location and type    
         if ($param['tipe_file'] == 'image') {
             $config['allowed_types'] = "jpg|jpeg";
             $config['upload_path'] = "./assets/admin/img/foto_kawasan/";
         } else if ($param['tipe_file'] == 'sk') {
-            $config['allowed_types'] = "jpg|jpeg";
+            $config['allowed_types'] = "pdf";
             $config['upload_path'] = "./assets/admin/img/sk/";
         } else if ($param['tipe_file'] == 'peta') {
             $config['allowed_types'] = "jpg|jpeg";
@@ -158,10 +169,13 @@ class Kumuh_detail extends MY_Controller {
             $config['allowed_types'] = "mp4|avi";
             $config['upload_path'] = "./assets/admin/img/video/";
         }
+        
         $this->upload->initialize($config);
-        if (!empty($_FILES[$param['input']]['name']) && $_FILES[$param['input']]['name'] != '' && $_FILES[$param['input']]['name'] != null) {
+        if (!empty($_FILES[$param['input']]['name']) 
+                && $_FILES[$param['input']]['name'] != '' 
+                && $_FILES[$param['input']]['name'] != null) {
+            
             if ($this->upload->do_upload($param['input'])) {
-
                 $dok = $this->upload->data();
                 if ($param['tipe_file'] == 'image') {
                     $config['image_library'] = 'gd2';
@@ -175,12 +189,11 @@ class Kumuh_detail extends MY_Controller {
                     $this->image_lib->resize();
                 }
                 return $dok['file_name'];
+            } else {
+                $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', 'error-upload-image'));
+
+                redirect('master_peta/kumuh/view/' . $param['id_kaw_kumuh']);
             }
-//            else {
-//                $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', 'error-upload-image'));
-//
-//                redirect('master_peta/kumuh/view/' . $param['id_kaw_kumuh']);
-//            }
         } else {
             return '';
         }

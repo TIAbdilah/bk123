@@ -44,6 +44,14 @@
                         }
                         ?>
                     </select>
+                    <select id="inpModul" name="inpModul" class="form-control">                                                
+                        <option value="">-Pilih Modul-</option>
+                        <?php
+                        foreach ($SIList_modul as $row) {
+                            echo "<option value=\"" . $row->list_item . "\">" . $row->list_item . "</option>";
+                        }
+                        ?>
+                    </select>
                     <select id="inpBagian" name="inpBagian" class="form-control">                                                
                         <option value="">-Pilih Penanggung Jawab Data-</option>
                         <option value="eksisting">Data Eksisting</option>

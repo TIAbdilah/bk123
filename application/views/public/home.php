@@ -43,67 +43,32 @@
         <div class="fullwidthbanner-container main-slider">
             <div class="fullwidthabnner">
                 <ul id="revolutionul" style="display:none;">
-                    <!--1st slide-->                     
-                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
-                        <img src="http://localhost/mybangkim/assets/public/img/gallery/minapolitan_jambi2.jpg" width="60%" alt="Image 1">
-                        <div class="caption lfr slide_title"
-                             data-x="670"
-                             data-y="120"
-                             data-speed="400"
-                             data-start="1000"
-                             data-easing="easeOutExpo">
-                            Dokumen referensi
-                        </div>
-                        <div class="caption lfr slide_desc"
-                             data-x="670"
-                             data-y="260"
-                             data-speed="400"
-                             data-start="2500"
-                             data-easing="easeOutExpo">
-                            Undang-undang, Peraturan Pemerintah, <br>
-                            Peraturan / Keputusan Presiden, dan Peraturan Menteri
-                        </div>
-                        <a class="caption lfr btn yellow slide_btn" href="#" target="_blank"
-                           data-x="670"
-                           data-y="400"
-                           data-speed="400"
-                           data-start="3500"
-                           data-easing="easeOutExpo">
-                            Lihat Dokumen
-                        </a>
-                    </li>
-                    
-                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="">
-                        <img src="http://localhost/mybangkim/assets/public/img/gallery/minapolitan_jambi1.jpg" width="60%" alt="Image 1">
-                        <div class="caption lfr slide_title"
-                             data-x="670"
-                             data-y="120"
-                             data-speed="400"
-                             data-start="1000"
-                             data-easing="easeOutExpo">
-                            Peta Permukiman
-                        </div>
-                        <div class="caption lfr slide_desc"
-                             data-x="670"
-                             data-y="260"
-                             data-speed="400"
-                             data-start="2500"
-                             data-easing="easeOutExpo">
-                            Peta persebaran permukiman di seluruh indonsia. <br>
-                            Terdiri dari Perkotaan, Pedesaan, Batas terluar dan lain-lain.
-                        </div>
-                        <a class="caption lfr btn yellow slide_btn" href="#" target="_blank"
-                           data-x="670"
-                           data-y="400"
-                           data-speed="400"
-                           data-start="3500"
-                           data-easing="easeOutExpo">
-                            Lihat Peta
-                        </a>
-                    </li>
+                    <?php foreach ($karusel as $kar_item) { ?>
+                        <!--1st slide-->                     
+                        <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="9400" data-thumb="" >
+                            <img src="<?php echo base_url() . 'assets/admin/img/news/' . $kar_item->gambar ?>" width="60%" alt="Image 1">
+                            <div class="caption lfr slide_title"
+                                 data-x="20"
+                                 data-y="420"
+                                 data-speed="400"
+                                 data-start="1000"
+                                 data-easing="easeOutExpo">
+                                     <?php echo $kar_item->judul ?>
+                            </div>
+                            <div class="caption lfr slide_desc"
+                                 data-x="20"
+                                 data-y="480"
+                                 data-speed="400"
+                                 data-start="2500"
+                                 data-easing="easeOutExpo" style="width: 390px;word-wrap: break-word">                                 
+                                <p class="f-text">
+                                     <?php echo $kar_item->isi?>
+                                 </p>
+                            </div>                        
+                        </li>
+                    <?php } ?>
 
                 </ul>
-                <!--<div class="tp-bannertimer tp-top"></div>-->
             </div>
         </div>
         <!-- revolution slider end -->
@@ -115,33 +80,18 @@
                     <h1>Selamat Datang di Direktorat Pengembangan Permukiman</h1>
                     <p>Mewujudkan Permukiman Layak Huni dan Berkelanjutan</p>
                 </div>
-                <div class="col-lg-4 col-sm-4">
-                    <section>
-                        <div class="f-box">
-                            <i class=" icon-file"></i>
-                            <h2>Dokumen Referensi</h2>
-                        </div>
-                        <p class="f-text">Undang-undang, Peraturan Pemerintah, Peraturan / Keputusan Presiden, dan Peraturan Menteri</p>
-                    </section>
-                </div>
-                <div class="col-lg-4 col-sm-4">
-                    <section>
-                        <div class="f-box active">
-                            <i class=" icon-globe"></i>
-                            <h2>Peta Permukiman</h2>
-                        </div>
-                        <p class="f-text">Peta persebaran permukiman di seluruh indonsia. Terdiri dari Perkotaan, Pedesaan, Batas terluar dan lain-lain.</p>
-                    </section>
-                </div>
-                <div class="col-lg-4 col-sm-4">
-                    <section>
-                        <div class="f-box">
-                            <i class="icon-book"></i>
-                            <h2>Ebook</h2>
-                        </div>
-                        <p class="f-text">Tersedia beberapa ebook yang bisa di download secaa gratis</p>
-                    </section>
-                </div>
+                <?php foreach ($karusel as $kar_item) {
+                    $thumbnail = str_replace('.', '_thumb.', $kar_item->gambar);
+                    ?>
+                    <div class="col-lg-4 col-sm-4">
+                        <section>
+                            <div class="f-box" style="background-image: url('<?php echo base_url() . 'assets/admin/img/news/'.$thumbnail ?>')">                                                        
+                            </div>
+                            <h2><?php echo $kar_item->judul ?></h2>
+                            <p class="f-text"><?php echo $kar_item->isi ?></p>
+                        </section>
+                    </div>
+                <?php } ?>
                 <!--feature end-->
             </div>
         </div>
@@ -164,90 +114,30 @@
         <!--property end-->
 
         <div class="container">
-
             <div class="row">
-                <div class="col-lg-6">
-                    <!--tab start-->
-                    <section class="panel tab">
-                        <header class="panel-heading tab-bg-dark-navy-blue">
-                            <ul class="nav nav-tabs nav-justified ">
-                                <li class="active">
-                                    <a data-toggle="tab" href="#news">
-                                        News
-                                    </a>
-                                </li>
-                                <li>
-                                    <a data-toggle="tab" href="#aaa">
-                                        Agenda
-                                    </a>
-                                </li>
-                            </ul>
-                        </header>
-                        <div class="panel-body">
-                            <div class="tab-content tasi-tab">
-                                <div id="news" class="tab-pane active">
-                                    <?php
-                                    foreach ($latest_news as $lt_nws) {
-                                        ?>
-                                        <article class="media col-lg-12">
-                                            <a class="pull-left thumb p-thumb">
-                                                <img src="img/product1.jpg" alt="">
-                                            </a>
-                                            <div class="media-body">
-                                                <a href="#" class=" p-head"><?php echo $lt_nws->judul ?></a>
-                                                <p><?php echo substr($lt_nws->headline, 0, 100) . '...' ?></p>
-                                            </div>
-                                        </article>
-                                        <?php
-                                    }
-                                    ?>
-
-                                </div>
-                                <div id="aaa" class="tab-pane active">
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                    <!--tab end-->
-                </div>
-                <div class="col-lg-6">
-                    <!--testimonial start-->
-                    <div class="about-testimonial boxed-style about-flexslider ">
-                        <section class="slider">
-                            <div class="flexslider">
-                                <ul class="slides about-flex-slides">
-                                    <li>
-                                        <div class="about-testimonial-image ">
-                                            <img alt="" src="img/testimonial-img-1.jpg">
-                                        </div>
-                                        <a class="about-testimonial-author" href="#">Ericson Reagan</a>
-                                        <span class="about-testimonial-company">ABC Realestate LLC</span>
-                                        <div class="about-testimonial-content">
-                                            <p class="about-testimonial-quote">
-
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="about-testimonial-image ">
-                                            <img alt="" src="img/avatar2.jpg">
-                                        </div>
-                                        <a class="about-testimonial-author" href="#">Jonathan Smith</a>
-                                        <span class="about-testimonial-company">DEF LLC</span>
-                                        <div class="about-testimonial-content">
-                                            <p class="about-testimonial-quote">
-
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
+                <div class="col-lg-12">
+                    <h2 class="r-work">Berita Terbaru</h2>                    
+                </div>                
+                <?php
+                foreach ($latest_news as $lt_nws) {
+                    ?>
+                    <div class="col-lg-3">
+                        <section class="panel gray-bg">
+                            <div class="panel-heading"><strong><?php echo $lt_nws->judul ?></strong></div>
+                            <div class="panel-body">
+                                <p><?php echo substr($lt_nws->headline, 0, 150) . '...' ?></p>
+                                <span class="pull-right">
+                                    <a href="<?php echo site_url('berita/view/' . $lt_nws->id_berita) ?>">more...</a>
+                                </span>
+                            </div>                            
                         </section>
                     </div>
-                    <!--testimonial end-->
-                </div>
+                    <?php
+                }
+                ?>                
+                <span class="pull-right" style="margin-right: 20px">
+                    <a href="<?php echo site_url('berita') ?>"><i class="icon-folder-open"></i> Berita Lainnya</a>
+                </span>
             </div>
 
 

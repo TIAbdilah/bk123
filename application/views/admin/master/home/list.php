@@ -5,7 +5,7 @@
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
 endif;
 ?>
-<div class="row">
+<!--<div class="row">
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
@@ -13,7 +13,7 @@ endif;
             </header>
         </section>
     </div>
-</div>
+</div>-->
 <div class="row">
     <div class="col-lg-4">
         <aside class="profile-nav  alt green-border">

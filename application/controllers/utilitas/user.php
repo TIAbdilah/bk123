@@ -44,6 +44,7 @@ class User extends MY_Controller {
     public function add() {
         $data['title_page'] = 'ADD';
         $data['SIList_role'] = $this->role_model->select_all()->result();
+        $data['SIList_modul'] = $this->listcode_model->select_by_field(array('list_name' => 'pj_modul'))->result();
         $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $data['page_content'] = 'admin/utilitas/user/add';
@@ -54,6 +55,7 @@ class User extends MY_Controller {
     public function edit($id = null) {
         $data['title_page'] = 'EDIT';
         $data['SIList_role'] = $this->role_model->select_all()->result();
+        $data['SIList_modul'] = $this->listcode_model->select_by_field(array('list_name' => 'pj_modul'))->result();
         $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $data['data'] = $this->user_model->select_by_field(array('id_user' => $id))->row();
@@ -66,11 +68,15 @@ class User extends MY_Controller {
         // var
         $data['nama'] = $this->input->post('inpNama');
         $data['username'] = $this->input->post('inpUsername');
-        $data['password'] = $this->input->post('inpPassword');
+        $pass = $this->input->post('inpPassword');
+        if ($pass != '') {
+            $data['password'] = md5($pass);
+        }
         $data['email'] = $this->input->post('inpEmail');
         $data['no_telp'] = $this->input->post('inpNoTlp');
         $data['id_role'] = $this->input->post('inpIdRole');
         $data['bagian'] = $this->input->post('inpBagian');
+        $data['modul'] = $this->input->post('inpModul');
         $data['propinsi'] = $this->input->post('inpWilayahKerjaP');
         $data['kab_kota'] = $this->input->post('inpWilayahKerjaK');
 

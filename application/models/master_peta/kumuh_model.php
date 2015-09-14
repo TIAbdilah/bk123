@@ -22,10 +22,10 @@ class Kumuh_model extends CI_Model {
         parent::__construct();
     }
 
-    public function select_all($param = null) {  
+    public function select_all() {  
         $this->db->select('*');
         
-        // bobot kumuh eksisting
+        //bobot kumuh eksisting
         $sub = $this->subquery->start_subquery('select');
         $sub->select('ind_kumuh')->from('view_bobot_kumuh vb');
         $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
@@ -69,22 +69,22 @@ class Kumuh_model extends CI_Model {
         
         //status data
         $sub = $this->subquery->start_subquery('select');
-        $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail_copy mp');
+        $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail mp');
         $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'eksisting\'');
         $this->subquery->end_subquery('eks');
         
         $sub = $this->subquery->start_subquery('select');
-        $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail_copy mp');
+        $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail mp');
         $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'perencanaan\'');
         $this->subquery->end_subquery('per');
         
         $sub = $this->subquery->start_subquery('select');
-        $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail_copy mp');
+        $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail mp');
         $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'penanganan\'');
         $this->subquery->end_subquery('pen');
         
         $sub = $this->subquery->start_subquery('select');
-        $sub->select('sk_file')->from('mp_kumuh_detail_copy mp');
+        $sub->select('sk_file')->from('mp_kumuh_detail mp');
         $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'eksisting\'');
         $this->subquery->end_subquery('sk');
         

@@ -3,19 +3,19 @@
         <div data-original-title="Toggle Navigation" data-placement="right" class="icon-reorder tooltips"></div>
     </div>
     <!--logo start-->
-    <a href="<?php echo base_url()?>" class="logo">Direktorat Pengembangan Permukiman</a>
+    <a href="<?php echo base_url()?>" class="logo">Direktorat Pengembangan Kawasan Permukiman</a>
     <!--logo end-->
     <div class="top-nav ">
         <!--search & user info start-->
         <ul class="nav pull-right top-menu">
-            <li>
+<!--            <li>
                 <input type="text" class="form-control search" placeholder="Search">
-            </li>
+            </li>-->
             <!-- user login dropdown start-->
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <i class="icon-user-md"></i>
-                    <!--<span class="username"><?php echo $this->session->userdata('username') ?></span>-->
+                    <span class="username"><?php echo $this->session->userdata('username') ?></span>
                     <b class="caret"></b>
                 </a>
                 <ul class="dropdown-menu extended logout">

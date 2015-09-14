@@ -20,6 +20,7 @@ class Login extends CI_Controller {
         parent::__construct();
         $this->load->model('utilitas/user_model');
         $this->load->model('utilitas/role_model');
+        $this->load->model('utilitas/listcode_model');
         $this->load->model('master_peta/view_propinsi_model');
         $this->load->model('master_peta/view_kabupaten_model');
     }
@@ -36,6 +37,7 @@ class Login extends CI_Controller {
     public function sign_up() {
         $data['title_page'] = 'INDEX';
         $data['SIList_role'] = $this->role_model->select_all()->result();
+        $data['SIList_modul'] = $this->listcode_model->select_by_field(array('list_name' => 'pj_modul'))->result();
         $data['SIList_propinsi'] = $this->view_propinsi_model->select_all()->result();
         $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
         $this->load->view('login/sign_up', $data);
@@ -51,7 +53,7 @@ class Login extends CI_Controller {
             $this->load->view('login/sign_in');
         } else {
             $username = $this->input->post('inpUsername');
-            $password = $this->input->post('inpPassword');
+            $password = md5($this->input->post('inpPassword'));
             $param = array(
                 'username' => $username,
                 'password' => $password
@@ -86,12 +88,13 @@ class Login extends CI_Controller {
         // var
         $data['nama'] = $this->input->post('inpNama');
         $data['username'] = $this->input->post('inpUsername');
-        $data['password'] = $this->input->post('inpPassword');
-        $konfirm_password = $this->input->post('inpKonfirmPassword');
+        $data['password'] = md5($this->input->post('inpPassword'));
+        $konfirm_password = md5($this->input->post('inpKonfirmPassword'));
         $data['email'] = $this->input->post('inpEmail');
         $data['no_telp'] = $this->input->post('inpNoTlp');
         $data['id_role'] = $this->input->post('inpIdRole');
         $data['bagian'] = $this->input->post('inpBagian');
+        $data['modul'] = $this->input->post('inpModul');
         $data['propinsi'] = $this->input->post('inpWilayahKerjaP');
         $data['kab_kota'] = $this->input->post('inpWilayahKerjaK');
 

@@ -2,11 +2,16 @@
 <?php
 $this->load->view('admin/master_peta/kumuh/breadcrumbs');
 
-function generate_radio($field) {
-    return '<span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="0"/> 0-25%</span>
-            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="1" checked/> 26-50%</span> 
-            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="3"/> 51-75%</span>
-            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="5"/> 76-100%</span>';
+function generate_radio($field, $data) {
+    $c0 = set_radio('inp_'.$field.'_prsn', 0, 0 == $data[$field.'_prsn']);
+    $c1 = set_radio('inp_'.$field.'_prsn', 1, 1 == $data[$field.'_prsn']);
+    $c3 = set_radio('inp_'.$field.'_prsn', 3, 3 == $data[$field.'_prsn']);
+    $c5 = set_radio('inp_'.$field.'_prsn', 5, 5 == $data[$field.'_prsn']);
+    $rad = '<span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="0" '.$c0.'/> 0-25%</span>
+            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="1" '.$c1.'/> 26-50%</span> 
+            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="3" '.$c3.'/> 51-75%</span>
+            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="5" '.$c5.'/> 76-100%</span>';
+    return $rad;
 }
 
 function generate_modal($field, $prm) {
@@ -103,17 +108,19 @@ function generate_modal1($field, $foto) {
                                     <input type="file" class="form-control" name="inpPeta" placeholder="Peta Legenda" />
                                     <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
                                 </td>
-                                <td colspan="2"><?php echo generate_modal1('peta', $data['peta_file']) ?></td>
+                                <td colspan="2"><?php // echo generate_modal1('peta', '') ?></td>
                             </tr>
+                            <?php if($kategori == 'eksisting'){?>
                             <tr>
                                 <td colspan="2"></td>
                                 <td>SK Kumuh</td>
                                 <td>
                                     <input type="file" class="form-control" name="inpSk" placeholder="SK Kumuh" />
-                                    <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                    <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
                                 </td>
-                                <td colspan="2"><?php echo generate_modal1('sk', $data['sk_file']) ?></td>
+                                <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
                             </tr>
+                            <?php }?>
                             <tr>
                                 <th colspan="6">A. Identifikasi Kondisi Kekumuhan</th>
                             </tr>
@@ -131,6 +138,16 @@ function generate_modal1($field, $foto) {
                                                     <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
                                                 </td>
                                                 <td colspan="2"></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td>#</td>
+                                                <td>Video</td>
+                                                <td>
+                                                    <input type="file" class="form-control" name="inpVideo_'.substr($dt_ind->id, 0, 1).'" placeholder="Video" />
+                                                    <p class="help-block">Filetype (mp4/avi) Maxsize (15 MB)</p>
+                                                </td>                                                
+                                                <td colspan="2"></td>
                                             </tr>';
                                     } 
                                     ?>                                    
@@ -140,16 +157,25 @@ function generate_modal1($field, $foto) {
                                         <td width="20%"><?php echo $dt_ind->kriteria ?></td>
                                         <td width="24%">
                                             <?php
-                                            echo generate_radio($dt_ind->field_name);
+                                            echo generate_radio($dt_ind->field_name, $data);
                                             echo generate_modal($dt_ind->field_name, $dt_ind->parameter);
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"><?php echo $data[$dt_ind->field_name.'_kt']?></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
                                         </td>
                                         <td width="25%">
+                                            <?php if($kategori != 'penanganan'){?>
                                             <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
                                             <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                            <?php }else {?>
+                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
+                                            <p class="help-block">Foto 0% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft2" placeholder="foto2"/>
+                                            <p class="help-block">Foto 50% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft3" placeholder="foto2"/>
+                                            <p class="help-block">Foto 100% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                            <?php }?>
                                         </td>
                                     </tr>
                                     <?php
@@ -177,7 +203,7 @@ function generate_modal1($field, $foto) {
                                         <td width="20%"><?php echo $dt_ind->kriteria ?></td>
                                         <td width="24%">
                                             <?php
-                                            echo generate_radio($dt_ind->field_name);
+                                            echo generate_radio($dt_ind->field_name, $data);
                                             echo generate_modal($dt_ind->field_name, $dt_ind->parameter);
                                             ?>
                                         </td>
@@ -211,7 +237,7 @@ function generate_modal1($field, $foto) {
                                         <td width="20%"><?php echo $dt_ind->kriteria ?></td>
                                         <td width="24%">
                                             <?php
-                                            echo generate_radio($dt_ind->field_name);
+                                            echo generate_radio($dt_ind->field_name, $data);
                                             echo generate_modal($dt_ind->field_name, $dt_ind->parameter);
                                             ?>
                                         </td>

@@ -17,6 +17,9 @@
                 if ($text['rg']['M03b']) {
                     echo '<li><a  href="' . site_url('master/content') . '">Content</a></li>';
                 }
+//                if ($text['rg']['M03b']) {
+                    echo '<li><a  href="' . site_url('master/karusel') . '">Karusel</a></li>';
+//                }
                 if ($text['rg']['M04b']) {
                     echo '<li><a  href="' . site_url('master/berita') . '">Berita</a></li>';
                 }

@@ -111,7 +111,7 @@ function generate_modal1($field, $foto) {
                                 <td>SK Kumuh</td>
                                 <td>
                                     <input type="file" class="form-control" name="inpSk" placeholder="SK Kumuh" />
-                                    <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                    <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
                                 </td>
                                 <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
                             </tr>
@@ -140,7 +140,7 @@ function generate_modal1($field, $foto) {
                                                 <td>Video</td>
                                                 <td>
                                                     <input type="file" class="form-control" name="inpVideo_'.substr($dt_ind->id, 0, 1).'" placeholder="Video" />
-                                                    <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                                    <p class="help-block">Filetype (mp4/avi) Maxsize (15 MB)</p>
                                                 </td>                                                
                                                 <td colspan="2"></td>
                                             </tr>';

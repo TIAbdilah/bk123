@@ -37,6 +37,7 @@ class MY_Controller extends CI_Controller {
         $this->load->model('master/content_model');
         $this->load->model('master/foto_kegiatan_model');
         $this->load->model('master/doc_model');
+        $this->load->model('master/karusel_model');
         //model master peta
         $this->load->model('master_peta/daerah_model');        
         $this->load->model('master_peta/kumuh_model'); 

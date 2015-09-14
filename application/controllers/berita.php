@@ -64,6 +64,29 @@ class Berita extends CI_Controller {
         $data['page'] = 'public/berita_agenda/berita/list';
         $this->load->view('public/index', $data);
     }
+    
+    public function search($keyword,$offset = 0) {
+        $limit = 5;
+        $data['title_page'] = 'List Berita';
+        $data['text'] = $this->text;
+        $data['format_date'] = new Format_date();
+        $param = array(
+            'offset' => $offset,
+            'limit' => $limit
+        );                
+        $data['list_data'] = $this->berita_model->select_all($param)->result();
+
+        $config = array();
+        $config['base_url'] = base_url().'berita/index';
+        $config['per_page'] = $limit;
+        $config['uri_segment'] = 3;
+        $config['num_links'] = 5;
+        $config['total_rows'] = $this->berita_model->select_all()->num_rows();
+        $this->my_pagination->initialize($config);
+        $data['page_link'] = $this->my_pagination->create_links();
+        $data['page'] = 'public/berita_agenda/berita/list';
+        $this->load->view('public/index', $data);
+    }
 
     public function view($id) {
         $data['title_page'] = 'View Berita';
