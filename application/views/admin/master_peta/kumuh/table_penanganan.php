@@ -1,3 +1,31 @@
+<strong><i class="icon-facetime-video"></i> Video</strong> :&nbsp;
+<?php
+if ($data_detail_pen != null) {
+    for ($index = 1; $index < 8; $index++) {
+        if ($data_detail_pen['vid_kawasan_' . $index] != '') {
+            echo '<a class="btn btn-success" data-toggle="modal" href="#myModal' . $index . '">Video_' . $index . '</a>&nbsp;'
+            . '<div class="modal fade" id="myModal' . $index . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Video_' . $index . '</h4>
+                        </div>
+                        <div class="modal-body">
+                            <video width="100%" controls>
+                                <source src="' . base_url() . 'assets/admin/img/video/' . $data_detail_pen['vid_kawasan_' . $index] . '" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>';
+        }
+    }
+} else {
+    echo '-';
+}
+?>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -33,7 +61,7 @@
                                 $text['arc']->tingkat_persen[$data_detail_per[$dt_ind->field_name . '_prsn']]
                                 , $data_detail_per[$dt_ind->field_name . '_kt']
                                 , $data_detail_per[$dt_ind->field_name . '_foto']
-                                , $dt_ind->id . '_eks');
+                                , $dt_ind->id . '_pen');
                     } else {
                         echo '<td>-</td><td>-</td><td>-</td>';
                     }
@@ -64,18 +92,18 @@
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
                     if ($data_detail_per != null) {
-                        if($dt_ind->id == '8b'){
+                        if ($dt_ind->id == '8b') {
                             $prsn1 = $text['arc']->tingkat_persen_txt[$data_detail_pen[$dt_ind->field_name . '_prsn']];
-                        } else if($dt_ind->id == '8c'){
+                        } else if ($dt_ind->id == '8c') {
                             $prsn1 = $text['arc']->ya_tidak[$data_detail_pen[$dt_ind->field_name . '_prsn']];
-                        } else{
+                        } else {
                             $prsn1 = $text['arc']->ada_tidak[$data_detail_pen[$dt_ind->field_name . '_prsn']];
                         }
                         echo generate_td(
                                 $prsn1
                                 , $data_detail_per[$dt_ind->field_name . '_kt']
                                 , ''
-                                , $dt_ind->id . '_eks');
+                                , $dt_ind->id . '_pen');
                     } else {
                         echo '<td>-</td><td>-</td><td>-</td>';
                     }
@@ -110,7 +138,7 @@
                                 $text['arc']->tingkat_pn[$data_detail_per[$dt_ind->field_name . '_prsn']]
                                 , $data_detail_per[$dt_ind->field_name . '_kt']
                                 , ''
-                                , $dt_ind->id . '_eks');
+                                , $dt_ind->id . '_pen');
                     } else {
                         echo '<td>-</td><td>-</td><td>-</td>';
                     }

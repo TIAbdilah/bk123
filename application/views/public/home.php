@@ -150,6 +150,26 @@
                             <section>
                                 <div class="f-box">
                                     <img class="img-thumbnail" style="margin: auto; width: 140px; height: 140px;" 
+                                         src="<?php echo base_url() . 'assets/public/' ?>img/site/site_rkp.jpg" alt="" />                            
+                                    <a href="<?php echo base_url().'rkp-kp'?>"><h2>RKP-KP</h2> </a>                                                                       
+                                </div>
+                                <p class="f-text">Pemantauan RKP-KP</p>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="f-box">
+                                    <img class="img-thumbnail" style="margin: auto; width: 140px; height: 140px;" 
+                                         src="<?php echo base_url() . 'assets/public/' ?>img/under_construction2.jpg" alt="" />                            
+                                    <a href="<?php echo base_url().'pedesaan'?>"><h2>KSK</h2> </a>                                                                       
+                                </div>
+                                <p class="f-text">Sistem Informasi KSK</p>
+                            </section>
+                        </li>
+                        <li>
+                            <section>
+                                <div class="f-box">
+                                    <img class="img-thumbnail" style="margin: auto; width: 140px; height: 140px;" 
                                          src="<?php echo base_url() . 'assets/public/' ?>img/site/site_pu_net.png" alt="" />                            
                                     <a href="http://www.pu.go.id/"><h2>PU-Net</h2> </a>                                                                       
                                 </div>

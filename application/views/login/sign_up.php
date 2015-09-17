@@ -31,55 +31,64 @@
 
         <div class="container">
 
-            <form class="form-signin" action="<?php echo site_url('master_peta/daerah/populateKabkota') ?>" method="POST">
+            <form class="form-signin" style="max-width: 600px" action="<?php echo site_url('master_peta/daerah/populateKabkota') ?>" method="POST">
                 <h2 class="form-signin-heading">Daftar Akun Baru</h2>
                 <div class="login-wrap">
-                    <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
-                        <option value="">-Pilih Kategori Pengguna-</option>
-                        <?php
-                        foreach ($SIList_role as $row) {
-                            if ($row->tingkat > 1) {
-                                echo "<option value=\"" . $row->id_role . "\">" . $row->nama_role . "</option>";
+                    <div class="col-lg-6">
+                        <input class="form-control" type="text" id="inpNama" name="inpNama" placeholder="Nama" required>
+                        <input class="form-control" type="text" id="inpNoTlp" name="inpNoTlp" placeholder="No Tlp" required>
+                        <input class="form-control" type="text" id="inpEmail" name="inpEmail" placeholder="Email" required>
+                        <input class="form-control" type="password" id="inpPassword" name="inpPassword" placeholder="Password" required>
+                        <input class="form-control" type="password" id="inpPassword" name="inpKonfirmPassword" placeholder="Konfirmasi Password" required>
+                    </div>
+                    <div class="col-lg-6">
+                        <select id="inpModul" name="inpModul" class="form-control" required>                                                
+                            <option value="">-Pilih Modul-</option>
+                            <?php
+                            foreach ($SIList_modul as $row) {
+                                echo "<option value=\"" . $row->list_item . "\">" . $row->list_item . "</option>";
                             }
-                        }
-                        ?>
-                    </select>
-                    <select id="inpModul" name="inpModul" class="form-control">                                                
-                        <option value="">-Pilih Modul-</option>
-                        <?php
-                        foreach ($SIList_modul as $row) {
-                            echo "<option value=\"" . $row->list_item . "\">" . $row->list_item . "</option>";
-                        }
-                        ?>
-                    </select>
-                    <select id="inpBagian" name="inpBagian" class="form-control">                                                
-                        <option value="">-Pilih Penanggung Jawab Data-</option>
-                        <option value="eksisting">Data Eksisting</option>
-                        <option value="perencanaan">Data Perencanaan</option>
-                        <option value="penanganan">Data Penanganan dan Pengendalian</option>
-                    </select>
-                    <select id="inpWilayahKerjaP" name="kode_propinsi" class="form-control">                                                
-                        <option value="">-Pilih Propinsi-</option>
-                        <?php
-                        foreach ($SIList_propinsi as $row) {
-                            echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
-                        }
-                        ?>
-                    </select>
-                    <select id="inpWilayahKerjaK" name="inpWilayahKerjaK" class="form-control">                                                
-                        <option value="">-Pilih Kabupaten / Kota-</option>
-                        <?php
-                        foreach ($SIList_kabupaten as $row) {
-                            echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
-                        }
-                        ?>
-                    </select>
-                    <input class="form-control" type="text" id="inpNama" name="inpNama" placeholder="Nama">
-                    <input class="form-control" type="text" id="inpNoTlp" name="inpNoTlp" placeholder="No Tlp">
-                    <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Username" readonly>
-                    <input class="form-control" type="text" id="inpEmail" name="inpEmail" placeholder="Email">
-                    <input class="form-control" type="password" id="inpPassword" name="inpPassword" placeholder="Password">
-                    <input class="form-control" type="password" id="inpPassword" name="inpKonfirmPassword" placeholder="Konfirmasi Password">
+                            ?>
+                        </select>
+                        <input class="form-control" type="text" id="inpUsername" name="inpUsername" placeholder="Username" readonly>                    
+                        <div id="bag_perkotaan">
+                            <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
+                                <option value="">-Pilih Kategori Pengguna-</option>
+                                <?php
+                                foreach ($SIList_role as $row) {
+                                    if ($row->tingkat > 1) {
+                                        echo "<option value=\"" . $row->id_role . "\">" . $row->nama_role . "</option>";
+                                    }
+                                }
+                                ?>
+                            </select>                       
+                            <select id="inpBagian" name="inpBagian" class="form-control">                                                
+                                <option value="">-Pilih Penanggung Jawab Data-</option>
+                                <option value="eksisting">Data Eksisting</option>
+                                <option value="perencanaan">Data Perencanaan</option>
+                                <option value="penanganan">Data Penanganan dan Pengendalian</option>
+                            </select>
+                            <select id="inpWilayahKerjaP" name="kode_propinsi" class="form-control">                                                
+                                <option value="">-Pilih Propinsi-</option>
+                                <?php
+                                foreach ($SIList_propinsi as $row) {
+                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
+                                }
+                                ?>
+                            </select>
+                            <select id="inpWilayahKerjaK" name="inpWilayahKerjaK" class="form-control">                                                
+                                <option value="">-Pilih Kabupaten / Kota-</option>
+                                <?php
+                                foreach ($SIList_kabupaten as $row) {
+                                    echo "<option value=\"" . $row->kode_daerah . "\">" . $row->nm_daerah . ' ( ' . $row->kode_daerah . ' )' . "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="bag_perdesaan" class="col-lg-6">
+                        <input type="text" class="form-control"/>
+                    </div>
                     <button class="btn btn-lg btn-login btn-block" type="submit">Daftar</button>  
                 </div>
             </form>
@@ -94,6 +103,18 @@
             $(document).ready(function() {
                 var usr = "";
                 $('#inpWilayahKerjaK').hide();
+                $('#bag_perdesaan').hide();
+                
+                $('#inpModul').change(function(){
+                   var mdl = $('#inpModul option:selected').text();
+                   if(mdl == 'Perkotaan'){
+                       $('#bag_perdesaan').hide();
+                       $('#bag_perkotaan').show();
+                   } else if(mdl == 'Perdesaan'){
+                       $('#bag_perdesaan').show();
+                       $('#bag_perkotaan').hide();
+                   }
+                });
 
                 $('#inpIdRole').change(function() {
                     var role = $('#inpIdRole option:selected').text();

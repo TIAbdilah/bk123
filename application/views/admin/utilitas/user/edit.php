@@ -13,7 +13,7 @@
                         <label class="col-lg-3 col-sm-3 control-label" for="inpIdRole">Role</label>
                         <div class="col-lg-4">
                             <?php
-                            if ($this->session->userdata('role') != 'super admin') {
+                            if ($data->id_role != 3) {
                                 ?>
                                 <select id="inpIdRole" name="inpIdRole" class="form-control">                                                
                                     <option value="">-Pilih Kategori Pengguna-</option>

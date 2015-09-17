@@ -24,12 +24,21 @@ class Home extends MY_Controller {
         $data['title_page'] = 'INDEX';
         $data['data_kumuh'] = $this->kumuh_model->select_all()->result();
         if ($this->session->userdata('role') != 'super admin') {
-            $data['page_content'] = 'admin/master/home/list_filter';
+            $modul = $this->session->userdata('modul');
+            if ($modul == 'Perkotaan') {
+                $data['page_content'] = 'admin/master/home/list_filter';
+            } else if ($modul == 'Perdesaan') {
+                $data['page_content'] = 'admin/master/home/list_filter_perdesaan';
+            }
         } else {
             $data['page_content'] = 'admin/master/home/list';
         }
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
+    }
+
+    public function perdesaan() {
+        echo 'perdesaan';
     }
 
 }

@@ -31,7 +31,7 @@
 
         <div class="container">
 
-            <form class="form-signin" action="<?php echo site_url('login/process_login') ?>" method="POST">
+            <form class="form-signin" style="max-width: 330px" action="<?php echo site_url('login/process_login') ?>" method="POST">
                 <h2 class="form-signin-heading">Masuk</h2>
                 <div class="login-wrap">                    
                     <?php
