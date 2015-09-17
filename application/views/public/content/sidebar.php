@@ -22,7 +22,14 @@
                 ?>
                 <div class="media">
                     <a class="pull-left" href="javascript:;">
-                        <!--<img class="img-thumbnail" src="<?php echo $lt_news->foto ?>" width="80px" height="80px" alt="">-->
+                        <?php
+                            if($lt_news->foto != null){
+                                $foto = $lt_news->foto;
+                            }else {
+                                $foto = base_url() . 'assets/admin/img/no_img.png';
+                            }
+                        ?>
+                        <img class="img-thumbnail" src="<?php echo $foto ?>" width="80px" height="80px" alt="">
                     </a>
                     <div class="media-body">
                         <h5 class="media-heading">

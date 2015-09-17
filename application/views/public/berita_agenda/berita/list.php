@@ -7,10 +7,16 @@
                     <h1>Berita</h1>
                     <?php
                     foreach ($list_data as $data) {
+
+                        if ($data->foto != null) {
+                            $foto = $data->foto;
+                        } else {
+                            $foto = base_url() . 'assets/admin/img/no_img.png';
+                        }
                         ?>
                         <article class="media">
                             <a class="pull-left thumb p-thumb">
-                                <img src="<?php echo $data->foto ?>" alt="">
+                                <img src="<?php echo $foto ?>" alt="">
                             </a>
                             <div class="media-body">
                                 <a href="<?php echo site_url('berita/view/' . $data->id_berita) ?>" class=" p-head"><?php echo $data->judul ?></a> 
