@@ -3,7 +3,7 @@
 if ($data_detail_per != null) {
     for ($index = 1; $index < 8; $index++) {
         if ($data_detail_per['vid_kawasan_' . $index] != '') {
-            echo '<a class="btn btn-success" data-toggle="modal" href="#myModal' . $index . '">Video_' . $index . '</a>&nbsp;'
+            echo '<a class="btn btn-success" data-toggle="modal" href="#myModal' . $index . '">Video ' . $index . '</a>&nbsp;'
             . '<div class="modal fade" id="myModal' . $index . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">

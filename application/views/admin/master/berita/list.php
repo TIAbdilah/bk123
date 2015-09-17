@@ -20,8 +20,8 @@ endif;
                         <thead>
                             <tr>
                                 <th width="5%">No</th>
-                                <th width="40%">Judul</th>
-                                <th width="20%">Tanggal</th>
+                                <th width="50%">Judul</th>
+                                <th width="10%">Tanggal</th>
                                 <th width="10%">Pengirim</th>
                                 <th width="10%">Kategori</th>
                                 <th width="15%"></th>
@@ -37,7 +37,7 @@ endif;
                                     <td><?php echo $data->judul ?></td>
                                     <td><?php echo $data->tanggal ?></td>
                                     <td><?php echo $data->pengirim ?></td>
-                                    <td><?php echo $data->nama_kategori ?></td>
+                                    <td><?php echo $data->id_kategori ?></td>
                                     <td class="dt-body-center">
                                         <a title="<?php echo $text['txt']->button_title['view_data'] ?>" href="<?php echo site_url('master/berita/view/' . $data->id_berita) ?>" class="btn btn-xs btn-success"><?php echo $text['txt']->button['view_data'] ?></a>
                                         <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" href="<?php echo site_url('master/berita/edit/' . $data->id_berita) ?>" class="btn btn-xs btn-warning"><?php echo $text['txt']->button['edit_data'] ?></a>

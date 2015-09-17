@@ -2,10 +2,9 @@
     <div class="blog-side-item">         
         <div class="blog-post">            
             <h3>Cari Berita</h3>
-            <form class="form-inline" role="form">
+            <form class="form-inline" role="form" action="<?php echo site_url('berita/search')?>" method="POST">
                 <div class="form-group">
-                    <label class="sr-only" for="exampleInputPassword2">Password</label>
-                    <input class="form-control" id="exampleInputPassword2" placeholder="Password" type="password">
+                    <input class="form-control" id="inpKeyword" name="inpKeyword" placeholder="Kata Kunci" type="text">
                 </div>
                 <button type="submit" class="btn btn-success"><i class="icon-search"></i></button>
             </form>

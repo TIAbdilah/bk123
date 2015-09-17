@@ -14,7 +14,7 @@
                             </a>
                             <div class="media-body">
                                 <a href="<?php echo site_url('berita/view/' . $data->id_berita) ?>" class=" p-head"><?php echo $data->judul ?></a> 
-                                <p><?php echo $format_date->format_date_ldfy($data->tanggal) . ' ( ' . $data->nama_kategori . ' )' ?></p>
+                                <p><?php echo $format_date->format_date_ldfy($data->tanggal) . ' ( ' . $data->id_kategori . ' )' ?></p>
                                 <p><?php echo substr($data->isi, 0, 250) . '...' ?></p>
                                 <p class="pull-right"><a href="<?php echo site_url('berita/view/' . $data->id_berita) ?>" class=" p-head">more</a></p>
                             </div>
