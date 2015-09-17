@@ -24,14 +24,14 @@
                     </div>
                     <div class="form-group">
                         <label for="inpJudul" class="col-lg-2 col-sm-2 control-label">Judul</label>
-                        <div class="col-lg-8">
+                        <div class="col-lg-6">
                             <input type="text" class="form-control" id="inpJudul" name="inpJudul" value="<?php echo $data->judul?>">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="inpHeadline" class="col-lg-2 col-sm-2 control-label">Headline</label>
-                        <div class="col-lg-6">
-                            <input type="text" class="form-control" id="inpHeadline" name="inpHeadline" value="<?php echo $data->headline?>">
+                        <div class="col-lg-8">                            
+                            <textarea class="form-control" name="inpHeadline" rows="3"><?php echo $data->headline?></textarea>
                         </div>
                     </div>
                     <div class="form-group">
@@ -42,7 +42,7 @@
                     </div>                    
                     <div class="form-group">
                         <label for="inpGbr" class="col-lg-2 col-sm-2 control-label">URL Foto</label>
-                        <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <input type="text" class="form-control" id="inpGbr" name="inpGbr" value="<?php echo $data->foto?>">
                         </div>
                     </div>
