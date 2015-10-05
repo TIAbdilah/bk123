@@ -14,39 +14,35 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class Indikator_model extends CI_Model {
+class Perdesaan_detail_model extends CI_Model {
 
-    var $table_name = 'mp_indikator';
+    var $table_name = 'mp_perdesaan_detail';
 
     public function __construct() {
         parent::__construct();
     }
 
-    public function select_all() {   
+    public function select_all() {  
         $this->db->select('*');
         $this->db->from($this->table_name);
-        $this->db->order_by('nomor');
+        $this->db->order_by('kode_daerah, nm_kawasan');
         return $this->db->get();
     }
 
-    public function select_by_field($param = array()) {        
-        $this->db->select('*');
-        $this->db->from($this->table_name);
-        $this->db->where($param);
-        $this->db->order_by('nomor');
-        return $this->db->get();
+    public function select_by_field($param = array()) {     
+        return $this->db->get_where($this->table_name,$param);
     }
 
     public function add($data) {
-        
+        $this->db->insert($this->table_name, $data);
     }
 
     public function edit($data, $param = array()) {
-        
+        $this->db->update($this->table_name, $data, $param);
     }
 
     public function delete($param = array()) {
-       
+        $this->db->delete($this->table_name, $param);
     }
 
 }

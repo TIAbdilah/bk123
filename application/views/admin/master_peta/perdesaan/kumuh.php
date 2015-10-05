@@ -23,12 +23,7 @@ class Kumuh extends MY_Controller {
     public function index($kode_daerah = null) {
         $data['title_page'] = 'LIST';
         $data['list_data'] = $this->kumuh_model->select_all()->result();
-        if($this->session->userdata('role') != 'super admin'){
-            $data['page_content'] = 'admin/master_peta/kumuh/list_filter';
-        }else{
-            $data['page_content'] = 'admin/master_peta/kumuh/list';
-        }
-        
+        $data['page_content'] = 'admin/master_peta/kumuh/list';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
     }
@@ -36,10 +31,9 @@ class Kumuh extends MY_Controller {
     public function view($id = null) {
         $data['title_page'] = 'VIEW';
         $data['data'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $id))->row();
-        $data['data_indikator'] = $this->indikator_model->select_by_field(array('modul'=>'perkotaan'))->result();
-        $data['data_detail_eks'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'eksisting'))->row_array();
-        $data['data_detail_per'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'perencanaan'))->row_array();
-        $data['data_detail_pen'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'penanganan'))->row_array();
+        $data['data_detail_eks'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'eksisting'))->row();
+        $data['data_detail_per'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'perencanaan'))->row();
+        $data['data_detail_pen'] = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh' => $id, 'kategori' => 'penanganan'))->row();
         $data['page_content'] = 'admin/master_peta/kumuh/view';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -47,7 +41,7 @@ class Kumuh extends MY_Controller {
 
     public function add() {
         $data['title_page'] = 'ADD';
-        $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
+        $data['SIList_kelurahan'] = $this->view_kabupaten_model->select_all()->result();
         $data['page_content'] = 'admin/master_peta/kumuh/add';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -55,7 +49,7 @@ class Kumuh extends MY_Controller {
 
     public function edit($id = null) {
         $data['title_page'] = 'EDIT';        
-        $data['SIList_kabupaten'] = $this->view_kabupaten_model->select_all()->result();
+        $data['SIList_kelurahan'] = $this->view_kabupaten_model->select_all()->result();
         $data['data'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $id))->row();        
         $data['page_content'] = 'admin/master_peta/kumuh/edit';
         $data['text'] = $this->text;
@@ -66,7 +60,9 @@ class Kumuh extends MY_Controller {
         // var
         $data['nm_kawasan'] = $this->input->post('inpNamaKawasan');
         $data['kode_daerah'] = $this->input->post('inpKodeDaerah');
-        $data['kecamatan'] = $this->input->post('inpKecamatan');
+        $data['luas_kawasan'] = $this->input->post('inpLuasKawasan');
+        $data['jumlah_kk'] = $this->input->post('inpJmlKk');
+        $data['jumlah_rtlh'] = $this->input->post('inpJmlRtlh');
         
         //process
         if ($action == 'add') {
