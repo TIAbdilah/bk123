@@ -1,6 +1,6 @@
 
 <?php
-$this->load->view('admin/master_peta/kumuh/breadcrumbs');
+$this->load->view('admin/master_peta/perdesaan/breadcrumbs');
 
 function generate_radio($field, $data) {
     $c0 = set_radio('inp_'.$field.'_prsn', 0, 0 == $data[$field.'_prsn']);
@@ -63,12 +63,12 @@ function generate_modal1($field, $foto) {
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <?php echo $title_page.' Detil Dawasan Kumuh ('.$kaw_kumuh->nm_kawasan.' | '.ucwords($kategori).')'?>
+                <?php echo $title_page.' Detil Dawasan Kumuh ('.$kaw_perdesaan->nm_kawasan.' | '.ucwords($kategori).')'?>
             </header>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/kumuh_detail/process1/edit/' . $data['id_kumuh_detail']) ?>" enctype="multipart/form-data" method="POST">
+                <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/perdesaan_detail/process1/edit/' . $data['id_perdesaan_detail']) ?>" enctype="multipart/form-data" method="POST">
                     <input type="hidden" name="inpKategori" value="<?php echo $kategori ?>" />
-                    <input type="hidden" name="inpIdKawKumuh" value="<?php echo $id_kaw_kumuh ?>" />
+                    <input type="hidden" name="inpIdKawKumuh" value="<?php echo $id_kaw_perdesaan ?>" />
                     <table class="table table-striped table-responsive" style="width: 100%">                        
                         <tbody>
                             <tr>
@@ -122,7 +122,7 @@ function generate_modal1($field, $foto) {
                             </tr>
                             <?php }?>
                             <tr>
-                                <th colspan="6">A. Identifikasi Kondisi Kekumuhan</th>
+                                <th colspan="6">A. Identifikasi Kondisi Keperdesaanan</th>
                             </tr>
                             <?php
                             $id_ind = '0';

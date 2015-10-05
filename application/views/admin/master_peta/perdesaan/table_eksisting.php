@@ -43,7 +43,7 @@ if ($data_detail_eks != null) {
         <?php
         $id_ind = '';
         foreach ($data_indikator as $dt_ind) {
-            if (substr($dt_ind->nomor, 0, 1) < 8) {
+            if (substr($dt_ind->nomor, 0, 1) < 8 && substr($dt_ind->nomor, 1, 1) != '0') {
                 ?>
                 <tr>
                     <?php
@@ -73,7 +73,7 @@ if ($data_detail_eks != null) {
         }
         ?>
         <tr>
-            <th colspan="6">B. Identifikasi Pertimbangan Lain</th>
+            <th colspan="6">B. Akses Terhadap Sarana Permukiman</th>
         </tr>
         <?php
         $id_ind = '';
@@ -115,7 +115,7 @@ if ($data_detail_eks != null) {
         }
         ?>
         <tr>
-            <th colspan="6">C. Identifikasi Legalitas Lahan</th>
+            <th colspan="6">C. Kawasan Strategis</th>
         </tr>
         <?php
         $id_ind = '';
@@ -146,6 +146,41 @@ if ($data_detail_eks != null) {
                 </tr>
                 <?php
                 $id_ind = substr($dt_ind->nomor, 0, 1);
+            }
+        }
+        ?>
+        <tr>
+            <th colspan="6">D. Produk Unggulan</th>
+        </tr>
+        <?php
+        $id_ind = '';
+        foreach ($data_indikator as $dt_ind) {
+            if (substr($dt_ind->nomor, 0, 2) == '10') {
+                ?>
+                <tr>
+                    <?php
+                    if (substr($dt_ind->nomor, 0, 2) != $id_ind) {
+                        echo '<td><a title="' . $dt_ind->aspek . '" href="#">' . substr($dt_ind->nomor, 0, 2) . '</a></td>';
+                    } else {
+                        echo '<td>&nbsp;</td>';
+                    }
+                    ?>                
+                    <td><?php echo substr($dt_ind->nomor, 2, 1) ?></td>
+                    <td><?php echo $dt_ind->kriteria ?></td>
+                    <?php
+                    if ($data_detail_eks != null) {
+                        echo generate_td(
+                                $text['arc']->tingkat_pn[$data_detail_eks[$dt_ind->field_name . '_prsn']]
+                                , $data_detail_eks[$dt_ind->field_name . '_kt']
+                                , ''
+                                , $dt_ind->nomor . '_eks');
+                    } else {
+                        echo '<td>-</td><td>-</td><td>-</td>';
+                    }
+                    ?>
+                </tr>
+                <?php
+                $id_ind = substr($dt_ind->nomor, 0, 2);
             }
         }
         ?>

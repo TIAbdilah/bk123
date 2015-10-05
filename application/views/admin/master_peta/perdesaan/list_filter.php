@@ -1,5 +1,5 @@
 
-<?php $this->load->view('admin/master_peta/kumuh/breadcrumbs') ?>
+<?php $this->load->view('admin/master_peta/perdesaan/breadcrumbs') ?>
 
 <?php
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
@@ -12,7 +12,7 @@ endif;
                 <?php echo $title_page ?>
                 <?php if ($text['rg']['M02a']) { ?>
                     <span class="pull-right">
-                        <a href="<?php echo site_url('master_peta/kumuh/add') ?>">
+                        <a href="<?php echo site_url('master_peta/perdesaan/add') ?>">
                             <?php echo $text['txt']->button['add_data'] ?>
                         </a>
                     </span>
@@ -27,12 +27,12 @@ endif;
                                 <th rowspan="2">Kode Daerah</th>
                                 <th rowspan="2">Nama Kawasan</th>                                
                                 <th rowspan="2">SK</th>
-                                <th colspan="4">Bobot Kekumuhan</th>
+                                <th colspan="4">Bobot Keperdesaanan</th>
                                 <th colspan="3">Satus Data</th>
                                 <th rowspan="2"></th>
                             </tr>
                             <tr>
-                                <th><a href="#" title="Tingkat Kekumuhan">TK</a></th>
+                                <th><a href="#" title="Tingkat Keperdesaanan">TK</a></th>
                                 <th><a href="#" title="Pertimbangan Lain">PL</a></th>
                                 <th><a href="#" title="Kejelasan Status Lahan">K1</a></th>
                                 <th><a href="#" title="Kesesuaian dg RTR">K2</a></th>
@@ -65,68 +65,57 @@ endif;
                                         <td><?php echo $data->nm_kawasan ?></td>
                                         <td>
                                             <?php
-                                            if ($data->sk != '') {
-                                                echo '<a data-toggle="modal" href="#modal_sk' . $data->id_kaw_kumuh . '"><i class="icon-file"></i></a>'
-                                                . generate_modal('modal_sk' . $data->id_kaw_kumuh, 'sk', $data->sk);
-                                            }
+//                                            if ($data->sk != '') {
+//                                                echo '<a data-toggle="modal" href="#modal_sk' . $data->id_perdesaan . '"><i class="icon-file"></i></a>'
+//                                                . generate_modal('modal_sk' . $data->id_perdesaan, 'sk', $data->sk);
+//                                            }
                                             ?>
                                         </td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
                                         <?php
-                                        if ($data->pen == 0) {
-                                            ?>
-                                            <td><?php echo $text['arc']->tingkat_kumuh($data->tk_e) ?></td>
-                                            <td><?php echo $text['arc']->tingkat_per_lain($data->pl_e) ?></td>
-                                            <td><?php echo $text['arc']->tingkat_lainya($data->ksl_e) ?></td>
-                                            <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr_e) ?></td>
-                                            <?php
-                                        } else {
-                                            ?>
-                                            <td><?php echo $text['arc']->tingkat_kumuh($data->tk_p) ?></td>
-                                            <td><?php echo $text['arc']->tingkat_per_lain($data->pl_p) ?></td>
-                                            <td><?php echo $text['arc']->tingkat_lainya($data->ksl_p) ?></td>
-                                            <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr_p) ?></td>
-                                            <?php
-                                        }
+                                        //bobot kekumuhan
+    //                                    if ($data->pen == 0) {
+    //                                        echo "<td>" . $text['arc']->tingkat_perdesaan($data->tk_e) . "</td>"
+    //                                        . "<td>" . $text['arc']->tingkat_per_lain($data->pl_e) . "</td>"
+    //                                        . "<td>" . $text['arc']->tingkat_lainya($data->ksl_e) . "</td>"
+    //                                        . "<td>" . $text['arc']->tingkat_lainya($data->kdrtr_e) . "</td>";
+    //                                    } else {
+    //                                        echo "<td>" . $text['arc']->tingkat_perdesaan($data->tk_p) . "</td>"
+    //                                        . "<td>" . $text['arc']->tingkat_per_lain($data->pl_p) . "</td>"
+    //                                        . "<td>" . $text['arc']->tingkat_lainya($data->ksl_p) . "</td>"
+    //                                        . "<td>" . $text['arc']->tingkat_lainya($data->kdrtr_p) . "</td>";
+    //                                    }
                                         ?>
-                                        <td><?php
-                                            if ($data->eks == 1) {
-                                                echo "<i class=\"icon-ok\"></i>";
-                                            }
-                                            ?></td>
-                                        <td><?php
-                                            if ($data->per == 1) {
-                                                echo "<i class=\"icon-ok\"></i>";
-                                            }
-                                            ?></td>
-                                        <td><?php
-                                    if ($data->pen == 1) {
-                                        echo "<i class=\"icon-ok\"></i>";
-                                    }
-                                    ?></td>
+                                        <td><?php // if ($data->eks == 1) { echo "<i class=\"icon-ok\"></i>";}?></td>
+                                        <td><?php // if ($data->per == 1) { echo "<i class=\"icon-ok\"></i>";}?></td>
+                                        <td><?php // if ($data->pen == 1) { echo "<i class=\"icon-ok\"></i>";}?></td>
                                         <td class="dt-body-center">
                                             <a title="List Kabupaten" 
-                                               href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 
+                                               href="<?php echo site_url('master_peta/perdesaan/view/' . $data->id_perdesaan) ?>" 
                                                class="btn btn-xs btn-success"><?php echo $text['txt']->button['view_data'] ?>
                                             </a>
                                             <?php if ($text['rg']['M02c']) { ?>
                                                 <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
-                                                   href="<?php echo site_url('master_peta/kumuh/edit/' . $data->id_kaw_kumuh) ?>" 
+                                                   href="<?php echo site_url('master_peta/perdesaan/edit/' . $data->id_perdesaan) ?>" 
                                                    class="btn btn-xs btn-warning"><?php echo $text['txt']->button['edit_data'] ?>
                                                 </a>
                                             <?php } ?>
-        <?php if ($text['rg']['M02d']) { ?>
+                                            <?php if ($text['rg']['M02d']) { ?>
                                                 <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
-                                                   href="<?php echo site_url('master_peta/kumuh/delete/' . $data->id_kaw_kumuh) ?>" 
+                                                   href="<?php echo site_url('master_peta/perdesaan/delete/' . $data->id_perdesaan) ?>" 
                                                    class="btn btn-xs btn-danger"><?php echo $text['txt']->button['delete_data'] ?>
                                                 </a>
-                                    <?php } ?>
+                                            <?php } ?>
                                         </td>
                                     </tr>
-        <?php
-        $no++;
-    }
-}
-?>                
+                                    <?php
+                                    $no++;
+                                }
+                            }
+                            ?>                
                         </tbody>
                     </table>
                 </div>
