@@ -110,24 +110,24 @@ class Perdesaan_detail extends MY_Controller {
             }
         }
         
-        //        process
-        if ($action == 'add') {
-            // add    
-            $this->perdesaan_detail_model->add($data);
-            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'add-success'));
-        } elseif ($action == 'edit') {
-            // edit    
-            $this->perdesaan_detail_model->edit($data, array('id_perdesaan_detail' => $id));
-            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
-        }
-
-        //error msg from db
-        $error_msg = $this->db->_error_message();
-        if (!empty($error_msg)) {
-            $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', $error_msg, 'error_db'));
-        }
-
-        redirect('master_peta/perdesaan/view/' . $data['id_perdesaan']);
+//        //        process
+//        if ($action == 'add') {
+//            // add    
+//            $this->perdesaan_detail_model->add($data);
+//            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'add-success'));
+//        } elseif ($action == 'edit') {
+//            // edit    
+//            $this->perdesaan_detail_model->edit($data, array('id_perdesaan_detail' => $id));
+//            $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'edit-success'));
+//        }
+//
+//        //error msg from db
+//        $error_msg = $this->db->_error_message();
+//        if (!empty($error_msg)) {
+//            $this->session->set_flashdata('message', $this->text['msg']->get_message('danger', $error_msg, 'error_db'));
+//        }
+//
+//        redirect('master_peta/perdesaan/view/' . $data['id_perdesaan']);
     }
 
     public function delete($id = null) {

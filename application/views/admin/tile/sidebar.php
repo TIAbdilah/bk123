@@ -48,6 +48,9 @@
                 if ($text['rg']['M02b']) {
                     echo '<li><a  href="' . site_url('master_peta/kumuh') . '">Kawasan Kumuh</a></li>';
                 }
+//                if ($text['rg']['M02b']) {
+                    echo '<li><a  href="' . site_url('master_peta/perdesaan') . '">Perdesaan</a></li>';
+//                }
                 ?>
             </ul>
         </li>

@@ -136,7 +136,7 @@ function gen_button($data_detail, $bg, $hd) {
 </div>
 <div class="row">
 
-    <?php // $this->load->view('admin/master_peta/perdesaan/grafik') ?>
+    <?php $this->load->view('admin/master_peta/perdesaan/grafik') ?>
 
     <div class="col-lg-8">
         <section class="panel">
@@ -145,12 +145,12 @@ function gen_button($data_detail, $bg, $hd) {
                     <li class="active">
                         <a data-toggle="tab" href="#a1">Eksisting</a>
                     </li>
-<!--                    <li class="">
+                    <li class="">
                         <a data-toggle="tab" href="#a2">Perencanaan</a>
-                    </li>-->
-<!--                    <li class="">
+                    </li>
+                    <li class="">
                         <a data-toggle="tab" href="#a3">Penanganan dan Pengendalian</a>
-                    </li>           -->
+                    </li>           
                 </ul>
             </header>
             <div class="panel-body">
@@ -158,12 +158,12 @@ function gen_button($data_detail, $bg, $hd) {
                     <div id="a1" class="tab-pane active">
                         <?php $this->load->view('admin/master_peta/perdesaan/table_eksisting') ?>
                     </div>
-<!--                    <div id="a2" class="tab-pane">
+                    <div id="a2" class="tab-pane">
                         <?php $this->load->view('admin/master_peta/perdesaan/table_perencanaan') ?>
-                    </div>-->
-<!--                    <div id="a3" class="tab-pane">
+                    </div>
+                    <div id="a3" class="tab-pane">
                         <?php $this->load->view('admin/master_peta/perdesaan/table_penanganan') ?>
-                    </div>-->
+                    </div>
                 </div>
             </div>
         </section>

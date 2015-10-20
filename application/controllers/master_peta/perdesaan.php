@@ -38,6 +38,8 @@ class Perdesaan extends MY_Controller {
         $data['data'] = $this->perdesaan_model->select_by_field(array('id_perdesaan' => $id))->row();
         $data['data_indikator'] = $this->indikator_model->select_by_field(array('modul'=>'perdesaan'))->result();
         $data['data_detail_eks'] = $this->perdesaan_detail_model->select_by_field(array('id_perdesaan' => $id, 'kategori' => 'eksisting'))->row_array();
+        $data['data_detail_per'] = $this->perdesaan_detail_model->select_by_field(array('id_perdesaan' => $id, 'kategori' => 'perencanaan'))->row_array();
+        $data['data_detail_pen'] = $this->perdesaan_detail_model->select_by_field(array('id_perdesaan' => $id, 'kategori' => 'penanganan'))->row_array();
         $data['page_content'] = 'admin/master_peta/perdesaan/view';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
