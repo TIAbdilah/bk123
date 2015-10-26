@@ -33,7 +33,7 @@ class Kumuh_detail extends MY_Controller {
         $data['kategori'] = $kategori;
         $data['id_kaw_kumuh'] = $id_kaw_kumuh;
         $data['kaw_kumuh'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $id_kaw_kumuh))->row();
-        $data['data_indikator'] = $this->indikator_model->select_all()->result();
+        $data['data_indikator'] = $this->indikator_model->select_by_field(array('modul'=>'perkotaan'))->result();
         $data['page_content'] = 'admin/master_peta/kumuh_detail/add';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -42,7 +42,7 @@ class Kumuh_detail extends MY_Controller {
     public function edit($kategori, $id = null) {
         $data['title_page'] = 'EDIT';
         $data['kategori'] = $kategori;
-        $data['data_indikator'] = $this->indikator_model->select_all()->result();
+        $data['data_indikator'] = $this->indikator_model->select_by_field(array('modul'=>'perkotaan'))->result();
         $data['data'] = $this->kumuh_detail_model->select_by_field(array('id_kumuh_detail' => $id))->row_array();
         $data['id_kaw_kumuh'] = $data['data']['id_kaw_kumuh'];
         $data['kaw_kumuh'] = $this->kumuh_model->select_by_field(array('id_kaw_kumuh' => $data['id_kaw_kumuh']))->row();
