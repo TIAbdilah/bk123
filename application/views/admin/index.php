@@ -217,6 +217,9 @@
                     title: {
                         text: 'Tingkat Kekumuhan'
                     },
+                    colors:[
+                        '#0078FF','#FF0014','#327814'
+                    ],
                     pane: {
                         size: '80%'
                     },

@@ -115,6 +115,26 @@ function generate_modal1($field, $foto) {
                                 </td>
                                 <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
                             </tr>
+                            <tr>
+                                <td colspan="2"></td>
+                                <td>Tahun SK Kumuh</td>
+                                <td>
+                                    <select name="inpThSk" class="form-control">
+                                        <option >- Tahun SK -</option>
+                                        <?php
+                                            $thn_awal = 1990;
+                                            for ($i = 0; $i < 21; $i++) {
+                                                $thn = $thn_awal + $i;
+                                                echo '<option value="'.$thn.'">'.$thn.'</option>';
+                                            }
+                                        ?>
+                                        
+                                    </select>
+                                    <input type="file" class="form-control" name="inpSk" placeholder="SK Kumuh" />
+                                    <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
+                                </td>
+                                <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
+                            </tr>
                             <?php }?>
                             <tr>
                                 <th colspan="6">A. Identifikasi Kondisi Kekumuhan</th>
@@ -130,7 +150,7 @@ function generate_modal1($field, $foto) {
                                                 <td>KML file (Point/Line)</td>
                                                 <td>
                                                     <input type="file" class="form-control" name="inp_point_line_'.substr($dt_ind->nomor, 0, 1).'" placeholder="SK Kumuh" />
-                                                    <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                                    <p class="help-block">File SHP/Peta (format KML)</p>
                                                 </td>
                                                 <td colspan="2"></td>
                                             </tr>
@@ -157,7 +177,7 @@ function generate_modal1($field, $foto) {
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan / Value disesuaikan jika air "volume", luas "Ha"" rows="2"></textarea>
                                         </td>
                                         <td width="25%">
                                             <?php if($kategori != 'penanganan'){?>
@@ -203,7 +223,7 @@ function generate_modal1($field, $foto) {
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan / Value disesuaikan jika air "volume", luas "Ha"" rows="2"></textarea>
                                         </td>
                                         <td></td>
                                     </tr>
@@ -237,7 +257,7 @@ function generate_modal1($field, $foto) {
                                             ?>
                                         </td>
                                         <td width="25%">
-                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan" rows="2"></textarea>
+                                            <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan / Value disesuaikan jika air "volume", luas "Ha"" rows="2"></textarea>
                                         </td>
                                         <td></td>
                                     </tr>

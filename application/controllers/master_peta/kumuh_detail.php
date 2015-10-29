@@ -59,6 +59,7 @@ class Kumuh_detail extends MY_Controller {
         $data['luas_kawasan'] = $this->input->post('inpLuasKawasan');
         $data['jumlah_kk'] = $this->input->post('inpJmlKK');
         $data['jumlah_rtlh'] = $this->input->post('inpJmlRTLH');
+        $data['tahun_sk'] = $this->input->post('inpThSk');
 
         $kmz_file = $this->upload_image(array('indikator_name' => 'kml_' . substr($data['kategori'], 0, 4), 'input' => 'inpKmlFile', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'kmz'));
         if ($kmz_file != '') {

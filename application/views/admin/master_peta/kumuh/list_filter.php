@@ -19,6 +19,9 @@ endif;
                 <?php } ?>
             </header>
             <div class="panel-body">
+                <button class="btn btn-xs btn-default"><i class="icon-file"></i> </button> : View Data 
+                <button class="btn btn-xs btn-default"><i class="icon-pencil"></i> </button> : Edit Data 
+                <button class="btn btn-xs btn-default"><i class="icon-remove"></i> </button> : Delete Data 
                 <div class="adv-table">
                     <table  class="display table table-striped" id="example1">
                         <thead>
@@ -32,13 +35,13 @@ endif;
                                 <th rowspan="2"></th>
                             </tr>
                             <tr>
-                                <th><a href="#" title="Tingkat Kekumuhan">TK</a></th>
-                                <th><a href="#" title="Pertimbangan Lain">PL</a></th>
-                                <th><a href="#" title="Kejelasan Status Lahan">K1</a></th>
-                                <th><a href="#" title="Kesesuaian dg RTR">K2</a></th>
-                                <th><a href="#" title="Eksisting">EKS</a></th>
-                                <th><a href="#" title="Perencanaan">PER</a></th>
-                                <th><a href="#" title="Penanganan">PEN</a></th>
+                                <th><a href="#" title="Tingkat Kekumuhan">Tingkat Kekumuhan</a></th>
+                                <th><a href="#" title="Pertimbangan Lain">Pertimbangan Lain</a></th>
+                                <th><a href="#" title="Kejelasan Status Lahan">Status Lahan</a></th>
+                                <th><a href="#" title="Kesesuaian dg RTR">Sesuai RTR</a></th>
+                                <th><a href="#" title="Eksisting">Eksisting</a></th>
+                                <th><a href="#" title="Perencanaan">Perencanaan</a></th>
+                                <th><a href="#" title="Penanganan">Penanganan</a></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -99,34 +102,34 @@ endif;
                                             }
                                             ?></td>
                                         <td><?php
-                                    if ($data->pen == 1) {
-                                        echo "<i class=\"icon-ok\"></i>";
-                                    }
-                                    ?></td>
+                                            if ($data->pen == 1) {
+                                                echo "<i class=\"icon-ok\"></i>";
+                                            }
+                                            ?></td>
                                         <td class="dt-body-center">
-                                            <a title="List Kabupaten" 
+                                            <a title="View Data" 
                                                href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 
-                                               class="btn btn-xs btn-success"><?php echo $text['txt']->button['view_data'] ?>
+                                               class="btn btn-xs btn-default"><?php echo $text['txt']->button['view_data'] ?>
                                             </a>
                                             <?php if ($text['rg']['M02c']) { ?>
                                                 <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
                                                    href="<?php echo site_url('master_peta/kumuh/edit/' . $data->id_kaw_kumuh) ?>" 
-                                                   class="btn btn-xs btn-warning"><?php echo $text['txt']->button['edit_data'] ?>
+                                                   class="btn btn-xs btn-default"><?php echo $text['txt']->button['edit_data'] ?>
                                                 </a>
                                             <?php } ?>
-        <?php if ($text['rg']['M02d']) { ?>
+                                            <?php if ($text['rg']['M02d']) { ?>
                                                 <a title="<?php echo $text['txt']->button_title['edit_data'] ?>" 
                                                    href="<?php echo site_url('master_peta/kumuh/delete/' . $data->id_kaw_kumuh) ?>" 
-                                                   class="btn btn-xs btn-danger"><?php echo $text['txt']->button['delete_data'] ?>
+                                                   class="btn btn-xs btn-default"><?php echo $text['txt']->button['delete_data'] ?>
                                                 </a>
-                                    <?php } ?>
+                                            <?php } ?>
                                         </td>
                                     </tr>
-        <?php
-        $no++;
-    }
-}
-?>                
+                                    <?php
+                                    $no++;
+                                }
+                            }
+                            ?>                
                         </tbody>
                     </table>
                 </div>

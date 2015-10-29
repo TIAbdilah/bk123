@@ -40,13 +40,13 @@ function rata_rata($arr = array()) {
         <div class="panel-body">
             <table style="display: none" id="datagrafik">
                 <tr><td></td><td>Eksisting</td><td>Perencanaan</td><td>Penanganan dan Pengendalian</td></tr>
-                <tr><td>satu</td><td><?php echo $arr_ek[0] ?></td><td><?php echo $arr_pr[0] ?></td><td><?php echo $arr_pn[0] ?></td></tr>
-                <tr><td>dua</td><td><?php echo $arr_ek[1] ?></td><td><?php echo $arr_pr[1] ?></td><td><?php echo $arr_pn[1] ?></td></tr>
-                <tr><td>tiga</td><td><?php echo $arr_ek[2] ?></td><td><?php echo $arr_pr[2] ?></td><td><?php echo $arr_pn[2] ?></td></tr>
-                <tr><td>empat</td><td><?php echo $arr_ek[3] ?></td><td><?php echo $arr_pr[3] ?></td><td><?php echo $arr_pn[3] ?></td></tr>
-                <tr><td>lima</td><td><?php echo $arr_ek[4] ?></td><td><?php echo $arr_pr[4] ?></td><td><?php echo $arr_pn[4] ?></td></tr>
-                <tr><td>enam</td><td><?php echo $arr_ek[5] ?></td><td><?php echo $arr_pr[5] ?></td><td><?php echo $arr_pn[5] ?></td></tr>
-                <tr><td>tujuh</td><td><?php echo $arr_ek[6] ?></td><td><?php echo $arr_pr[6] ?></td><td><?php echo $arr_pn[6] ?></td></tr>
+                <tr><td>Keteraturan Bangunan</td><td><?php echo $arr_ek[0] ?></td><td><?php echo $arr_pr[0] ?></td><td><?php echo $arr_pn[0] ?></td></tr>
+                <tr><td>Jalan Lingkungan</td><td><?php echo $arr_ek[1] ?></td><td><?php echo $arr_pr[1] ?></td><td><?php echo $arr_pn[1] ?></td></tr>
+                <tr><td>Air Minum</td><td><?php echo $arr_ek[2] ?></td><td><?php echo $arr_pr[2] ?></td><td><?php echo $arr_pn[2] ?></td></tr>
+                <tr><td>Drainase</td><td><?php echo $arr_ek[3] ?></td><td><?php echo $arr_pr[3] ?></td><td><?php echo $arr_pn[3] ?></td></tr>
+                <tr><td>Pengelolaan Air Limbah</td><td><?php echo $arr_ek[4] ?></td><td><?php echo $arr_pr[4] ?></td><td><?php echo $arr_pn[4] ?></td></tr>
+                <tr><td>Pengelolaan Sampah</td><td><?php echo $arr_ek[5] ?></td><td><?php echo $arr_pr[5] ?></td><td><?php echo $arr_pn[5] ?></td></tr>
+                <tr><td>Proteksi Kebakaran</td><td><?php echo $arr_ek[6] ?></td><td><?php echo $arr_pr[6] ?></td><td><?php echo $arr_pn[6] ?></td></tr>
             </table>
             <div id="container1" style="width: 100%; margin: 0 auto"></div>
         </div>
