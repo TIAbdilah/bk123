@@ -99,25 +99,25 @@ class Login extends CI_Controller {
         $data['propinsi'] = $this->input->post('inpWilayahKerjaP');
         $data['kab_kota'] = $this->input->post('inpWilayahKerjaK');
 
-//        print_r($data);
+        print_r($data);
 //        process
-        if ($data['password'] == $konfirm_password) {
-            if ($action == 'add') {
-                // add    
-                $this->user_model->add($data);
-                $this->session->set_flashdata('message2', 'Akun berhasil dibuat. Silahkan login kembali');
-            }
-        } else {
-            $this->session->set_flashdata('message', 'Password tidak sesuai');
-        }
-
-        //error msg from db
-        $error_msg = $this->db->_error_message();
-        if (!empty($error_msg)) {
-            $this->session->set_flashdata('message', $error_msg);
-        }
-
-        redirect('login/');
+//        if ($data['password'] == $konfirm_password) {
+//            if ($action == 'add') {
+//                // add    
+//                $this->user_model->add($data);
+//                $this->session->set_flashdata('message2', 'Akun berhasil dibuat. Silahkan login kembali');
+//            }
+//        } else {
+//            $this->session->set_flashdata('message', 'Password tidak sesuai');
+//        }
+//
+//        //error msg from db
+//        $error_msg = $this->db->_error_message();
+//        if (!empty($error_msg)) {
+//            $this->session->set_flashdata('message', $error_msg);
+//        }
+//
+//        redirect('login/');
     }
 
     public function process_logout() {

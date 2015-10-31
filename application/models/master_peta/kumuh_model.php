@@ -16,7 +16,7 @@ if (!defined('BASEPATH'))
 
 class Kumuh_model extends CI_Model {
 
-    var $table_name = 'mp_kumuh';
+    var $table_name = 'mp_kumuh_copy';
 
     public function __construct() {
         parent::__construct();
@@ -28,64 +28,64 @@ class Kumuh_model extends CI_Model {
         //bobot kumuh eksisting
         $sub = $this->subquery->start_subquery('select');
         $sub->select('ind_kumuh')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'eksisting\'');
         $this->subquery->end_subquery('tk_e');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('ind_pertimbangan_lain')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'eksisting\'');
         $this->subquery->end_subquery('pl_e');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('kejelasan_status_lahan_prsn')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'eksisting\'');
         $this->subquery->end_subquery('ksl_e');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('kesesuaian_rtr_prsn')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'eksisting\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'eksisting\'');
         $this->subquery->end_subquery('kdrtr_e');
         
         //bobot kumuh penanganan
         $sub = $this->subquery->start_subquery('select');
         $sub->select('ind_kumuh')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'penanganan\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'penanganan\'');
         $this->subquery->end_subquery('tk_p');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('ind_pertimbangan_lain')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'penanganan\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'penanganan\'');
         $this->subquery->end_subquery('pl_p');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('kejelasan_status_lahan_prsn')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'penanganan\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'penanganan\'');
         $this->subquery->end_subquery('ksl_p');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('kesesuaian_rtr_prsn')->from('view_bobot_kumuh vb');
-        $sub->where('vb.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and vb.kategori = \'penanganan\'');
+        $sub->where('vb.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and vb.kategori = \'penanganan\'');
         $this->subquery->end_subquery('kdrtr_p');
         
         //status data
         $sub = $this->subquery->start_subquery('select');
         $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail mp');
-        $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'eksisting\'');
+        $sub->where('mp.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and mp.kategori = \'eksisting\'');
         $this->subquery->end_subquery('eks');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail mp');
-        $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'perencanaan\'');
+        $sub->where('mp.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and mp.kategori = \'perencanaan\'');
         $this->subquery->end_subquery('per');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('count(id_kaw_kumuh)')->from('mp_kumuh_detail mp');
-        $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'penanganan\'');
+        $sub->where('mp.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and mp.kategori = \'penanganan\'');
         $this->subquery->end_subquery('pen');
         
         $sub = $this->subquery->start_subquery('select');
         $sub->select('sk_file')->from('mp_kumuh_detail mp');
-        $sub->where('mp.id_kaw_kumuh = mp_kumuh.id_kaw_kumuh and mp.kategori = \'eksisting\'');
+        $sub->where('mp.id_kaw_kumuh = mp_kumuh_copy.id_kaw_kumuh and mp.kategori = \'eksisting\'');
         $this->subquery->end_subquery('sk');
         
         $this->db->from($this->table_name);
