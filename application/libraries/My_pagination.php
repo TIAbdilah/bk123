@@ -131,13 +131,13 @@ class My_pagination extends CI_Pagination{
 		}
 
 		// And here we go...
-		$output = '<ul class="pagination">';
+		$output = '<div class="blog-pagination">';
 
 		// Render the "First" link
 		if  ($this->first_link !== FALSE AND $this->cur_page > ($this->num_links + 1))
 		{
 			$first_url = ($this->first_url == '') ? $this->base_url : $this->first_url;
-			$output .= $this->first_tag_open.'<li><a '.$this->anchor_class.'href="'.$first_url.'">'.$this->first_link.'</a></li>'.$this->first_tag_close;
+			$output .= $this->first_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$first_url.'">'.$this->first_link.'</a>'.$this->first_tag_close;
 		}
 
 		// Render the "previous" link
@@ -154,12 +154,12 @@ class My_pagination extends CI_Pagination{
 
 			if ($i == 0 && $this->first_url != '')
 			{
-				$output .= $this->prev_tag_open.'<li><a '.$this->anchor_class.'href="'.$this->first_url.'">'.$this->prev_link.'</a></li>'.$this->prev_tag_close;
+				$output .= $this->prev_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$this->first_url.'">'.$this->prev_link.'</a>'.$this->prev_tag_close;
 			}
 			else
 			{
 				$i = ($i == 0) ? '' : $this->prefix.$i.$this->suffix;
-				$output .= $this->prev_tag_open.'<li><a '.$this->anchor_class.'href="'.$this->base_url.$i.'">'.$this->prev_link.'</a></li>'.$this->prev_tag_close;
+				$output .= $this->prev_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$this->base_url.$i.'">'.$this->prev_link.'</a>'.$this->prev_tag_close;
 			}
 
 		}
@@ -183,7 +183,7 @@ class My_pagination extends CI_Pagination{
 				{
 					if ($this->cur_page == $loop)
 					{
-						$output .= '<li><a href="#">'.$this->cur_tag_open.$loop.$this->cur_tag_close.'</a></li>'; // Current page
+						$output .= '<a class="w-clearfix w-inline-block button btn-small btn-blog active" href="#">'.$this->cur_tag_open.$loop.$this->cur_tag_close.'</a>'; // Current page
 					}
 					else
 					{
@@ -191,13 +191,13 @@ class My_pagination extends CI_Pagination{
 
 						if ($n == '' && $this->first_url != '')
 						{
-							$output .= $this->num_tag_open.'<li><a '.$this->anchor_class.'href="'.$this->first_url.'">'.$loop.'</a></li>'.$this->num_tag_close;
+							$output .= $this->num_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$this->first_url.'">'.$loop.'</a>'.$this->num_tag_close;
 						}
 						else
 						{
 							$n = ($n == '') ? '' : $this->prefix.$n.$this->suffix;
 
-							$output .= $this->num_tag_open.'<li><a '.$this->anchor_class.'href="'.$this->base_url.$n.'">'.$loop.'</a></li>'.$this->num_tag_close;
+							$output .= $this->num_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$this->base_url.$n.'">'.$loop.'</a>'.$this->num_tag_close;
 						}
 					}
 				}
@@ -216,7 +216,7 @@ class My_pagination extends CI_Pagination{
 				$i = ($this->cur_page * $this->per_page);
 			}
 
-			$output .= $this->next_tag_open.'<li><a '.$this->anchor_class.'href="'.$this->base_url.$this->prefix.$i.$this->suffix.'">'.$this->next_link.'</a></li>'.$this->next_tag_close;
+			$output .= $this->next_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$this->base_url.$this->prefix.$i.$this->suffix.'">'.$this->next_link.'</a>'.$this->next_tag_close;
 		}
 
 		// Render the "Last" link
@@ -230,7 +230,7 @@ class My_pagination extends CI_Pagination{
 			{
 				$i = (($num_pages * $this->per_page) - $this->per_page);
 			}
-			$output .= $this->last_tag_open.'<li><a '.$this->anchor_class.'href="'.$this->base_url.$this->prefix.$i.$this->suffix.'">'.$this->last_link.'</a></li>'.$this->last_tag_close;
+			$output .= $this->last_tag_open.'<a class="w-clearfix w-inline-block button btn-small btn-blog" href="'.$this->base_url.$this->prefix.$i.$this->suffix.'">'.$this->last_link.'</a>'.$this->last_tag_close;
 		}
 
 		// Kill double slashes.  Note: Sometimes we can end up with a double slash
@@ -240,7 +240,7 @@ class My_pagination extends CI_Pagination{
 		// Add the wrapper HTML if exists
 		$output = $this->full_tag_open.$output.$this->full_tag_close;
 
-		return $output;
+		return $output.'</div>';
 	}
 }
 // END Pagination Class

@@ -46,8 +46,8 @@ class Publik extends CI_Controller {
                 $data['data'] = $this->content_model->select_by_field(array('nm_content' => 'contact'))->row();
                 break;
         }
-        $data['page'] = 'public/content/isi';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/content/isi';
+        $this->load->view('public2/index', $data);
     }
 
     public function pengaturan($param) {
@@ -60,15 +60,15 @@ class Publik extends CI_Controller {
                 $data['data'] = $this->content_model->select_by_field(array('nm_content' => 'pedoman'))->row();
                 break;
         }
-        $data['page'] = 'public/content/isi';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/content/isi';
+        $this->load->view('public2/index', $data);
     }
 
     public function agenda() {
         $data['text'] = $this->text;
         $data['data'] = $this->content_model->select_by_field(array('nm_content' => 'agenda'))->row();
-        $data['page'] = 'public/content/isi';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/content/isi';
+        $this->load->view('public2/index', $data);
     }
 
     public function output_kegiatan($param) {
@@ -90,8 +90,8 @@ class Publik extends CI_Controller {
                 $data['data'] = $this->content_model->select_by_field(array('nm_content' => 'rpip_ris_pnpm'))->row();
                 break;
         }
-        $data['page'] = 'public/content/isi';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/content/isi';
+        $this->load->view('public2/index', $data);
     }
 
 }

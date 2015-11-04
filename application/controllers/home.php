@@ -29,7 +29,7 @@ class Home extends CI_Controller {
         );
         $data['karusel'] = $this->karusel_model->select_all()->result();
         $data['latest_news'] = $this->berita_model->select_all($param_news)->result();
-        $this->load->view('public/index2',$data);
+        $this->load->view('public2/home',$data);
     }
 
 }

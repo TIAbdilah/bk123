@@ -52,8 +52,8 @@ class Berita extends CI_Controller {
         $config['total_rows'] = $this->berita_model->select_all()->num_rows();
         $this->my_pagination->initialize($config);
         $data['page_link'] = $this->my_pagination->create_links();
-        $data['page'] = 'public/berita_agenda/berita/list';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/berita_agenda/berita/list';
+        $this->load->view('public2/index', $data);
     }
 
     public function search($keyword = null, $offset = 0) {
@@ -81,16 +81,16 @@ class Berita extends CI_Controller {
 
         $this->my_pagination->initialize($config);
         $data['page_link'] = $this->my_pagination->create_links();
-        $data['page'] = 'public/berita_agenda/berita/list';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/berita_agenda/berita/list';
+        $this->load->view('public2/index', $data);
     }
 
     public function view($id) {
         $data['title_page'] = 'View Berita';
         $data['text'] = $this->text;
         $data['data'] = $this->berita_model->select_by_field(array('id_berita' => $id))->row();
-        $data['page'] = 'public/berita_agenda/berita/view';
-        $this->load->view('public/index', $data);
+        $data['page'] = 'public2/berita_agenda/berita/view';
+        $this->load->view('public2/index', $data);
     }
 
 }
