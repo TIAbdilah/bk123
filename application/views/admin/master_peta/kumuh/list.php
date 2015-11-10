@@ -43,7 +43,7 @@ function generate_modal($id_modal, $folder, $foto) {
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Kode Daerah</th>
                                 <th rowspan="2">Nama Kawasan</th>
-                                <th rowspan="2">SK</th>
+                                <!--<th rowspan="2">SK</th>-->
                                 <th colspan="4">Bobot Kekumuhan</th>
                                 <th colspan="3">Satus Data</th>
                                 <th rowspan="2"></th>
@@ -67,14 +67,14 @@ function generate_modal($id_modal, $folder, $foto) {
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_kawasan ?></td>
-                                    <td>
+<!--                                    <td>
                                         <?php
                                         if ($data->sk != '') {
                                             echo '<a data-toggle="modal" href="#modal_sk' . $data->id_kaw_kumuh . '"><i class="icon-file"></i></a>'
                                             . generate_modal('modal_sk' . $data->id_kaw_kumuh, 'sk', $data->sk);
                                         }
                                         ?>
-                                    </td>
+                                    </td>-->
                                     <?php
                                     if ($data->pen == 0) {
                                         ?>
