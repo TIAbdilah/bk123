@@ -58,7 +58,7 @@ function generate_modal1($field, $foto) {
     <div class="col-lg-12">
         <section class="panel">
             <header class="panel-heading">
-                <?php echo $title_page.' Detil Dawasan Kumuh ('.$kaw_kumuh->nm_kawasan.' | '.ucwords($kategori).')'?>
+                <?php echo $title_page . ' Detil Dawasan Kumuh (' . $kaw_kumuh->nm_kawasan . ' | ' . ucwords($kategori) . ')' ?>
             </header>
             <div class="panel-body">
                 <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/kumuh_detail/process1/add/') ?>" enctype="multipart/form-data" method="POST">
@@ -91,8 +91,8 @@ function generate_modal1($field, $foto) {
                                 <td colspan="2"></td>
                                 <td>KML File</td>
                                 <td>
-                                    <input type="file" class="form-control" name="inpKmlFile" placeholder="KML File" />
-                                    <p class="help-block">Filetype (kml) Maxsize (2 MB)</p>
+                                    <input type="file" id="exampleInputFile" name="inpKmlFile" placeholder="KML File">
+                                    <p class="help-block">Filetype (kml) Maxsize (2 MB)</p>                                    
                                 </td>
                                 <td colspan="2"></td>
                             </tr>
@@ -100,42 +100,42 @@ function generate_modal1($field, $foto) {
                                 <td colspan="2"></td>
                                 <td>Peta Legenda</td>
                                 <td>
-                                    <input type="file" class="form-control" name="inpPeta" placeholder="Peta Legenda" />
+                                    <input type="file" name="inpPeta" placeholder="Peta Legenda" />
                                     <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
                                 </td>
-                                <td colspan="2"><?php // echo generate_modal1('peta', '') ?></td>
+                                <td colspan="2"><?php // echo generate_modal1('peta', '')  ?></td>
                             </tr>
-                            <?php if($kategori == 'eksisting'){?>
-                            <tr>
-                                <td colspan="2"></td>
-                                <td>SK Kumuh</td>
-                                <td>
-                                    <input type="file" class="form-control" name="inpSk" placeholder="SK Kumuh" />
-                                    <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
-                                </td>
-                                <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
-                            </tr>
-                            <tr>
-                                <td colspan="2"></td>
-                                <td>Tahun SK Kumuh</td>
-                                <td>
-                                    <select name="inpThSk" class="form-control">
-                                        <option >- Tahun SK -</option>
-                                        <?php
+                            <?php if ($kategori == 'eksisting') { ?>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td>SK Kumuh</td>
+                                    <td>
+                                        <input type="file" name="inpSk" placeholder="SK Kumuh" />
+                                        <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
+                                    </td>
+                                    <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa')  ?></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2"></td>
+                                    <td>Tahun SK Kumuh</td>
+                                    <td>
+                                        <select name="inpThSk" class="form-control">
+                                            <option >- Tahun SK -</option>
+                                            <?php
                                             $thn_awal = 1990;
                                             for ($i = 0; $i < 21; $i++) {
                                                 $thn = $thn_awal + $i;
-                                                echo '<option value="'.$thn.'">'.$thn.'</option>';
+                                                echo '<option value="' . $thn . '">' . $thn . '</option>';
                                             }
-                                        ?>
-                                        
-                                    </select>
-                                    <input type="file" class="form-control" name="inpSk" placeholder="SK Kumuh" />
-                                    <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
-                                </td>
-                                <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa') ?></td>
-                            </tr>
-                            <?php }?>
+                                            ?>
+
+                                        </select>
+                                        <input type="file" name="inpSk" placeholder="SK Kumuh" />
+                                        <p class="help-block">Filetype (pdf) Maxsize (15 MB)</p>
+                                    </td>
+                                    <td colspan="2"><?php // echo generate_modal1('sk', 'aaaa')  ?></td>
+                                </tr>
+                            <?php } ?>
                             <tr>
                                 <th colspan="6">A. Identifikasi Kondisi Kekumuhan</th>
                             </tr>
@@ -149,7 +149,7 @@ function generate_modal1($field, $foto) {
                                                 <td>#</td>
                                                 <td>KML file (Point/Line)</td>
                                                 <td>
-                                                    <input type="file" class="form-control" name="inp_point_line_'.substr($dt_ind->nomor, 0, 1).'" placeholder="SK Kumuh" />
+                                                    <input type="file" name="inp_point_line_' . substr($dt_ind->nomor, 0, 1) . '" placeholder="SK Kumuh" />
                                                     <p class="help-block">File SHP/Peta (format KML)</p>
                                                 </td>
                                                 <td colspan="2"></td>
@@ -159,12 +159,12 @@ function generate_modal1($field, $foto) {
                                                 <td>#</td>
                                                 <td>Video</td>
                                                 <td>
-                                                    <input type="file" class="form-control" name="inpVideo_'.substr($dt_ind->nomor, 0, 1).'" placeholder="Video" />
+                                                    <input type="file" name="inpVideo_' . substr($dt_ind->nomor, 0, 1) . '" placeholder="Video" />
                                                     <p class="help-block">Filetype (mp4/avi) Maxsize (15 MB)</p>
                                                 </td>                                                
                                                 <td colspan="2"></td>
                                             </tr>';
-                                    } 
+                                    }
                                     ?>                                    
                                     <tr>           
                                         <td width="3%">&nbsp;</td>
@@ -180,17 +180,17 @@ function generate_modal1($field, $foto) {
                                             <textarea class="form-control" name="inp_<?php echo $dt_ind->field_name ?>_kt" placeholder="Keterangan Tambahan / Value disesuaikan jika air "volume", luas "Ha"" rows="2"></textarea>
                                         </td>
                                         <td width="25%">
-                                            <?php if($kategori != 'penanganan'){?>
-                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
-                                            <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
-                                            <?php }else {?>
-                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
-                                            <p class="help-block">Foto 0% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
-                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft2" placeholder="foto2"/>
-                                            <p class="help-block">Foto 50% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
-                                            <input type="file" class="form-control fileinput-button" name="inp_<?php echo $dt_ind->field_name ?>_ft3" placeholder="foto2"/>
-                                            <p class="help-block">Foto 100% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
-                                            <?php }?>
+                                            <?php if ($kategori != 'penanganan') { ?>
+                                                <input type="file" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
+                                                <p class="help-block">Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                            <?php } else { ?>
+                                                <input type="file" name="inp_<?php echo $dt_ind->field_name ?>_ft" placeholder="foto2"/>
+                                                <p class="help-block">Foto 0% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                                <input type="file" name="inp_<?php echo $dt_ind->field_name ?>_ft2" placeholder="foto2"/>
+                                                <p class="help-block">Foto 50% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                                <input type="file" name="inp_<?php echo $dt_ind->field_name ?>_ft3" placeholder="foto2"/>
+                                                <p class="help-block">Foto 100% | Filetype (jpg/jpeg) Maxsize (2 MB)</p>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                     <?php
