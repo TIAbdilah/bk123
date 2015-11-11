@@ -65,7 +65,7 @@ function generate_data_pendukung($bg, $dd, $head) {
         }
         $sk = $dd['sk_file'];
         if ($sk != '') {
-            $skm = '<a data-toggle="modal" href="#modal_sk"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', 'sk', $sk);
+            $skm = '<a data-toggle="modal" href="'.  base_url().'assets/admin/img/sk/'.$sk.'"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', 'sk', $sk);
         } else {
             $skm = '-';
         }
