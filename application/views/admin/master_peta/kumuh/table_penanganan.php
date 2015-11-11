@@ -63,7 +63,7 @@ if ($data_detail_pen != null) {
                             $x = $data_detail_pen[$dt_ind->field_name . '_prsn'];
                         }
                         echo generate_td(
-                                $text['arc']->tingkat_pensen[$x]
+                                $text['arc']->tingkat_persen[$x]
                                 , $data_detail_pen[$dt_ind->field_name . '_kt']
                                 , $data_detail_pen[$dt_ind->field_name . '_foto']
                                 , $dt_ind->nomor . '_pen');
@@ -103,7 +103,7 @@ if ($data_detail_pen != null) {
                             $x = $data_detail_pen[$dt_ind->field_name . '_prsn'];
                         }
                         if ($dt_ind->nomor == '8b') {
-                            $prsn1 = $text['arc']->tingkat_pensen_txt[$x];
+                            $prsn1 = $text['arc']->tingkat_persen_txt[$x];
                         } else if ($dt_ind->nomor == '8c') {
                             $prsn1 = $text['arc']->ya_tidak[$x];
                         } else {
