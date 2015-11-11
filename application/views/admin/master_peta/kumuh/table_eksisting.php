@@ -57,8 +57,13 @@ if ($data_detail_eks != null) {
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
                     if ($data_detail_eks != null) {
+                        if($data_detail_eks[$dt_ind->field_name . '_prsn'] == null){
+                            $x = '-1';
+                        }else {
+                            $x = $data_detail_eks[$dt_ind->field_name . '_prsn'];
+                        }
                         echo generate_td(
-                                $text['arc']->tingkat_persen[$data_detail_eks[$dt_ind->field_name . '_prsn']]
+                                $text['arc']->tingkat_persen[$x]
                                 , $data_detail_eks[$dt_ind->field_name . '_kt']
                                 , $data_detail_eks[$dt_ind->field_name . '_foto']
                                 , $dt_ind->nomor . '_eks');
@@ -92,12 +97,17 @@ if ($data_detail_eks != null) {
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
                     if ($data_detail_eks != null) {
+                        if($data_detail_eks[$dt_ind->field_name . '_prsn'] == null){
+                            $x = '-1';
+                        }else {
+                            $x = $data_detail_eks[$dt_ind->field_name . '_prsn'];
+                        }
                         if ($dt_ind->nomor == '8b') {
-                            $prsn1 = $text['arc']->tingkat_persen_txt[$data_detail_eks[$dt_ind->field_name . '_prsn']];
+                            $prsn1 = $text['arc']->tingkat_persen_txt[$x];
                         } else if ($dt_ind->nomor == '8c') {
-                            $prsn1 = $text['arc']->ya_tidak[$data_detail_eks[$dt_ind->field_name . '_prsn']];
+                            $prsn1 = $text['arc']->ya_tidak[$x];
                         } else {
-                            $prsn1 = $text['arc']->ada_tidak[$data_detail_eks[$dt_ind->field_name . '_prsn']];
+                            $prsn1 = $text['arc']->ada_tidak[$x];
                         }
                         echo generate_td(
                                 $prsn1
@@ -134,8 +144,13 @@ if ($data_detail_eks != null) {
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
                     if ($data_detail_eks != null) {
+                        if($data_detail_eks[$dt_ind->field_name . '_prsn'] == null){
+                            $x = '-1';
+                        }else {
+                            $x = $data_detail_eks[$dt_ind->field_name . '_prsn'];
+                        }
                         echo generate_td(
-                                $text['arc']->tingkat_pn[$data_detail_eks[$dt_ind->field_name . '_prsn']]
+                                $text['arc']->tingkat_pn[$x]
                                 , $data_detail_eks[$dt_ind->field_name . '_kt']
                                 , ''
                                 , $dt_ind->nomor . '_eks');

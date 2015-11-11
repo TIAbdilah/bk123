@@ -56,11 +56,16 @@ if ($data_detail_pen != null) {
                     <td><?php echo substr($dt_ind->nomor, 1, 1) ?></td>
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
-                    if ($data_detail_per != null) {
+                    if ($data_detail_pen != null) {
+                        if($data_detail_pen[$dt_ind->field_name . '_prsn'] == null){
+                            $x = '-1';
+                        }else {
+                            $x = $data_detail_pen[$dt_ind->field_name . '_prsn'];
+                        }
                         echo generate_td(
-                                $text['arc']->tingkat_persen[$data_detail_per[$dt_ind->field_name . '_prsn']]
-                                , $data_detail_per[$dt_ind->field_name . '_kt']
-                                , $data_detail_per[$dt_ind->field_name . '_foto']
+                                $text['arc']->tingkat_pensen[$x]
+                                , $data_detail_pen[$dt_ind->field_name . '_kt']
+                                , $data_detail_pen[$dt_ind->field_name . '_foto']
                                 , $dt_ind->nomor . '_pen');
                     } else {
                         echo '<td>-</td><td>-</td><td>-</td>';
@@ -91,17 +96,22 @@ if ($data_detail_pen != null) {
                     <td><?php echo substr($dt_ind->nomor, 1, 1) ?></td>
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
-                    if ($data_detail_per != null) {
+                    if ($data_detail_pen != null) {
+                        if($data_detail_pen[$dt_ind->field_name . '_prsn'] == null){
+                            $x = '-1';
+                        }else {
+                            $x = $data_detail_pen[$dt_ind->field_name . '_prsn'];
+                        }
                         if ($dt_ind->nomor == '8b') {
-                            $prsn1 = $text['arc']->tingkat_persen_txt[$data_detail_pen[$dt_ind->field_name . '_prsn']];
+                            $prsn1 = $text['arc']->tingkat_pensen_txt[$x];
                         } else if ($dt_ind->nomor == '8c') {
-                            $prsn1 = $text['arc']->ya_tidak[$data_detail_pen[$dt_ind->field_name . '_prsn']];
+                            $prsn1 = $text['arc']->ya_tidak[$x];
                         } else {
-                            $prsn1 = $text['arc']->ada_tidak[$data_detail_pen[$dt_ind->field_name . '_prsn']];
+                            $prsn1 = $text['arc']->ada_tidak[$x];
                         }
                         echo generate_td(
                                 $prsn1
-                                , $data_detail_per[$dt_ind->field_name . '_kt']
+                                , $data_detail_pen[$dt_ind->field_name . '_kt']
                                 , ''
                                 , $dt_ind->nomor . '_pen');
                     } else {
@@ -133,10 +143,15 @@ if ($data_detail_pen != null) {
                     <td><?php echo substr($dt_ind->nomor, 1, 1) ?></td>
                     <td><?php echo $dt_ind->kriteria ?></td>
                     <?php
-                    if ($data_detail_per != null) {
+                    if ($data_detail_pen != null) {
+                        if($data_detail_pen[$dt_ind->field_name . '_prsn'] == null){
+                            $x = '-1';
+                        }else {
+                            $x = $data_detail_pen[$dt_ind->field_name . '_prsn'];
+                        }
                         echo generate_td(
-                                $text['arc']->tingkat_pn[$data_detail_per[$dt_ind->field_name . '_prsn']]
-                                , $data_detail_per[$dt_ind->field_name . '_kt']
+                                $text['arc']->tingkat_pn[$x]
+                                , $data_detail_pen[$dt_ind->field_name . '_kt']
                                 , ''
                                 , $dt_ind->nomor . '_pen');
                     } else {
