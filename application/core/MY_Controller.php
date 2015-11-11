@@ -61,6 +61,7 @@ class MY_Controller extends CI_Controller {
 
         //library        
         $this->load->library('upload');
+        $this->load->library('googlemaps');
         $this->load->library('image_lib');
 
         $this->get_instance_var();

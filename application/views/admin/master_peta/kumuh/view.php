@@ -65,7 +65,7 @@ function generate_data_pendukung($bg, $dd, $head) {
         }
         $sk = $dd['sk_file'];
         if ($sk != '') {
-            $skm = '<a data-toggle="modal" target="_blank" href="'.  base_url().'assets/admin/img/sk/'.$sk.'"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', 'sk', $sk);
+            $skm = '<a data-toggle="modal" target="_blank" href="' . base_url() . 'assets/admin/img/sk/' . $sk . '"><i class="icon-picture"></i> SK</a>' . generate_modal('modal_sk', 'sk', $sk);
         } else {
             $skm = '-';
         }
@@ -128,8 +128,10 @@ function gen_button($data_detail, $bg, $hd) {
     <div class="col-lg-8">
         <section class="panel">
             <div class="panel-heading">Peta</div>
-            <div class="panel-body text-center">
-                <img src="<?php echo base_url() . 'assets/public/' ?>img/peta indonesia.png" width="80%"/>
+            <div class="panel-body text-center" style="height: 300px">
+                <!--<img src="<?php echo base_url() . 'assets/public/' ?>img/peta indonesia.png" width="80%"/>-->
+                <?php echo $map['js']; ?>
+                <?php echo $map['html']; ?>
             </div>
         </section>
     </div>  
