@@ -17,30 +17,19 @@ endif;
 <?php
 $count_empty = 0;
 $count_check = 0;
-foreach ($data_kumuh as $data) {
-    if (substr($data->kode_daerah, 0, 2) == substr($this->session->userdata('role_propinsi'), 0, 2)) {
-        if (strpos($this->session->userdata('username'), 'eksisting') !== FALSE) {
-            if ($data->eks == 1) {
-                $count_check += 1;
-            } else {
-                $count_empty += 1;
-            }
-        }
-        if (strpos($this->session->userdata('username'), 'perencanaan') !== FALSE) {
-            if ($data->per == 1) {
-                $count_check += 1;
-            } else {
-                $count_empty += 1;
-            }
-        }
-        if (strpos($this->session->userdata('username'), 'penanganan') !== FALSE) {
-            if ($data->pen == 1) {
-                $count_check += 1;
-            } else {
-                $count_empty += 1;
-            }
-        }
-    }
+
+if (strpos($this->session->userdata('username'), 'eksisting') !== FALSE) {
+
+    $count_check = $count_check_eks;
+    $count_empty = $count_empty_eks;
+}
+if (strpos($this->session->userdata('username'), 'perencanaan') !== FALSE) {
+    $count_check = $count_check_per;
+    $count_empty = $count_empty_per;
+}
+if (strpos($this->session->userdata('username'), 'penanganan') !== FALSE) {
+    $count_check = $count_check_pen;
+    $count_empty = $count_empty_pen;
 }
 ?>
 <div class="row">
@@ -58,8 +47,8 @@ foreach ($data_kumuh as $data) {
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="<?php echo site_url('utilitas/user/edit_user/' . $this->session->userdata('username')) ?>"> <i class="icon-user"></i> Ubah Data Pengguna</a></li>
                     <li><a href="<?php echo site_url('utilitas/user/edit_password/' . $this->session->userdata('username')) ?>"><i class="icon-lock"></i> Ubah Password</a></li>
-                    <?php if ($this->session->userdata('role') == 'admin') { ?>
-                    <li><a href="<?php echo site_url('utilitas/user') ?>"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity" id="intJml">0</span></a></li>
+<?php if ($this->session->userdata('role') == 'admin') { ?>
+                        <li><a href="<?php echo site_url('utilitas/user') ?>"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity" id="intJml">0</span></a></li>
                     <?php } ?>
                 </ul>
 

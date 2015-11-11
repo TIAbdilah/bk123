@@ -43,18 +43,19 @@ class Kumuh extends MY_Controller {
 
 //        print_r($data['data_detail_eks']);
         //peta
-//        $config['center'] = 'Jakarta, Indonesia';
+        $config['center'] = 'Jakarta, Indonesia';
         $config['zoom'] = 'auto';
         $config['map_type'] = 'ROADMAP';
-        if ($data['data_detail_eks'] != null && $data['data_detail_eks']['kmz_file']) {
-            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_eks']['kmz_file'];
-        }
-        if ($data['data_detail_per'] != null && $data['data_detail_per']['kmz_file']) {
-            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_per']['kmz_file'];
-        }
-        if ($data['data_detail_pen'] != null && $data['data_detail_pen']['kmz_file']) {
-            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_pen']['kmz_file'];
-        }
+//        if ($data['data_detail_eks'] != null && $data['data_detail_eks']['kmz_file']) {
+//            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_eks']['kmz_file'];
+//        }
+//        if ($data['data_detail_per'] != null && $data['data_detail_per']['kmz_file']) {
+//            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_per']['kmz_file'];
+//        }
+//        if ($data['data_detail_pen'] != null && $data['data_detail_pen']['kmz_file']) {
+//            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_pen']['kmz_file'];
+//        }
+        $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . 'kml_eksi_100.kml';
         $this->googlemaps->initialize($config);
         $data['map'] = $this->googlemaps->create_map();
 

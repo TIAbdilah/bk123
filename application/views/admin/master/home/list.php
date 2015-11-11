@@ -32,36 +32,7 @@ endif;
 
             </section>
         </aside>
-    </div>
-    <?php
-    $count_empty_eks = 0;
-    $count_empty_per = 0;
-    $count_empty_pen = 0;
-    $count_check_eks = 0;
-    $count_check_per = 0;
-    $count_check_pen = 0;
-    foreach ($data_kumuh as $data) {
-
-        if ($data->eks == 1) {
-            $count_check_eks += 1;
-        } else {
-            $count_empty_eks += 1;
-        }
-
-
-        if ($data->per == 1) {
-            $count_check_per += 1;
-        } else {
-            $count_empty_per += 1;
-        }
-
-        if ($data->pen == 1) {
-            $count_check_pen += 1;
-        } else {
-            $count_empty_pen += 1;
-        }
-    }
-    ?>
+    </div>    
     <div class="col-lg-8">
         <!--// data eksisting-->
         <div class="row">
