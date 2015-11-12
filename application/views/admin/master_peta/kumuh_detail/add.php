@@ -9,6 +9,16 @@ function generate_radio($field) {
             <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="5"/> 76-100%</span>';
 }
 
+function generate_radio_ada_tidak($field) {
+    return '<span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="1" checked/> Tidak</span> 
+            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="5"/> Ada</span>';
+}
+
+function generate_radio_tingkat_pn($field) {
+    return '<span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="0"/> -</span>
+            <span class="col-lg-6"><input type="radio" name="inp_' . $field . '_prsn" value="1" checked/> +</span>';
+}
+
 function generate_modal($field, $prm) {
     return '<span class="col-lg-6">
                 <p class="help-block">

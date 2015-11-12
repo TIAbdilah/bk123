@@ -43,8 +43,8 @@ class Kumuh extends MY_Controller {
 
 //        print_r($data['data_detail_eks']);
         //peta
-        $config['center'] = 'Jakarta, Indonesia';
-        $config['zoom'] = 'auto';
+        $config['center'] = '-0.664934, 118.302096';
+        $config['zoom'] = '4';
         $config['map_type'] = 'ROADMAP';
 //        if ($data['data_detail_eks'] != null && $data['data_detail_eks']['kmz_file']) {
 //            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_eks']['kmz_file'];
@@ -55,7 +55,7 @@ class Kumuh extends MY_Controller {
 //        if ($data['data_detail_pen'] != null && $data['data_detail_pen']['kmz_file']) {
 //            $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . $data['data_detail_pen']['kmz_file'];
 //        }
-        $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . 'kml_eksi_100.kml';
+//        $config['kmlLayerURL'] = 'http://ciptakarya.pu.go.id/bangkim/assets/admin/img/kmz/' . 'kml_eksi_100.kml';
         $this->googlemaps->initialize($config);
         $data['map'] = $this->googlemaps->create_map();
 

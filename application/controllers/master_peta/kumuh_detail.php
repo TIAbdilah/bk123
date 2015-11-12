@@ -76,10 +76,10 @@ class Kumuh_detail extends MY_Controller {
             $data['sk_file'] = $sk_file;
         }
 
-        $data_indikator = $this->indikator_model->select_all()->result();
+        $data_indikator = $this->indikator_model->select_by_field(array('modul'=>'perkotaan'))->result();
         foreach ($data_indikator as $dt_ind) {
             $foto_file = '';
-            if (substr($dt_ind->id, 0, 1) < 8) {
+            if (substr($dt_ind->nomor, 0, 1) < 8) {
                 $data[$dt_ind->field_name . '_prsn'] = $this->input->post('inp_' . $dt_ind->field_name . '_prsn');
                 $data[$dt_ind->field_name . '_kt'] = $this->input->post('inp_' . $dt_ind->field_name . '_kt');
                 $foto_file = $this->upload_image(array('indikator_name' => $dt_ind->field_name . '_' . substr($data['kategori'], 0, 4).'_ft', 'input' => 'inp_' . $dt_ind->field_name . '_ft', 'id_kaw_kumuh' => $data['id_kaw_kumuh'], 'tipe_file' => 'image'));
@@ -94,7 +94,7 @@ class Kumuh_detail extends MY_Controller {
                 if ($foto_file3 != '') {
                     $data[$dt_ind->field_name . '_foto'] = $foto_file3;
                 }
-            } if (substr($dt_ind->id, 0, 1) >= 8) {
+            } if (substr($dt_ind->nomor, 0, 1) >= 8) {
                 $data[$dt_ind->field_name . '_prsn'] = $this->input->post('inp_' . $dt_ind->field_name . '_prsn');
                 $data[$dt_ind->field_name . '_kt'] = $this->input->post('inp_' . $dt_ind->field_name . '_kt');
             }
