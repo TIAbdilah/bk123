@@ -70,9 +70,9 @@ endif;
                                     <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td><?php echo $test->check_detail($data->id_kaw_kumuh);?>a</td>
-                                    <td><?php // echo $data->eks;?></td>
-                                    <td><?php // echo $data->eks;?></td>
+                                    <td><?php if($test->check_detail($data->id_kaw_kumuh, 'eksisting') != 0){echo '<i class="icon-ok"></i>';};?></td>
+                                    <td><?php if($test->check_detail($data->id_kaw_kumuh, 'perencanaan') != 0){echo '<i class="icon-ok"></i>';};?></td>
+                                    <td><?php if($test->check_detail($data->id_kaw_kumuh, 'penanganan') != 0){echo '<i class="icon-ok"></i>';};?></td>
                                     <td class="dt-body-center">
                                         <a title="View Kawasan" 
                                            href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 
