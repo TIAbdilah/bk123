@@ -34,26 +34,30 @@ class Home extends MY_Controller {
                 'substr(kode_daerah, 1, 2)=' => substr($this->session->userdata('role_propinsi'), 0, 2)
             );
             $total_kawasan = $this->kumuh_model->select_by_field($param)->num_rows();
+//            echo $total_kawasan;
         } else {
             $data['page_content'] = 'admin/master/home/list';
             $total_kawasan = $this->kumuh_model->select_all()->num_rows();
         }
 
+//        echo $this->session->userdata('bagian');
+
         $data['count_check_eks'] = $this->kumuh_detail_model->select_by_field(array('kategori' => 'eksisting'))->num_rows();
         $data['count_check_per'] = $this->kumuh_detail_model->select_by_field(array('kategori' => 'perencanaan'))->num_rows();
         $data['count_check_pen'] = $this->kumuh_detail_model->select_by_field(array('kategori' => 'penanganan'))->num_rows();
-
+//echo $data['count_check_pen'];
         $data['count_empty_eks'] = $total_kawasan - $data['count_check_eks'];
         $data['count_empty_per'] = $total_kawasan - $data['count_check_per'];
         $data['count_empty_pen'] = $total_kawasan - $data['count_check_pen'];
 
-        if ($this->session->userdata('bagian') == 'eksisting') {
+        $bagian = trim($this->session->userdata('bagian'), ' ');
+        if ($bagian == 'eksisting') {
             $data['count_empty'] = $data['count_empty_eks'];
             $data['count_check'] = $data['count_check_eks'];
-        } else if ($this->session->userdata('bagian') == 'perencanaan') {
+        } else if ($bagian == 'perencanaan') {
             $data['count_empty'] = $data['count_empty_per'];
             $data['count_check'] = $data['count_check_per'];
-        } else if ($this->session->userdata('bagian') == 'penanganan') {
+        } else if ($bagian == 'penanganan') {
             $data['count_empty'] = $data['count_empty_pen'];
             $data['count_check'] = $data['count_check_pen'];
         }
