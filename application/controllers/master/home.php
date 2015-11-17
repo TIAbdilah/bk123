@@ -38,7 +38,7 @@ class Home extends MY_Controller {
             $data['page_content'] = 'admin/master/home/list';
             $total_kawasan = $this->kumuh_model->select_all()->num_rows();
         }
-        
+
         $data['count_check_eks'] = $this->kumuh_detail_model->select_by_field(array('kategori' => 'eksisting'))->num_rows();
         $data['count_check_per'] = $this->kumuh_detail_model->select_by_field(array('kategori' => 'perencanaan'))->num_rows();
         $data['count_check_pen'] = $this->kumuh_detail_model->select_by_field(array('kategori' => 'penanganan'))->num_rows();
@@ -46,11 +46,11 @@ class Home extends MY_Controller {
         $data['count_empty_per'] = $total_kawasan - $data['count_check_per'];
         $data['count_empty_pen'] = $total_kawasan - $data['count_check_pen'];
 
-        $bagian = trim($this->session->userdata('bagian'),' ');
-        if ($bagian== 'eksisting') {
+        $bagian = trim($this->session->userdata('bagian'), ' ');
+        if ($bagian == 'eksisting') {
             $data['count_empty'] = $data['count_empty_eks'];
             $data['count_check'] = $data['count_check_eks'];
-        } else if ($bagian== 'perencanaan') {
+        } else if ($bagian == 'perencanaan') {
             $data['count_empty'] = $data['count_empty_per'];
             $data['count_check'] = $data['count_check_per'];
         } else if ($bagian == 'penanganan') {
