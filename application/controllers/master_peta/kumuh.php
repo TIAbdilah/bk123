@@ -20,17 +20,28 @@ class Kumuh extends MY_Controller {
         parent::__construct();
     }
 
-    public function index($kode_daerah = null) {
+    public function index() {
         $data['title_page'] = 'LIST';
-        $data['list_data'] = $this->kumuh_model->select_all()->result();
+        
         if ($this->session->userdata('role') != 'super admin') {
             $data['page_content'] = 'admin/master_peta/kumuh/list_filter';
+            $param = array(
+                'substr(kode_daerah, 1, 2)=' => substr($this->session->userdata('role_propinsi'), 0, 2)
+            );
+            $data['list_data'] = $this->kumuh_model->select_by_field($param)->result();
         } else {
             $data['page_content'] = 'admin/master_peta/kumuh/list';
+            $data['list_data'] = $this->kumuh_model->select_all()->result();
         }
-
         $data['text'] = $this->text;
+        $data['test'] = $this;
         $this->load->view('admin/index', $data);
+    }    
+    
+    public function check_detail($id_kaw, $kat){
+        $x = $this->kumuh_detail_model->select_by_field(array('id_kaw_kumuh'=>$id_kaw, 'kategori'=>$kat))->num_rows();
+//        $x = 123;
+        return $x;
     }
 
     public function view($id = null) {

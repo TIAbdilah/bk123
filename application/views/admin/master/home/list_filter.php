@@ -14,24 +14,6 @@ endif;
         </section>
     </div>
 </div>-->
-<?php
-$count_empty = 0;
-$count_check = 0;
-
-if (strpos($this->session->userdata('username'), 'eksisting') !== FALSE) {
-
-    $count_check = $count_check_eks;
-    $count_empty = $count_empty_eks;
-}
-if (strpos($this->session->userdata('username'), 'perencanaan') !== FALSE) {
-    $count_check = $count_check_per;
-    $count_empty = $count_empty_per;
-}
-if (strpos($this->session->userdata('username'), 'penanganan') !== FALSE) {
-    $count_check = $count_check_pen;
-    $count_empty = $count_empty_pen;
-}
-?>
 <div class="row">
     <div class="col-lg-4">
         <aside class="profile-nav  alt green-border">
@@ -47,7 +29,7 @@ if (strpos($this->session->userdata('username'), 'penanganan') !== FALSE) {
                 <ul class="nav nav-pills nav-stacked">
                     <li><a href="<?php echo site_url('utilitas/user/edit_user/' . $this->session->userdata('username')) ?>"> <i class="icon-user"></i> Ubah Data Pengguna</a></li>
                     <li><a href="<?php echo site_url('utilitas/user/edit_password/' . $this->session->userdata('username')) ?>"><i class="icon-lock"></i> Ubah Password</a></li>
-<?php if ($this->session->userdata('role') == 'admin') { ?>
+                    <?php if ($this->session->userdata('role') == 'admin') { ?>
                         <li><a href="<?php echo site_url('utilitas/user') ?>"> <i class="icon-user"></i> User Baru (belum aktif) <span class="label label-primary pull-right r-activity" id="intJml">0</span></a></li>
                     <?php } ?>
                 </ul>

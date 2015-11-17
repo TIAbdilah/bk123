@@ -77,7 +77,7 @@ class MY_Controller extends CI_Controller {
         $this->text['arc'] = new Array_custom();
         $this->text['rg'] = $this->array_right($this->session->userdata('role'));
     }
-
+    
     public function is_logged_in() {
         if ($this->session->userdata('role') == '') {
             redirect('login');

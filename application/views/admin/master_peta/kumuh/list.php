@@ -3,21 +3,21 @@ $this->load->view('admin/master_peta/kumuh/breadcrumbs');
 if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');
 endif;
 
-function generate_modal($id_modal, $folder, $foto) {
-    return '<div class="modal fade" id="' . $id_modal . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">Foto</h4>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="' . base_url() . 'assets/admin/img/' . $folder . '/' . $foto . '" width="100%"/> 
-                </div>
-            </div>
-        </div>
-    </div>';
-}
+//function generate_modal($id_modal, $folder, $foto) {
+//    return '<div class="modal fade" id="' . $id_modal . '" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+//        <div class="modal-dialog">
+//            <div class="modal-content">
+//                <div class="modal-header">
+//                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+//                    <h4 class="modal-title">Foto</h4>
+//                </div>
+//                <div class="modal-body text-center">
+//                    <img src="' . base_url() . 'assets/admin/img/' . $folder . '/' . $foto . '" width="100%"/> 
+//                </div>
+//            </div>
+//        </div>
+//    </div>';
+//}
 ?>
 <div class="row">
     <div class="col-lg-12">
@@ -37,25 +37,24 @@ function generate_modal($id_modal, $folder, $foto) {
                     <button class="btn btn-xs btn-default"><i class="icon-file"></i> </button> : View Data 
                     <button class="btn btn-xs btn-default"><i class="icon-pencil"></i> </button> : Edit Data 
                     <button class="btn btn-xs btn-default"><i class="icon-remove"></i> </button> : Delete Data 
-                    <table  class="display table table-striped" id="example1">
+                    <table  class="display table table-striped" id="example1" style="width: 100%">
                         <thead>
                             <tr>
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Kode Daerah</th>
                                 <th rowspan="2">Nama Kawasan</th>
-                                <!--<th rowspan="2">SK</th>-->
                                 <th colspan="4">Bobot Kekumuhan</th>
                                 <th colspan="3">Satus Data</th>
-                                <th rowspan="2"></th>
+                                <th rowspan="2" width="12%"></th>
                             </tr>
                             <tr>
                                 <th><a href="#" title="Tingkat Kekumuhan">Tingkat Kekumuhan</a></th>
                                 <th><a href="#" title="Pertimbangan Lain">Pertimbangan Lain</a></th>
                                 <th><a href="#" title="Kejelasan Status Lahan">Status Lahan</a></th>
                                 <th><a href="#" title="Kesesuaian dg RTR">Sesuai RTR</a></th>
-                                <th><a href="#" title="Eksisting">Eksisting</a></th>
-                                <th><a href="#" title="Perencanaan">Perencanaan</a></th>
-                                <th><a href="#" title="Penanganan">Penanganan</a></th>
+                                <th><img src="<?php echo base_url().'assets/public2/images/eks.jpg'?>"></th>
+                                <th><img src="<?php echo base_url().'assets/public2/images/per.jpg'?>"></th>
+                                <th><img src="<?php echo base_url().'assets/public2/images/pen.jpg'?>"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -67,46 +66,13 @@ function generate_modal($id_modal, $folder, $foto) {
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_kawasan ?></td>
-<!--                                    <td>
-                                        <?php
-                                        if ($data->sk != '') {
-                                            echo '<a data-toggle="modal" href="#modal_sk' . $data->id_kaw_kumuh . '"><i class="icon-file"></i></a>'
-                                            . generate_modal('modal_sk' . $data->id_kaw_kumuh, 'sk', $data->sk);
-                                        }
-                                        ?>
-                                    </td>-->
-                                    <?php
-                                    if ($data->pen == 0) {
-                                        ?>
-                                        <td><?php echo $text['arc']->tingkat_kumuh($data->tk_e) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_per_lain($data->pl_e) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_lainya($data->ksl_e) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr_e) ?></td>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <td><?php echo $text['arc']->tingkat_kumuh($data->tk_p) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_per_lain($data->pl_p) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_lainya($data->ksl_p) ?></td>
-                                        <td><?php echo $text['arc']->tingkat_lainya($data->kdrtr_p) ?></td>
-                                        <?php
-                                    }
-                                    ?>
-                                    <td><?php
-                                        if ($data->eks == 1) {
-                                            echo "<i class=\"icon-ok\"></i>";
-                                        }
-                                        ?></td>
-                                    <td><?php
-                                        if ($data->per == 1) {
-                                            echo "<i class=\"icon-ok\"></i>";
-                                        }
-                                        ?></td>
-                                    <td><?php
-                                        if ($data->pen == 1) {
-                                            echo "<i class=\"icon-ok\"></i>";
-                                        }
-                                        ?></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td><?php echo $test->check_detail($data->id_kaw_kumuh);?>a</td>
+                                    <td><?php // echo $data->eks;?></td>
+                                    <td><?php // echo $data->eks;?></td>
                                     <td class="dt-body-center">
                                         <a title="View Kawasan" 
                                            href="<?php echo site_url('master_peta/kumuh/view/' . $data->id_kaw_kumuh) ?>" 
