@@ -43,7 +43,9 @@ class MY_Controller extends CI_Controller {
         $this->load->model('master_peta/kumuh_model'); 
         $this->load->model('master_peta/kumuh_detail_model');            
         $this->load->model('master_peta/perdesaan_model'); 
-        $this->load->model('master_peta/perdesaan_detail_model'); 
+        $this->load->model('master_peta/perdesaan_detail_model');                   
+        $this->load->model('master_peta/perbatasan_model'); 
+        $this->load->model('master_peta/perbatasan_detail_model'); 
         $this->load->model('master_peta/view_propinsi_model'); 
         $this->load->model('master_peta/view_kabupaten_model'); 
         $this->load->model('master_peta/view_kecamatan_model'); 

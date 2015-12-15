@@ -26,7 +26,7 @@ class Kumuh extends MY_Controller {
         if ($this->session->userdata('role') != 'super admin') {
             $data['page_content'] = 'admin/master_peta/kumuh/list_filter';
             $param = array(
-                'substr(kode_daerah, 1, 2)=' => substr($this->session->userdata('role_propinsi'), 0, 2)
+                'substr(kode_daerah, 1, 2) = ' => substr($this->session->userdata('role_propinsi'), 0, 2)
             );
             $data['list_data'] = $this->kumuh_model->select_by_field($param)->result();
         } else {

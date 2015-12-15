@@ -18,7 +18,7 @@
                     echo '<li><a  href="' . site_url('master/content') . '">Content</a></li>';
                 }
 //                if ($text['rg']['M03b']) {
-                    echo '<li><a  href="' . site_url('master/karusel') . '">Karusel</a></li>';
+                echo '<li><a  href="' . site_url('master/karusel') . '">Karusel</a></li>';
 //                }
                 if ($text['rg']['M04b']) {
                     echo '<li><a  href="' . site_url('master/berita') . '">Berita</a></li>';
@@ -49,9 +49,23 @@
                     echo '<li><a  href="' . site_url('master_peta/kumuh') . '">Kawasan Kumuh</a></li>';
                 }
 //                if ($text['rg']['M02b']) {
-                    echo '<li><a  href="' . site_url('master_peta/perdesaan') . '">Perdesaan</a></li>';
+                echo '<li><a  href="' . site_url('master_peta/perdesaan') . '">Perdesaan</a></li>';
 //                }
                 ?>
+                <li class="sub-menu">
+                    <a  href="#">Khusus</a>
+                    <ul class="sub">
+                        <li><a href="<?php echo site_url('master_peta/perbatasan')?>"><i class="icon-file"></i> Perbatasan</a></li>
+                        <li><a href="<?php echo site_url('master_peta/pulau_kecil_terluar')?>"><i class="icon-file"></i> Pulau Kecil Terluar</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a  href="#">Pemberdayaan</a>
+                    <ul class="sub">
+                        <li><a href="<?php echo site_url('master_peta/nusp')?>"><i class="icon-file"></i> Perbatasan</a></li>
+                        <li><a href="<?php echo site_url('master_peta/perbatasan')?>"><i class="icon-file"></i> Perbatasan</a></li>
+                    </ul>
+                </li>
             </ul>
         </li>
     <?php } ?>

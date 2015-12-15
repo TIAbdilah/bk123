@@ -43,7 +43,7 @@ endif;
                                 <th><img src="<?php echo base_url().'assets/public2/images/pen.jpg'?>"></th>
                             </tr>
                         </thead>
-<!--                        <tbody>
+                        <tbody>
                             <?php
                             $no = 1;
                             foreach ($list_data as $data) {
@@ -82,7 +82,7 @@ endif;
                                 $no++;
                             }
                             ?>                
-                        </tbody>-->
+                        </tbody>
                     </table>
                 </div>
             </div>
