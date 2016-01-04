@@ -28,7 +28,7 @@ class Login extends CI_Controller {
     public function index() {
         $data['title_page'] = 'INDEX';
          if ($this->session->userdata('role') == '') {
-           $this->load->view('login/sign_in', $data);
+           $this->load->view('login/sign_in_1', $data);
         } else{
             redirect('master/home');
         }        
@@ -50,7 +50,7 @@ class Login extends CI_Controller {
 
         if ($this->form_validation->run() == FALSE) {
             $this->session->set_flashdata('message', 'Login Gagal!, username atau password salah ');
-            $this->load->view('login/sign_in');
+            $this->load->view('login/sign_in_1');
         } else {
             $username = $this->input->post('inpUsername');
             $password = md5($this->input->post('inpPassword'));
@@ -63,7 +63,7 @@ class Login extends CI_Controller {
                 $data_user = $this->user_model->select_by_field($param)->row();
                 if ($data_user->active == 0) {
                     $this->session->set_flashdata('message', 'Username sudah terdaftar dan belum aktif');
-                    $this->load->view('login/sign_in');
+                    $this->load->view('login/sign_in_1');
                 } else {
                     $sessionData['username'] = $data_user->username;
                     $sessionData['role'] = $data_user->nama_role;
@@ -80,7 +80,7 @@ class Login extends CI_Controller {
                 }
             } else {
                 $this->session->set_flashdata('message', 'Login Gagal!, username atau password salah ');
-                $this->load->view('login/sign_in');
+                $this->load->view('login/sign_in_1');
             }
         }
     }
