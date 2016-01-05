@@ -22,8 +22,8 @@
                         <div class="panel-heading">Data Pendukung Eksisting</div>
                         <div class="panel-body">
                             <table class="table">
-                                <tr><td>Nama Kawasan</td><td>:</td></tr>
-                                <tr><td>luas Kawasan</td><td>:</td></tr>
+                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan?></td></tr>
+                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan?></td></tr>
                             </table>
                         </div>
                     </section>
@@ -32,6 +32,10 @@
                     <section class="panel">
                         <div class="panel-heading">Data Pendukung Perencanaan</div>
                         <div class="panel-body">
+                            <table class="table">
+                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan?></td></tr>
+                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan?></td></tr>
+                            </table>
                         </div>
                     </section>
                 </div>
@@ -39,6 +43,10 @@
                     <section class="panel">
                         <div class="panel-heading">Data Pendukung Penanganan</div>
                         <div class="panel-body">
+                            <table class="table">
+                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan?></td></tr>
+                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan?></td></tr>
+                            </table>
                         </div>
                     </section>
                 </div>
@@ -78,7 +86,21 @@
                         <div class="col-lg-8">
                             <div class="panel-heading">
                                 <strong>Isu Strategis</strong>
-                                <span class="pull-right"><i class="icon-pencil"></i> </span>
+                                <?php
+                                if ($perbatasan_eks != null) {
+                                    ?>
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/'.$perbatasan->id_perbatasan.'/eksisting') ?>">
+                                        <span class="pull-right"><i class="icon-pencil"></i></span>
+                                    </a>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/'.$perbatasan->id_perbatasan.'/eksisting') ?>">
+                                        <span class="pull-right"><i class="icon-plus"></i></span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
                             </div>
                             <div class="panel-body">
                                 <?php
@@ -128,7 +150,21 @@
                         <div class="col-lg-8">
                             <div class="panel-heading">
                                 <strong>Isu Strategis</strong>
-                                <span class="pull-right"><i class="icon-pencil"></i> </span>
+                               <?php
+                                if ($perbatasan_per != null) {
+                                    ?>
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/'.$perbatasan->id_perbatasan.'/perencanaan') ?>">
+                                        <span class="pull-right"><i class="icon-pencil"></i></span>
+                                    </a>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/'.$perbatasan->id_perbatasan.'/perencanaan') ?>">
+                                        <span class="pull-right"><i class="icon-plus"></i></span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
                             </div>
                             <div class="panel-body">
                                 <?php
@@ -180,7 +216,21 @@
                         <div class="col-lg-8">
                             <div class="panel-heading">
                                 <strong>Isu Strategis</strong>
-                                <span class="pull-right"><i class="icon-pencil"></i> </span>
+                                <?php
+                                if ($perbatasan_pen != null) {
+                                    ?>
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/'.$perbatasan->id_perbatasan.'/penanganan') ?>">
+                                        <span class="pull-right"><i class="icon-pencil"></i></span>
+                                    </a>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/'.$perbatasan->id_perbatasan.'/penanganan') ?>">
+                                        <span class="pull-right"><i class="icon-plus"></i></span>
+                                    </a>
+                                    <?php
+                                }
+                                ?>
                             </div>
                             <div class="panel-body">
                                 <?php

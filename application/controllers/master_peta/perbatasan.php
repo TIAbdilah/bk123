@@ -30,6 +30,7 @@ class Perbatasan extends MY_Controller {
 
     public function view($id = null) {
         $data['title_page'] = 'VIEW';
+        $data['perbatasan'] = $this->perbatasan_model->select_by_field(array('id_perbatasan'=>$id))->row();
         $data['perbatasan_eks'] = $this->perbatasan_detail_model->select_by_field(array('id_perbatasan'=>$id, 'kategori'=>'eksisting'))->row_array();
         $data['perbatasan_pen'] = $this->perbatasan_detail_model->select_by_field(array('id_perbatasan'=>$id, 'kategori'=>'penanganan'))->row_array();
         $data['perbatasan_per'] = $this->perbatasan_detail_model->select_by_field(array('id_perbatasan'=>$id, 'kategori'=>'perencanaan'))->row_array();
@@ -40,10 +41,6 @@ class Perbatasan extends MY_Controller {
 
     public function add() {
         $data['title_page'] = 'ADD';
-        $data['SIList_propinsi'] = $this->perbatasan_model->select_by_field(array('kategori' => 'propinsi'))->result();
-        $data['SIList_kabupaten'] = $this->perbatasan_model->select_by_field(array('kategori' => 'kabupaten'))->result();
-        $data['SIList_kecamatan'] = $this->perbatasan_model->select_by_field(array('kategori' => 'kecamatan'))->result();
-        $data['SIList_tingkat_daerah'] = $this->listcode_model->select_by_field(array('list_name' => 'tingkat_daerah'))->result();
         $data['page_content'] = 'admin/master_peta/perbatasan/add';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);
@@ -87,32 +84,6 @@ class Perbatasan extends MY_Controller {
         $this->perbatasan_model->delete(array('id_modul' => $id));
         $this->session->set_flashdata('message', $this->text['msg']->get_message('success', 'delete-success'));
         redirect('master_peta/perbatasan');
-    }
-
-    public function populateKecamatan() {
-        $kabupaten = $this->input->post('kode_kab', TRUE);
-//        $cek = 'Bakongan,Kluet Utara';
-        $kec = $this->view_kecamatan_model->select_by_field(array('left(kode_daerah,5)' => $kabupaten))->result();
-        $output = "";
-        if ($kec) {
-            foreach ($kec as $row) {
-//                if ($row->nm_daerah == $cek) {
-//                    $c = 'checked';
-//                } else {
-//                    $c = '';
-//                }
-                $output .= '<span class="form-control-static col-lg-3">'
-                        . '<input id="inpKec" name="inpKec[]" value="' . $row->nm_daerah . '" type="checkbox" > '
-                        . $row->nm_daerah
-                        . '</span>';
-            }
-            $arr[0] = $output;
-        } else {
-            $output .= 'Kabupaten belum dipilih';
-            $arr[0] = $output;
-        }
-
-        echo json_encode($arr);
     }
 
 }

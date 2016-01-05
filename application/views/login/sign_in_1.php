@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Additional Meta -->
-        <title>DSS :: GIS :: DINKES</title>
+        <title>Direktorat Pengembangan Kawasan Permukiman</title>
 
         <!-- Stylesheet -->
         <link href="<?php echo base_url() . 'assets/admin/' ?>css/bootstrap.min.css" rel="stylesheet">

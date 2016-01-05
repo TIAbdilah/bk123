@@ -44,10 +44,10 @@
                                         <?php if($perbatasan->eks != null){ echo '<span class="label label-success">Ada</span>';}else{ echo '<span class="label label-danger">Tidak Ada</span>';}?>                                        
                                     </td>
                                     <td>
-                                        <?php if($perbatasan->eks != null){ echo '<span class="label label-success">Ada</span>';}else{ echo '<span class="label label-danger">Tidak Ada</span>';}?>                                        
+                                        <?php if($perbatasan->per != null){ echo '<span class="label label-success">Ada</span>';}else{ echo '<span class="label label-danger">Tidak Ada</span>';}?>                                        
                                     </td>
                                     <td>
-                                        <?php if($perbatasan->eks != null){ echo '<span class="label label-success">Ada</span>';}else{ echo '<span class="label label-danger">Tidak Ada</span>';}?>                                        
+                                        <?php if($perbatasan->pen != null){ echo '<span class="label label-success">Ada</span>';}else{ echo '<span class="label label-danger">Tidak Ada</span>';}?>                                        
                                     </td>
                                     <td class="dt-body-center">
                                         <a title="<?php echo $text['txt']->button_title['view_data'] ?>" 
