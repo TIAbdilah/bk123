@@ -22,8 +22,8 @@
                         <div class="panel-heading">Data Pendukung Eksisting</div>
                         <div class="panel-body">
                             <table class="table">
-                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan?></td></tr>
-                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan?></td></tr>
+                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan ?></td></tr>
+                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan ?></td></tr>
                             </table>
                         </div>
                     </section>
@@ -33,8 +33,8 @@
                         <div class="panel-heading">Data Pendukung Perencanaan</div>
                         <div class="panel-body">
                             <table class="table">
-                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan?></td></tr>
-                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan?></td></tr>
+                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan ?></td></tr>
+                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan ?></td></tr>
                             </table>
                         </div>
                     </section>
@@ -44,8 +44,8 @@
                         <div class="panel-heading">Data Pendukung Penanganan</div>
                         <div class="panel-body">
                             <table class="table">
-                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan?></td></tr>
-                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan?></td></tr>
+                                <tr><td>Nama Kawasan</td><td>:</td><td><?php echo $perbatasan->nama_kawasan ?></td></tr>
+                                <tr><td>Luas Kawasan</td><td>:</td><td><?php echo $perbatasan->luas_kawasan ?></td></tr>
                             </table>
                         </div>
                     </section>
@@ -89,13 +89,13 @@
                                 <?php
                                 if ($perbatasan_eks != null) {
                                     ?>
-                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/'.$perbatasan->id_perbatasan.'/eksisting') ?>">
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/' . $perbatasan->id_perbatasan . '/eksisting') ?>">
                                         <span class="pull-right"><i class="icon-pencil"></i></span>
                                     </a>
                                     <?php
                                 } else {
                                     ?>
-                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/'.$perbatasan->id_perbatasan.'/eksisting') ?>">
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/' . $perbatasan->id_perbatasan . '/eksisting') ?>">
                                         <span class="pull-right"><i class="icon-plus"></i></span>
                                     </a>
                                     <?php
@@ -118,8 +118,9 @@
                             </div>
                             <div class="panel-body">
                                 <?php
-                                for ($i = 1; $i <= 5; $i++) {
-                                    if ($perbatasan_eks != NULL) {
+                                if ($perbatasan_eks != NULL) {
+                                    for ($i = 1; $i <= 5; $i++) {
+
                                         if ($perbatasan_eks['gambar' . $i] != NULL) {
                                             ?>
                                             <div class="col-lg-6 text-center" style="padding-bottom: 10px">                                    
@@ -137,9 +138,9 @@
                                             </div>
                                             <?php
                                         }
-                                    } else {
-                                        echo 'Data Masih Kosong';
                                     }
+                                } else {
+                                    echo 'Data Masih Kosong';
                                 }
                                 ?>            
                             </div>
@@ -150,16 +151,16 @@
                         <div class="col-lg-8">
                             <div class="panel-heading">
                                 <strong>Isu Strategis</strong>
-                               <?php
+                                <?php
                                 if ($perbatasan_per != null) {
                                     ?>
-                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/'.$perbatasan->id_perbatasan.'/perencanaan') ?>">
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/' . $perbatasan->id_perbatasan . '/perencanaan') ?>">
                                         <span class="pull-right"><i class="icon-pencil"></i></span>
                                     </a>
                                     <?php
                                 } else {
                                     ?>
-                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/'.$perbatasan->id_perbatasan.'/perencanaan') ?>">
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/' . $perbatasan->id_perbatasan . '/perencanaan') ?>">
                                         <span class="pull-right"><i class="icon-plus"></i></span>
                                     </a>
                                     <?php
@@ -219,13 +220,13 @@
                                 <?php
                                 if ($perbatasan_pen != null) {
                                     ?>
-                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/'.$perbatasan->id_perbatasan.'/penanganan') ?>">
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/edit/' . $perbatasan->id_perbatasan . '/penanganan') ?>">
                                         <span class="pull-right"><i class="icon-pencil"></i></span>
                                     </a>
                                     <?php
                                 } else {
                                     ?>
-                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/'.$perbatasan->id_perbatasan.'/penanganan') ?>">
+                                    <a href="<?php echo site_url('master_peta/perbatasan_detail/add/' . $perbatasan->id_perbatasan . '/penanganan') ?>">
                                         <span class="pull-right"><i class="icon-plus"></i></span>
                                     </a>
                                     <?php
