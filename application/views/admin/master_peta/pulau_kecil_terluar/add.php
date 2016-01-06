@@ -10,15 +10,45 @@
             <div class="panel-body">
                 <form class="form-horizontal" role="form" action="<?php echo site_url('master_peta/perbatasan/process/add/') ?>" method="POST">
                     <div class="form-group">
-                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Nama Kawasan</label>
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Provinsi</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" id="inpNamaKawasan" name="inpNamaKawasan" placeholder="Nama Kawasan">
+                            <input type="text" class="form-control" id="inpNamaKawasan" name="inpNamaKawasan" placeholder="Provinsi">
                         </div>
                     </div>    
                     <div class="form-group">
-                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Luas Kawasan</label>
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Kabupaten/Kota</label>
                         <div class="col-lg-4">
-                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Luas Kawasan">
+                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Kabupaten/Kota">
+                        </div>
+                    </div> 
+                    <div class="form-group">
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Kecamatan</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Kecamatan">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Desa/Kelurahan</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Desa/Kelurahan">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Pulau</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Pulau">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Jumlah Penduduk</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Jumlah Penduduk">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inpNamaKawasan" class="col-lg-2 col-sm-2 control-label">Jumlah Kepala Keluarga</label>
+                        <div class="col-lg-4">
+                            <input type="text" class="form-control" id="inpLuasKawasan" name="inpLuasKawasan" placeholder="Pulau">
                         </div>
                     </div>                    
                     <div class="form-group">

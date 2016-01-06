@@ -1,5 +1,5 @@
 
-<?php // $this->load->view('admin/master_peta/pulau_kecil_terluar/breadcrumbs')     ?>
+<?php $this->load->view('admin/master_peta/pulau_kecil_terluar/breadcrumbs')     ?>
 
 <?php
 //if ($this->session->flashdata('message') != ''):echo $this->session->flashdata('message');

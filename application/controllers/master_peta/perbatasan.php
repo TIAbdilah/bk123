@@ -34,6 +34,13 @@ class Perbatasan extends MY_Controller {
         $data['perbatasan_eks'] = $this->perbatasan_detail_model->select_by_field(array('id_perbatasan'=>$id, 'kategori'=>'eksisting'))->row_array();
         $data['perbatasan_pen'] = $this->perbatasan_detail_model->select_by_field(array('id_perbatasan'=>$id, 'kategori'=>'penanganan'))->row_array();
         $data['perbatasan_per'] = $this->perbatasan_detail_model->select_by_field(array('id_perbatasan'=>$id, 'kategori'=>'perencanaan'))->row_array();
+        
+        $config['center'] = '-0.664934, 118.302096';
+        $config['zoom'] = '4';
+        $config['map_type'] = 'ROADMAP';
+        $this->googlemaps->initialize($config);
+        $data['map'] = $this->googlemaps->create_map();
+        
         $data['page_content'] = 'admin/master_peta/perbatasan/view';
         $data['text'] = $this->text;
         $this->load->view('admin/index', $data);

@@ -59,13 +59,13 @@
                         <li><a href="<?php echo site_url('master_peta/pulau_kecil_terluar')?>"><i class="icon-file"></i> Pulau Kecil Terluar</a></li>
                     </ul>
                 </li>
-<!--                <li class="sub-menu">
+                <li class="sub-menu">
                     <a  href="#">Pemberdayaan</a>
                     <ul class="sub">
                         <li><a href="<?php echo site_url('master_peta/nusp')?>"><i class="icon-file"></i> Perbatasan</a></li>
                         <li><a href="<?php echo site_url('master_peta/perbatasan')?>"><i class="icon-file"></i> Perbatasan</a></li>
                     </ul>
-                </li>-->
+                </li>
             </ul>
         </li>
     <?php } ?>
