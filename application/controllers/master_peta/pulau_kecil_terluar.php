@@ -27,6 +27,20 @@ class Pulau_kecil_terluar extends MY_Controller {
         $data['text'] = $this->text;  
         $this->load->view('admin/index', $data);
     }
+    
+    public function index1() {
+        $data['title_page'] = 'List Data Pulau Kecil Terluar';
+        
+        $config['center'] = '-0.664934, 118.302096';
+        $config['zoom'] = '5';
+        $config['map_type'] = 'ROADMAP';
+        $this->googlemaps->initialize($config);
+        $data['map'] = $this->googlemaps->create_map();
+        
+        $data['page_content'] = 'admin/master_peta/pulau_kecil_terluar/map';
+        $data['text'] = $this->text;  
+        $this->load->view('admin/index', $data);
+    }
 
     public function view($id = null) {
         $data['title_page'] = 'VIEW';

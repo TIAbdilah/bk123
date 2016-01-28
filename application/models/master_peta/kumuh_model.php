@@ -123,7 +123,7 @@ class Kumuh_model extends CI_Model {
 
         $this->db->from($this->table_name);
         $this->db->where($param);
-        $this->db->order_by('kode_daerah, nm_kawasan');
+        $this->db->order_by('kode_daerah, nm_kawasan');        
         return $this->db->get();
     }
 

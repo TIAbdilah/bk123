@@ -30,6 +30,16 @@
           <script src="js/html5shiv.js"></script>
           <script src="js/respond.min.js"></script>
         <![endif]-->
+        <style>
+            html, body { 
+                height:100%
+            }
+            #map {
+                margin: 1em auto;
+                height:70%;
+                border: 2px dashed black;
+            }  
+        </style>
     </head>
 
     <body>
@@ -135,7 +145,7 @@
                     this.checked = true;
                 });
             });
-            
+
             $('#unselect-all').click(function(event) {
                 $(':checkbox').each(function() {
                     this.checked = false;
@@ -217,8 +227,8 @@
                     title: {
                         text: 'Tingkat Kekumuhan'
                     },
-                    colors:[
-                        '#0078FF','#FF0014','#327814'
+                    colors: [
+                        '#0078FF', '#FF0014', '#327814'
                     ],
                     pane: {
                         size: '80%'

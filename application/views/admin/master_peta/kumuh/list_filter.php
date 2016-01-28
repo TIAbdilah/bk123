@@ -29,15 +29,15 @@ endif;
                                 <th rowspan="2">No</th>
                                 <th rowspan="2">Kode Daerah</th>
                                 <th rowspan="2">Nama Kawasan</th>
-                                <th colspan="4">Bobot Kekumuhan</th>
+                                <!--<th colspan="4">Bobot Kekumuhan</th>-->
                                 <th colspan="3">Satus Data</th>
                                 <th rowspan="2" width="12%"></th>
                             </tr>
                             <tr>
-                                <th><a href="#" title="Tingkat Kekumuhan">Tingkat Kekumuhan</a></th>
+<!--                                <th><a href="#" title="Tingkat Kekumuhan">Tingkat Kekumuhan</a></th>
                                 <th><a href="#" title="Pertimbangan Lain">Pertimbangan Lain</a></th>
                                 <th><a href="#" title="Kejelasan Status Lahan">Status Lahan</a></th>
-                                <th><a href="#" title="Kesesuaian dg RTR">Sesuai RTR</a></th>
+                                <th><a href="#" title="Kesesuaian dg RTR">Sesuai RTR</a></th>-->
                                 <th><img src="<?php echo base_url().'assets/public2/images/eks.jpg'?>"></th>
                                 <th><img src="<?php echo base_url().'assets/public2/images/per.jpg'?>"></th>
                                 <th><img src="<?php echo base_url().'assets/public2/images/pen.jpg'?>"></th>
@@ -52,10 +52,10 @@ endif;
                                     <td><?php echo $no ?></td>
                                     <td><?php echo $data->kode_daerah ?></td>
                                     <td><?php echo $data->nm_kawasan ?></td>
+<!--                                    <td></td>
                                     <td></td>
                                     <td></td>
-                                    <td></td>
-                                    <td></td>
+                                    <td></td>-->
                                     <td><?php if($test->check_detail($data->id_kaw_kumuh, 'eksisting') != 0){echo '<i class="icon-ok"></i>';};?></td>
                                     <td><?php if($test->check_detail($data->id_kaw_kumuh, 'perencanaan') != 0){echo '<i class="icon-ok"></i>';};?></td>
                                     <td><?php if($test->check_detail($data->id_kaw_kumuh, 'penanganan') != 0){echo '<i class="icon-ok"></i>';};?></td>
